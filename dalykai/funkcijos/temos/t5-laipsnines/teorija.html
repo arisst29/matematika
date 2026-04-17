@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>T5. Laipsninės funkcijos — Matematika 11</title>
+  <link rel="stylesheet" href="../../../../styles/main.css"/>
+  <style>
+    .row-apibreztis { background: #f1f0ee; border-left: 3px solid #9a9a92; }
+    .row-apibreztis .row-label { color: #5a5a54; background: #e4e2d8; border-color: #c8c6bc; }
+    .row-formule { background: #eff4ff; border-left: 3px solid #1d4ed8; }
+    .row-formule .row-label { color: #1d4ed8; background: #dbeafe; border-color: #bfdbfe; }
+    .row-zymime { background: #fffbeb; border-left: 3px solid #b45309; }
+    .row-zymime .row-label { color: #b45309; background: #fef3c7; border-color: #fde68a; }
+    .row-pavyzdys { background: #f0fdf4; border-left: 3px solid #15803d; }
+    .row-pavyzdys .row-label { color: #15803d; background: #dcfce7; border-color: #bbf7d0; }
+    .theory-row { display: grid; grid-template-columns: 1fr; border-radius: var(--radius); margin-bottom: 8px; overflow: hidden; }
+    .theory-row.has-graph { grid-template-columns: 1fr auto; align-items: stretch; }
+    .row-content { padding: 13px 16px; }
+    .row-label { display: inline-block; font-size: 10px; font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase; padding: 2px 8px; border-radius: 4px; border: 1px solid; margin-bottom: 7px; }
+    .row-text { font-size: 13.5px; color: var(--ink2); line-height: 1.7; }
+    .row-text strong { color: var(--ink); font-weight: 500; }
+    .row-graph { width: 240px; border-left: 1px solid rgba(0,0,0,0.06); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 10px 12px; gap: 6px; flex-shrink: 0; }
+    .row-graph svg { width: 100%; height: auto; }
+    .row-graph.w260 { width: 260px; }
+    .graph-caption { font-size: 10px; color: var(--ink3); text-align: center; font-style: italic; line-height: 1.4; }
+    @media (max-width: 640px) { .theory-row.has-graph { grid-template-columns: 1fr; } .row-graph, .row-graph.w260 { width: 100%; border-left: none; border-top: 1px solid rgba(0,0,0,0.06); } }
+  </style>
+</head>
+<body>
+<div class="layout">
+  <nav class="sidebar" id="sidebar"></nav>
+  <div class="main">
+    <div class="topbar">
+      <div class="breadcrumb">
+        <a href="../../../../index.html">Matematika 11</a>
+        <span class="sep">›</span>
+        <span>Funkcijos</span>
+        <span class="sep">›</span>
+        <span class="current">T5. Laipsninės funkcijos</span>
+      </div>
+      <div class="tab-switcher">
+        <button class="tab-btn active">Teorija</button>
+        <a href="testai/teorinis-1.html" class="tab-btn" style="text-decoration:none">Testai</a>
+      </div>
+    </div>
+
+    <div class="page">
+      <div class="topic-header">
+        <div class="topic-tag">5 skyrius · Tema 5</div>
+        <h1 class="topic-title">Laipsninės funkcijos</h1>
+        <p class="topic-intro">Funkcijos f(x) = xⁿ, f(x) = k/x ir f(x) = ⁿ√x — jų grafikai ir savybės.</p>
+      </div>
+
+      <!-- ══ 1. f(x) = xⁿ lyginiai ════════════════════════ -->
+      <div class="theory-block">
+        <div class="block-title"><div class="block-num">1</div>f(x) = xⁿ, kai n — lyginis skaičius</div>
+
+        <div class="theory-row row-apibreztis has-graph">
+          <div class="row-content">
+            <div class="row-label">Apibrėžimas ir savybės</div>
+            <div class="row-text">
+              Kai n = 2m (lyginis), funkcija <strong>f(x) = xⁿ</strong> primena parabolę:<br><br>
+              • D(f) = ℝ, E(f) = [0; +∞)<br>
+              • f(x) = 0, kai x = 0; f(x) &gt; 0 visiems kitiems x<br>
+              • Mažėjanti kai x ∈ (−∞; 0), didėjanti kai x ∈ (0; +∞)<br>
+              • <strong>Lyginė funkcija</strong> — simetriška y ašies atžvilgiu<br>
+              • Mažiausia reikšmė f(0) = 0
+            </div>
+          </div>
+          <div class="row-graph w260">
+            <svg viewBox="0 0 240 170" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <marker id="l1" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="4" markerHeight="4" orient="auto">
+                  <path d="M1,1 L7,4 L1,7" fill="none" stroke="#777" stroke-width="1.5"/>
+                </marker>
+              </defs>
+              <!-- Ašys -->
+              <line x1="10" y1="145" x2="232" y2="145" stroke="#aaa" stroke-width="1" marker-end="url(#l1)"/>
+              <line x1="120" y1="162" x2="120" y2="8" stroke="#aaa" stroke-width="1" marker-end="url(#l1)"/>
+              <text x="234" y="148" font-size="9" fill="#888">x</text>
+              <text x="114" y="7" font-size="9" fill="#888">y</text>
+              <text x="113" y="156" font-size="8" fill="#888">0</text>
+              <!-- x² — plati parabolė, minimumas apačioje ties x=0 -->
+              <path d="M20,15
+                       C40,25 65,55 85,85
+                       C100,108 112,130 120,145
+                       C128,130 140,108 155,85
+                       C175,55 200,25 220,15"
+                    fill="none" stroke="#1d4ed8" stroke-width="2.5" stroke-linecap="round"/>
+              <text x="210" y="28" font-size="9" fill="#1d4ed8" font-style="italic">x²</text>
+              <!-- x⁴ — siauresnė parabolė, tas pats minimumas -->
+              <path d="M55,15
+                       C68,22 82,45 95,72
+                       C105,93 113,118 120,145
+                       C127,118 135,93 145,72
+                       C158,45 172,22 185,15"
+                    fill="none" stroke="#6d28d9" stroke-width="2" stroke-linecap="round" stroke-dasharray="7,3"/>
+              <text x="168" y="28" font-size="9" fill="#6d28d9" font-style="italic">x⁴</text>
+            </svg>
+            <div class="graph-caption">Mėlyna — x² (platesnė)<br>Violetinė — x⁴ (siauresnė)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══ 2. f(x) = xⁿ nelyginiai ═══════════════════════ -->
+      <div class="theory-block">
+        <div class="block-title"><div class="block-num">2</div>f(x) = xⁿ, kai n — nelyginis skaičius</div>
+
+        <div class="theory-row row-apibreztis has-graph">
+          <div class="row-content">
+            <div class="row-label">Apibrėžimas ir savybės</div>
+            <div class="row-text">
+              Kai n = 2m+1 (nelyginis), funkcija <strong>f(x) = xⁿ</strong> primena kubinę parabolę:<br><br>
+              • D(f) = ℝ, E(f) = ℝ<br>
+              • f(x) = 0, kai x = 0; f(x) &gt; 0 kai x &gt; 0; f(x) &lt; 0 kai x &lt; 0<br>
+              • <strong>Didėjanti</strong> visoje apibrėžimo srityje<br>
+              • <strong>Nelyginė funkcija</strong> — simetriška taško O atžvilgiu
+            </div>
+          </div>
+          <div class="row-graph w260">
+            <svg viewBox="0 0 240 170" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <marker id="l2" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="4" markerHeight="4" orient="auto">
+                  <path d="M1,1 L7,4 L1,7" fill="none" stroke="#777" stroke-width="1.5"/>
+                </marker>
+              </defs>
+              <line x1="10" y1="85" x2="232" y2="85" stroke="#aaa" stroke-width="1" marker-end="url(#l2)"/>
+              <line x1="120" y1="162" x2="120" y2="8" stroke="#aaa" stroke-width="1" marker-end="url(#l2)"/>
+              <text x="234" y="88" font-size="9" fill="#888">x</text>
+              <text x="114" y="7" font-size="9" fill="#888">y</text>
+              <text x="113" y="96" font-size="8" fill="#888">0</text>
+              <!-- x³ — kubinė, lėtai didėja ties 0 -->
+              <path d="M20,158
+                       C35,155 55,148 75,135
+                       C95,120 108,105 115,90
+                       C118,87 119,86 120,85
+                       C121,84 122,83 125,80
+                       C132,65 145,50 165,35
+                       C185,22 205,14 220,12"
+                    fill="none" stroke="#1d4ed8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <text x="216" y="12" font-size="9" fill="#1d4ed8" font-style="italic">x³</text>
+              <!-- x⁵ — statesnis ties 0 -->
+              <path d="M55,158
+                       C68,156 82,152 95,144
+                       C106,136 113,118 118,96
+                       C119,90 119.5,87 120,85
+                       C120.5,83 121,80 122,74
+                       C127,52 134,34 145,22
+                       C158,12 175,8 185,7"
+                    fill="none" stroke="#6d28d9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="7,3"/>
+              <text x="184" y="7" font-size="9" fill="#6d28d9" font-style="italic">x⁵</text>
+            </svg>
+            <div class="graph-caption">Mėlyna — x³ · Violetinė — x⁵<br>Abu didėjantys visoje ℝ</div>
+          </div>
+        </div>
+
+        <div class="theory-row row-pavyzdys">
+          <div class="row-content">
+            <div class="row-label">Pavyzdys — f(x) = x³</div>
+            <div class="row-text">
+              x: −2 &nbsp;→&nbsp; −1 &nbsp;→&nbsp; 0 &nbsp;→&nbsp; 1 &nbsp;→&nbsp; 2<br>
+              f(x): −8 &nbsp;→&nbsp; −1 &nbsp;→&nbsp; 0 &nbsp;→&nbsp; 1 &nbsp;→&nbsp; 8
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══ 3. f(x) = k/x ══════════════════════════════════ -->
+      <div class="theory-block">
+        <div class="block-title"><div class="block-num">3</div>f(x) = k/x — hiperbolė</div>
+
+        <div class="theory-row row-apibreztis has-graph">
+          <div class="row-content">
+            <div class="row-label">Apibrėžimas ir savybės</div>
+            <div class="row-text">
+              Tai atvirkštinio proporcingumo funkcija. Jos grafikas — <strong>hiperbolė</strong>.<br><br>
+              • D(f) = (−∞; 0) ∪ (0; +∞)<br>
+              • E(f) = (−∞; 0) ∪ (0; +∞)<br>
+              • Grafikas <strong>nekerta koordinačių ašių</strong><br>
+              • Kai k &gt; 0: f(x) &gt; 0 kai x &gt; 0; f(x) &lt; 0 kai x &lt; 0<br>
+              • Kai k &lt; 0: atvirkščiai<br>
+              • <strong>Nelyginė funkcija</strong>
+            </div>
+          </div>
+          <div class="row-graph w260">
+            <svg viewBox="0 0 240 170" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <marker id="l3" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="4" markerHeight="4" orient="auto">
+                  <path d="M1,1 L7,4 L1,7" fill="none" stroke="#777" stroke-width="1.5"/>
+                </marker>
+              </defs>
+              <line x1="10" y1="85" x2="232" y2="85" stroke="#aaa" stroke-width="1" marker-end="url(#l3)"/>
+              <line x1="120" y1="162" x2="120" y2="8" stroke="#aaa" stroke-width="1" marker-end="url(#l3)"/>
+              <text x="234" y="88" font-size="9" fill="#888">x</text>
+              <text x="114" y="7" font-size="9" fill="#888">y</text>
+              <text x="113" y="96" font-size="8" fill="#888">0</text>
+              <!-- Asimptotai -->
+              <line x1="120" y1="12" x2="120" y2="158" stroke="#ccc" stroke-width="0.8" stroke-dasharray="4,3"/>
+              <line x1="12" y1="85" x2="228" y2="85" stroke="#ccc" stroke-width="0.8" stroke-dasharray="4,3"/>
+              <!-- k>0: I kvadrantas -->
+              <path d="M128,10 C130,16 135,28 142,42 C152,62 168,76 195,82 C210,84 222,85 228,85"
+                    fill="none" stroke="#1d4ed8" stroke-width="2.2" stroke-linecap="round"/>
+              <!-- k>0: III kvadrantas -->
+              <path d="M12,85 C18,85 30,86 45,88 C72,94 88,108 98,128 C105,142 110,154 112,160"
+                    fill="none" stroke="#1d4ed8" stroke-width="2.2" stroke-linecap="round"/>
+              <text x="210" y="76" font-size="8" fill="#1d4ed8" font-style="italic">k&gt;0</text>
+              <!-- k<0: II kvadrantas -->
+              <path d="M12,85 C18,85 30,84 45,82 C72,76 88,62 98,42 C105,28 110,16 112,10"
+                    fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-dasharray="6,3"/>
+              <!-- k<0: IV kvadrantas -->
+              <path d="M128,160 C130,154 135,142 142,128 C152,108 168,94 195,88 C210,86 222,85 228,85"
+                    fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-dasharray="6,3"/>
+              <text x="210" y="98" font-size="8" fill="#dc2626" font-style="italic">k&lt;0</text>
+            </svg>
+            <div class="graph-caption">Mėlyna — k&gt;0 · Raudona — k&lt;0<br>Asimptotai: x = 0 ir y = 0</div>
+          </div>
+        </div>
+
+        <div class="theory-row row-zymime">
+          <div class="row-content">
+            <div class="row-label">Žymime</div>
+            <div class="row-text">
+              Tiesės <strong>x = 0</strong> ir <strong>y = 0</strong> — <strong>asimptotai</strong> — grafikas artėja prie jų, bet niekada jų nepasiekia.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══ 4. f(x) = √x ir ∛x ════════════════════════════ -->
+      <div class="theory-block">
+        <div class="block-title"><div class="block-num">4</div>f(x) = √x ir f(x) = ∛x</div>
+
+        <div class="theory-row row-apibreztis has-graph">
+          <div class="row-content">
+            <div class="row-label">f(x) = √x — savybės</div>
+            <div class="row-text">
+              • D(f) = [0; +∞), E(f) = [0; +∞)<br>
+              • f(x) = 0, kai x = 0; f(x) &gt; 0, kai x &gt; 0<br>
+              • Didėjanti kai x ∈ [0; +∞)<br>
+              • <strong>Nei lyginė, nei nelyginė</strong><br>
+              • Mažiausia reikšmė f(0) = 0, didžiausios nėra
+            </div>
+          </div>
+          <div class="row-graph w260">
+            <svg viewBox="0 0 240 160" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <marker id="l4" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="4" markerHeight="4" orient="auto">
+                  <path d="M1,1 L7,4 L1,7" fill="none" stroke="#777" stroke-width="1.5"/>
+                </marker>
+              </defs>
+              <line x1="10" y1="120" x2="232" y2="120" stroke="#aaa" stroke-width="1" marker-end="url(#l4)"/>
+              <line x1="60" y1="152" x2="60" y2="8" stroke="#aaa" stroke-width="1" marker-end="url(#l4)"/>
+              <text x="234" y="123" font-size="9" fill="#888">x</text>
+              <text x="54" y="7" font-size="9" fill="#888">y</text>
+              <text x="53" y="131" font-size="8" fill="#888">0</text>
+              <!-- √x — tik dešinėje -->
+              <path d="M60,120
+                       C75,100 95,80 118,62
+                       C140,46 165,33 195,22
+                       C210,17 222,13 230,11"
+                    fill="none" stroke="#1d4ed8" stroke-width="2.5" stroke-linecap="round"/>
+              <text x="222" y="10" font-size="9" fill="#1d4ed8" font-style="italic">√x</text>
+              <!-- ∛x — abiejose pusėse -->
+              <path d="M10,138
+                       C18,135 28,130 40,125
+                       C50,121 56,120 60,120
+                       C78,108 102,88 128,70
+                       C155,53 182,38 215,25
+                       C222,22 228,19 232,18"
+                    fill="none" stroke="#15803d" stroke-width="2" stroke-linecap="round" stroke-dasharray="7,3"/>
+              <text x="222" y="22" font-size="9" fill="#15803d" font-style="italic">∛x</text>
+            </svg>
+            <div class="graph-caption">Mėlyna — √x (D=[0;+∞))<br>Žalia — ∛x (D=ℝ)</div>
+          </div>
+        </div>
+
+        <div class="theory-row row-apibreztis">
+          <div class="row-content">
+            <div class="row-label">f(x) = ∛x — savybės</div>
+            <div class="row-text">
+              • D(f) = ℝ, E(f) = ℝ<br>
+              • f(x) = 0, kai x = 0; f(x) &gt; 0 kai x &gt; 0; f(x) &lt; 0 kai x &lt; 0<br>
+              • Didėjanti visoje apibrėžimo srityje<br>
+              • <strong>Nelyginė funkcija</strong><br>
+              • Atvirkštinė funkcija yra g(x) = x³
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic-nav">
+        <a class="btn ghost" href="../t4-transformacijos/teorija.html">← T4. Grafiko transformacijos</a>
+        <div style="display:flex;gap:8px;">
+          <a class="btn primary" href="../t6-kvadratine/teorija.html">T6. Kvadratinė funkcija →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="../../../../js/main.js"></script>
+</body>
+</html>

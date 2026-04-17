@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>T10. Logaritminė funkcija — Matematika 11</title>
+  <link rel="stylesheet" href="../../../../styles/main.css"/>
+  <style>
+    .row-apibreztis{background:#f1f0ee;border-left:3px solid #9a9a92}.row-apibreztis .row-label{color:#5a5a54;background:#e4e2d8;border-color:#c8c6bc}
+    .row-formule{background:#eff4ff;border-left:3px solid #1d4ed8}.row-formule .row-label{color:#1d4ed8;background:#dbeafe;border-color:#bfdbfe}
+    .row-zymime{background:#fffbeb;border-left:3px solid #b45309}.row-zymime .row-label{color:#b45309;background:#fef3c7;border-color:#fde68a}
+    .row-taisykle{background:#f5f3ff;border-left:3px solid #6d28d9}.row-taisykle .row-label{color:#6d28d9;background:#ede9fe;border-color:#c4b5fd}
+    .row-svarbu{background:#fef2f2;border-left:3px solid #b91c1c}.row-svarbu .row-label{color:#b91c1c;background:#fecaca;border-color:#fca5a5}
+    .row-pavyzdys{background:#f0fdf4;border-left:3px solid #15803d}.row-pavyzdys .row-label{color:#15803d;background:#dcfce7;border-color:#bbf7d0}
+    .theory-row{display:grid;grid-template-columns:1fr;border-radius:var(--radius);margin-bottom:8px;overflow:hidden}
+    .theory-row.has-graph{grid-template-columns:1fr auto;align-items:stretch}
+    .row-content{padding:13px 16px}
+    .row-label{display:inline-block;font-size:10px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;padding:2px 8px;border-radius:4px;border:1px solid;margin-bottom:7px}
+    .row-text{font-size:13.5px;color:var(--ink2);line-height:1.7}
+    .row-text strong{color:var(--ink);font-weight:500}
+    .inline-formula{font-family:var(--mono);font-size:15px;color:var(--accent);display:block;text-align:center;padding:6px 0 2px}
+    .row-graph{width:240px;border-left:1px solid rgba(0,0,0,.06);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px 12px;gap:6px;flex-shrink:0}
+    .row-graph svg{width:100%;height:auto}
+    .graph-caption{font-size:10px;color:var(--ink3);text-align:center;font-style:italic;line-height:1.4}
+    .savybes-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px 24px;margin-top:6px}
+    .savybes-item{font-size:13px;color:var(--ink2);line-height:1.6;padding:6px 10px;background:var(--bg);border-radius:var(--radius-sm);border:1px solid var(--border)}
+    .savybes-item strong{color:var(--ink);font-size:11px;display:block;margin-bottom:2px}
+  </style>
+</head>
+<body>
+<div class="layout">
+  <nav class="sidebar" id="sidebar"></nav>
+  <div class="main">
+    <div class="topbar">
+      <div class="breadcrumb">
+        <a href="../../../../index.html">Matematika 11</a>
+        <span class="sep">›</span><span>Funkcijos</span>
+        <span class="sep">›</span><span class="current">T10. Logaritminė funkcija</span>
+      </div>
+      <div class="tab-switcher">
+        <button class="tab-btn active">Teorija</button>
+        <a href="../t11-logaritmineslygtys/teorija.html" class="tab-btn" style="text-decoration:none">T11 →</a>
+      </div>
+    </div>
+    <div class="page">
+      <div class="topic-header">
+        <div class="topic-tag">5 skyrius · Tema 10</div>
+        <h1 class="topic-title">Logaritminė funkcija</h1>
+        <p class="topic-intro">Logaritmo apibrėžimas, savybės ir funkcija f(x) = logₐx.</p>
+      </div>
+
+      <!-- ══ 1. Logaritmo apibrėžimas ══════════════════════ -->
+      <div class="theory-block">
+        <div class="block-title"><div class="block-num">1</div>Logaritmo apibrėžimas</div>
+
+        <div class="theory-row row-apibreztis">
+          <div class="row-content">
+            <div class="row-label">Apibrėžimas</div>
+            <div class="row-text">
+              <strong>Logaritmu pagrindu a skaičiaus b</strong> (žymimas logₐb) vadinamas laipsnio rodiklis, kuriuo reikia pakelti skaičių a, kad gautume skaičių b:<br><br>
+              Jei aˣ = b, tai x = logₐb<br><br>
+              Logaritmas egzistuoja tik kai <strong>a &gt; 0, a ≠ 1, b &gt; 0</strong>.
+            </div>
+          </div>
+        </div>
+
+        <div class="theory-row row-formule">
+          <div class="row-content">
+            <div class="row-label">Pagrindinė logaritmų tapatybė</div>
+            <span class="inline-formula">a^(logₐb) = b &nbsp;&nbsp; (a &gt; 0, a ≠ 1, b &gt; 0)</span>
+          </div>
+        </div>
+
+        <div class="theory-row row-zymime">
+          <div class="row-content">
+            <div class="row-label">Žymime</div>
+            <div class="row-text">
+              <strong>log₁₀b = lg b</strong> — dešimtainis logaritmas<br>
+              <strong>logₑb = ln b</strong> — natūralusis logaritmas (e ≈ 2,718)
+            </div>
+          </div>
+        </div>
+
+        <div class="theory-row row-pavyzdys">
+          <div class="row-content">
+            <div class="row-label">Pavyzdžiai</div>
+            <div class="row-text">
+              log₃81 = 4, nes 3⁴ = 81<br>
+              log₂(1/8) = −3, nes 2⁻³ = 1/8<br>
+              log₅√5 = 1/2, nes 5^(1/2) = √5<br>
+              lg 1000 = 3, nes 10³ = 1000
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══ 2. Logaritmų savybės ═══════════════════════════ -->
+      <div class="theory-block">
+        <div class="block-title"><div class="block-num">2</div>Logaritmų savybės</div>
+
+        <div class="theory-row row-svarbu">
+          <div class="row-content">
+            <div class="row-label">Svarbu — 6 pagrindinės savybės</div>
+            <div class="savybes-grid">
+              <div class="savybes-item"><strong>① logₐ1 = 0</strong>nes a⁰ = 1</div>
+              <div class="savybes-item"><strong>② logₐa = 1</strong>nes a¹ = a</div>
+              <div class="savybes-item"><strong>③ logₐ(x·y) = logₐx + logₐy</strong>logaritmas iš sandaugos</div>
+              <div class="savybes-item"><strong>④ logₐ(x/y) = logₐx − logₐy</strong>logaritmas iš dalybos</div>
+              <div class="savybes-item"><strong>⑤ logₐxᵏ = k·logₐx</strong>logaritmas iš laipsnio</div>
+              <div class="savybes-item"><strong>⑥ logₐb = logcb / logca</strong>pagrindo keitimo formulė</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="theory-row row-pavyzdys">
+          <div class="row-content">
+            <div class="row-label">Pavyzdžiai</div>
+            <div class="row-text">
+              3^(log₃5) = 5 &nbsp;&nbsp;&nbsp; (pagrindinė tapatybė)<br>
+              log₅(5·7) = log₅5 + log₅7 = 1 + log₅7 &nbsp;&nbsp;&nbsp; (③)<br>
+              log₂(15) − log₂3 = log₂(15/3) = log₂5 &nbsp;&nbsp;&nbsp; (④)<br>
+              log₃27 = log₃3³ = 3·log₃3 = 3 &nbsp;&nbsp;&nbsp; (⑤)<br>
+              log₄9 = log₂9 / log₂4 = 2log₂3 / 2 = log₂3 &nbsp;&nbsp;&nbsp; (⑥)
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══ 3. Logaritminė funkcija ════════════════════════ -->
+      <div class="theory-block">
+        <div class="block-title"><div class="block-num">3</div>Logaritminė funkcija f(x) = logₐx</div>
+
+        <div class="theory-row row-apibreztis has-graph">
+          <div class="row-content">
+            <div class="row-label">Savybės</div>
+            <div class="row-text">
+              • D(f) = (0; +∞), E(f) = (−∞; +∞) = ℝ<br>
+              • Grafikas kerta x ašį taške <strong>(1; 0)</strong>, nes logₐ1 = 0<br>
+              • Grafikas eina per tašką <strong>(a; 1)</strong>, nes logₐa = 1<br>
+              • <strong>Nėra nulių</strong> x ašiuje, išskyrus x = 1<br>
+              • Kai a &gt; 1 — <strong>didėjanti</strong><br>
+              • Kai 0 &lt; a &lt; 1 — <strong>mažėjanti</strong><br>
+              • Nei lyginė, nei nelyginė
+            </div>
+          </div>
+          <div class="row-graph">
+            <svg viewBox="0 0 220 160" xmlns="http://www.w3.org/2000/svg">
+              <defs><marker id="l1" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="4" markerHeight="4" orient="auto"><path d="M1,1 L7,4 L1,7" fill="none" stroke="#777" stroke-width="1.5"/></marker></defs>
+              <line x1="8" y1="80" x2="212" y2="80" stroke="#aaa" stroke-width="1" marker-end="url(#l1)"/>
+              <line x1="50" y1="152" x2="50" y2="8" stroke="#aaa" stroke-width="1" marker-end="url(#l1)"/>
+              <text x="214" y="83" font-size="9" fill="#888">x</text>
+              <text x="44" y="7" font-size="9" fill="#888">y</text>
+              <text x="43" y="91" font-size="8" fill="#888">0</text>
+              <!-- (1;0) taškas -->
+              <circle cx="90" cy="80" r="3.5" fill="#888"/>
+              <text x="93" y="90" font-size="7" fill="#888">(1;0)</text>
+              <!-- a>1: log_a x didėjanti (mėlyna) -->
+              <path d="M55,148 Q70,110 90,80 Q115,45 145,25 Q170,12 200,6"
+                    fill="none" stroke="#1d4ed8" stroke-width="2.2" stroke-linecap="round"/>
+              <text x="195" y="6" font-size="8" fill="#1d4ed8" font-style="italic">a&gt;1</text>
+              <!-- 0<a<1: log_a x mažėjanti (raudona) -->
+              <path d="M55,12 Q70,50 90,80 Q115,115 145,135 Q170,148 200,154"
+                    fill="none" stroke="#dc2626" stroke-width="2.2" stroke-linecap="round"/>
+              <text x="195" y="155" font-size="8" fill="#dc2626" font-style="italic">0&lt;a&lt;1</text>
+            </svg>
+            <div class="graph-caption">Abu grafikai kerta x ašį taške (1;0)<br>Mėlyna — a&gt;1 · Raudona — 0&lt;a&lt;1</div>
+          </div>
+        </div>
+
+        <div class="theory-row row-taisykle">
+          <div class="row-content">
+            <div class="row-label">Taisyklė — pastovaus ženklo intervalai</div>
+            <div class="row-text">
+              Kai <strong>a &gt; 1</strong>: f(x) &gt; 0 kai x &gt; 1; f(x) &lt; 0 kai 0 &lt; x &lt; 1<br>
+              Kai <strong>0 &lt; a &lt; 1</strong>: f(x) &gt; 0 kai 0 &lt; x &lt; 1; f(x) &lt; 0 kai x &gt; 1
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══ 4. Apibrėžimo sritis ════════════════════════════ -->
+      <div class="theory-block">
+        <div class="block-title"><div class="block-num">4</div>Logaritminės funkcijos apibrėžimo sritis</div>
+
+        <div class="theory-row row-svarbu">
+          <div class="row-content">
+            <div class="row-label">Svarbu — 6 apibrėžimo srities taisyklė</div>
+            <div class="row-text">
+              Jei reiškinys yra su logaritmu <strong>logₐb</strong>, tai turi būti:<br><br>
+              • a &gt; 0 — logarituojamas reiškinys teigiamas<br>
+              • b &gt; 0 — pagrindas teigiamas (kai pagrindas su nežinomuoju)<br>
+              • b ≠ 1 — pagrindas nelygus 1
+            </div>
+          </div>
+        </div>
+
+        <div class="theory-row row-pavyzdys">
+          <div class="row-content">
+            <div class="row-label">Pavyzdys</div>
+            <div class="row-text">
+              <strong>f(x) = log₂,₁(x² + x − 2)</strong><br><br>
+              Sąlyga: x² + x − 2 &gt; 0<br>
+              (x + 2)(x − 1) &gt; 0<br>
+              <strong>D(f) = (−∞; −2) ∪ (1; +∞)</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="theory-row row-pavyzdys">
+          <div class="row-content">
+            <div class="row-label">Pavyzdys — pagrindas su nežinomuoju</div>
+            <div class="row-text">
+              <strong>f(x) = log₍₃ₓ₋₂₎(3 + 2x − x²)</strong><br><br>
+              Sąlygų sistema:<br>
+              • 3 + 2x − x² &gt; 0 → (x+1)(x−3) &lt; 0 → x ∈ (−1; 3)<br>
+              • 3x − 2 &gt; 0 → x &gt; 2/3<br>
+              • 3x − 2 ≠ 1 → x ≠ 1<br><br>
+              <strong>D(f) = (2/3; 1) ∪ (1; 3)</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic-nav">
+        <a class="btn ghost" href="../t9-rodiklinesnelygybės/teorija.html">← T9. Rodiklinės nelygybės</a>
+        <a class="btn primary" href="../t11-logaritmineslygtys/teorija.html">T11. Logaritminės lygtys →</a>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="../../../../js/main.js"></script>
+</body>
+</html>

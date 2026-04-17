@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Funkcijų variantas 2 — Matematika 11</title>
+  <link rel="stylesheet" href="../../../styles/main.css"/>
+  <style>
+body{margin:0;font-family:'Segoe UI',system-ui,sans-serif}
+.exam-wrap{max-width:860px;margin:0 auto;padding:32px 24px}
+.exam-top{border-bottom:3px solid #1d4ed8;padding-bottom:20px;margin-bottom:32px}
+.exam-top h1{font-size:22px;font-weight:700;color:#1a1a2e;margin:0 0 6px}
+.exam-top .meta{display:flex;gap:20px;flex-wrap:wrap;margin-top:10px}
+.exam-top .meta span{font-size:13px;color:#555;background:#f1f5f9;padding:4px 10px;border-radius:20px}
+.exam-top .hard-badge{background:#fef2f2;color:#b91c1c;border:1px solid #fca5a5;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700;letter-spacing:0.05em}
+.progress-wrap{margin-bottom:28px}
+.progress-bar{height:6px;background:#e2e8f0;border-radius:3px;overflow:hidden}
+.progress-fill{height:100%;background:#1d4ed8;border-radius:3px;transition:width .3s;width:0%}
+.progress-text{font-size:12px;color:#64748b;margin-top:6px;text-align:right}
+.q-card{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:24px;margin-bottom:16px;box-shadow:0 1px 4px rgba(0,0,0,0.05)}
+.q-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px}
+.q-num{font-size:13px;font-weight:700;color:#64748b;letter-spacing:0.05em}
+.q-pts{background:#eff6ff;color:#1d4ed8;border:1px solid #bfdbfe;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:700}
+.q-pts.two{background:#f0fdf4;color:#15803d;border-color:#bbf7d0}
+.q-text{font-size:15px;color:#1a1a2e;line-height:1.75;margin-bottom:6px;font-weight:500}
+.q-hint{font-size:12px;color:#94a3b8;font-style:italic;margin-bottom:14px}
+.q-svg{display:flex;justify-content:center;padding:16px;background:#f8fafc;border-radius:8px;border:1px solid #e2e8f0;margin-bottom:14px}
+.frac{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;margin:0 2px;font-size:0.85em;line-height:1.1}
+.frac sup{border-bottom:1px solid currentColor;padding:0 3px;font-size:1em}
+.frac sub{padding:0 3px;font-size:1em}
+.options{display:flex;flex-direction:column;gap:8px}
+.opt{display:flex;align-items:center;gap:12px;padding:11px 16px;border:1.5px solid #e2e8f0;border-radius:8px;cursor:pointer;transition:all .12s;background:#fff;user-select:none}
+.opt:hover{border-color:#1d4ed8;background:#eff6ff}
+.opt.selected{border-color:#1d4ed8;background:#eff6ff}
+.opt.correct{border-color:#16a34a;background:#f0fdf4}
+.opt.wrong{border-color:#dc2626;background:#fef2f2}
+.opt.show-correct{border-color:#16a34a;background:#f0fdf4}
+.opt-letter{width:30px;height:30px;border-radius:50%;background:#e2e8f0;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#475569;flex-shrink:0}
+.opt.selected .opt-letter{background:#1d4ed8;color:#fff}
+.opt.correct .opt-letter{background:#16a34a;color:#fff}
+.opt.wrong .opt-letter{background:#dc2626;color:#fff}
+.opt.show-correct .opt-letter{background:#16a34a;color:#fff}
+.opt-text{font-size:14px;color:#334155;line-height:1.5}
+.opt.selected .opt-text{color:#1d4ed8;font-weight:500}
+.opt.correct .opt-text{color:#16a34a;font-weight:500}
+.opt.wrong .opt-text{color:#dc2626}
+.opt.show-correct .opt-text{color:#16a34a;font-weight:500}
+.open-answer{margin-top:4px}
+.open-input{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.open-input input{padding:10px 14px;border:1.5px solid #e2e8f0;border-radius:8px;font-size:15px;font-family:inherit;width:160px;outline:none;transition:border .12s}
+.open-input input:focus{border-color:#1d4ed8}
+.open-input input.correct-in{border-color:#16a34a;background:#f0fdf4;color:#16a34a;font-weight:600}
+.open-input input.wrong-in{border-color:#dc2626;background:#fef2f2;color:#dc2626}
+.open-input input.partial-in{border-color:#d97706;background:#fffbeb;color:#d97706}
+.answer-feedback{font-size:13px;font-weight:600;margin-top:6px;display:none}
+.answer-feedback.show{display:block}
+.answer-feedback.ok{color:#16a34a}
+.answer-feedback.partial{color:#d97706}
+.answer-feedback.bad{color:#dc2626}
+.submit-row{margin-top:32px;padding-top:24px;border-top:2px solid #e2e8f0;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.btn-submit{padding:13px 36px;background:#1d4ed8;color:#fff;border:none;border-radius:8px;font-size:15px;font-weight:700;font-family:inherit;cursor:pointer;transition:background .12s;letter-spacing:0.02em}
+.btn-submit:hover{background:#1e40af}
+.btn-submit:disabled{background:#94a3b8;cursor:not-allowed}
+.answered-info{font-size:13px;color:#64748b}
+.modal-bg{display:none;position:fixed;inset:0;background:rgba(15,23,42,0.6);z-index:300;align-items:center;justify-content:center}
+.modal-bg.open{display:flex}
+.modal{background:#fff;border-radius:16px;padding:44px 48px;max-width:540px;width:92%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.2)}
+.modal-pct{font-size:80px;font-weight:800;line-height:1;margin-bottom:4px}
+.modal-pct.ex{color:#16a34a}.modal-pct.good{color:#1d4ed8}.modal-pct.poor{color:#dc2626}
+.modal-feedback{font-size:22px;font-weight:700;color:#1a1a2e;margin-bottom:4px}
+.modal-sub{font-size:14px;color:#64748b;margin-bottom:24px}
+.modal-stats{display:flex;justify-content:center;gap:32px;padding:20px;background:#f8fafc;border-radius:10px;margin-bottom:24px}
+.modal-stat-v{font-size:26px;font-weight:700;color:#1a1a2e}
+.modal-stat-k{font-size:11px;color:#94a3b8;margin-top:2px;text-transform:uppercase;letter-spacing:0.05em}
+.modal-btns{display:flex;gap:10px;justify-content:center}
+.btn{padding:10px 22px;border-radius:8px;font-size:14px;font-weight:600;font-family:inherit;cursor:pointer;border:1.5px solid #e2e8f0;background:#fff;color:#334155}
+.btn:hover{background:#f1f5f9}
+.btn.primary{background:#1d4ed8;color:#fff;border-color:#1d4ed8}
+.btn.primary:hover{background:#1e40af}
+</style>
+</head>
+<body>
+<div class="layout">
+  <nav class="sidebar" id="sidebar"></nav>
+  <div class="main">
+    <div class="topbar">
+      <div class="breadcrumb">
+        <a href="../../../index.html">Matematika 11</a>
+        <span class="sep">›</span><span>Funkcijos</span>
+        <span class="sep">›</span><span class="current">Variantas 2</span>
+      </div>
+    </div>
+    <div class="page">
+      <div class="exam-top">
+        <div class="topic-tag">5 skyrius · VBE stiliaus variantas</div>
+        <h1>Funkcijų variantas 2 (⏱ ~1h 30min · Sunkus lygis)</h1>
+        <div class="meta">
+          <span>📝 30 taškų</span>
+          <span>📚 T1–T12 · Visos temos</span>
+          <span>✅ Atsakymai matomi po pateikimo</span>
+          <span class="hard-badge">⚠ SUNKUS</span>
+        </div>
+      </div>
+      <div class="progress-wrap">
+        <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+        <div class="progress-text" id="progress-text">Atsakyta: 0 / 20</div>
+      </div>
+      <div id="questions"></div>
+      <div class="submit-row">
+        <button class="btn-submit" id="submit-btn" onclick="submitExam()">Pateikti variantą</button>
+        <span class="answered-info" id="answered-info"></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-bg" id="modal-bg">
+  <div class="modal">
+    <div class="modal-pct" id="modal-pct"></div>
+    <div class="modal-feedback" id="modal-feedback"></div>
+    <div class="modal-sub" id="modal-sub"></div>
+    <div class="modal-stats">
+      <div><div class="modal-stat-v" id="stat-correct"></div><div class="modal-stat-k">Taškai</div></div>
+      <div><div class="modal-stat-v" id="stat-wrong"></div><div class="modal-stat-k">Trūksta</div></div>
+      <div><div class="modal-stat-v" id="stat-pct"></div><div class="modal-stat-k">Procentas</div></div>
+    </div>
+    <div class="modal-btns">
+      <button class="btn" onclick="closeModal()">Peržiūrėti</button>
+      <a href="variantas-3.html" class="btn primary" style="text-decoration:none">Variantas 3 →</a>
+    </div>
+  </div>
+</div>
+
+<script src="../../../js/main.js"></script>
+<script>var QUESTIONS=[{"num": "1.", "type": "mcq", "text": "Funkcijos f(x) = <span class=\"frac\"><sup>√(x−1)</sup><sub>lg(4−x)</sub></span> apibrėžimo sritis yra:", "options": ["(1; 4)", "[1; 4)", "(1; 4]", "[1; 4]"], "correct": 0, "pts": 1, "hint": "pasirinkite vieną iš atsakymų"}, {"num": "2.", "type": "mcq", "text": "Paveikslėlyje parodytas funkcijos grafikas. Atpažinkite funkciją.", "options": ["f(x) = log₂x", "f(x) = log<span class=\"frac\"><sup>1</sup><sub>2</sub></span>x", "f(x) = 2ˣ", "f(x) = <span class=\"frac\"><sup>1</sup><sub>2</sub></span>ˣ"], "correct": 1, "pts": 1, "svg": "<svg viewBox=\"0 0 200 160\" xmlns=\"http://www.w3.org/2000/svg\" style=\"width:200px;height:160px\"><line x1=\"10\" y1=\"80\" x2=\"192\" y2=\"80\" stroke=\"#555\" stroke-width=\"1.5\"/><line x1=\"50\" y1=\"152\" x2=\"50\" y2=\"8\" stroke=\"#555\" stroke-width=\"1.5\"/><text x=\"186\" y=\"76\" font-size=\"11\" fill=\"#555\" font-style=\"italic\">x</text><text x=\"54\" y=\"10\" font-size=\"11\" fill=\"#555\" font-style=\"italic\">y</text><text x=\"42\" y=\"92\" font-size=\"10\" fill=\"#555\">0</text><text x=\"88\" y=\"92\" font-size=\"10\" fill=\"#555\">1</text><circle cx=\"90\" cy=\"80\" r=\"3.5\" fill=\"#dc2626\"/><path d=\"M52,8 Q62,26 75,50 Q85,66 90,80 Q108,115 130,132 Q155,146 185,154\" fill=\"none\" stroke=\"#dc2626\" stroke-width=\"2.5\" stroke-linecap=\"round\"/></svg>", "hint": "pasirinkite vieną iš atsakymų"}, {"num": "3.", "type": "mcq", "text": "Funkcija f(x) = 2ˣ + 2⁻ˣ yra:", "options": ["Nelyginė", "Lyginė", "Nei lyginė, nei nelyginė", "Mažėjanti"], "correct": 1, "pts": 1, "hint": "pasirinkite vieną iš atsakymų"}, {"num": "4.", "type": "mcq", "text": "Lygties log₅(x²−3x) = log₅(x+7) sprendiniai:", "options": ["x = −1 ir x = 7", "x = 7", "x = −1", "x = 1 ir x = 7"], "correct": 1, "pts": 1, "hint": "pasirinkite vieną iš atsakymų"}, {"num": "5.", "type": "mcq", "text": "Kokia funkcijos f(x) = <span class=\"frac\"><sup>x²−9</sup><sub>x−3</sub></span> apibrėžimo sritis?", "options": ["ℝ", "ℝ \\ {3}", "(−3; 3)", "(3; +∞)"], "correct": 1, "pts": 1, "hint": "pasirinkite vieną iš atsakymų"}, {"num": "6.", "type": "mcq", "text": "Išsprendus nelygybę 4^(x+1) > 8^x, gaunama:", "options": ["x > 4", "x < 4", "x > 2", "x < 2"], "correct": 1, "pts": 1, "hint": "pasirinkite vieną iš atsakymų"}, {"num": "7.", "type": "mcq", "text": "Funkcija f(x) = x² − 4x + 3. Kuriame intervale f(x) < 0?", "options": ["(−∞;1) ∪ (3;+∞)", "(1; 3)", "(0; 4)", "(−1; 3)"], "correct": 1, "pts": 1, "hint": "pasirinkite vieną iš atsakymų"}, {"num": "8.", "type": "mcq", "text": "Jei f(x) = log₂x ir g(x) = log₂(x−3), tai f(x) − g(x) = ?", "options": ["log₂<span class=\"frac\"><sup>x</sup><sub>x−3</sub></span>", "log₂(−3)", "log₂<span class=\"frac\"><sup>3</sup><sub>x</sub></span>", "3"], "correct": 0, "pts": 1, "hint": "pasirinkite vieną iš atsakymų"}, {"num": "9.", "type": "mcq", "text": "Duota sudėtinė funkcija h(x) = f(g(x)), kur g(x) = x² − 1 ir h(x) = √(x²−1). Raskite f(x).", "options": ["f(x) = √x", "f(x) = x − 1", "f(x) = x²", "f(x) = √(x+1)"], "correct": 0, "pts": 1, "hint": "pasirinkite vieną iš atsakymų"}, {"num": "10.", "type": "mcq", "text": "Kuris teiginys apie f(x) = logₐx (a > 1) yra KLAIDINGAS?", "options": ["D(f) = (0; +∞)", "Grafikas kerta x ašį taške (1; 0)", "f(x) gali būti neigiama", "E(f) = (0; +∞)"], "correct": 3, "pts": 1, "hint": "pasirinkite vieną iš atsakymų"}, {"num": "11.", "type": "open", "text": "Nustatykite skaičių a, kuriam esant funkcijos f(x) = logₐ(x²−5x+6) grafikas kerta ašį Ox taške x = 2. Įrašykite a reikšmę.", "answers": ["2"], "pts": 1, "hint": "įrašykite skaičių"}, {"num": "12.", "type": "open", "text": "Apskaičiuokite: lg2 + lg5.", "answers": ["1"], "pts": 1, "hint": "įrašykite skaičių"}, {"num": "13.", "type": "open", "text": "Raskite lygties 3^(2x) − 12·3^x + 27 = 0 mažesnįjį sprendinį.", "answers": ["1"], "pts": 1, "hint": "įrašykite skaičių"}, {"num": "14.", "type": "open", "text": "Duota f(x) = <span class=\"frac\"><sup>2x+3</sup><sub>x−1</sub></span>. Raskite f(f(0)).", "answers": ["-3", "-3.0"], "pts": 1, "hint": "įrašykite skaičių"}, {"num": "15.", "type": "open", "text": "Kvadratinė funkcija f(x) = x² − 6x + k. Raskite mažiausią k, kuriam esant f(x) ≥ 0 visiems x ∈ ℝ.", "answers": ["9"], "pts": 1, "hint": "įrašykite skaičių"}, {"num": "16.", "type": "open", "text": "Raskite nelygybės log₂(x²−2x−3) ≤ 3 sprendinių aibės ilgį (intervalų ilgių sumą).", "answers": ["10"], "pts": 2, "hint": "įrašykite skaičių", "partial": ["5"]}, {"num": "17.", "type": "open", "text": "Nustatykite, kiek sveikųjų skaičių yra nelygybės <span class=\"frac\"><sup>1</sup><sub>2</sub></span>^(x²−4) < <span class=\"frac\"><sup>1</sup><sub>4</sub></span>^(x−1) sprendinių aibėje.", "answers": ["4"], "pts": 2, "hint": "įrašykite skaičių", "partial": ["3"]}, {"num": "18.", "type": "open", "text": "Funkcija f(x) = 2x − 1, x ∈ [0; 3]. Raskite f⁻¹(3).", "answers": ["2"], "pts": 2, "hint": "įrašykite skaičių", "partial": ["1"]}, {"num": "19.", "type": "open", "text": "Apskaičiuokite: log₃5 · log₅7 · log₇9.", "answers": ["2"], "pts": 2, "hint": "įrašykite skaičių", "partial": ["1"]}, {"num": "20.", "type": "open", "text": "Raskite visų lygties (lgx)² − lg(x⁴) + 3 = 0 sprendinių sandaugą.", "answers": ["1", "1.0"], "pts": 2, "hint": "įrašykite skaičių", "partial": ["10"]},{"num": "21.", "type": "open", "text": "Apskaičiuokite: log₂3 · log₃4 · log₄8.", "answers": ["3"], "pts": 2, "hint": "įrašykite skaičių", "partial": ["1"]}, {"num": "22.", "type": "open", "text": "Kvadratinė funkcija f(x) = x² − kx + 1 neturi realių šaknų. Kiek sveikųjų k reikšmių tenkina šią sąlygą?", "answers": ["2"], "pts": 3, "hint": "įrašykite kiekį", "partial": ["1"]}];
+var totalPts = 0;
+var earnedPts = 0;
+var submitted = false;
+
+// Track answers: mcq -> selected index, open -> entered string
+var answers = {};
+
+function renderAll() {
+  var container = document.getElementById('questions');
+  var html = '';
+  for (var qi = 0; qi < QUESTIONS.length; qi++) {
+    var q = QUESTIONS[qi];
+    totalPts += q.pts;
+    html += buildCard(q, qi);
+  }
+  container.innerHTML = html;
+  updateProgress();
+}
+
+function buildCard(q, qi) {
+  var ptsClass = q.pts === 2 ? 'q-pts two' : 'q-pts';
+  var h = '<div class="q-card" id="qcard-'+qi+'">';
+  h += '<div class="q-header"><span class="q-num">'+q.num+'</span><span class="'+ptsClass+'">'+q.pts+' t.</span></div>';
+  if (q.svg) h += '<div class="q-svg">'+q.svg+'</div>';
+  h += '<div class="q-text">'+q.text+'</div>';
+  if (q.hint) h += '<div class="q-hint">'+q.hint+'</div>';
+  if (q.type === 'mcq') {
+    h += '<div class="options">';
+    var L = ['A','B','C','D'];
+    for (var oi = 0; oi < q.options.length; oi++) {
+      h += '<div class="opt" id="opt-'+qi+'-'+oi+'" onclick="selMcq('+qi+','+oi+')">';
+      h += '<div class="opt-letter">'+L[oi]+'</div>';
+      h += '<div class="opt-text">'+q.options[oi]+'</div></div>';
+    }
+    h += '</div>';
+  } else {
+    h += '<div class="open-answer">';
+    h += '<div class="open-input">';
+    h += '<input type="text" id="inp-'+qi+'" placeholder="Įrašykite atsakymą" oninput="selOpen('+qi+')" />';
+    h += '</div>';
+    h += '<div class="answer-feedback" id="fb-'+qi+'"></div>';
+    h += '</div>';
+  }
+  h += '</div>';
+  return h;
+}
+
+function selMcq(qi, oi) {
+  if (submitted) return;
+  answers[qi] = oi;
+  var q = QUESTIONS[qi];
+  for (var i = 0; i < q.options.length; i++) {
+    document.getElementById('opt-'+qi+'-'+i).className = 'opt' + (i===oi?' selected':'');
+  }
+  updateProgress();
+}
+
+function selOpen(qi) {
+  if (submitted) return;
+  var val = document.getElementById('inp-'+qi).value.trim();
+  answers[qi] = val;
+  updateProgress();
+}
+
+function updateProgress() {
+  var answered = Object.keys(answers).filter(function(k){ var v = answers[k]; return v !== null && v !== undefined && v !== ''; }).length;
+  var pct = Math.round(answered / QUESTIONS.length * 100);
+  document.getElementById('progress-fill').style.width = pct + '%';
+  document.getElementById('progress-text').textContent = 'Atsakyta: ' + answered + ' / ' + QUESTIONS.length;
+}
+
+function submitExam() {
+  var answered = Object.keys(answers).filter(function(k){ var v = answers[k]; return v !== null && v !== undefined && v !== ''; }).length;
+  if (answered < QUESTIONS.length && !confirm('Dar neatsakyta ' + (QUESTIONS.length - answered) + ' klausimų. Pateikti?')) return;
+  submitted = true;
+  document.getElementById('submit-btn').disabled = true;
+  earnedPts = 0;
+
+  for (var qi = 0; qi < QUESTIONS.length; qi++) {
+    var q = QUESTIONS[qi];
+    if (q.type === 'mcq') {
+      var sel = answers[qi];
+      for (var oi = 0; oi < q.options.length; oi++) {
+        var el = document.getElementById('opt-'+qi+'-'+oi);
+        el.className = 'opt';
+        if (oi === q.correct) el.className += (sel === q.correct && oi === sel) ? ' correct' : ' show-correct';
+        if (oi === sel && sel !== q.correct) el.className += ' wrong';
+      }
+      if (sel === q.correct) earnedPts += q.pts;
+    } else {
+      var inp = document.getElementById('inp-'+qi);
+      inp.disabled = true;
+      var userVal = (answers[qi] || '').toString().trim().replace(',', '.').replace(/\s/g,'');
+      var fb = document.getElementById('fb-'+qi);
+      fb.className = 'answer-feedback show';
+      var pts = checkOpen(userVal, q);
+      earnedPts += pts;
+      if (pts === q.pts) {
+        inp.className = 'correct-in';
+        fb.className += ' ok';
+        fb.textContent = '✓ Teisingai! (' + pts + '/' + q.pts + ' t.)';
+      } else if (pts > 0) {
+        inp.className = 'partial-in';
+        fb.className += ' partial';
+        fb.textContent = '~ Iš dalies teisingai (' + pts + '/' + q.pts + ' t.) — Teisingas: ' + q.answers[0];
+      } else {
+        inp.className = 'wrong-in';
+        fb.className += ' bad';
+        fb.textContent = '✗ Neteisingai (0/' + q.pts + ' t.) — Teisingas: ' + q.answers[0];
+      }
+    }
+  }
+  showModal();
+}
+
+function checkOpen(userVal, q) {
+  // Try exact match with all accepted answers
+  for (var i = 0; i < q.answers.length; i++) {
+    var correct = q.answers[i].toString().trim().replace(',', '.').replace(/\s/g,'');
+    if (userVal === correct) return q.pts;
+  }
+  // Try partial (for 2pt questions with partials)
+  if (q.partial) {
+    for (var j = 0; j < q.partial.length; j++) {
+      var part = q.partial[j].toString().trim().replace(',', '.').replace(/\s/g,'');
+      if (userVal === part) return 1;
+    }
+  }
+  return 0;
+}
+
+function showModal() {
+  var pct = Math.round(earnedPts / totalPts * 100);
+  var scoreEl = document.getElementById('modal-pct');
+  scoreEl.textContent = earnedPts + '/' + totalPts;
+  scoreEl.className = 'modal-pct ' + (pct >= 80 ? 'ex' : pct >= 50 ? 'good' : 'poor');
+  document.getElementById('modal-feedback').textContent = pct >= 90 ? 'Puikiai! 🎉' : pct >= 70 ? 'Gerai! 👍' : pct >= 50 ? 'Neblogai' : 'Reikia pasimokyti 📖';
+  document.getElementById('modal-sub').textContent = 'Surinkai ' + earnedPts + ' iš ' + totalPts + ' taškų (' + pct + '%)';
+  document.getElementById('stat-correct').textContent = earnedPts;
+  document.getElementById('stat-wrong').textContent = totalPts - earnedPts;
+  document.getElementById('stat-pct').textContent = pct + '%';
+  document.getElementById('modal-bg').className = 'modal-bg open';
+}
+
+function closeModal() { document.getElementById('modal-bg').className = 'modal-bg'; }
+renderAll();
+</script>
+</body>
+</html>

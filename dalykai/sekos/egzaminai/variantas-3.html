@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sekų variantas 3 — Matematika 11</title>
+  <link rel="stylesheet" href="../../../../styles/main.css"/>
+  <style>
+body{margin:0;font-family:'Segoe UI',system-ui,sans-serif}
+.exam-top{border-bottom:3px solid #1d4ed8;padding-bottom:20px;margin-bottom:32px}
+.exam-top h1{font-size:22px;font-weight:700;color:#1a1a2e;margin:0 0 6px}
+.exam-top .meta{display:flex;gap:20px;flex-wrap:wrap;margin-top:10px}
+.exam-top .meta span{font-size:13px;color:#555;background:#f1f5f9;padding:4px 10px;border-radius:20px}
+.hard-badge{background:#fef2f2;color:#b91c1c;border:1px solid #fca5a5;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700;letter-spacing:0.05em}
+.progress-wrap{margin-bottom:28px}
+.progress-bar{height:6px;background:#e2e8f0;border-radius:3px;overflow:hidden}
+.progress-fill{height:100%;background:#1d4ed8;border-radius:3px;transition:width .3s;width:0%}
+.progress-text{font-size:12px;color:#64748b;margin-top:6px;text-align:right}
+.q-card{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:24px;margin-bottom:16px;box-shadow:0 1px 4px rgba(0,0,0,0.05)}
+.q-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px}
+.q-num{font-size:13px;font-weight:700;color:#64748b;letter-spacing:0.05em}
+.q-pts{background:#eff6ff;color:#1d4ed8;border:1px solid #bfdbfe;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:700}
+.q-pts.two{background:#f0fdf4;color:#15803d;border-color:#bbf7d0}
+.q-text{font-size:15px;color:#1a1a2e;line-height:1.75;margin-bottom:6px;font-weight:500}
+.q-hint{font-size:12px;color:#94a3b8;font-style:italic;margin-bottom:14px}
+.frac{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;margin:0 2px;font-size:0.85em;line-height:1.1}
+.frac sup{border-bottom:1px solid currentColor;padding:0 3px;font-size:1em}
+.frac sub{padding:0 3px;font-size:1em}
+.options{display:flex;flex-direction:column;gap:8px}
+.opt{display:flex;align-items:center;gap:12px;padding:11px 16px;border:1.5px solid #e2e8f0;border-radius:8px;cursor:pointer;transition:all .12s;background:#fff;user-select:none}
+.opt:hover{border-color:#1d4ed8;background:#eff6ff}
+.opt.selected{border-color:#1d4ed8;background:#eff6ff}
+.opt.correct{border-color:#16a34a;background:#f0fdf4}
+.opt.wrong{border-color:#dc2626;background:#fef2f2}
+.opt.show-correct{border-color:#16a34a;background:#f0fdf4}
+.opt-letter{width:30px;height:30px;border-radius:50%;background:#e2e8f0;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#475569;flex-shrink:0}
+.opt.selected .opt-letter{background:#1d4ed8;color:#fff}
+.opt.correct .opt-letter{background:#16a34a;color:#fff}
+.opt.wrong .opt-letter{background:#dc2626;color:#fff}
+.opt.show-correct .opt-letter{background:#16a34a;color:#fff}
+.opt-text{font-size:14px;color:#334155;line-height:1.5}
+.opt.selected .opt-text{color:#1d4ed8;font-weight:500}
+.opt.correct .opt-text{color:#16a34a;font-weight:500}
+.opt.wrong .opt-text{color:#dc2626}
+.opt.show-correct .opt-text{color:#16a34a;font-weight:500}
+.open-answer{margin-top:4px}
+.open-input{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.open-input input{padding:10px 14px;border:1.5px solid #e2e8f0;border-radius:8px;font-size:15px;font-family:inherit;width:200px;outline:none;transition:border .12s}
+.open-input input:focus{border-color:#1d4ed8}
+.open-input input.correct-in{border-color:#16a34a;background:#f0fdf4;color:#16a34a;font-weight:600}
+.open-input input.wrong-in{border-color:#dc2626;background:#fef2f2;color:#dc2626}
+.open-input input.partial-in{border-color:#d97706;background:#fffbeb;color:#d97706}
+.answer-feedback{font-size:13px;font-weight:600;margin-top:6px;display:none}
+.answer-feedback.show{display:block}
+.answer-feedback.ok{color:#16a34a}
+.answer-feedback.partial{color:#d97706}
+.answer-feedback.bad{color:#dc2626}
+.submit-row{margin-top:32px;padding-top:24px;border-top:2px solid #e2e8f0;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.btn-submit{padding:13px 36px;background:#1d4ed8;color:#fff;border:none;border-radius:8px;font-size:15px;font-weight:700;font-family:inherit;cursor:pointer;transition:background .12s}
+.btn-submit:hover{background:#1e40af}
+.btn-submit:disabled{background:#94a3b8;cursor:not-allowed}
+.modal-bg{display:none;position:fixed;inset:0;background:rgba(15,23,42,0.6);z-index:300;align-items:center;justify-content:center}
+.modal-bg.open{display:flex}
+.modal{background:#fff;border-radius:16px;padding:44px 48px;max-width:540px;width:92%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.2)}
+.modal-pct{font-size:80px;font-weight:800;line-height:1;margin-bottom:4px}
+.modal-pct.ex{color:#16a34a}.modal-pct.good{color:#1d4ed8}.modal-pct.poor{color:#dc2626}
+.modal-feedback{font-size:22px;font-weight:700;color:#1a1a2e;margin-bottom:4px}
+.modal-sub{font-size:14px;color:#64748b;margin-bottom:24px}
+.modal-stats{display:flex;justify-content:center;gap:32px;padding:20px;background:#f8fafc;border-radius:10px;margin-bottom:24px}
+.modal-stat-v{font-size:26px;font-weight:700;color:#1a1a2e}
+.modal-stat-k{font-size:11px;color:#94a3b8;margin-top:2px;text-transform:uppercase;letter-spacing:0.05em}
+.modal-btns{display:flex;gap:10px;justify-content:center}
+.btn{padding:10px 22px;border-radius:8px;font-size:14px;font-weight:600;font-family:inherit;cursor:pointer;border:1.5px solid #e2e8f0;background:#fff;color:#334155}
+.btn:hover{background:#f1f5f9}
+.btn.primary{background:#1d4ed8;color:#fff;border-color:#1d4ed8}
+.btn.primary:hover{background:#1e40af}
+  </style>
+</head>
+<body>
+<div class="layout">
+  <nav class="sidebar" id="sidebar"></nav>
+  <div class="main">
+    <div class="topbar">
+      <div class="breadcrumb">
+        <a href="../../../../index.html">Matematika 11</a>
+        <span class="sep">›</span><span>Sekos</span>
+        <span class="sep">›</span><span class="current">Variantas 3</span>
+      </div>
+    </div>
+    <div class="page">
+      <div class="exam-top">
+        <div class="topic-tag">6 skyrius · VBE stiliaus variantas</div>
+        <h1>Sekų variantas 3 (⏱ ~40min · Sunkus lygis)</h1>
+        <div class="meta">
+          <span>📝 30 taškų</span>
+          <span>📚 T1 · T2 · T3</span>
+          <span>✅ Atsakymai matomi po pateikimo</span>
+          <span class="hard-badge">⚠ SUNKUS</span>
+        </div>
+      </div>
+      <div class="progress-wrap">
+        <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+        <div class="progress-text" id="progress-text">Atsakyta: 0 / 22</div>
+      </div>
+      <div id="questions"></div>
+      <div class="submit-row">
+        <button class="btn-submit" id="submit-btn" onclick="submitExam()">Pateikti variantą</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal-bg" id="modal-bg">
+  <div class="modal">
+    <div class="modal-pct" id="modal-pct"></div>
+    <div class="modal-feedback" id="modal-feedback"></div>
+    <div class="modal-sub" id="modal-sub"></div>
+    <div class="modal-stats">
+      <div><div class="modal-stat-v" id="stat-correct"></div><div class="modal-stat-k">Taškai</div></div>
+      <div><div class="modal-stat-v" id="stat-wrong"></div><div class="modal-stat-k">Trūksta</div></div>
+      <div><div class="modal-stat-v" id="stat-pct"></div><div class="modal-stat-k">Procentas</div></div>
+    </div>
+    <div class="modal-btns">
+      <button class="btn" onclick="closeModal()">Peržiūrėti</button>
+      <a href="egzaminas-1.html" class="btn primary" style="text-decoration:none">← Egzaminas 1</a>
+    </div>
+  </div>
+</div>
+<script src="../../../../js/main.js"></script>
+<script>
+var QUESTIONS = [
+  {num:"1.", type:"mcq", pts:1,
+   text:"Sekos 8, 14, 20, 26, ... n-tojo nario formulė yra:",
+   options:["aₙ = 6n + 2","aₙ = 6n − 2","aₙ = 8n − 6","aₙ = 6n + 8"],
+   correct:0, hint:"pasirinkite vieną atsakymą"},
+
+  {num:"2.", type:"open", pts:2,
+   text:"Aritmetinės progresijos a₅ = −8 ir a₁₅ = 12. Raskite a₁ ir d. Įrašykite a₁.",
+   answers:["-16"], partial:["-8","2"], hint:"įrašykite a₁ reikšmę"},
+
+  {num:"3.", type:"mcq", pts:1,
+   text:"Geometrinės progresijos b₁ = 7, b₄ = −56. Koks vardiklis q?",
+   options:["−2","2","−3","3"],
+   correct:0, hint:"pasirinkite vieną atsakymą"},
+
+  {num:"4.", type:"open", pts:2,
+   text:"Apskaičiuokite sumą: <span class='frac'><sup>1</sup><sub>4</sub></span> + <span class='frac'><sup>1</sup><sub>2</sub></span> + 1 + 2 + ... + 128.",
+   answers:["1023/4","255.75","255,75"], partial:["128"], hint:"rašykite formatu skaitiklis/vardiklis, pvz. 1023/4"},
+
+  {num:"5.", type:"mcq", pts:1,
+   text:"Nykstamosios geometrinės progresijos suma S = 36, b₁ = 9. Koks vardiklis q?",
+   options:["<span class='frac'><sup>3</sup><sub>4</sub></span>","<span class='frac'><sup>1</sup><sub>2</sub></span>","<span class='frac'><sup>2</sup><sub>3</sub></span>","<span class='frac'><sup>1</sup><sub>4</sub></span>"],
+   correct:0, hint:"pasirinkite vieną atsakymą"},
+
+  {num:"6.", type:"open", pts:2,
+   text:"Titas pradėjo skaityti 750 puslapių knygą. Pirmą dieną perskaitė 35 puslapius, kiekvieną kitą — 5 puslapiais daugiau. Per kiek dienų perskaitys visą knygą?",
+   answers:["10"], partial:["35"], hint:"įrašykite dienų skaičių"},
+
+  {num:"7.", type:"mcq", pts:1,
+   text:"Sekos pirmųjų n narių suma Sₙ = 5n² − 3n. Koks a₇?",
+   options:["62","64","66","60"],
+   correct:0, hint:"pasirinkite vieną atsakymą"},
+
+  {num:"8.", type:"open", pts:2,
+   text:"Geometrinės progresijos b₃ = 20, b₆ = 160. Raskite b₁ ir vardiklį q. Įrašykite b₁.",
+   answers:["5"], partial:["2","20"], hint:"įrašykite b₁ reikšmę"},
+
+  {num:"9.", type:"mcq", pts:1,
+   text:"Aritmetinės progresijos a₄ + a₇ + a₁₀ = 51. Koks a₇?",
+   options:["17","19","15","21"],
+   correct:0, hint:"pasirinkite vieną atsakymą"},
+
+  {num:"10.", type:"open", pts:2,
+   text:"Kamuolys numestas iš 15 m aukščio, kiekvieną kartą atsitrenkęs pakyla iki 80 % buvusio aukščio. Koks bendras nukeliaujamas kelias iki sustojimo (m)?",
+   answers:["135"], partial:["15"], hint:"įrašykite skaičių metrais"},
+
+  {num:"11.", type:"mcq", pts:1,
+   text:"Geometrinės progresijos b₁ = 3, S₅ = 363. Koks vardiklis q?",
+   options:["−3","3","2","−2"],
+   correct:1, hint:"pasirinkite vieną atsakymą"},
+
+  {num:"12.", type:"open", pts:2,
+   text:"Bankas moka 2 % sudėtinių metinių palūkanų. Lina įdėjo 5 000 €. Kiek turės po 5 metų? Atsakymą pateikite šimtųjų tikslumu.",
+   answers:["5520,40","5520.40","5520"], partial:["5000"], hint:"įrašykite sumą eurais"},
+
+  {num:"13.", type:"mcq", pts:1,
+   text:"Aritmetinės progresijos a₁ = 4, a₉ = −12. Koks pirmasis neigiamas narys?",
+   options:["a₅","a₆","a₄","a₇"],
+   correct:0, hint:"pasirinkite vieną atsakymą"},
+
+  {num:"14.", type:"open", pts:2,
+   text:"Trys skaičiai p, 24, r sudaro didėjančią aritmetinę progresiją. Skaičiai r, 18, p sudaro geometrinę progresiją. Raskite p.",
+   answers:["12"], partial:["24"], hint:"įrašykite p reikšmę"},
+
+  {num:"15.", type:"mcq", pts:1,
+   text:"Apskaičiuokite: −125 + 25 − 5 + 1 − ... (begalinė suma).",
+   options:["−<span class='frac'><sup>625</sup><sub>6</sub></span>","<span class='frac'><sup>125</sup><sub>6</sub></span>","−<span class='frac'><sup>125</sup><sub>6</sub></span>","<span class='frac'><sup>625</sup><sub>6</sub></span>"],
+   correct:0, hint:"pasirinkite vieną atsakymą"},
+
+  {num:"16.", type:"open", pts:2,
+   text:"Geometrinės progresijos b₂ = −45, b₈ = −<span class='frac'><sup>9</sup><sub>5</sub></span>. Koks vardiklis q?",
+   answers:["2/3","0.667","0,667"], partial:["-45"], hint:"rašykite formatu skaitiklis/vardiklis, pvz. 2/3"},
+
+  {num:"17.", type:"mcq", pts:1,
+   text:"Aritmetinės progresijos pirmųjų 25 narių suma lygi 100. Koks a₁₃?",
+   options:["4","5","6","3"],
+   correct:0, hint:"pasirinkite vieną atsakymą"},
+
+  {num:"18.", type:"open", pts:2,
+   text:"Salėje 18 eilių. Pirmoje — 22 vietos, kiekvienoje kitoje — 4 vietomis daugiau. Kiek iš viso vietų salėje?",
+   answers:["1008"], partial:["22"], hint:"įrašykite skaičių"},
+
+  {num:"19.", type:"mcq", pts:1,
+   text:"Geometrinės progresijos b₄ = 24 ir b₇ = 192. Koks b₁?",
+   options:["3","4","6","2"],
+   correct:0, hint:"pasirinkite vieną atsakymą"},
+
+  {num:"20.", type:"open", pts:2,
+   text:"Naujo automobilio vertė kasmet sumažėja 18 %. Po kelerių metų jo vertė bus mažesnė nei 40 % pirkimo kainos? Įrašykite metų skaičių.",
+   answers:["5"], partial:["4"], hint:"įrašykite metų skaičių"},
+
+  {num:"21.", type:"mcq", pts:1,
+   text:"Aritmetinės progresijos a₃ + a₅ − a₄ = 7. Koks a₅ − a₃?",
+   options:["2d","d","3d","0"],
+   correct:1, hint:"pasirinkite vieną atsakymą"},
+
+  {num:"22.", type:"open", pts:2,
+   text:"Periodinė trupmena 0,(142857) = 0,142857142857... Užrašykite ją kaip paprastąją trupmeną.",
+   answers:["1/7","0.142857","0,142857"], partial:["142857/999999"], hint:"rašykite formatu skaitiklis/vardiklis, pvz. 1/7"},
+];
+
+var totalPts=0, earnedPts=0, submitted=false, answers={};
+
+function renderAll(){
+  var c=document.getElementById('questions'), html='';
+  for(var qi=0;qi<QUESTIONS.length;qi++){totalPts+=QUESTIONS[qi].pts;html+=buildCard(QUESTIONS[qi],qi);}
+  c.innerHTML=html;
+  document.getElementById('progress-text').textContent='Atsakyta: 0 / '+QUESTIONS.length;
+}
+
+function buildCard(q,qi){
+  var pc=q.pts===2?'q-pts two':'q-pts';
+  var h='<div class="q-card" id="qcard-'+qi+'">';
+  h+='<div class="q-header"><span class="q-num">'+q.num+'</span><span class="'+pc+'">'+q.pts+' t.</span></div>';
+  h+='<div class="q-text">'+q.text+'</div>';
+  if(q.hint)h+='<div class="q-hint">'+q.hint+'</div>';
+  if(q.type==='mcq'){
+    h+='<div class="options">';
+    var L=['A','B','C','D'];
+    for(var oi=0;oi<q.options.length;oi++){
+      h+='<div class="opt" id="opt-'+qi+'-'+oi+'" onclick="selMcq('+qi+','+oi+')">';
+      h+='<div class="opt-letter">'+L[oi]+'</div><div class="opt-text">'+q.options[oi]+'</div></div>';
+    }
+    h+='</div>';
+  } else {
+    h+='<div class="open-answer"><div class="open-input">';
+    h+='<input type="text" id="inp-'+qi+'" placeholder="Įrašykite atsakymą" oninput="selOpen('+qi+')" />';
+    h+='</div><div class="answer-feedback" id="fb-'+qi+'"></div></div>';
+  }
+  return h+'</div>';
+}
+
+function selMcq(qi,oi){
+  if(submitted)return; answers[qi]=oi;
+  var q=QUESTIONS[qi];
+  for(var i=0;i<q.options.length;i++) document.getElementById('opt-'+qi+'-'+i).className='opt'+(i===oi?' selected':'');
+  updateProgress();
+}
+function selOpen(qi){if(submitted)return;answers[qi]=document.getElementById('inp-'+qi).value.trim();updateProgress();}
+function updateProgress(){
+  var a=Object.keys(answers).filter(function(k){var v=answers[k];return v!==null&&v!==undefined&&v!=='';}).length;
+  document.getElementById('progress-fill').style.width=Math.round(a/QUESTIONS.length*100)+'%';
+  document.getElementById('progress-text').textContent='Atsakyta: '+a+' / '+QUESTIONS.length;
+}
+function submitExam(){
+  var a=Object.keys(answers).filter(function(k){var v=answers[k];return v!==null&&v!==undefined&&v!=='';}).length;
+  if(a<QUESTIONS.length&&!confirm('Dar neatsakyta '+(QUESTIONS.length-a)+' klausimų. Pateikti?'))return;
+  submitted=true; document.getElementById('submit-btn').disabled=true; earnedPts=0;
+  for(var qi=0;qi<QUESTIONS.length;qi++){
+    var q=QUESTIONS[qi];
+    if(q.type==='mcq'){
+      var sel=answers[qi];
+      for(var oi=0;oi<q.options.length;oi++){
+        var el=document.getElementById('opt-'+qi+'-'+oi); el.className='opt';
+        if(oi===q.correct) el.className+=(sel===q.correct&&oi===sel)?' correct':' show-correct';
+        if(oi===sel&&sel!==q.correct) el.className+=' wrong';
+      }
+      if(sel===q.correct) earnedPts+=q.pts;
+    } else {
+      var inp=document.getElementById('inp-'+qi); inp.disabled=true;
+      var uv=(answers[qi]||'').toString().trim().replace(',','.').replace(/\s/g,'');
+      var fb=document.getElementById('fb-'+qi); fb.className='answer-feedback show';
+      var pts=checkOpen(uv,q); earnedPts+=pts;
+      if(pts===q.pts){inp.className='correct-in';fb.className+=' ok';fb.textContent='✓ Teisingai! ('+pts+'/'+q.pts+' t.)';}
+      else if(pts>0){inp.className='partial-in';fb.className+=' partial';fb.textContent='~ Iš dalies ('+pts+'/'+q.pts+' t.) — Teisingas: '+q.answers[0];}
+      else{inp.className='wrong-in';fb.className+=' bad';fb.textContent='✗ Neteisingai (0/'+q.pts+' t.) — Teisingas: '+q.answers[0];}
+    }
+  }
+  showModal();
+}
+function checkOpen(uv,q){
+  for(var i=0;i<q.answers.length;i++) if(uv===q.answers[i].toString().trim().replace(',','.').replace(/\s/g,'')) return q.pts;
+  if(q.partial) for(var j=0;j<q.partial.length;j++) if(uv===q.partial[j].toString().trim().replace(',','.').replace(/\s/g,'')) return 1;
+  return 0;
+}
+function showModal(){
+  var pct=Math.round(earnedPts/totalPts*100);
+  var se=document.getElementById('modal-pct');
+  se.textContent=earnedPts+'/'+totalPts;
+  se.className='modal-pct '+(pct>=80?'ex':pct>=50?'good':'poor');
+  document.getElementById('modal-feedback').textContent=pct>=90?'Puikiai! 🎉':pct>=70?'Gerai! 👍':pct>=50?'Neblogai':'Reikia pasimokyti 📖';
+  document.getElementById('modal-sub').textContent='Surinkai '+earnedPts+' iš '+totalPts+' taškų ('+pct+'%)';
+  document.getElementById('stat-correct').textContent=earnedPts;
+  document.getElementById('stat-wrong').textContent=totalPts-earnedPts;
+  document.getElementById('stat-pct').textContent=pct+'%';
+  document.getElementById('modal-bg').className='modal-bg open';
+}
+function closeModal(){document.getElementById('modal-bg').className='modal-bg';}
+renderAll();
+</script>
+</body>
+</html>

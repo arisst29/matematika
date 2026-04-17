@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>T2. Funkcijos savybės — Matematika 11</title>
+  <link rel="stylesheet" href="../../../../styles/main.css"/>
+  <style>
+    .row-apibreztis { background: #f1f0ee; border-left: 3px solid #9a9a92; }
+    .row-apibreztis .row-label { color: #5a5a54; background: #e4e2d8; border-color: #c8c6bc; }
+
+    .row-formule { background: #eff4ff; border-left: 3px solid #1d4ed8; }
+    .row-formule .row-label { color: #1d4ed8; background: #dbeafe; border-color: #bfdbfe; }
+
+    .row-zymime { background: #fffbeb; border-left: 3px solid #b45309; }
+    .row-zymime .row-label { color: #b45309; background: #fef3c7; border-color: #fde68a; }
+
+    .row-taisykle { background: #f5f3ff; border-left: 3px solid #6d28d9; }
+    .row-taisykle .row-label { color: #6d28d9; background: #ede9fe; border-color: #c4b5fd; }
+
+    .row-svarbu { background: #fef2f2; border-left: 3px solid #b91c1c; }
+    .row-svarbu .row-label { color: #b91c1c; background: #fecaca; border-color: #fca5a5; }
+
+    .row-pavyzdys { background: #f0fdf4; border-left: 3px solid #15803d; }
+    .row-pavyzdys .row-label { color: #15803d; background: #dcfce7; border-color: #bbf7d0; }
+
+    .theory-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      border-radius: var(--radius);
+      margin-bottom: 8px;
+      overflow: hidden;
+    }
+    .theory-row.has-graph {
+      grid-template-columns: 1fr auto;
+      align-items: stretch;
+    }
+    .row-content { padding: 13px 16px; }
+    .row-label {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      padding: 2px 8px;
+      border-radius: 4px;
+      border: 1px solid;
+      margin-bottom: 7px;
+    }
+    .row-text { font-size: 13.5px; color: var(--ink2); line-height: 1.7; }
+    .row-text strong { color: var(--ink); font-weight: 500; }
+    .inline-formula {
+      font-family: var(--mono);
+      font-size: 15px;
+      color: var(--accent);
+      display: block;
+      text-align: center;
+      padding: 6px 0 2px;
+      letter-spacing: 0.02em;
+    }
+    .row-graph {
+      width: 220px;
+      border-left: 1px solid rgba(0,0,0,0.06);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 12px;
+      gap: 6px;
+      flex-shrink: 0;
+    }
+    .row-graph svg { width: 100%; height: auto; }
+    .row-graph.w180 { width: 180px; }
+    .row-graph.w260 { width: 260px; }
+    .graph-caption {
+      font-size: 10px;
+      color: var(--ink3);
+      text-align: center;
+      font-style: italic;
+      line-height: 1.4;
+    }
+    .graph-mini {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+    @media (max-width: 640px) {
+      .theory-row.has-graph { grid-template-columns: 1fr; }
+      .row-graph, .row-graph.w180, .row-graph.w260 { width: 100%; border-left: none; border-top: 1px solid rgba(0,0,0,0.06); }
+    }
+  </style>
+</head>
+<body>
+<div class="layout">
+
+  <!-- ══ SIDEBAR ══════════════════════════════════════ -->
+  <nav class="sidebar" id="sidebar"></nav>
+
+  <!-- ══ MAIN ═════════════════════════════════════════ -->
+  <div class="main">
+    <div class="topbar">
+      <div class="breadcrumb">
+        <a href="../../../../index.html">Matematika 11</a>
+        <span class="sep">›</span>
+        <span>Funkcijos</span>
+        <span class="sep">›</span>
+        <span class="current">T2. Funkcijos savybės</span>
+      </div>
+      <div class="tab-switcher">
+        <button class="tab-btn active">Teorija</button>
+        <a href="testai/teorinis-1.html" class="tab-btn" style="text-decoration:none">Testai</a>
+      </div>
+    </div>
+
+    <div class="page">
+      <div class="topic-header">
+        <div class="topic-tag">5 skyrius · Tema 2</div>
+        <h1 class="topic-title">Funkcijos savybės</h1>
+        <p class="topic-intro">Funkcijos nuliai, pastovaus ženklo intervalai, lyginumas, didžiausia ir mažiausia reikšmė, tolydumas.</p>
+      </div>
+
+      <!-- ════════════════════════════════════════════
+           SKYRELIS 1 — Funkcijos nuliai
+      ════════════════════════════════════════════ -->
+      <div class="theory-block">
+        <div class="block-title"><div class="block-num">1</div>Funkcijos nuliai</div>
+
+        <!-- Apibrėžimas + grafikas -->
+        <div class="theory-row row-apibreztis has-graph">
+          <div class="row-content">
+            <div class="row-label">Apibrėžimas</div>
+            <div class="row-text">
+              <strong>Funkcijos nuliai</strong> — tai argumento reikšmės <strong>x</strong>, kuriose funkcijos reikšmė lygi nuliui: f(x) = 0.<br>
+              Grafike tai taškai, kuriuose kreivė <strong>kerta arba liečia x ašį</strong>.
+            </div>
+          </div>
+          <div class="row-graph">
+            <svg viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg">
+              <defs><marker id="n1" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="4" markerHeight="4" orient="auto"><path d="M1,1 L7,4 L1,7" fill="none" stroke="#777" stroke-width="1.5"/></marker></defs>
+              <line x1="10" y1="70" x2="192" y2="70" stroke="#777" stroke-width="1.1" marker-end="url(#n1)"/>
+              <line x1="35" y1="108" x2="35" y2="8" stroke="#777" stroke-width="1.1" marker-end="url(#n1)"/>
+              <text x="194" y="73" font-size="8" fill="#777">x</text>
+              <text x="29" y="7" font-size="8" fill="#777">y</text>
+              <!-- Kreivė: kerta x ašį 3 kartus -->
+              <path d="M15,100 C30,100 42,20 65,20 C85,20 95,70 110,70 C125,70 135,110 155,110 C170,110 180,40 190,25"
+                    fill="none" stroke="#374151" stroke-width="2.2" stroke-linecap="round"/>
+              <!-- Nuliai — taškai ant x ašies -->
+              <circle cx="40" cy="70" r="4.5" fill="#dc2626"/>
+              <circle cx="110" cy="70" r="4.5" fill="#dc2626"/>
+              <circle cx="155" cy="70" r="4.5" fill="#dc2626"/>
+              <!-- Žymos -->
+              <text x="40" y="83" font-size="8" fill="#dc2626" text-anchor="middle">x₁</text>
+              <text x="110" y="83" font-size="8" fill="#dc2626" text-anchor="middle">x₂</text>
+              <text x="155" y="83" font-size="8" fill="#dc2626" text-anchor="middle">x₃</text>
+              <text x="35" y="82" font-size="8" fill="#888" text-anchor="middle"> </text>
+              <!-- f(x)=0 užrašas -->
+              <text x="125" y="18" font-size="8" fill="#dc2626" font-weight="bold">f(x) = 0</text>
+            </svg>
+            <div class="graph-caption">Nuliai x₁, x₂, x₃ — kur grafikas kerta x ašį</div>
+          </div>
+        </div>
+
+        <!-- Taisyklė -->
+        <div class="theory-row row-taisykle">
+          <div class="row-content">
+            <div class="row-label">Taisyklė</div>
+            <div class="row-text">
+              Norint rasti funkcijos nulius — reikia <strong>išspręsti lygtį f(x) = 0</strong>.<br>
+              Sprendiniai yra funkcijos nuliai.
+            </div>
+          </div>
+        </div>
+
+        <!-- Pavyzdys -->
+        <div class="theory-row row-pavyzdys">
+          <div class="row-content">
+            <div class="row-label">Pavyzdys</div>
+            <div class="row-text">
+              <strong>f(x) = x² − 4</strong><br>
+              Sprendžiame: x² − 4 = 0 &nbsp;→&nbsp; x² = 4 &nbsp;→&nbsp; x = ±2<br>
+              <strong>Funkcijos nuliai: x = −2 ir x = 2</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ════════════════════════════════════════════
+           SKYRELIS 2 — Pastovaus ženklo intervalai
+      ════════════════════════════════════════════ -->
+      <div class="theory-block">
+        <div class="block-title"><div class="block-num">2</div>Pastovaus ženklo intervalai</div>
+
+        <!-- Apibrėžimas + grafikas -->
+        <div class="theory-row row-apibreztis has-graph">
+          <div class="row-content">
+            <div class="row-label">Apibrėžimas</div>
+            <div class="row-text">
+              <strong>Teigiamo ženklo intervalai</strong> — x reikšmės, kuriose f(x) &gt; 0 (grafikas <strong>aukščiau</strong> x ašies).<br>
+              <strong>Neigiamo ženklo intervalai</strong> — x reikšmės, kuriose f(x) &lt; 0 (grafikas <strong>žemiau</strong> x ašies).
+            </div>
+          </div>
+          <div class="row-graph w260">
+            <svg viewBox="0 0 240 140" xmlns="http://www.w3.org/2000/svg">
+              <defs><marker id="n2" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="4" markerHeight="4" orient="auto"><path d="M1,1 L7,4 L1,7" fill="none" stroke="#777" stroke-width="1.5"/></marker></defs>
+
+              <!-- Spalvoti fonai pagal ženklą -->
+              <!-- Neigiamas: x < x₁ (iki 70) -->
+              <rect x="12" y="12" width="58" height="90" fill="#fecaca" opacity="0.5"/>
+              <!-- Teigiamas: x₁ iki x₂ (70–160) -->
+              <rect x="70" y="12" width="90" height="90" fill="#dcfce7" opacity="0.6"/>
+              <!-- Neigiamas: x > x₂ (160+) -->
+              <rect x="160" y="12" width="72" height="90" fill="#fecaca" opacity="0.5"/>
+
+              <!-- Ašys -->
+              <line x1="10" y1="102" x2="234" y2="102" stroke="#666" stroke-width="1.2" marker-end="url(#n2)"/>
+              <line x1="28" y1="128" x2="28" y2="10" stroke="#666" stroke-width="1.2" marker-end="url(#n2)"/>
+              <text x="236" y="105" font-size="9" fill="#666">x</text>
+              <text x="22" y="9" font-size="9" fill="#666">y</text>
+
+              <!-- Sinuso tipo kreivė: kerta x ašį ties x₁=70 ir x₂=160 -->
+              <!-- Kairėje žemiau (−), viduryje viršuje (+), dešinėje žemiau (−) -->
+              <path d="M12,88 C22,95 38,110 55,118 C62,121 66,114 70,102
+                       C80,72 95,28 115,18 C130,12 145,22 155,42
+                       C158,50 159,72 160,102
+                       C165,118 178,128 195,125 C210,122 225,115 232,110"
+                    fill="none" stroke="#374151" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+
+              <!-- Nuliai x₁=70, x₂=160 -->
+              <circle cx="70" cy="102" r="4.5" fill="#374151"/>
+              <circle cx="160" cy="102" r="4.5" fill="#374151"/>
+              <text x="70" y="116" font-size="9" fill="#374151" text-anchor="middle">x₁</text>
+              <text x="160" y="116" font-size="9" fill="#374151" text-anchor="middle">x₂</text>
+
+              <!-- Ženklai -->
+              <text x="41" y="75" font-size="16" fill="#dc2626" font-weight="bold" text-anchor="middle">−</text>
+              <text x="115" y="62" font-size="16" fill="#15803d" font-weight="bold" text-anchor="middle">+</text>
+              <text x="196" y="80" font-size="16" fill="#dc2626" font-weight="bold" text-anchor="middle">−</text>
+            </svg>
+            <div class="graph-caption">Žalia (+) — grafikas virš x ašies · Raudona (−) — žemiau</div>
+          </div>
+        </div>
+
+        <!-- Taisyklė -->
+        <div class="theory-row row-taisykle">
+          <div class="row-content">
+            <div class="row-label">Taisyklė</div>
+            <div class="row-text">
+              1. Randame funkcijos nulius (f(x) = 0)<br>
+              2. Nuliai skaičių tiesę dalija į intervalus<br>
+              3. Kiekviename intervale tikriname funkcijos ženklą (pasirenkame bet kurį tašką)<br>
+              4. Intervalai tarp nulių <strong>keičia ženklą</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pavyzdys -->
+        <div class="theory-row row-pavyzdys has-graph">
+          <div class="row-content">
+            <div class="row-label">Pavyzdys</div>
+            <div class="row-text">
+              <strong>f(x) = x² − 4 = (x−2)(x+2)</strong><br>
+              Nuliai: x = −2 ir x = 2<br><br>
+              Intervalas (−∞; −2): f(−3) = 9 − 4 = 5 &gt; 0 &nbsp;<strong style="color:#15803d">+</strong><br>
+              Intervalas (−2; 2): f(0) = 0 − 4 = −4 &lt; 0 &nbsp;<strong style="color:#dc2626">−</strong><br>
+              Intervalas (2; +∞): f(3) = 9 − 4 = 5 &gt; 0 &nbsp;<strong style="color:#15803d">+</strong><br><br>
+              f(x) &gt; 0, kai x ∈ <strong>(−∞; −2) ∪ (2; +∞)</strong><br>
+              f(x) &lt; 0, kai x ∈ <strong>(−2; 2)</strong>
+            </div>
+          </div>
+          <div class="row-graph w260">
+            <svg viewBox="0 0 240 140" xmlns="http://www.w3.org/2000/svg">
+              <defs><marker id="n3" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="4" markerHeight="4" orient="auto"><path d="M1,1 L7,4 L1,7" fill="none" stroke="#777" stroke-width="1.5"/></marker></defs>
+              <!-- Spalvoti plotai -->
+              <rect x="15" y="15" width="65" height="75" fill="#dcfce7" opacity="0.55" rx="2"/>
+              <rect x="80" y="15" width="80" height="75" fill="#fecaca" opacity="0.55" rx="2"/>
+              <rect x="160" y="15" width="70" height="75" fill="#dcfce7" opacity="0.55" rx="2"/>
+              <!-- Ašys -->
+              <line x1="12" y1="90" x2="232" y2="90" stroke="#777" stroke-width="1.1" marker-end="url(#n3)"/>
+              <line x1="120" y1="128" x2="120" y2="12" stroke="#777" stroke-width="1.1" marker-end="url(#n3)"/>
+              <text x="234" y="93" font-size="8" fill="#777">x</text>
+              <text x="114" y="10" font-size="8" fill="#777">y</text>
+              <!-- Parabolė y = x²-4, su minimumu (0,-4) -->
+              <!-- x=-4→16-4=12, x=-2→0, x=0→-4, x=2→0, x=4→12 -->
+              <!-- mapas: x: 120+x*20, y: 90-y*6 -->
+              <path d="M15,18 C30,17 55,50 80,90 C95,108 110,114 120,114 C130,114 145,108 160,90 C185,50 210,18 230,15"
+                    fill="none" stroke="#374151" stroke-width="2.2" stroke-linecap="round"/>
+              <!-- Nuliai x=-2(80), x=2(160) -->
+              <circle cx="80" cy="90" r="4.5" fill="#374151"/>
+              <circle cx="160" cy="90" r="4.5" fill="#374151"/>
+              <text x="80" y="102" font-size="8" fill="#374151" text-anchor="middle">−2</text>
+              <text x="160" y="102" font-size="8" fill="#374151" text-anchor="middle">2</text>
+              <text x="120" y="102" font-size="8" fill="#888" text-anchor="middle">0</text>
+              <!-- Ženklai -->
+              <text x="47" y="58" font-size="13" fill="#15803d" font-weight="bold" text-anchor="middle">+</text>
+              <text x="120" y="58" font-size="13" fill="#dc2626" font-weight="bold" text-anchor="middle">−</text>
+              <text x="195" y="58" font-size="13" fill="#15803d" font-weight="bold" text-anchor="middle">+</text>
+              <!-- Min taškas -->
+              <circle cx="120" cy="114" r="3" fill="#1d4ed8"/>
+              <text x="135" y="118" font-size="7.5" fill="#1d4ed8">min(0;−4)</text>
+            </svg>
+            <div class="graph-caption">y = x² − 4 · ženklas keičiasi nuliuose</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ════════════════════════════════════════════
+           SKYRELIS 3 — Lyginė ir nelyginė funkcija
+      ════════════════════════════════════════════ -->
+      <div class="theory-block">
+        <div class="block-title"><div class="block-num">3</div>Lyginė ir nelyginė funkcija</div>
+
+        <!-- Apibrėžimas lyginė -->
+        <div class="theory-row row-apibreztis has-graph">
+          <div class="row-content">
+            <div class="row-label">Apibrėžimas — lyginė</div>
+            <div class="row-text">
+              Funkcija vadinama <strong>lygine</strong>, jei kiekvienam x iš apibrėžimo srities:<br>
+              f(−x) = f(x)<br>
+              Grafikas <strong>simetriškas y ašies atžvilgiu</strong>.
+            </div>
+          </div>
+          <div class="row-graph">
+            <svg viewBox="0 0 180 120" xmlns="http://www.w3.org/2000/svg">
+              <defs><marker id="n4" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="4" markerHeight="4" orient="auto"><path d="M1,1 L7,4 L1,7" fill="none" stroke="#777" stroke-width="1.5"/></marker></defs>
+              <line x1="10" y1="90" x2="172" y2="90" stroke="#777" stroke-width="1" marker-end="url(#n4)"/>
+              <line x1="90" y1="112" x2="90" y2="8" stroke="#777" stroke-width="1" marker-end="url(#n4)"/>
+              <text x="174" y="93" font-size="8" fill="#777">x</text>
+              <text x="84" y="7" font-size="8" fill="#777">y</text>
+              <!-- Simetrijos linija -->
+              <line x1="90" y1="15" x2="90" y2="90" stroke="#1d4ed8" stroke-width="0.8" stroke-dasharray="3,2"/>
+              <!-- Parabolė (lyginė) -->
+              <path d="M20,85 C35,84 55,38 75,20 C82,14 88,12 90,12 C92,12 98,14 105,20 C125,38 145,84 160,85"
+                    fill="none" stroke="#374151" stroke-width="2.2" stroke-linecap="round"/>
+              <!-- Simetriški taškai -->
+              <circle cx="55" cy="42" r="3.5" fill="#1d4ed8"/>
+              <circle cx="125" cy="42" r="3.5" fill="#1d4ed8"/>
+              <line x1="55" y1="42" x2="125" y2="42" stroke="#1d4ed8" stroke-width="0.8" stroke-dasharray="2,2"/>
+              <text x="90" y="103" font-size="7.5" fill="#888" text-anchor="middle">0</text>
+              <text x="50" y="108" font-size="7" fill="#1d4ed8">f(−x)</text>
+              <text x="118" y="108" font-size="7" fill="#1d4ed8">f(x)</text>
+              <text x="90" y="22" font-size="7.5" fill="#374151" text-anchor="middle">y=x²</text>
+            </svg>
+            <div class="graph-caption">Lyginė — simetriška y ašiai</div>
+          </div>
+        </div>
+
+        <!-- Apibrėžimas nelyginė -->
+        <div class="theory-row row-apibreztis has-graph">
+          <div class="row-content">
+            <div class="row-label">Apibrėžimas — nelyginė</div>
+            <div class="row-text">
+              Funkcija vadinama <strong>nelygine</strong>, jei kiekvienam x iš apibrėžimo srities:<br>
+              f(−x) = −f(x)<br>
+              Grafikas <strong>simetriškas koordinačių pradžios taško O atžvilgiu</strong>.
+            </div>
+          </div>
+          <div class="row-graph">
+            <svg viewBox="0 0 180 130" xmlns="http://www.w3.org/2000/svg">
+              <defs><marker id="n5" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="4" markerHeight="4" orient="auto"><path d="M1,1 L7,4 L1,7" fill="none" stroke="#777" stroke-width="1.5"/></marker></defs>
+              <line x1="10" y1="65" x2="172" y2="65" stroke="#777" stroke-width="1" marker-end="url(#n5)"/>
+              <line x1="90" y1="120" x2="90" y2="8" stroke="#777" stroke-width="1" marker-end="url(#n5)"/>
+              <text x="174" y="68" font-size="8" fill="#777">x</text>
+              <text x="84" y="7" font-size="8" fill="#777">y</text>
+              <!-- Simetrijos taškas O -->
+              <circle cx="90" cy="65" r="3" fill="#1d4ed8"/>
+              <!-- Kubinė funkcija (nelyginė) -->
+              <path d="M18,110 C35,108 55,90 72,65 C82,50 88,35 90,25"
+                    fill="none" stroke="#374151" stroke-width="2.2" stroke-linecap="round"/>
+              <path d="M90,105 C92,95 98,80 108,65 C125,40 145,22 162,18"
+                    fill="none" stroke="#374151" stroke-width="2.2" stroke-linecap="round"/>
+              <!-- Simetriški taškai -->
+              <circle cx="60" cy="85" r="3.5" fill="#6d28d9"/>
+              <circle cx="120" cy="45" r="3.5" fill="#6d28d9"/>
+              <line x1="60" y1="85" x2="120" y2="45" stroke="#6d28d9" stroke-width="0.8" stroke-dasharray="2,2"/>
+              <text x="46" y="100" font-size="7" fill="#6d28d9">A(−x;−y)</text>
+              <text x="110" y="38" font-size="7" fill="#6d28d9">A(x;y)</text>
+              <text x="150" y="22" font-size="7.5" fill="#374151">y=x³</text>
+            </svg>
+            <div class="graph-caption">Nelyginė — simetriška taško O atžvilgiu</div>
+          </div>
+        </div>
+
+        <!-- Formulė -->
+        <div class="theory-row row-formule">
+          <div class="row-content">
+            <div class="row-label">Formulė</div>
+            <div class="row-text">
+              <span class="inline-formula">Lyginė: f(−x) = f(x) &nbsp;&nbsp;&nbsp; Nelyginė: f(−x) = −f(x)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Taisyklė -->
+        <div class="theory-row row-taisykle">
+          <div class="row-content">
+            <div class="row-label">Taisyklė — kaip patikrinti</div>
+            <div class="row-text">
+              1. Apskaičiuojame f(−x)<br>
+              2. Jei f(−x) = f(x) → <strong>lyginė</strong><br>
+              3. Jei f(−x) = −f(x) → <strong>nelyginė</strong><br>
+              4. Jei nei viena — <strong>nei lyginė, nei nelyginė</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pavyzdys -->
+        <div class="theory-row row-pavyzdys">
+          <div class="row-content">
+            <div class="row-label">Pavyzdys</div>
+            <div class="row-text">
+              <strong>f(x) = x⁴ − 2x²</strong><br>
+              f(−x) = (−x)⁴ − 2(−x)² = x⁴ − 2x² = f(x)<br>
+              <strong>→ Lyginė funkcija</strong><br><br>
+              <strong>g(x) = x³ + x</strong><br>
+              g(−x) = (−x)³ + (−x) = −x³ − x = −(x³ + x) = −g(x)<br>
+              <strong>→ Nelyginė funkcija</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ════════════════════════════════════════════
+           SKYRELIS 4 — Didžiausia ir mažiausia reikšmė
+      ════════════════════════════════════════════ -->
+      <div class="theory-block">
+        <div class="block-title"><div class="block-num">4</div>Didžiausia ir mažiausia reikšmė</div>
+
+        <!-- Apibrėžimas + grafikas -->
+        <div class="theory-row row-apibreztis has-graph">
+          <div class="row-content">
+            <div class="row-label">Apibrėžimas</div>
+            <div class="row-text">
+              <strong>Didžiausia reikšmė (max)</strong> — didžiausia y reikšmė, kurią funkcija pasiekia tam tikrame intervale. Grafike — <strong>aukščiausias taškas</strong>.<br><br>
+              <strong>Mažiausia reikšmė (min)</strong> — mažiausia y reikšmė, kurią funkcija pasiekia tam tikrame intervale. Grafike — <strong>žemiausias taškas</strong>.
+            </div>
+          </div>
+          <div class="row-graph">
+            <svg viewBox="0 0 200 130" xmlns="http://www.w3.org/2000/svg">
+              <defs><marker id="n6" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="4" markerHeight="4" orient="auto"><path d="M1,1 L7,4 L1,7" fill="none" stroke="#777" stroke-width="1.5"/></marker></defs>
+              <line x1="10" y1="85" x2="192" y2="85" stroke="#777" stroke-width="1" marker-end="url(#n6)"/>
+              <line x1="30" y1="118" x2="30" y2="8" stroke="#777" stroke-width="1" marker-end="url(#n6)"/>
+              <text x="194" y="88" font-size="8" fill="#777">x</text>
+              <text x="24" y="7" font-size="8" fill="#777">y</text>
+              <!-- Kreivė su max ir min -->
+              <path d="M35,70 C50,68 60,22 80,18 C95,15 105,55 120,75 C132,90 145,105 160,102 C172,100 182,55 188,30"
+                    fill="none" stroke="#374151" stroke-width="2.2" stroke-linecap="round"/>
+              <!-- Max taškas -->
+              <circle cx="80" cy="18" r="5" fill="#15803d"/>
+              <line x1="80" y1="18" x2="80" y2="85" stroke="#15803d" stroke-width="0.8" stroke-dasharray="3,2"/>
+              <line x1="80" y1="18" x2="30" y2="18" stroke="#15803d" stroke-width="0.8" stroke-dasharray="3,2"/>
+              <text x="22" y="21" font-size="8" fill="#15803d" text-anchor="end">max</text>
+              <!-- Min taškas -->
+              <circle cx="155" cy="103" r="5" fill="#dc2626"/>
+              <line x1="155" y1="103" x2="155" y2="85" stroke="#dc2626" stroke-width="0.8" stroke-dasharray="3,2"/>
+              <line x1="155" y1="103" x2="30" y2="103" stroke="#dc2626" stroke-width="0.8" stroke-dasharray="3,2"/>
+              <text x="22" y="106" font-size="8" fill="#dc2626" text-anchor="end">min</text>
+            </svg>
+            <div class="graph-caption">● žalia — max &nbsp;|&nbsp; ● raudona — min</div>
+          </div>
+        </div>
+
+        <!-- Žymime -->
+        <div class="theory-row row-zymime">
+          <div class="row-content">
+            <div class="row-label">Žymime</div>
+            <div class="row-text">
+              <strong>max f(x)</strong> arba <strong>max<sub>x∈[a;b]</sub> f(x) = M</strong> — didžiausia reikšmė<br>
+              <strong>min f(x)</strong> arba <strong>min<sub>x∈[a;b]</sub> f(x) = m</strong> — mažiausia reikšmė
+            </div>
+          </div>
+        </div>
+
+        <!-- Svarbu -->
+        <div class="theory-row row-svarbu">
+          <div class="row-content">
+            <div class="row-label">Svarbu</div>
+            <div class="row-text">
+              Didžiausia ir mažiausia reikšmė gali <strong>neegzistuoti</strong>, jei funkcija neribota intervale.<br>
+              Ieškoma tik <strong>uždarame intervale [a; b]</strong> — tada ji visada egzistuoja.
+            </div>
+          </div>
+        </div>
+
+        <!-- Pavyzdys + grafikas -->
+        <div class="theory-row row-pavyzdys has-graph">
+          <div class="row-content">
+            <div class="row-label">Pavyzdys</div>
+            <div class="row-text">
+              <strong>f(x) = −x² + 4</strong>, kai x ∈ [−1; 2]<br><br>
+              f(−1) = −1 + 4 = <strong>3</strong><br>
+              f(0) = 0 + 4 = <strong>4</strong> → aukščiausias taškas<br>
+              f(2) = −4 + 4 = <strong>0</strong> → žemiausias taškas<br><br>
+              <strong style="color:#15803d">max = 4</strong> (taške x = 0)<br>
+              <strong style="color:#dc2626">min = 0</strong> (taške x = 2)
+            </div>
+          </div>
+          <div class="row-graph w260">
+            <svg viewBox="0 0 240 160" xmlns="http://www.w3.org/2000/svg">
+              <defs><marker id="nm" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="4" markerHeight="4" orient="auto"><path d="M1,1 L7,4 L1,7" fill="none" stroke="#666" stroke-width="1.5"/></marker></defs>
+
+              <!-- Tinklelis -->
+              <line x1="80" y1="20" x2="80" y2="140" stroke="#eee" stroke-width="0.8"/>
+              <line x1="120" y1="20" x2="120" y2="140" stroke="#eee" stroke-width="0.8"/>
+              <line x1="160" y1="20" x2="160" y2="140" stroke="#eee" stroke-width="0.8"/>
+              <line x1="200" y1="20" x2="200" y2="140" stroke="#eee" stroke-width="0.8"/>
+              <line x1="35" y1="50" x2="220" y2="50" stroke="#eee" stroke-width="0.8"/>
+              <line x1="35" y1="90" x2="220" y2="90" stroke="#eee" stroke-width="0.8"/>
+              <line x1="35" y1="130" x2="220" y2="130" stroke="#eee" stroke-width="0.8"/>
+
+              <!-- Ašys -->
+              <line x1="32" y1="130" x2="222" y2="130" stroke="#666" stroke-width="1.2" marker-end="url(#nm)"/>
+              <line x1="120" y1="150" x2="120" y2="18" stroke="#666" stroke-width="1.2" marker-end="url(#nm)"/>
+              <text x="224" y="133" font-size="9" fill="#666">x</text>
+              <text x="114" y="16" font-size="9" fill="#666">y</text>
+
+              <!-- Žymos -->
+              <!-- x: -1=80, 0=120, 1=160, 2=200 -->
+              <!-- y: 4=50, 3=70, 0=130 (mastelis: 1 vienetas = 20px) -->
+              <text x="80" y="141" font-size="8" fill="#888" text-anchor="middle">−1</text>
+              <text x="120" y="141" font-size="8" fill="#888" text-anchor="middle">0</text>
+              <text x="160" y="141" font-size="8" fill="#888" text-anchor="middle">1</text>
+              <text x="200" y="141" font-size="8" fill="#888" text-anchor="middle">2</text>
+              <text x="112" y="133" font-size="8" fill="#888" text-anchor="end">0</text>
+              <text x="112" y="93" font-size="8" fill="#888" text-anchor="end">2</text>
+              <text x="112" y="53" font-size="8" fill="#888" text-anchor="end">4</text>
+
+              <!-- Intervalas [−1;2] pažymėtas -->
+              <rect x="80" y="128" width="120" height="4" fill="#1d4ed8" opacity="0.3" rx="2"/>
+
+              <!-- Parabolė f(x) = -x²+4 intervale [-1;2] -->
+              <!-- x=-1→y=3(70), x=0→y=4(50), x=1→y=3(70), x=2→y=0(130) -->
+              <path d="M80,70 C90,57 110,50 120,50 C130,50 150,57 160,70 C175,92 190,118 200,130"
+                    fill="none" stroke="#374151" stroke-width="2.4" stroke-linecap="round"/>
+
+              <!-- Intervalas kraštai -->
+              <circle cx="80" cy="70" r="4.5" fill="#374151"/>
+              <circle cx="200" cy="130" r="4.5" fill="#374151"/>
+
+              <!-- MAX taškas (0; 4) -->
+              <circle cx="120" cy="50" r="6" fill="#15803d"/>
+              <line x1="120" y1="50" x2="120" y2="130" stroke="#15803d" stroke-width="0.9" stroke-dasharray="3,2"/>
+              <line x1="120" y1="50" x2="35" y2="50" stroke="#15803d" stroke-width="0.9" stroke-dasharray="3,2"/>
+              <text x="33" y="53" font-size="8" fill="#15803d" text-anchor="end" font-weight="bold">max=4</text>
+
+              <!-- MIN taškas (2; 0) -->
+              <circle cx="200" cy="130" r="6" fill="#dc2626"/>
+              <line x1="200" y1="50" x2="200" y2="130" stroke="#dc2626" stroke-width="0.9" stroke-dasharray="3,2"/>
+              <text x="206" y="133" font-size="8" fill="#dc2626" font-weight="bold">min=0</text>
+
+              <!-- Taškas (-1; 3) -->
+              <line x1="80" y1="70" x2="35" y2="70" stroke="#888" stroke-width="0.7" stroke-dasharray="2,2"/>
+              <text x="33" y="73" font-size="7.5" fill="#888" text-anchor="end">3</text>
+            </svg>
+            <div class="graph-caption">f(x) = −x² + 4 intervale [−1; 2]<br>● žalia — max · ● raudona — min</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ════════════════════════════════════════════
+           SKYRELIS 5 — Tolydumas
+      ════════════════════════════════════════════ -->
+      <div class="theory-block">
+        <div class="block-title"><div class="block-num">5</div>Tolydumas</div>
+
+        <!-- Apibrėžimas + grafikas -->
+        <div class="theory-row row-apibreztis has-graph">
+          <div class="row-content">
+            <div class="row-label">Apibrėžimas</div>
+            <div class="row-text">
+              Funkcija vadinama <strong>tolydia</strong> taške x₀, jei jos grafikas tame taške <strong>neturi šuolio</strong> — galima nupiešti nekeliant pieštuko nuo popieriaus.<br><br>
+              Funkcija vadinama <strong>trūkia</strong> taške x₀, jei grafike tame taške yra <strong>šuolis arba skylė</strong>.
+            </div>
+          </div>
+          <div class="row-graph w260">
+            <svg viewBox="0 0 240 120" xmlns="http://www.w3.org/2000/svg">
+              <defs><marker id="n7" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="4" markerHeight="4" orient="auto"><path d="M1,1 L7,4 L1,7" fill="none" stroke="#777" stroke-width="1.5"/></marker></defs>
+              <!-- Tolydi dalis -->
+              <text x="55" y="12" font-size="8" fill="#15803d" text-anchor="middle" font-weight="bold">✓ Tolydi</text>
+              <line x1="10" y1="70" x2="110" y2="70" stroke="#aaa" stroke-width="0.8" marker-end="url(#n7)"/>
+              <line x1="25" y1="105" x2="25" y2="10" stroke="#aaa" stroke-width="0.8" marker-end="url(#n7)"/>
+              <path d="M12,80 C25,78 35,40 50,30 C62,22 75,35 90,50 C98,58 104,65 108,68"
+                    fill="none" stroke="#15803d" stroke-width="2.2" stroke-linecap="round"/>
+              <!-- Trūki dalis -->
+              <text x="175" y="12" font-size="8" fill="#dc2626" text-anchor="middle" font-weight="bold">✗ Trūki</text>
+              <line x1="120" y1="70" x2="232" y2="70" stroke="#aaa" stroke-width="0.8" marker-end="url(#n7)"/>
+              <line x1="135" y1="105" x2="135" y2="10" stroke="#aaa" stroke-width="0.8" marker-end="url(#n7)"/>
+              <!-- Kreivė iki šuolio -->
+              <path d="M122,55 C135,53 148,40 162,35"
+                    fill="none" stroke="#dc2626" stroke-width="2.2" stroke-linecap="round"/>
+              <!-- Šuolis -->
+              <circle cx="162" cy="35" r="4" fill="white" stroke="#dc2626" stroke-width="1.8"/>
+              <circle cx="162" cy="68" r="4" fill="#dc2626"/>
+              <!-- Kreivė po šuolio -->
+              <path d="M162,68 C175,68 190,75 215,80"
+                    fill="none" stroke="#dc2626" stroke-width="2.2" stroke-linecap="round"/>
+              <!-- Šuolio rodyklė -->
+              <line x1="168" y1="35" x2="168" y2="62" stroke="#dc2626" stroke-width="0.8" stroke-dasharray="2,2"/>
+              <text x="172" y="52" font-size="7.5" fill="#dc2626">šuolis</text>
+            </svg>
+            <div class="graph-caption">Tolydi — be šuolių · Trūki — šuolis arba skylė grafike</div>
+          </div>
+        </div>
+
+        <!-- Svarbu -->
+        <div class="theory-row row-svarbu">
+          <div class="row-content">
+            <div class="row-label">Svarbu</div>
+            <div class="row-text">
+              Visos <strong>polinominės funkcijos</strong> (y = xⁿ, y = ax² + bx + c ir kt.) yra tolydžios visur.<br>
+              <strong>Trupmeninės funkcijos</strong> yra trūkios ten, kur vardiklis = 0.<br>
+              <strong>Šakninės funkcijos</strong> yra tolydžios savo apibrėžimo srityje.
+            </div>
+          </div>
+        </div>
+
+        <!-- Pavyzdys -->
+        <div class="theory-row row-pavyzdys">
+          <div class="row-content">
+            <div class="row-label">Pavyzdys</div>
+            <div class="row-text">
+              <strong>f(x) = 1/(x − 2)</strong> — trūki taške x = 2 (vardiklis = 0)<br>
+              <strong>g(x) = x² − 3x + 1</strong> — tolydi visur (polinominė)<br>
+              <strong>h(x) = √x</strong> — tolydi savo apibrėžimo srityje [0; +∞)
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- NAV -->
+      <div class="topic-nav">
+        <a class="btn ghost" href="../t1-apibreztis/teorija.html">← T1. Apibrėžtis ir sritys</a>
+        <div style="display:flex;gap:8px;">
+          <a class="btn" href="testai/teorinis-1.html">Eiti prie testų</a>
+          <a class="btn primary" href="../t3-sudetine-atvirkstine/teorija.html">T3. Sudėtinė ir atvirkštinė →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<script src="../../../../js/main.js"></script>
+</body>
+</html>

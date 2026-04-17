@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>T9. Rodiklinės nelygybės — Matematika 11</title>
+  <link rel="stylesheet" href="../../../../styles/main.css"/>
+  <style>
+    .row-apibreztis { background: #f1f0ee; border-left: 3px solid #9a9a92; }
+    .row-apibreztis .row-label { color: #5a5a54; background: #e4e2d8; border-color: #c8c6bc; }
+    .row-formule { background: #eff4ff; border-left: 3px solid #1d4ed8; }
+    .row-formule .row-label { color: #1d4ed8; background: #dbeafe; border-color: #bfdbfe; }
+    .row-taisykle { background: #f5f3ff; border-left: 3px solid #6d28d9; }
+    .row-taisykle .row-label { color: #6d28d9; background: #ede9fe; border-color: #c4b5fd; }
+    .row-svarbu { background: #fef2f2; border-left: 3px solid #b91c1c; }
+    .row-svarbu .row-label { color: #b91c1c; background: #fecaca; border-color: #fca5a5; }
+    .row-pavyzdys { background: #f0fdf4; border-left: 3px solid #15803d; }
+    .row-pavyzdys .row-label { color: #15803d; background: #dcfce7; border-color: #bbf7d0; }
+    .theory-row { display: grid; grid-template-columns: 1fr; border-radius: var(--radius); margin-bottom: 8px; overflow: hidden; }
+    .row-content { padding: 13px 16px; }
+    .row-label { display: inline-block; font-size: 10px; font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase; padding: 2px 8px; border-radius: 4px; border: 1px solid; margin-bottom: 7px; }
+    .row-text { font-size: 13.5px; color: var(--ink2); line-height: 1.7; }
+    .row-text strong { color: var(--ink); font-weight: 500; }
+    .inline-formula { font-family: var(--mono); font-size: 15px; color: var(--accent); display: block; text-align: center; padding: 6px 0 2px; }
+    .steps { counter-reset: step; }
+    .step { display: flex; gap: 12px; margin-bottom: 8px; }
+    .step-num { width: 24px; height: 24px; border-radius: 50%; background: var(--accent); color: #fff; font-size: 12px; font-weight: 600; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+    .step-text { font-size: 13.5px; color: var(--ink2); line-height: 1.6; }
+    .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 8px; }
+    .compare-box { background: var(--bg3); border-radius: var(--radius); padding: 12px 14px; border: 1px solid var(--border); }
+    .compare-box-title { font-size: 11px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 8px; }
+    .compare-box-title.blue { color: #1d4ed8; }
+    .compare-box-title.red { color: #b91c1c; }
+    .compare-box p { font-size: 13px; color: var(--ink2); margin: 4px 0; line-height: 1.5; }
+  </style>
+</head>
+<body>
+<div class="layout">
+  <nav class="sidebar" id="sidebar"></nav>
+  <div class="main">
+    <div class="topbar">
+      <div class="breadcrumb">
+        <a href="../../../../index.html">Matematika 11</a>
+        <span class="sep">›</span><span>Funkcijos</span>
+        <span class="sep">›</span><span class="current">T9. Rodiklinės nelygybės</span>
+      </div>
+      <div class="tab-switcher">
+        <button class="tab-btn active">Teorija</button>
+        <a href="../../skyriaus-testai/index.html" class="tab-btn" style="text-decoration:none">Testai</a>
+      </div>
+    </div>
+    <div class="page">
+      <div class="topic-header">
+        <div class="topic-tag">5 skyrius · Tema 9</div>
+        <h1 class="topic-title">Rodiklinės nelygybės</h1>
+        <p class="topic-intro">Nelygybės, kurių nežinomasis yra laipsnio rodiklyje — sprendimo būdai.</p>
+      </div>
+
+      <!-- ══ 1. Paprasčiausios nelygybės ═══════════════════ -->
+      <div class="theory-block">
+        <div class="block-title"><div class="block-num">1</div>Paprasčiausių rodiklinių nelygybių sprendimas</div>
+
+        <div class="theory-row row-svarbu">
+          <div class="row-content">
+            <div class="row-label">Svarbu — ženklo keitimas</div>
+            <div class="row-text">
+              Lyginant laipsnių rodiklius, svarbu ar pagrindas <strong>didesnis už 1</strong> ar <strong>mažesnis už 1</strong> — nuo to priklauso ar nelygybės ženklas keičiasi!
+            </div>
+          </div>
+        </div>
+
+        <div class="theory-row row-taisykle">
+          <div class="row-content">
+            <div class="row-label">Taisyklė</div>
+            <div class="compare-grid">
+              <div class="compare-box">
+                <div class="compare-box-title blue">Kai a &gt; 1 (didėjanti)</div>
+                <p>aˣ &gt; aᵐ &nbsp;⟺&nbsp; x &gt; m</p>
+                <p>aˣ &lt; aᵐ &nbsp;⟺&nbsp; x &lt; m</p>
+                <p><strong>Ženklas nesikeičia</strong></p>
+              </div>
+              <div class="compare-box">
+                <div class="compare-box-title red">Kai 0 &lt; a &lt; 1 (mažėjanti)</div>
+                <p>aˣ &gt; aᵐ &nbsp;⟺&nbsp; x &lt; m</p>
+                <p>aˣ &lt; aᵐ &nbsp;⟺&nbsp; x &gt; m</p>
+                <p><strong>Ženklas keičiasi į priešingą!</strong></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="theory-row row-pavyzdys">
+          <div class="row-content">
+            <div class="row-label">Pavyzdys — a &gt; 1</div>
+            <div class="row-text">
+              <strong>2ˣ⁺¹ &gt; −2</strong><br><br>
+              Kairiosios pusės reikšmė yra teigiama (2ˣ⁺¹ &gt; 0), dešiniosios — neigiama.<br>
+              Todėl nelygybė teisinga su visomis x reikšmėmis.<br>
+              <strong>Atsakymas: x ∈ ℝ</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="theory-row row-pavyzdys">
+          <div class="row-content">
+            <div class="row-label">Pavyzdys — 0 &lt; a &lt; 1</div>
+            <div class="row-text">
+              <strong>(1/7)ˣ⁻ˣ² ≤ 1</strong><br><br>
+              1 = (1/7)⁰, todėl: (1/7)ˣ⁻ˣ² ≤ (1/7)⁰<br>
+              Kadangi pagrindas 1/7 &lt; 1 — ženklas keičiasi:<br>
+              x − x² ≥ 0<br>
+              x(1 − x) ≥ 0<br>
+              <strong>Atsakymas: x ∈ [0; 1]</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══ 2. Vienodinant pagrindus ══════════════════════ -->
+      <div class="theory-block">
+        <div class="block-title"><div class="block-num">2</div>Sprendimas vienodinant laipsnių pagrindus</div>
+
+        <div class="theory-row row-taisykle">
+          <div class="row-content">
+            <div class="row-label">Būdo esmė</div>
+            <div class="row-text">
+              Sudėtingesnes rodiklines nelygybes pertvarkome į paprasčiausias tokiais pat būdais kaip ir rodiklines lygtis — abiejose pusėse išreiškiame vienodais pagrindais, paskui lyginame laipsnių rodiklius.
+            </div>
+          </div>
+        </div>
+
+        <div class="theory-row row-pavyzdys">
+          <div class="row-content">
+            <div class="row-label">Pavyzdys</div>
+            <div class="row-text">
+              <strong>7ˣ²⁻²·⁵ˣ &gt; 7√7</strong><br><br>
+              7√7 = 7¹ · 7^(1/2) = 7^(3/2)<br>
+              Todėl: 7ˣ²⁻²·⁵ˣ &gt; 7^(3/2)<br>
+              Pagrindas 7 &gt; 1, ženklas nesikeičia:<br>
+              x² − 2,5x &gt; 1,5<br>
+              x² − 2,5x − 1,5 &gt; 0<br>
+              (x − 3)(x + 0,5) &gt; 0<br>
+              <strong>Atsakymas: x ∈ (−∞; −0,5) ∪ (3; +∞)</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══ 3. Keitiniu ════════════════════════════════════ -->
+      <div class="theory-block">
+        <div class="block-title"><div class="block-num">3</div>Sprendimas keitiniu</div>
+
+        <div class="theory-row row-taisykle">
+          <div class="row-content">
+            <div class="row-label">Būdo esmė</div>
+            <div class="row-text">
+              Kaip ir lygtims — pasirenkame keitinį <strong>t = aˣ</strong>, gauname kvadratinę nelygybę, išsprendžiame ją ir grįžtame prie pradinio kintamojo.
+            </div>
+          </div>
+        </div>
+
+        <div class="theory-row row-formule">
+          <div class="row-content">
+            <div class="row-label">Žingsniai</div>
+            <div class="steps">
+              <div class="step"><div class="step-num">1</div><div class="step-text">Suvienodiname pagrindus, pasirenkame keitinį t = aˣ (t &gt; 0)</div></div>
+              <div class="step"><div class="step-num">2</div><div class="step-text">Sprendžiame gautą kvadratinę nelygybę t atžvilgiu</div></div>
+              <div class="step"><div class="step-num">3</div><div class="step-text">Grįžtame prie x: iš sąlygos aˣ &gt; k arba aˣ &lt; k randame x</div></div>
+              <div class="step"><div class="step-num">4</div><div class="step-text">Atkreipiame dėmesį į pagrindo dydį — ar ženklas keičiasi</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="theory-row row-pavyzdys">
+          <div class="row-content">
+            <div class="row-label">Pavyzdys</div>
+            <div class="row-text">
+              <strong>2 · 9ˣ + 6ˣ − 6 · 4ˣ ≤ 0</strong><br><br>
+              Dalijame iš 4ˣ (4ˣ &gt; 0):<br>
+              2 · (9/4)ˣ + (6/4)ˣ − 6 ≤ 0<br>
+              2 · (3/2)²ˣ + (3/2)ˣ − 6 ≤ 0<br><br>
+              Keitinys t = (3/2)ˣ, t &gt; 0:<br>
+              2t² + t − 6 ≤ 0<br>
+              (2t − 3)(t + 2) ≤ 0<br>
+              t₁ = 3/2, t₂ = −2 (netinka, nes t &gt; 0)<br><br>
+              Todėl 0 &lt; t ≤ 3/2:<br>
+              (3/2)ˣ ≤ (3/2)¹<br>
+              Pagrindas 3/2 &gt; 1, ženklas nesikeičia:<br>
+              <strong>Atsakymas: x ≤ 1</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic-nav">
+        <a class="btn ghost" href="../t8-rodiklineslygtys/teorija.html">← T8. Rodiklinės lygtys</a>
+        <a class="btn primary" href="../../skyriaus-testai/index.html">Skyriaus testai →</a>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="../../../../js/main.js"></script>
+</body>
+</html>

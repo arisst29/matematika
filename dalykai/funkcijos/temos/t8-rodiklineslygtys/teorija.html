@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>T8. Rodiklinės lygtys — Matematika 11</title>
+  <link rel="stylesheet" href="../../../../styles/main.css"/>
+  <style>
+    .row-apibreztis { background: #f1f0ee; border-left: 3px solid #9a9a92; }
+    .row-apibreztis .row-label { color: #5a5a54; background: #e4e2d8; border-color: #c8c6bc; }
+    .row-formule { background: #eff4ff; border-left: 3px solid #1d4ed8; }
+    .row-formule .row-label { color: #1d4ed8; background: #dbeafe; border-color: #bfdbfe; }
+    .row-taisykle { background: #f5f3ff; border-left: 3px solid #6d28d9; }
+    .row-taisykle .row-label { color: #6d28d9; background: #ede9fe; border-color: #c4b5fd; }
+    .row-svarbu { background: #fef2f2; border-left: 3px solid #b91c1c; }
+    .row-svarbu .row-label { color: #b91c1c; background: #fecaca; border-color: #fca5a5; }
+    .row-pavyzdys { background: #f0fdf4; border-left: 3px solid #15803d; }
+    .row-pavyzdys .row-label { color: #15803d; background: #dcfce7; border-color: #bbf7d0; }
+    .theory-row { display: grid; grid-template-columns: 1fr; border-radius: var(--radius); margin-bottom: 8px; overflow: hidden; }
+    .row-content { padding: 13px 16px; }
+    .row-label { display: inline-block; font-size: 10px; font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase; padding: 2px 8px; border-radius: 4px; border: 1px solid; margin-bottom: 7px; }
+    .row-text { font-size: 13.5px; color: var(--ink2); line-height: 1.7; }
+    .row-text strong { color: var(--ink); font-weight: 500; }
+    .inline-formula { font-family: var(--mono); font-size: 15px; color: var(--accent); display: block; text-align: center; padding: 6px 0 2px; }
+    .steps { counter-reset: step; }
+    .step { display: flex; gap: 12px; margin-bottom: 8px; }
+    .step-num { width: 24px; height: 24px; border-radius: 50%; background: var(--accent); color: #fff; font-size: 12px; font-weight: 600; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+    .step-text { font-size: 13.5px; color: var(--ink2); line-height: 1.6; }
+  </style>
+</head>
+<body>
+<div class="layout">
+  <nav class="sidebar" id="sidebar"></nav>
+  <div class="main">
+    <div class="topbar">
+      <div class="breadcrumb">
+        <a href="../../../../index.html">Matematika 11</a>
+        <span class="sep">›</span><span>Funkcijos</span>
+        <span class="sep">›</span><span class="current">T8. Rodiklinės lygtys</span>
+      </div>
+      <div class="tab-switcher">
+        <button class="tab-btn active">Teorija</button>
+        <a href="../t9-rodiklinesnelygybės/teorija.html" class="tab-btn" style="text-decoration:none">T9 →</a>
+      </div>
+    </div>
+    <div class="page">
+      <div class="topic-header">
+        <div class="topic-tag">5 skyrius · Tema 8</div>
+        <h1 class="topic-title">Rodiklinės lygtys</h1>
+        <p class="topic-intro">Lygtys, kurių nežinomasis yra laipsnio rodiklyje — sprendimo būdai.</p>
+      </div>
+
+      <!-- ══ 1. Paprasčiausių lygčių sprendimas ════════════ -->
+      <div class="theory-block">
+        <div class="block-title"><div class="block-num">1</div>Paprasčiausių rodiklinių lygčių sprendimas</div>
+
+        <div class="theory-row row-apibreztis">
+          <div class="row-content">
+            <div class="row-label">Apibrėžimas</div>
+            <div class="row-text">
+              <strong>Rodiklinė lygtis</strong> — lygtis, kurios nežinomasis yra laipsnio rodiklyje.<br><br>
+              Paprasčiausia forma: <strong>aˣ = b</strong><br><br>
+              • Jei b ≤ 0 — lygties sprendinių <strong>nėra</strong> (nes aˣ &gt; 0 visada)<br>
+              • Jei b &gt; 0 — lygtis turi vieną sprendinį
+            </div>
+          </div>
+        </div>
+
+        <div class="theory-row row-taisykle">
+          <div class="row-content">
+            <div class="row-label">Taisyklė — jei aᶠ⁽ˣ⁾ = aᵍ⁽ˣ⁾</div>
+            <div class="row-text">
+              Jei abiejose pusėse yra <strong>vienodi pagrindai</strong>:<br><br>
+              <strong>aᶠ⁽ˣ⁾ = aᵍ⁽ˣ⁾ &nbsp;⟺&nbsp; f(x) = g(x)</strong><br><br>
+              Galima tiesiog sulyginti rodiklius ir spręsti gautą lygtį.
+            </div>
+          </div>
+        </div>
+
+        <div class="theory-row row-pavyzdys">
+          <div class="row-content">
+            <div class="row-label">Pavyzdys</div>
+            <div class="row-text">
+              <strong>2ˣ⁺¹ = 1</strong><br>
+              Skaičių 1 pakeičiame laipsniu 2⁰:<br>
+              2ˣ⁺¹ = 2⁰<br>
+              x + 1 = 0<br>
+              <strong>x = −1</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══ 2. Vienodinant pagrindus ══════════════════════ -->
+      <div class="theory-block">
+        <div class="block-title"><div class="block-num">2</div>Sprendimas vienodinant laipsnių pagrindus</div>
+
+        <div class="theory-row row-svarbu">
+          <div class="row-content">
+            <div class="row-label">Svarbu — laipsnių savybės</div>
+            <div class="row-text" style="display:grid;grid-template-columns:1fr 1fr;gap:6px 24px;">
+              <div>• aᵐ · aⁿ = aᵐ⁺ⁿ</div>
+              <div>• aᵐ / aⁿ = aᵐ⁻ⁿ</div>
+              <div>• (aᵐ)ⁿ = aᵐⁿ</div>
+              <div>• (a · b)ⁿ = aⁿ · bⁿ</div>
+              <div>• (a / b)ⁿ = aⁿ / bⁿ</div>
+              <div>• a⁻ⁿ = 1 / aⁿ</div>
+              <div>• a⁰ = 1 &nbsp;(a ≠ 0)</div>
+              <div>• a^(1/n) = ⁿ√a</div>
+              <div>• a^(m/n) = ⁿ√(aᵐ)</div>
+              <div>• (a/b)⁻ⁿ = (b/a)ⁿ</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="theory-row row-taisykle">
+          <div class="row-content">
+            <div class="row-label">Būdo esmė</div>
+            <div class="row-text">
+              Abiejose lygties pusėse esančius reiškinius užrašome vienodais laipsnių pagrindais, paskui sulyginame laipsnių rodiklius.
+            </div>
+          </div>
+        </div>
+
+        <div class="theory-row row-formule">
+          <div class="row-content">
+            <div class="row-label">Žingsniai</div>
+            <div class="steps">
+              <div class="step"><div class="step-num">1</div><div class="step-text">Visus skaičius išreiškiame kaip laipsnius su vienodu pagrindu</div></div>
+              <div class="step"><div class="step-num">2</div><div class="step-text">Taikome laipsnių savybes: (aᵐ)ⁿ = aᵐⁿ, aᵐ · aⁿ = aᵐ⁺ⁿ, aᵐ / aⁿ = aᵐ⁻ⁿ</div></div>
+              <div class="step"><div class="step-num">3</div><div class="step-text">Gauname aᶠ⁽ˣ⁾ = aᵍ⁽ˣ⁾ pavidalo lygtį, sulyginame rodiklius</div></div>
+              <div class="step"><div class="step-num">4</div><div class="step-text">Išsprendžiame gautą paprastą lygtį</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="theory-row row-pavyzdys">
+          <div class="row-content">
+            <div class="row-label">Pavyzdys</div>
+            <div class="row-text">
+              <strong>(2/3)ˣ⁺³ · (3/2)⁻¹ = (2/3)⁹</strong><br><br>
+              (2/3)ˣ⁺³ · (2/3)¹ = (2/3)⁹ &nbsp;&nbsp; [nes (3/2)⁻¹ = (2/3)¹]<br>
+              (2/3)ˣ⁺³⁺¹ = (2/3)⁹<br>
+              x + 4 = 9<br>
+              <strong>x = 5</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="theory-row row-pavyzdys">
+          <div class="row-content">
+            <div class="row-label">Pavyzdys 2</div>
+            <div class="row-text">
+              <strong>7ˣ⁻¹ + 3 · 7ˣ = 154</strong><br><br>
+              7ˣ · 7⁻¹ + 3 · 7ˣ = 154<br>
+              7ˣ(1/7 + 3) = 154<br>
+              7ˣ · 22/7 = 154<br>
+              7ˣ = 154 · 7/22 = 49 = 7²<br>
+              <strong>x = 2</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══ 3. Skaidant daugikliais ════════════════════════ -->
+      <div class="theory-block">
+        <div class="block-title"><div class="block-num">3</div>Sprendimas skaidant daugikliais</div>
+
+        <div class="theory-row row-taisykle">
+          <div class="row-content">
+            <div class="row-label">Būdo esmė</div>
+            <div class="row-text">
+              Lygtį pertvarkome taip, kad viena pusė būtų <strong>0</strong>, o kita — <strong>daugiklių sandauga</strong>. Sandauga lygi nuliui, kai bent vienas daugiklis lygus nuliui.
+            </div>
+          </div>
+        </div>
+
+        <div class="theory-row row-pavyzdys">
+          <div class="row-content">
+            <div class="row-label">Pavyzdys</div>
+            <div class="row-text">
+              <strong>6ˣ − 3 · 2ˣ = 0</strong><br><br>
+              3 · 2ˣ · 2ˣ − 3 · 2ˣ = 0 &nbsp;&nbsp; [nes 6ˣ = (3·2)ˣ = 3ˣ · 2ˣ]<br>
+              2ˣ(3ˣ − 3) = 0<br><br>
+              • 2ˣ = 0 — sprendinių nėra (2ˣ &gt; 0 visada)<br>
+              • 3ˣ − 3 = 0 → 3ˣ = 3¹ → <strong>x = 1</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══ 4. Keitiniu ════════════════════════════════════ -->
+      <div class="theory-block">
+        <div class="block-title"><div class="block-num">4</div>Sprendimas keitiniu</div>
+
+        <div class="theory-row row-taisykle">
+          <div class="row-content">
+            <div class="row-label">Būdo esmė</div>
+            <div class="row-text">
+              Kai lygtis sudėtingesnė, pasirenkame <strong>keitinį t = aˣ</strong> ir gauname tiesinę arba kvadratinę lygtį. Išsprendžiame ją ir grįžtame prie pradinio kintamojo.
+            </div>
+          </div>
+        </div>
+
+        <div class="theory-row row-formule">
+          <div class="row-content">
+            <div class="row-label">Žingsniai</div>
+            <div class="steps">
+              <div class="step"><div class="step-num">1</div><div class="step-text">Suvienodiname laipsnių pagrindus ir pasirenkame keitinį t = aˣ</div></div>
+              <div class="step"><div class="step-num">2</div><div class="step-text">Išsprendžiame gautą tiesinę arba kvadratinę lygtį t atžvilgiu</div></div>
+              <div class="step"><div class="step-num">3</div><div class="step-text">Grįžtame prie pradinio kintamojo: iš t = aˣ randame x</div></div>
+              <div class="step"><div class="step-num">4</div><div class="step-text">Atmename t ≤ 0 sprendinius (nes aˣ &gt; 0 visada)</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="theory-row row-pavyzdys">
+          <div class="row-content">
+            <div class="row-label">Pavyzdys</div>
+            <div class="row-text">
+              <strong>¼ · 16ˣ − 2,5 · 4ˣ + 4 = 0</strong><br><br>
+              ¼ · (4²)ˣ − 2,5 · 4ˣ + 4 = 0<br>
+              ¼ · (4ˣ)² − 2,5 · 4ˣ + 4 = 0<br><br>
+              Keitinys <strong>t = 4ˣ</strong> (t &gt; 0):<br>
+              ¼t² − 2,5t + 4 = 0 &nbsp;|· 4<br>
+              t² − 10t + 16 = 0<br>
+              t₁ = 8, t₂ = 2<br><br>
+              • 4ˣ = 8 = 4^(3/2) → <strong>x = 3/2</strong><br>
+              • 4ˣ = 2 = 4^(1/2) → <strong>x = 1/2</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic-nav">
+        <a class="btn ghost" href="../t7-rodikline/teorija.html">← T7. Rodiklinė funkcija</a>
+        <a class="btn primary" href="../t9-rodiklinesnelygybės/teorija.html">T9. Rodiklinės nelygybės →</a>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="../../../../js/main.js"></script>
+</body>
+</html>

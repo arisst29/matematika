@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>T3. Sudėtinė ir atvirkštinė funkcija — Matematika 11</title>
+  <link rel="stylesheet" href="../../../../styles/main.css"/>
+  <style>
+    .row-apibreztis { background: #f1f0ee; border-left: 3px solid #9a9a92; }
+    .row-apibreztis .row-label { color: #5a5a54; background: #e4e2d8; border-color: #c8c6bc; }
+
+    .row-formule { background: #eff4ff; border-left: 3px solid #1d4ed8; }
+    .row-formule .row-label { color: #1d4ed8; background: #dbeafe; border-color: #bfdbfe; }
+
+    .row-zymime { background: #fffbeb; border-left: 3px solid #b45309; }
+    .row-zymime .row-label { color: #b45309; background: #fef3c7; border-color: #fde68a; }
+
+    .row-taisykle { background: #f5f3ff; border-left: 3px solid #6d28d9; }
+    .row-taisykle .row-label { color: #6d28d9; background: #ede9fe; border-color: #c4b5fd; }
+
+    .row-svarbu { background: #fef2f2; border-left: 3px solid #b91c1c; }
+    .row-svarbu .row-label { color: #b91c1c; background: #fecaca; border-color: #fca5a5; }
+
+    .row-pavyzdys { background: #f0fdf4; border-left: 3px solid #15803d; }
+    .row-pavyzdys .row-label { color: #15803d; background: #dcfce7; border-color: #bbf7d0; }
+
+    .theory-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      border-radius: var(--radius);
+      margin-bottom: 8px;
+      overflow: hidden;
+    }
+    .theory-row.has-graph {
+      grid-template-columns: 1fr auto;
+      align-items: stretch;
+    }
+    .row-content { padding: 13px 16px; }
+    .row-label {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      padding: 2px 8px;
+      border-radius: 4px;
+      border: 1px solid;
+      margin-bottom: 7px;
+    }
+    .row-text { font-size: 13.5px; color: var(--ink2); line-height: 1.7; }
+    .row-text strong { color: var(--ink); font-weight: 500; }
+    .inline-formula {
+      font-family: var(--mono);
+      font-size: 15px;
+      color: var(--accent);
+      display: block;
+      text-align: center;
+      padding: 6px 0 2px;
+      letter-spacing: 0.02em;
+    }
+    .row-graph {
+      width: 220px;
+      border-left: 1px solid rgba(0,0,0,0.06);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 12px;
+      gap: 6px;
+      flex-shrink: 0;
+    }
+    .row-graph svg { width: 100%; height: auto; }
+    .row-graph.w260 { width: 260px; }
+    .row-graph.w300 { width: 300px; }
+    .graph-caption {
+      font-size: 10px;
+      color: var(--ink3);
+      text-align: center;
+      font-style: italic;
+      line-height: 1.4;
+    }
+    @media (max-width: 640px) {
+      .theory-row.has-graph { grid-template-columns: 1fr; }
+      .row-graph, .row-graph.w260, .row-graph.w300 { width: 100%; border-left: none; border-top: 1px solid rgba(0,0,0,0.06); }
+    }
+  </style>
+</head>
+<body>
+<div class="layout">
+
+  <!-- ══ SIDEBAR ══════════════════════════════════════ -->
+  <nav class="sidebar" id="sidebar"></nav>
+
+  <!-- ══ MAIN ═════════════════════════════════════════ -->
+  <div class="main">
+    <div class="topbar">
+      <div class="breadcrumb">
+        <a href="../../../../index.html">Matematika 11</a>
+        <span class="sep">›</span>
+        <span>Funkcijos</span>
+        <span class="sep">›</span>
+        <span class="current">T3. Sudėtinė ir atvirkštinė</span>
+      </div>
+      <div class="tab-switcher">
+        <button class="tab-btn active">Teorija</button>
+        <a href="testai/teorinis-1.html" class="tab-btn" style="text-decoration:none">Testai</a>
+      </div>
+    </div>
+
+    <div class="page">
+      <div class="topic-header">
+        <div class="topic-tag">5 skyrius · Tema 3</div>
+        <h1 class="topic-title">Sudėtinė ir atvirkštinė funkcija</h1>
+        <p class="topic-intro">Dviejų funkcijų sudėtis ir atvirkštinės funkcijos radimas bei savybės.</p>
+      </div>
+
+      <!-- ════════════════════════════════════════════
+           SKYRELIS 1 — Sudėtinė funkcija
+      ════════════════════════════════════════════ -->
+      <div class="theory-block">
+        <div class="block-title"><div class="block-num">1</div>Sudėtinė funkcija</div>
+
+        <!-- Apibrėžimas + schema -->
+        <div class="theory-row row-apibreztis has-graph">
+          <div class="row-content">
+            <div class="row-label">Apibrėžimas</div>
+            <div class="row-text">
+              Jei turime dvi funkcijas <strong>y = f(u)</strong> ir <strong>u = g(x)</strong>, tai į pirmosios funkcijos argumento vietą įrašę antrąją funkciją gauname <strong>sudėtinę funkciją</strong>:<br><br>
+              y = f(g(x))<br><br>
+              Pirmiausia taikome <strong>g</strong> argumentui x, tada gautą rezultatą paduodame į <strong>f</strong>.
+            </div>
+          </div>
+          <div class="row-graph w260">
+            <!-- Schema: x → g → u → f → y -->
+            <svg viewBox="0 0 230 90" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <marker id="sa" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5" markerHeight="5" orient="auto">
+                  <path d="M1,1 L7,4 L1,7" fill="none" stroke="#1d4ed8" stroke-width="1.5"/>
+                </marker>
+              </defs>
+              <!-- x -->
+              <circle cx="20" cy="45" r="14" fill="#f1f0ee" stroke="#9a9a92" stroke-width="1.5"/>
+              <text x="20" y="49" font-size="13" fill="#1c1c1a" font-weight="500" text-anchor="middle" font-style="italic">x</text>
+              <!-- rodyklė → g -->
+              <line x1="34" y1="45" x2="58" y2="45" stroke="#1d4ed8" stroke-width="1.5" marker-end="url(#sa)"/>
+              <!-- g blokas -->
+              <rect x="60" y="30" width="44" height="30" rx="7" fill="#ede9fe" stroke="#6d28d9" stroke-width="1.5"/>
+              <text x="82" y="49" font-size="13" font-weight="600" fill="#6d28d9" text-anchor="middle">g(x)</text>
+              <!-- rodyklė → u -->
+              <line x1="104" y1="45" x2="128" y2="45" stroke="#1d4ed8" stroke-width="1.5" marker-end="url(#sa)"/>
+              <text x="116" y="40" font-size="9" fill="#888" text-anchor="middle">u</text>
+              <!-- f blokas -->
+              <rect x="130" y="30" width="44" height="30" rx="7" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1.5"/>
+              <text x="152" y="49" font-size="13" font-weight="600" fill="#1d4ed8" text-anchor="middle">f(u)</text>
+              <!-- rodyklė → y -->
+              <line x1="174" y1="45" x2="198" y2="45" stroke="#1d4ed8" stroke-width="1.5" marker-end="url(#sa)"/>
+              <!-- y -->
+              <circle cx="212" cy="45" r="14" fill="#f0fdf4" stroke="#15803d" stroke-width="1.5"/>
+              <text x="212" y="49" font-size="13" fill="#15803d" font-weight="500" text-anchor="middle" font-style="italic">y</text>
+              <!-- Bendra rodyklė apačioje -->
+              <path d="M20,65 Q115,82 212,65" fill="none" stroke="#374151" stroke-width="1" stroke-dasharray="3,2" marker-end="url(#sa)"/>
+              <text x="116" y="82" font-size="9" fill="#374151" text-anchor="middle">f(g(x))</text>
+            </svg>
+            <div class="graph-caption">x → g(x) → f(g(x)) → y</div>
+          </div>
+        </div>
+
+        <!-- Formulė -->
+        <div class="theory-row row-formule">
+          <div class="row-content">
+            <div class="row-label">Formulė</div>
+            <span class="inline-formula">y = f(g(x))</span>
+          </div>
+        </div>
+
+        <!-- Žymime -->
+        <div class="theory-row row-zymime">
+          <div class="row-content">
+            <div class="row-label">Žymime</div>
+            <div class="row-text">
+              <strong>f∘g</strong> — sudėtinė funkcija (skaitoma „f po g")<br>
+              <strong>(f∘g)(x) = f(g(x))</strong><br>
+              <strong>Svarbu:</strong> f∘g ir g∘f paprastai yra <strong>skirtingos</strong> funkcijos
+            </div>
+          </div>
+        </div>
+
+        <!-- Pavyzdys -->
+        <div class="theory-row row-pavyzdys">
+          <div class="row-content">
+            <div class="row-label">Pavyzdys</div>
+            <div class="row-text">
+              <strong>f(x) = x² − 1</strong> ir <strong>g(x) = 3x + 2</strong><br><br>
+              <strong>f(g(x))</strong> = f(3x + 2) = (3x + 2)² − 1 = 9x² + 12x + 4 − 1 = <strong>9x² + 12x + 3</strong><br><br>
+              <strong>g(f(x))</strong> = g(x² − 1) = 3(x² − 1) + 2 = 3x² − 3 + 2 = <strong>3x² − 1</strong><br><br>
+              f(g(x)) ≠ g(f(x)) — tai skirtingos funkcijos!
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ════════════════════════════════════════════
+           SKYRELIS 2 — Atvirkštinė funkcija
+      ════════════════════════════════════════════ -->
+      <div class="theory-block">
+        <div class="block-title"><div class="block-num">2</div>Atvirkštinė funkcija</div>
+
+        <!-- Apibrėžimas + schema -->
+        <div class="theory-row row-apibreztis has-graph">
+          <div class="row-content">
+            <div class="row-label">Apibrėžimas</div>
+            <div class="row-text">
+              <strong>Atvirkštinė funkcija g</strong> — funkcija, kuri „atšaukia" funkcijos f veikimą.<br><br>
+              Jei f(x) = y, tai atvirkštinė funkcija g(y) = x.<br><br>
+              Nepriklausomasis ir priklausomasis kintamieji <strong>susikeičia vietomis</strong>:<br>
+              x → y tampa y → x.
+            </div>
+          </div>
+          <div class="row-graph w260">
+            <!-- Schema: f ir g eina priešingomis kryptimis -->
+            <svg viewBox="0 0 230 100" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <marker id="ab" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5" markerHeight="5" orient="auto">
+                  <path d="M1,1 L7,4 L1,7" fill="none" stroke="#1d4ed8" stroke-width="1.5"/>
+                </marker>
+                <marker id="ac" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5" markerHeight="5" orient="auto">
+                  <path d="M1,1 L7,4 L1,7" fill="none" stroke="#dc2626" stroke-width="1.5"/>
+                </marker>
+              </defs>
+              <!-- D aibė -->
+              <ellipse cx="40" cy="50" rx="30" ry="38" fill="#eff4ff" stroke="#1d4ed8" stroke-width="1.5"/>
+              <text x="40" y="20" text-anchor="middle" font-size="10" font-weight="600" fill="#1d4ed8">D(f)</text>
+              <text x="40" y="48" font-size="12" fill="#1c1c1a" font-style="italic" text-anchor="middle">x</text>
+              <!-- E aibė -->
+              <ellipse cx="190" cy="50" rx="30" ry="38" fill="#f0fdf4" stroke="#15803d" stroke-width="1.5"/>
+              <text x="190" y="20" text-anchor="middle" font-size="10" font-weight="600" fill="#15803d">E(f)</text>
+              <text x="190" y="48" font-size="12" fill="#1c1c1a" font-style="italic" text-anchor="middle">y</text>
+              <!-- f rodyklė (mėlyna, viršuje) -->
+              <path d="M70,38 Q115,18 160,38" fill="none" stroke="#1d4ed8" stroke-width="1.8" marker-end="url(#ab)"/>
+              <text x="115" y="22" font-size="10" font-weight="600" fill="#1d4ed8" text-anchor="middle">f</text>
+              <!-- g rodyklė (raudona, apačioje) -->
+              <path d="M160,62 Q115,82 70,62" fill="none" stroke="#dc2626" stroke-width="1.8" marker-end="url(#ac)"/>
+              <text x="115" y="88" font-size="10" font-weight="600" fill="#dc2626" text-anchor="middle">g = f⁻¹</text>
+            </svg>
+            <div class="graph-caption">f: x → y &nbsp;|&nbsp; f⁻¹: y → x</div>
+          </div>
+        </div>
+
+        <!-- Žymime -->
+        <div class="theory-row row-zymime">
+          <div class="row-content">
+            <div class="row-label">Žymime</div>
+            <div class="row-text">
+              <strong>f⁻¹(x)</strong> — atvirkštinė funkcija<br>
+              Jei f: D → E, tai f⁻¹: E → D<br>
+              <strong>D(f⁻¹) = E(f)</strong> &nbsp;&nbsp; <strong>E(f⁻¹) = D(f)</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- Taisyklė -->
+        <div class="theory-row row-taisykle">
+          <div class="row-content">
+            <div class="row-label">Taisyklė — kaip rasti f⁻¹</div>
+            <div class="row-text">
+              1. Užrašome <strong>y = f(x)</strong><br>
+              2. Išreiškiame <strong>x per y</strong>: gauname x = g(y)<br>
+              3. Sukeičiame kintamuosius vietomis: rašome <strong>y = g(x)</strong><br>
+              4. Tai ir yra atvirkštinė funkcija <strong>f⁻¹(x) = g(x)</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pavyzdys -->
+        <div class="theory-row row-pavyzdys">
+          <div class="row-content">
+            <div class="row-label">Pavyzdys</div>
+            <div class="row-text">
+              <strong>Rasti f⁻¹, kai f(x) = 2x + 1</strong><br><br>
+              1. Rašome: y = 2x + 1<br>
+              2. Išreiškiame x: &nbsp; 2x = y − 1 &nbsp;→&nbsp; x = (y − 1) / 2<br>
+              3. Sukeičiame: &nbsp; y = (x − 1) / 2<br><br>
+              <strong>f⁻¹(x) = (x − 1) / 2</strong><br><br>
+              Patikrinimas: f(f⁻¹(x)) = 2 · (x−1)/2 + 1 = x − 1 + 1 = <strong>x ✓</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- NAV -->
+      <div class="topic-nav">
+        <a class="btn ghost" href="../t2-savybes/teorija.html">← T2. Funkcijos savybės</a>
+        <div style="display:flex;gap:8px;">
+          <a class="btn" href="testai/teorinis-1.html">Eiti prie testų</a>
+          <a class="btn primary" href="../../../skyriaus-testai/index.html">Skyriaus testai →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<script src="../../../../js/main.js"></script>
+</body>
+</html>

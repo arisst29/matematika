@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>T3. Taikymai — Matematika 11</title>
+  <link rel="stylesheet" href="../../../../styles/main.css"/>
+  <style>
+    .row-apibreztis{background:#f1f0ee;border-left:3px solid #9a9a92}.row-apibreztis .row-label{color:#5a5a54;background:#e4e2d8;border-color:#c8c6bc}
+    .row-formule{background:#eff4ff;border-left:3px solid #1d4ed8}.row-formule .row-label{color:#1d4ed8;background:#dbeafe;border-color:#bfdbfe}
+    .row-zymime{background:#fffbeb;border-left:3px solid #b45309}.row-zymime .row-label{color:#b45309;background:#fef3c7;border-color:#fde68a}
+    .row-taisykle{background:#f5f3ff;border-left:3px solid #6d28d9}.row-taisykle .row-label{color:#6d28d9;background:#ede9fe;border-color:#c4b5fd}
+    .row-svarbu{background:#fef2f2;border-left:3px solid #b91c1c}.row-svarbu .row-label{color:#b91c1c;background:#fecaca;border-color:#fca5a5}
+    .row-pavyzdys{background:#f0fdf4;border-left:3px solid #15803d}.row-pavyzdys .row-label{color:#15803d;background:#dcfce7;border-color:#bbf7d0}
+    .theory-row{border-radius:var(--radius);margin-bottom:8px;overflow:hidden}
+    .row-content{padding:13px 16px}
+    .row-label{display:inline-block;font-size:10px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;padding:2px 8px;border-radius:4px;border:1px solid;margin-bottom:7px}
+    .row-text{font-size:13.5px;color:var(--ink2);line-height:1.8}
+    .row-text strong{color:var(--ink);font-weight:600}
+    .formula-big{font-size:17px;font-family:var(--mono);color:var(--accent);display:block;text-align:center;padding:10px 0;font-weight:600}
+    .steps{margin-top:6px}
+    .step{display:flex;gap:12px;margin-bottom:8px}
+    .step-num{width:26px;height:26px;border-radius:50%;background:var(--accent);color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+    .step-text{font-size:13.5px;color:var(--ink2);line-height:1.6}
+  </style>
+</head>
+<body>
+<div class="layout">
+  <nav class="sidebar" id="sidebar"></nav>
+  <div class="main">
+    <div class="topbar">
+      <div class="breadcrumb">
+        <a href="../../../../index.html">Matematika 11</a>
+        <span class="sep">›</span><span>Sekos</span>
+        <span class="sep">›</span><span class="current">T3. Taikymai</span>
+      </div>
+      <div class="tab-switcher">
+        <button class="tab-btn active">Teorija</button>
+        <a href="../../skyriaus-testai/index.html" class="tab-btn" style="text-decoration:none">Testai</a>
+      </div>
+    </div>
+    <div class="page">
+      <div class="topic-header">
+        <div class="topic-tag">6 skyrius · Tema 3</div>
+        <h1 class="topic-title">Taikymai</h1>
+        <p class="topic-intro">Kaip aritmetinė ir geometrinė progresijos taikomos realiuose uždaviniuose.</p>
+      </div>
+
+      <!-- ══ 1. AP taikymai ══════════════════════════════ -->
+      <div class="theory-block">
+        <div class="block-title"><div class="block-num">1</div>Aritmetinės progresijos taikymai</div>
+
+        <div class="theory-row row-taisykle">
+          <div class="row-content">
+            <div class="row-label">Kada naudojame AP</div>
+            <div class="row-text">
+              Aritmetinę progresiją naudojame, kai kiekvienas žingsnis <strong>prideda tą patį kiekį</strong>:<br><br>
+              • Bėgikas kiekvieną dieną nubėga 10 m daugiau<br>
+              • Darbo užmokestis kiekvienais metais didėja 200 €<br>
+              • Kraštinių ilgiai sudaro aritmetinę progresiją
+            </div>
+          </div>
+        </div>
+
+        <div class="theory-row row-formule">
+          <div class="row-content">
+            <div class="row-label">Sprendimo žingsniai</div>
+            <div class="steps">
+              <div class="step"><div class="step-num">1</div><div class="step-text">Nustatykite a₁ (pradinė reikšmė) ir d (kiek didėja/mažėja kiekvieną kartą)</div></div>
+              <div class="step"><div class="step-num">2</div><div class="step-text">Pasirinkite formulę: aₙ = a₁ + d(n−1) arba Sₙ = (a₁ + aₙ)/2 · n</div></div>
+              <div class="step"><div class="step-num">3</div><div class="step-text">Įrašykite žinomas reikšmes ir išspręskite</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="theory-row row-pavyzdys">
+          <div class="row-content">
+            <div class="row-label">Pavyzdys — bėgikas</div>
+            <div class="row-text">
+              Bėgikas pirmą minutę nubėga 200 m, kiekvieną kitą minutę — 10 m mažiau. Kokį atstumą įveiks per 10 minučių?<br><br>
+              a₁ = 200, d = −10, n = 10<br>
+              S₁₀ = (2 · 200 + (−10)(10−1)) / 2 · 10<br>
+              S₁₀ = (400 − 90) / 2 · 10 = 310/2 · 10 = <strong>1550 m</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="theory-row row-pavyzdys">
+          <div class="row-content">
+            <div class="row-label">Pavyzdys — trikampio kraštinės</div>
+            <div class="row-text">
+              Trikampio kraštinių ilgiai sudaro aritmetinę progresiją. Perimetras lygus 42. Raskite viduriniąją kraštinę.<br><br>
+              Pažymime kraštines: a, a+d, a+2d<br>
+              Perimetras: 3a + 3d = 3(a+d) = 42<br>
+              a + d = <strong>14</strong><br><br>
+              Vidurinė kraštinė = a + d = <strong>14</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══ 2. GP taikymai ══════════════════════════════ -->
+      <div class="theory-block">
+        <div class="block-title"><div class="block-num">2</div>Geometrinės progresijos taikymai</div>
+
+        <div class="theory-row row-taisykle">
+          <div class="row-content">
+            <div class="row-label">Kada naudojame GP</div>
+            <div class="row-text">
+              Geometrinę progresiją naudojame, kai kiekvienas žingsnis <strong>dauginamas iš to paties skaičiaus</strong>:<br><br>
+              • Palūkanos banke (pinigai dauginami iš (1 + palūkanų norma))<br>
+              • Bakterijų dauginimasis (kiekvieną valandą kiekis dvigubėja)<br>
+              • Radioaktyvus skilimas (kiekis perpus mažėja per tam tikrą laiką)
+            </div>
+          </div>
+        </div>
+
+        <div class="theory-row row-pavyzdys">
+          <div class="row-content">
+            <div class="row-label">Pavyzdys — palūkanos</div>
+            <div class="row-text">
+              Į banką, mokantį 1% sudėtinių metinių palūkanų, Justė padėjo 10 000 €. Kiek pinigų bus po 3 metų?<br><br>
+              b₁ = 10 000, q = 1,01 (1+ 0,01, nes  padidėjo vienu procentu), n = 3<br>
+              b₄ = 10 000 · 1,01³ = 10 000 · 1,030301 ≈ <strong>10 303,01 €</strong>
+            </div>
+          </div>
+        </div>
+
+      <!-- ══ 3. GP pavyzdys be palūkanų ════════════════ -->
+      <div class="theory-block">
+        <div class="block-title"><div class="block-num">3</div>Geometrinės progresijos taikymas — be palūkanų</div>
+
+        <div class="theory-row row-taisykle">
+          <div class="row-content">
+            <div class="row-label">Kada naudojame be palūkanų</div>
+            <div class="row-text">
+              Geometrinę progresiją galima taikyti ne tik finansuose. Bet kada, kai kiekvienas žingsnis <strong>dauginamas iš to paties skaičiaus</strong>:<br><br>
+              • Bakterijų dauginimasis (kas valandą kiekis dvigubėja)<br>
+              • Radioaktyvus skilimas (kas N metų kiekis perpus mažėja)<br>
+              • Popierius lenkiamas per pusę (storis dvigubėja kiekvieną kartą)
+            </div>
+          </div>
+        </div>
+
+        <div class="theory-row row-pavyzdys">
+          <div class="row-content">
+            <div class="row-label">Pavyzdys — bakterijų dauginimasis</div>
+            <div class="row-text">
+              Pradinė bakterijų kolonija — 500. Kas valandą jų kiekis padvigubėja. Kiek bakterijų bus po 6 valandų?<br><br>
+              b₁ = 500, q = 2, n = 7 (pradinė + 6 valandos)<br>
+              b₇ = 500 · 2⁷⁻¹ = 500 · 2⁶ = 500 · 64 = <strong>32 000</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="theory-row row-pavyzdys">
+          <div class="row-content">
+            <div class="row-label">Pavyzdys — radioaktyvus skilimas</div>
+            <div class="row-text">
+              Radioaktyvios medžiagos pradinė masė — 800 g. Kas 10 metų masė perpus sumažėja. Kiek gramų liks po 40 metų?<br><br>
+              b₁ = 800, q = ½, n = 5 (pradinė + 4 skilimo periodai)<br>
+              b₅ = 800 · (½)⁵⁻¹ = 800 · (½)⁴ = 800 · <span style="font-family:var(--mono)">1/16</span> = <strong>50 g</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══ 4. Nykstamoji geometrinė progresija ════════ -->
+      <div class="theory-block">
+        <div class="block-title"><div class="block-num">4</div>Nykstamoji geometrinė progresija</div>
+
+        <div class="theory-row row-zymime">
+          <div class="row-content">
+            <div class="row-label">Pavyzdžiai — kaip atpažinti</div>
+            <div class="row-text">
+              ✅ <strong>Nykstamoji:</strong> 16, 8, 4, 2, 1, ... → q = ½ → |q| &lt; 1<br>
+              ✅ <strong>Nykstamoji:</strong> 9, −3, 1, −⅓, ... → q = −⅓ → |q| &lt; 1<br>
+              ❌ <strong>Ne nykstamoji:</strong> 2, 6, 18, 54, ... → q = 3 → |q| &gt; 1<br>
+              ❌ <strong>Ne nykstamoji:</strong> 1, −2, 4, −8, ... → q = −2 → |q| &gt; 1
+            </div>
+          </div>
+        </div>
+
+        <div class="theory-row row-svarbu">
+          <div class="row-content">
+            <div class="row-label">Svarbu</div>
+            <div class="row-text">
+              Tik nykstamosios geometrinės progresijos begalinė suma yra <strong>baigtinis skaičius</strong>:<br><br>
+              <strong>S = b₁ / (1 − q)</strong>, kai |q| &lt; 1<br><br>
+              Jei |q| ≥ 1 — begalinė suma <strong>neegzistuoja</strong> (nariai neartėja prie nulio).
+            </div>
+          </div>
+        </div>
+
+        <div class="theory-row row-pavyzdys">
+          <div class="row-content">
+            <div class="row-label">Pavyzdys — begalinė suma</div>
+            <div class="row-text">
+              Seka: 12, 4, 4/3, 4/9, ... Raskite begalinę sumą.<br><br>
+              b₁ = 12, q = 4/12 = <strong>1/3</strong> → |q| &lt; 1, todėl suma egzistuoja<br><br>
+              S = 12 / (1 − 1/3) = 12 / (2/3) = 12 · 3/2 = <strong>18</strong>
+            </div>
+          </div>
+        </div>
+
+      <div class="topic-nav">
+        <a class="btn ghost" href="../t2-geometrine/teorija.html">← T2. Geometrinė progresija</a>
+        <a class="btn primary" href="../../skyriaus-testai/index.html">Skyriaus testai →</a>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="../../../../js/main.js"></script>
+</body>
+</html>

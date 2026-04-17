@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>T2. sin, cos, tg apibrėžtys — Matematika 11</title>
+  <link rel="stylesheet" href="../../../../../styles/main.css"/>
+  <style>
+    .row-apibreztis { background: #f1f0ee; border-left: 3px solid #9a9a92; }
+    .row-apibreztis .row-label { color: #5a5a54; background: #e4e2d8; border-color: #c8c6bc; }
+    .row-formule { background: #eff4ff; border-left: 3px solid #1d4ed8; }
+    .row-formule .row-label { color: #1d4ed8; background: #dbeafe; border-color: #bfdbfe; }
+    .row-zymime { background: #fffbeb; border-left: 3px solid #b45309; }
+    .row-zymime .row-label { color: #b45309; background: #fef3c7; border-color: #fde68a; }
+    .row-svarbu { background: #fef2f2; border-left: 3px solid #b91c1c; }
+    .row-svarbu .row-label { color: #b91c1c; background: #fecaca; border-color: #fca5a5; }
+    .row-taisykle { background: #f5f3ff; border-left: 3px solid #6d28d9; }
+    .row-taisykle .row-label { color: #6d28d9; background: #ede9fe; border-color: #c4b5fd; }
+    .row-pavyzdys { background: #f0fdf4; border-left: 3px solid #15803d; }
+    .row-pavyzdys .row-label { color: #15803d; background: #dcfce7; border-color: #bbf7d0; }
+    .theory-row { display: grid; grid-template-columns: 1fr; border-radius: var(--radius); margin-bottom: 8px; overflow: hidden; }
+    .theory-row.has-graph { grid-template-columns: 1fr auto; align-items: stretch; }
+    .row-content { padding: 13px 16px; }
+    .row-label { display: inline-block; font-size: 10px; font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase; padding: 2px 8px; border-radius: 4px; border: 1px solid; margin-bottom: 7px; }
+    .row-text { font-size: 13.5px; color: var(--ink2); line-height: 1.7; }
+    .row-text strong { color: var(--ink); font-weight: 500; }
+    .inline-formula { font-family: var(--mono); font-size: 15px; color: var(--accent); display: block; text-align: center; padding: 6px 0 2px; letter-spacing: 0.02em; }
+    .row-graph { width: 220px; border-left: 1px solid rgba(0,0,0,0.06); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 10px 12px; gap: 6px; flex-shrink: 0; }
+    .row-graph svg { width: 100%; height: auto; }
+    .row-graph.w280 { width: 280px; }
+    .row-graph.w300 { width: 300px; }
+    .graph-caption { font-size: 10px; color: var(--ink3); text-align: center; font-style: italic; line-height: 1.4; }
+    .big-formula { font-size: 18px; font-weight: 700; color: #1d4ed8; display: block; text-align: center; padding: 12px 0; letter-spacing: 0.02em; }
+    @media (max-width: 640px) { .theory-row.has-graph { grid-template-columns: 1fr; } .row-graph, .row-graph.w280, .row-graph.w300 { width: 100%; border-left: none; border-top: 1px solid rgba(0,0,0,0.06); } }
+  </style>
+</head>
+<body>
+<div class="layout">
+  <nav class="sidebar" id="sidebar"></nav>
+  <div class="main">
+    <div class="topbar">
+      <div class="breadcrumb">
+        <a href="../../../../../index.html">Matematika 11</a>
+        <span class="sep">›</span><span>Trigonometrija</span>
+        <span class="sep">›</span><span class="current">T2. sin, cos, tg apibrėžtys</span>
+      </div>
+      <div class="tab-switcher">
+        <button class="tab-btn active">Teorija</button>
+      </div>
+    </div>
+    <div class="page">
+      <div class="topic-header">
+        <div class="topic-tag">9 skyrius · Tema 2</div>
+        <h1 class="topic-title">sin, cos, tg apibrėžtys</h1>
+        <p class="topic-intro">Vienetinis apskritimas — pagrindinis įrankis. cos = x koordinatė, sin = y koordinatė. Viskas kyla iš šios paprastos taisyklės.</p>
+      </div>
+
+      <!-- SKYRELIS 1 — Vienetinis apskritimas -->
+      <div class="theory-block">
+        <div class="block-title"><div class="block-num">1</div>Vienetinis apskritimas</div>
+
+        <div class="theory-row row-apibreztis has-graph">
+          <div class="row-content">
+            <div class="row-label">Apibrėžimas</div>
+            <div class="row-text">
+              <strong>Vienetinis apskritimas</strong> — apskritimas, kurio centras koordinačių pradžioje O(0; 0), o spindulys R = 1.<br><br>
+              Kiekvienam posūkio kampui <strong>α</strong> atitinka taškas <strong>A(xₐ; yₐ)</strong> ant vienetinio apskritimo — tai taškas, į kurį patenka spindulys OA, pasuktas kampu α.
+            </div>
+          </div>
+          <div class="row-graph w280">
+            <svg viewBox="0 0 260 240" xmlns="http://www.w3.org/2000/svg">
+              <defs><marker id="a1" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="4" markerHeight="4" orient="auto"><path d="M1,1 L7,4 L1,7" fill="none" stroke="#666" stroke-width="1.5"/></marker></defs>
+              <!-- Ašys -->
+              <line x1="15" y1="120" x2="245" y2="120" stroke="#666" stroke-width="1.3" marker-end="url(#a1)"/>
+              <line x1="130" y1="235" x2="130" y2="8" stroke="#666" stroke-width="1.3" marker-end="url(#a1)"/>
+              <text x="247" y="123" font-size="10" fill="#666">x</text>
+              <text x="124" y="7" font-size="10" fill="#666">y</text>
+              <!-- Vienetinis apskritimas -->
+              <circle cx="130" cy="120" r="100" fill="none" stroke="#cbd5e1" stroke-width="1.5"/>
+              <!-- Taškas A ant apskritimo (kampas ~50°) -->
+              <line x1="130" y1="120" x2="194" y2="43" stroke="#374151" stroke-width="2"/>
+              <circle cx="194" cy="43" r="5" fill="#1d4ed8"/>
+              <text x="200" y="38" font-size="11" fill="#1d4ed8" font-weight="bold">A(xₐ; yₐ)</text>
+              <!-- Kampo žymėjimas -->
+              <path d="M180,120 A50,50 0 0,0 162,70" fill="none" stroke="#b91c1c" stroke-width="1.5"/>
+              <text x="188" y="95" font-size="11" fill="#b91c1c" font-weight="bold">α</text>
+              <!-- Koordinatės punktyrinės -->
+              <line x1="194" y1="43" x2="194" y2="120" stroke="#15803d" stroke-width="1.5" stroke-dasharray="5,3"/>
+              <line x1="130" y1="43" x2="194" y2="43" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="5,3"/>
+              <!-- Koordinačių žymos -->
+              <line x1="194" y1="118" x2="194" y2="122" stroke="#15803d" stroke-width="1.5"/>
+              <text x="194" y="133" font-size="10" fill="#15803d" font-weight="bold" text-anchor="middle">xₐ</text>
+              <line x1="128" y1="43" x2="132" y2="43" stroke="#dc2626" stroke-width="1.5"/>
+              <text x="118" y="47" font-size="10" fill="#dc2626" font-weight="bold" text-anchor="end">yₐ</text>
+              <!-- Ašių žymos -->
+              <text x="228" y="117" font-size="9" fill="#888">1</text>
+              <text x="32" y="117" font-size="9" fill="#888">−1</text>
+              <text x="133" y="23" font-size="9" fill="#888">1</text>
+              <text x="133" y="220" font-size="9" fill="#888">−1</text>
+              <text x="122" y="133" font-size="9" fill="#888">0</text>
+            </svg>
+            <div class="graph-caption">Taškas A(xₐ; yₐ) ant vienetinio apskritimo</div>
+          </div>
+        </div>
+
+        <!-- SVARBIAUSIA TAISYKLĖ -->
+        <div class="theory-row row-svarbu has-graph">
+          <div class="row-content">
+            <div class="row-label">Svarbiausia taisyklė</div>
+            <div class="row-text">
+              Taškas A(xₐ; yₐ) atitinka posūkio kampą α. Tada:<br><br>
+              <span class="big-formula">cos α = xₐ</span>
+              <span class="big-formula">sin α = yₐ</span>
+              <br>
+              <strong>cos — tai x koordinatė</strong> taško ant vienetinio apskritimo.<br>
+              <strong>sin — tai y koordinatė</strong> taško ant vienetinio apskritimo.<br><br>
+              Viskas kyla iš šios paprastos taisyklės — nereikia nieko daugiau įsiminti!
+            </div>
+          </div>
+          <div class="row-graph w280">
+            <svg viewBox="0 0 260 240" xmlns="http://www.w3.org/2000/svg">
+              <defs><marker id="a2" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="4" markerHeight="4" orient="auto"><path d="M1,1 L7,4 L1,7" fill="none" stroke="#666" stroke-width="1.5"/></marker></defs>
+              <line x1="15" y1="120" x2="245" y2="120" stroke="#666" stroke-width="1.3" marker-end="url(#a2)"/>
+              <line x1="130" y1="235" x2="130" y2="8" stroke="#666" stroke-width="1.3" marker-end="url(#a2)"/>
+              <text x="247" y="123" font-size="10" fill="#666">x</text>
+              <text x="124" y="7" font-size="10" fill="#666">y</text>
+              <circle cx="130" cy="120" r="100" fill="none" stroke="#cbd5e1" stroke-width="1.5"/>
+              <!-- Taškas A (kampas ~50°) -->
+              <line x1="130" y1="120" x2="194" y2="43" stroke="#374151" stroke-width="2"/>
+              <circle cx="194" cy="43" r="5" fill="#374151"/>
+              <text x="200" y="38" font-size="10" fill="#374151" font-weight="bold">A</text>
+              <!-- cos = x koordinatė (horizontali) -->
+              <line x1="130" y1="43" x2="194" y2="43" stroke="#1d4ed8" stroke-width="3" stroke-dasharray="6,3"/>
+              <line x1="194" y1="43" x2="194" y2="120" stroke="#15803d" stroke-width="3" stroke-dasharray="6,3"/>
+              <!-- cos žymėjimas ant x ašies -->
+              <line x1="194" y1="116" x2="194" y2="124" stroke="#1d4ed8" stroke-width="2"/>
+              <rect x="160" y="125" width="68" height="18" rx="4" fill="#dbeafe"/>
+              <text x="194" y="138" font-size="11" fill="#1d4ed8" font-weight="bold" text-anchor="middle">cos α = xₐ</text>
+              <!-- sin žymėjimas ant y ašies -->
+              <line x1="126" y1="43" x2="134" y2="43" stroke="#15803d" stroke-width="2"/>
+              <rect x="24" y="34" width="68" height="18" rx="4" fill="#dcfce7"/>
+              <text x="58" y="47" font-size="11" fill="#15803d" font-weight="bold" text-anchor="middle">sin α = yₐ</text>
+              <!-- Rodyklės -->
+              <line x1="92" y1="43" x2="126" y2="43" stroke="#15803d" stroke-width="1" stroke-dasharray="3,2"/>
+              <text x="122" y="133" font-size="9" fill="#888">0</text>
+            </svg>
+            <div class="graph-caption">cos α = x koordinatė · sin α = y koordinatė</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SKYRELIS 2 — tg apibrėžtis -->
+      <div class="theory-block">
+        <div class="block-title"><div class="block-num">2</div>Tangento apibrėžtis</div>
+
+        <div class="theory-row row-formule">
+          <div class="row-content">
+            <div class="row-label">Formulė</div>
+            <div class="row-text">
+              <span class="inline-formula">tg α = sin α / cos α &nbsp;&nbsp; (kai cos α ≠ 0)</span>
+              <span class="inline-formula">ctg α = cos α / sin α &nbsp;&nbsp; (kai sin α ≠ 0)</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="theory-row row-svarbu">
+          <div class="row-content">
+            <div class="row-label">Svarbu</div>
+            <div class="row-text">
+              <strong>tg α</strong> neegzistuoja, kai cos α = 0 (dalyba iš nulio negalima), t. y. kai α = π/2 + πk (tema apie cos x), k ∈ ℤ (90°, 270°, ...)<br>
+              <strong>tg 0° = 0</strong>, nes sin 0° = 0, cos 0° = 1<br>
+              <strong>tg 90°</strong> — neegzistuoja, nes cos 90° = 0
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SKYRELIS 3 — Ženklai ketvirčiuose -->
+      <div class="theory-block">
+        <div class="block-title"><div class="block-num">3</div>Ženklai kiekviename ketvirtyje</div>
+
+        <div class="theory-row row-taisykle has-graph">
+          <div class="row-content">
+            <div class="row-label">Taisyklė — iš koordinačių logikos</div>
+            <div class="row-text">
+              Viename ketvirtyje x ir y koordinatės turi pastovius ženklus.<br>
+              Kadangi <strong>cos = x</strong> ir <strong>sin = y</strong>, ženklai tiesiai iš koordinačių:<br><br>
+              <strong>I ketvirtis:</strong> x > 0, y > 0 → cos +, sin +, tg +<br>
+              <strong>II ketvirtis:</strong> x < 0, y > 0 → cos −, sin +, tg −<br>
+              <strong>III ketvirtis:</strong> x < 0, y < 0 → cos −, sin −, tg +<br>
+              <strong>IV ketvirtis:</strong> x > 0, y < 0 → cos +, sin −, tg −
+            </div>
+          </div>
+          <div class="row-graph w280">
+            <svg viewBox="0 0 260 240" xmlns="http://www.w3.org/2000/svg">
+              <!-- Ketvirčiai spalvoti -->
+              <rect x="130" y="10" width="120" height="110" fill="#dbeafe" opacity="0.5" rx="4"/>
+              <rect x="10" y="10" width="120" height="110" fill="#dcfce7" opacity="0.5" rx="4"/>
+              <rect x="10" y="120" width="120" height="110" fill="#fef3c7" opacity="0.5" rx="4"/>
+              <rect x="130" y="120" width="120" height="110" fill="#fce7f3" opacity="0.5" rx="4"/>
+              <!-- Ašys -->
+              <line x1="10" y1="120" x2="248" y2="120" stroke="#666" stroke-width="1.3"/>
+              <line x1="130" y1="230" x2="130" y2="10" stroke="#666" stroke-width="1.3"/>
+              <text x="250" y="123" font-size="10" fill="#666">x</text>
+              <text x="124" y="9" font-size="10" fill="#666">y</text>
+              <!-- I ketvirtis -->
+              <text x="190" y="45" font-size="11" fill="#1d4ed8" font-weight="bold" text-anchor="middle">I</text>
+              <text x="190" y="60" font-size="10" fill="#1d4ed8" text-anchor="middle">sin +</text>
+              <text x="190" y="74" font-size="10" fill="#1d4ed8" text-anchor="middle">cos +</text>
+              <text x="190" y="88" font-size="10" fill="#1d4ed8" text-anchor="middle">tg +</text>
+              <!-- II ketvirtis -->
+              <text x="70" y="45" font-size="11" fill="#15803d" font-weight="bold" text-anchor="middle">II</text>
+              <text x="70" y="60" font-size="10" fill="#15803d" text-anchor="middle">sin +</text>
+              <text x="70" y="74" font-size="10" fill="#15803d" text-anchor="middle">cos −</text>
+              <text x="70" y="88" font-size="10" fill="#15803d" text-anchor="middle">tg −</text>
+              <!-- III ketvirtis -->
+              <text x="70" y="152" font-size="11" fill="#b45309" font-weight="bold" text-anchor="middle">III</text>
+              <text x="70" y="167" font-size="10" fill="#b45309" text-anchor="middle">sin −</text>
+              <text x="70" y="181" font-size="10" fill="#b45309" text-anchor="middle">cos −</text>
+              <text x="70" y="195" font-size="10" fill="#b45309" text-anchor="middle">tg +</text>
+              <!-- IV ketvirtis -->
+              <text x="190" y="152" font-size="11" fill="#9d174d" font-weight="bold" text-anchor="middle">IV</text>
+              <text x="190" y="167" font-size="10" fill="#9d174d" text-anchor="middle">sin −</text>
+              <text x="190" y="181" font-size="10" fill="#9d174d" text-anchor="middle">cos +</text>
+              <text x="190" y="195" font-size="10" fill="#9d174d" text-anchor="middle">tg −</text>
+              <!-- Ašių žymos -->
+              <text x="238" y="117" font-size="9" fill="#888">1</text>
+              <text x="18" y="117" font-size="9" fill="#888">−1</text>
+              <text x="133" y="22" font-size="9" fill="#888">1</text>
+              <text x="133" y="228" font-size="9" fill="#888">−1</text>
+            </svg>
+            <div class="graph-caption">Ženklai — tiesiai iš x, y koordinačių</div>
+          </div>
+        </div>
+
+        <div class="theory-row row-pavyzdys">
+          <div class="row-content">
+            <div class="row-label">Pavyzdys — reikšmės iš apskritimo</div>
+            <div class="row-text">
+              <strong>0° kampas:</strong> taškas A(1; 0) → cos 0° = 1, sin 0° = 0, tg 0° = 0<br>
+              <strong>90° kampas:</strong> taškas A(0; 1) → cos 90° = 0, sin 90° = 1, tg 90° — neegzistuoja<br>
+              <strong>180° kampas:</strong> taškas A(−1; 0) → cos 180° = −1, sin 180° = 0, tg 180° = 0<br>
+              <strong>270° kampas:</strong> taškas A(0; −1) → cos 270° = 0, sin 270° = −1, tg 270° — neegzistuoja<br><br>
+              <strong>210° kampas</strong> (III ketvirtis):<br>
+              Taškas M(−√3/2; −1/2) → cos 210° = −√3/2, sin 210° = −1/2<br>
+              tg 210° = (−1/2)/(−√3/2) = 1/√3 = √3/3
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SKYRELIS 4 — Pagrindinė tapatybė -->
+      <div class="theory-block">
+        <div class="block-title"><div class="block-num">4</div>Pagrindinė trigonometrinė tapatybė</div>
+
+        <div class="theory-row row-formule has-graph">
+          <div class="row-content">
+            <div class="row-label">Formulė</div>
+            <div class="row-text">
+              Kadangi taškas A(cos α; sin α) yra ant vienetinio apskritimo (R = 1), tai pagal Pitagoro teoremą:<br><br>
+              <span class="big-formula">sin²α + cos²α = 1</span>
+              Ši tapatybė galioja <strong>visiems</strong> kampams α.
+            </div>
+          </div>
+          <div class="row-graph w280">
+            <svg viewBox="0 0 260 220" xmlns="http://www.w3.org/2000/svg">
+              <defs><marker id="a3" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="4" markerHeight="4" orient="auto"><path d="M1,1 L7,4 L1,7" fill="none" stroke="#666" stroke-width="1.5"/></marker></defs>
+              <line x1="15" y1="120" x2="245" y2="120" stroke="#666" stroke-width="1.2" marker-end="url(#a3)"/>
+              <line x1="130" y1="215" x2="130" y2="10" stroke="#666" stroke-width="1.2" marker-end="url(#a3)"/>
+              <circle cx="130" cy="120" r="90" fill="none" stroke="#cbd5e1" stroke-width="1.5"/>
+              <!-- Trikampis -->
+              <line x1="130" y1="120" x2="193" y2="47" stroke="#374151" stroke-width="2"/>
+              <!-- Hipotenuzė = R = 1 -->
+              <text x="148" y="95" font-size="10" fill="#374151">R=1</text>
+              <!-- cos = x -->
+              <line x1="130" y1="47" x2="193" y2="47" stroke="#1d4ed8" stroke-width="2.5"/>
+              <text x="161" y="40" font-size="10" fill="#1d4ed8" font-weight="bold" text-anchor="middle">cos α</text>
+              <!-- sin = y -->
+              <line x1="193" y1="47" x2="193" y2="120" stroke="#15803d" stroke-width="2.5"/>
+              <text x="215" y="87" font-size="10" fill="#15803d" font-weight="bold" text-anchor="middle">sin α</text>
+              <!-- Stačiasis kampas -->
+              <rect x="183" y="110" width="10" height="10" fill="none" stroke="#374151" stroke-width="1"/>
+              <!-- Tapatybė -->
+              <rect x="20" y="170" width="220" height="30" rx="6" fill="#eff4ff" stroke="#bfdbfe" stroke-width="1"/>
+              <text x="130" y="190" font-size="13" fill="#1d4ed8" font-weight="bold" text-anchor="middle">sin²α + cos²α = 1</text>
+              <circle cx="193" cy="47" r="4" fill="#374151"/>
+              <text x="200" y="44" font-size="9" fill="#374151">A(cos α; sin α)</text>
+            </svg>
+            <div class="graph-caption">Pitagoro teorema vienetiniame apskritime</div>
+          </div>
+        </div>
+
+        <div class="theory-row row-taisykle">
+          <div class="row-content">
+            <div class="row-label">Iš tapatybės išplaukia</div>
+            <div class="row-text">
+              sin²α = 1 − cos²α &nbsp;&nbsp;→&nbsp;&nbsp; |sin α| = √(1 − cos²α)<br>
+              cos²α = 1 − sin²α &nbsp;&nbsp;→&nbsp;&nbsp; |cos α| = √(1 − sin²α)<br><br>
+              Ženklas priklauso nuo ketvirčio (cos arba sin gali būti + arba −).
+            </div>
+          </div>
+        </div>
+
+        <div class="theory-row row-pavyzdys">
+          <div class="row-content">
+            <div class="row-label">Pavyzdys</div>
+            <div class="row-text">
+              <strong>Žinome: sin α = 3/5, α ∈ I ketvirtis. Raskite cos α.</strong><br>
+              cos²α = 1 − sin²α = 1 − 9/25 = 16/25<br>
+              I ketvirtyje cos > 0, todėl cos α = <strong>4/5</strong><br><br>
+              <strong>Žinome: cos α = −√3/2. Raskite sin²α.</strong><br>
+              sin²α = 1 − cos²α = 1 − 3/4 = <strong>1/4</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- NAV -->
+      <div class="topic-nav">
+        <a class="btn ghost" href="../t1-radianai/teorija.html">← T1. Radianinis matas</a>
+        <a class="btn primary" href="../t3-sinx/teorija.html">T3. Funkcija sin x →</a>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="../../../../../js/main.js"></script>
+</body>
+</html>

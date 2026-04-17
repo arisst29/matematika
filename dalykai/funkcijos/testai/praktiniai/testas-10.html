@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Praktinis testas 10 — Funkcijos</title>
+  <link rel="stylesheet" href="../../../../styles/main.css"/>
+  <style>
+    .test-header{margin-bottom:28px}.test-header h1{font-size:24px;font-weight:600;color:var(--ink);margin-bottom:6px}.test-meta{display:flex;gap:16px;margin-top:10px;flex-wrap:wrap}.test-meta-item{font-size:12px;color:var(--ink3)}.progress-bar{height:4px;background:var(--border);border-radius:2px;margin-bottom:28px;overflow:hidden}.progress-fill{height:100%;background:var(--green);border-radius:2px;transition:width .3s}.question-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px;margin-bottom:16px}.question-num{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3);margin-bottom:8px}.question-text{font-size:15px;color:var(--ink);line-height:1.65;margin-bottom:16px;font-weight:500}.options{display:flex;flex-direction:column;gap:8px}.option{display:flex;align-items:center;gap:12px;padding:11px 14px;border:1px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all .12s;background:var(--bg);user-select:none}.option:hover{border-color:var(--accent);background:var(--accent-bg)}.option.selected{border-color:var(--accent);background:var(--accent-bg)}.option.correct{border-color:var(--green);background:var(--green-bg)}.option.wrong{border-color:var(--red);background:var(--red-bg)}.option.show-correct{border-color:var(--green);background:var(--green-bg)}.option-letter{width:28px;height:28px;border-radius:50%;background:var(--border);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;color:var(--ink2);flex-shrink:0}.option.selected .option-letter{background:var(--accent);color:#fff}.option.correct .option-letter{background:var(--green);color:#fff}.option.wrong .option-letter{background:var(--red);color:#fff}.option.show-correct .option-letter{background:var(--green);color:#fff}.option-text{font-size:14px;color:var(--ink2);line-height:1.5;font-family:var(--mono)}.option.selected .option-text{color:var(--accent)}.option.correct .option-text{color:var(--green)}.option.wrong .option-text{color:var(--red)}.option.show-correct .option-text{color:var(--green)}.submit-area{margin-top:28px;display:flex;align-items:center;gap:14px;padding-top:20px;border-top:1px solid var(--border)}.submit-btn{padding:11px 28px;background:var(--green);color:#fff;border:none;border-radius:var(--radius);font-size:14px;font-weight:600;font-family:var(--sans);cursor:pointer}.submit-btn:hover{background:#166534}.submit-btn:disabled{background:var(--ink3);cursor:not-allowed}.answered-count{font-size:13px;color:var(--ink3)}.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:200;align-items:center;justify-content:center}.modal-overlay.open{display:flex}.modal{background:var(--bg2);border-radius:var(--radius-lg);padding:36px 40px;max-width:480px;width:90%;text-align:center;box-shadow:0 8px 32px rgba(0,0,0,.18)}.modal-score{font-size:64px;font-weight:700;line-height:1;margin-bottom:6px}.modal-score.excellent{color:var(--green)}.modal-score.good{color:var(--accent)}.modal-score.poor{color:var(--red)}.modal-label{font-size:14px;color:var(--ink3);margin-bottom:20px}.modal-stats{display:flex;justify-content:center;gap:28px;margin-bottom:24px;padding:16px;background:var(--bg3);border-radius:var(--radius)}.modal-stat-val{font-size:22px;font-weight:600;color:var(--ink)}.modal-stat-key{font-size:11px;color:var(--ink3);margin-top:2px}.modal-btns{display:flex;gap:10px;justify-content:center}.modal-feedback{font-size:18px;font-weight:600;color:var(--ink);margin-bottom:6px}
+  </style>
+</head>
+<body>
+<div class="layout">
+  <nav class="sidebar" id="sidebar"></nav>
+  <div class="main">
+    <div class="topbar">
+      <div class="breadcrumb">
+        <a href="../../../../index.html">Matematika 11</a><span class="sep">›</span>
+        <span>Funkcijos</span><span class="sep">›</span>
+        <span class="current">Praktinis testas 10</span>
+      </div>
+      <div class="tab-switcher">
+        <a href="../../temos/t4-transformacijos/teorija.html" class="tab-btn" style="text-decoration:none">Teorija</a>
+        <button class="tab-btn active">Testai</button>
+      </div>
+    </div>
+    <div class="page">
+      <div class="test-header">
+        <div class="topic-tag" style="background:var(--green-bg);color:var(--green);border-color:var(--green-lt)">5 skyrius · Praktinis testas 10</div>
+        <h1>Funkcijų praktika — 10 testas</h1>
+        <div class="test-meta">
+          <div class="test-meta-item">📝 10 uždavinių</div>
+          <div class="test-meta-item">📚 T4 · T5 · T6</div>
+          <div class="test-meta-item">✅ Atsakymas matomas po pateikimo</div>
+        </div>
+      </div>
+      <div class="progress-bar"><div class="progress-fill" id="progress" style="width:0%"></div></div>
+      <div id="questions"></div>
+      <div class="submit-area">
+        <button class="submit-btn" id="submit-btn" onclick="submitTest()">Pateikti testą</button>
+        <span class="answered-count" id="answered-count">Atsakyta: 0 / 10</span>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal-overlay" id="modal">
+  <div class="modal">
+    <div class="modal-score" id="modal-score"></div>
+    <div class="modal-feedback" id="modal-feedback"></div>
+    <div class="modal-label">Testo rezultatas</div>
+    <div class="modal-stats">
+      <div><div class="modal-stat-val" id="stat-correct"></div><div class="modal-stat-key">Teisingi</div></div>
+      <div><div class="modal-stat-val" id="stat-wrong"></div><div class="modal-stat-key">Neteisingi</div></div>
+      <div><div class="modal-stat-val" id="stat-pct"></div><div class="modal-stat-key">Rezultatas</div></div>
+    </div>
+    <div class="modal-btns">
+      <button class="btn" onclick="closeModal()">Peržiūrėti atsakymus</button>
+      <a href="../../skyriaus-testai/index.html" class="btn primary" style="text-decoration:none">Skyriaus testai →</a>
+    </div>
+  </div>
+</div>
+<script src="../../../../js/main.js"></script>
+<script>
+const QUESTIONS = [
+  { "text": "Funkcija f(x) = −2x⁴ + 5. Nustatykite jos lyginumą.", "options": ["Nelyginė","Nei lyginė nei nelyginė","Lyginė, nes f(−x) = f(x)","Lyginė, nes laipsniai lyginiai"], "correct": 2 },
+  { "text": "Duota D(f) = [−3; 7], E(f) = [−5; 4]. Raskite y = −f(x) + 1 reikšmių sritį.", "options": ["[−4; 6]","[−5; 4]","[−3; 5]","[−4; 5]"], "correct": 0 },
+  { "text": "Raskite funkcijos f(x) = (2x − 6)/(x + 1) apibrėžimo sritį.", "options": ["ℝ","(−∞; −1) ∪ (−1; +∞)","(−∞; 3) ∪ (3; +∞)","[−1; +∞)"], "correct": 1 },
+  { "text": "Kvadratinės f(x) = 3x² + 12x − 15 nuliai yra:", "options": ["x = 1 ir x = −5","x = −1 ir x = 5","x = 3 ir x = −5","x = 1 ir x = 5"], "correct": 0 },
+  { "text": "Funkcija f(x) = −(x − 3)² + 4, kai x ∈ [1; 5]. Raskite mažiausią reikšmę.", "options": ["f(3) = 4","f(1) = 0","f(5) = 0","f(1) = f(5) = 0"], "correct": 3 },
+  { "text": "Parabolės viršūnė V(2; 5) ir a = −1. Užrašykite funkcijos formulę.", "options": ["f(x) = −(x+2)² + 5","f(x) = (x−2)² + 5","f(x) = −(x−2)² + 5","f(x) = −(x−2)² − 5"], "correct": 2 },
+  { "text": "Raskite funkcijos f(x) = 6/(x − 2) + 3 reikšmių sritį.", "options": ["(−∞; 3) ∪ (3; +∞)","ℝ","(0; +∞)","(−∞; 0) ∪ (0; +∞)"], "correct": 0 },
+  { "text": "Funkcija f(x) = x¹⁰ ir g(x) = x¹¹. Kurie x atveju f(x) > g(x)?", "options": ["Kai x > 1","Kai 0 < x < 1","Kai x < 0","Kai x > 0"], "correct": 1 },
+  { "text": "Raskite funkcijos f(x) = √(4x − 8) apibrėžimo ir reikšmių sritis.", "options": ["D=[2;+∞), E=[0;+∞)","D=[0;+∞), E=[2;+∞)","D=(2;+∞), E=(0;+∞)","D=[−2;+∞), E=[0;+∞)"], "correct": 0 },
+  { "text": "Funkcija f(x) = x³ − 27. Ar f(3) = 0?", "options": ["Ne, f(3) = 27","Taip, f(3) = 0","Ne, f(3) = 54","Taip, bet tai ne nulis"], "correct": 1 }
+];
+const answers = new Array(QUESTIONS.length).fill(null);
+let submitted = false;
+function renderQuestions() {
+  document.getElementById('questions').innerHTML = QUESTIONS.map((q,qi) => `
+    <div class="question-card"><div class="question-num">Uždavinys ${qi+1} iš ${QUESTIONS.length}</div>
+    <div class="question-text">${q.text}</div>
+    <div class="options">${q.options.map((o,oi) => `
+      <div class="option" id="opt-${qi}-${oi}" onclick="selectOption(${qi},${oi})">
+        <div class="option-letter">${['A','B','C','D'][oi]}</div>
+        <div class="option-text">${o}</div>
+      </div>`).join('')}</div></div>`).join('');
+}
+function selectOption(qi,oi) {
+  if(submitted) return;
+  answers[qi]=oi;
+  QUESTIONS[qi].options.forEach((_,i) => document.getElementById(`opt-${qi}-${i}`).classList.remove('selected'));
+  document.getElementById(`opt-${qi}-${oi}`).classList.add('selected');
+  const a=answers.filter(x=>x!==null).length;
+  document.getElementById('progress').style.width=`${a/QUESTIONS.length*100}%`;
+  document.getElementById('answered-count').textContent=`Atsakyta: ${a} / ${QUESTIONS.length}`;
+}
+function submitTest() {
+  const a=answers.filter(x=>x!==null).length;
+  if(a<QUESTIONS.length && !confirm(`Dar neatsakyta ${QUESTIONS.length-a} klausimai. Pateikti?`)) return;
+  submitted=true; document.getElementById('submit-btn').disabled=true;
+  let correct=0;
+  QUESTIONS.forEach((q,qi) => {
+    const sel=answers[qi]; if(sel===q.correct) correct++;
+    q.options.forEach((_,oi) => {
+      const el=document.getElementById(`opt-${qi}-${oi}`); el.classList.remove('selected');
+      if(oi===q.correct) el.classList.add(sel===q.correct&&oi===sel?'correct':'show-correct');
+      if(oi===sel&&sel!==q.correct) el.classList.add('wrong');
+    });
+  });
+  const pct=Math.round(correct/QUESTIONS.length*100);
+  document.getElementById('modal-score').textContent=`${pct}%`;
+  document.getElementById('modal-score').className='modal-score '+(pct>=80?'excellent':pct>=50?'good':'poor');
+  document.getElementById('modal-feedback').textContent=pct>=90?'Puikiai! 🎉':pct>=70?'Gerai! 👍':pct>=50?'Neblogai, dar pasikartok':'Reikia pasimokyti 📖';
+  document.getElementById('stat-correct').textContent=correct;
+  document.getElementById('stat-wrong').textContent=QUESTIONS.length-correct;
+  document.getElementById('stat-pct').textContent=`${correct}/${QUESTIONS.length}`;
+  document.getElementById('modal').classList.add('open');
+}
+function closeModal() { document.getElementById('modal').classList.remove('open'); }
+renderQuestions();
+</script>
+</body>
+</html>

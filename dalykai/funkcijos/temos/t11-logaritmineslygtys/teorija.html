@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>T11. Logaritminės lygtys — Matematika 11</title>
+  <link rel="stylesheet" href="../../../../styles/main.css"/>
+  <style>
+    .row-apibreztis{background:#f1f0ee;border-left:3px solid #9a9a92}.row-apibreztis .row-label{color:#5a5a54;background:#e4e2d8;border-color:#c8c6bc}
+    .row-formule{background:#eff4ff;border-left:3px solid #1d4ed8}.row-formule .row-label{color:#1d4ed8;background:#dbeafe;border-color:#bfdbfe}
+    .row-taisykle{background:#f5f3ff;border-left:3px solid #6d28d9}.row-taisykle .row-label{color:#6d28d9;background:#ede9fe;border-color:#c4b5fd}
+    .row-svarbu{background:#fef2f2;border-left:3px solid #b91c1c}.row-svarbu .row-label{color:#b91c1c;background:#fecaca;border-color:#fca5a5}
+    .row-pavyzdys{background:#f0fdf4;border-left:3px solid #15803d}.row-pavyzdys .row-label{color:#15803d;background:#dcfce7;border-color:#bbf7d0}
+    .theory-row{display:grid;grid-template-columns:1fr;border-radius:var(--radius);margin-bottom:8px;overflow:hidden}
+    .row-content{padding:13px 16px}
+    .row-label{display:inline-block;font-size:10px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;padding:2px 8px;border-radius:4px;border:1px solid;margin-bottom:7px}
+    .row-text{font-size:13.5px;color:var(--ink2);line-height:1.7}
+    .row-text strong{color:var(--ink);font-weight:500}
+    .inline-formula{font-family:var(--mono);font-size:15px;color:var(--accent);display:block;text-align:center;padding:6px 0 2px}
+    .steps{margin-top:4px}
+    .step{display:flex;gap:12px;margin-bottom:8px}
+    .step-num{width:24px;height:24px;border-radius:50%;background:var(--accent);color:#fff;font-size:12px;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+    .step-text{font-size:13.5px;color:var(--ink2);line-height:1.6}
+  </style>
+</head>
+<body>
+<div class="layout">
+  <nav class="sidebar" id="sidebar"></nav>
+  <div class="main">
+    <div class="topbar">
+      <div class="breadcrumb">
+        <a href="../../../../index.html">Matematika 11</a>
+        <span class="sep">›</span><span>Funkcijos</span>
+        <span class="sep">›</span><span class="current">T11. Logaritminės lygtys</span>
+      </div>
+      <div class="tab-switcher">
+        <button class="tab-btn active">Teorija</button>
+        <a href="../t12-logaritminesnelygybes/teorija.html" class="tab-btn" style="text-decoration:none">T12 →</a>
+      </div>
+    </div>
+    <div class="page">
+      <div class="topic-header">
+        <div class="topic-tag">5 skyrius · Tema 11</div>
+        <h1 class="topic-title">Logaritminės lygtys</h1>
+        <p class="topic-intro">Lygtys su logaritmais — sprendimo būdai ir metodai.</p>
+      </div>
+
+      <!-- ══ 1. Paprasčiausių lygčių sprendimas ════════════ -->
+      <div class="theory-block">
+        <div class="block-title"><div class="block-num">1</div>Logaritminės lygties apibrėžimas</div>
+
+        <div class="theory-row row-apibreztis">
+          <div class="row-content">
+            <div class="row-label">Apibrėžimas</div>
+            <div class="row-text">
+              <strong>Logaritminė lygtis</strong> — lygtis, kurios nežinomasis yra logaritmo pagrinde arba logarituojamajame reiškinye.<br><br>
+              Paprasčiausia forma: <strong>logₐx = b</strong><br>
+              Sprendinys: <strong>x = aᵇ</strong> &nbsp; (reikia patikrinti, kad x &gt; 0)
+            </div>
+          </div>
+        </div>
+
+        <div class="theory-row row-formule">
+          <div class="row-content">
+            <div class="row-label">Formulė — logₐf(x) = logₐg(x)</div>
+            <span class="inline-formula">logₐf(x) = logₐg(x) &nbsp;⟺&nbsp; f(x) = g(x), kai f(x) &gt; 0</span>
+          </div>
+        </div>
+
+        <div class="theory-row row-pavyzdys">
+          <div class="row-content">
+            <div class="row-label">Pavyzdys</div>
+            <div class="row-text">
+              <strong>log₂x = 5</strong><br>
+              x = 2⁵ = <strong>32</strong><br><br>
+              <strong>log₃x = −2</strong><br>
+              x = 3⁻² = 1/9 = <strong>1/9</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══ 2. Vienodinant pagrindus ══════════════════════ -->
+      <div class="theory-block">
+        <div class="block-title"><div class="block-num">2</div>Sprendimas vienodinant logaritmų pagrindus</div>
+
+        <div class="theory-row row-taisykle">
+          <div class="row-content">
+            <div class="row-label">Būdo esmė</div>
+            <div class="row-text">
+              Lygtį logₐf(x) = c keičiame lygtimi f(x) = aᶜ. Abu lygčių pagrindai turi būti vienodi. Tada sulyginame logarituojamuosius reiškinius.
+            </div>
+          </div>
+        </div>
+
+        <div class="theory-row row-svarbu">
+          <div class="row-content">
+            <div class="row-label">Svarbu — patikrinimas</div>
+            <div class="row-text">
+              Visada patikrinkite, ar gautas sprendinys patenka į pradinės lygties apibrėžimo sritį:<br>
+              • f(x) &gt; 0 — logarituojamas reiškinys teigiamas<br>
+              • g(x) &gt; 0, g(x) ≠ 1 — jei pagrindas su nežinomuoju
+            </div>
+          </div>
+        </div>
+
+        <div class="theory-row row-pavyzdys">
+          <div class="row-content">
+            <div class="row-label">Pavyzdys</div>
+            <div class="row-text">
+              <strong>log₅(x² − 10x + 1) = 2</strong><br><br>
+              x² − 10x + 1 = 5² = 25<br>
+              x² − 10x − 24 = 0<br>
+              x₁ = 12, x₂ = −2<br><br>
+              Patikrinimas: kai x=12: 144−120+1 = 25 &gt; 0 ✓<br>
+              kai x=−2: 4+20+1 = 25 &gt; 0 ✓<br>
+              <strong>Atsakymas: −2; 12</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="theory-row row-pavyzdys">
+          <div class="row-content">
+            <div class="row-label">Pavyzdys — lg(2x−2) = lg(4x+10)</div>
+            <div class="row-text">
+              Sulyginame: 2x − 2 = 4x + 10<br>
+              −2x = 12<br>
+              x = −6<br><br>
+              Patikrinimas: lg(2·(−6)−2) = lg(−14) — neegzistuoja!<br>
+              <strong>Atsakymas: sprendinių nėra</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══ 3. Nežinomojo keitimo būdas ═══════════════════ -->
+      <div class="theory-block">
+        <div class="block-title"><div class="block-num">3</div>Nežinomojo keitimo būdas</div>
+
+        <div class="theory-row row-taisykle">
+          <div class="row-content">
+            <div class="row-label">Būdo esmė</div>
+            <div class="row-text">
+              Logaritminį reiškinį pažymime nauju nežinomuoju <strong>t = logₐx</strong>, gauname tiesinę arba kvadratinę lygtį ir išsprendžiame ją.
+            </div>
+          </div>
+        </div>
+
+        <div class="theory-row row-formule">
+          <div class="row-content">
+            <div class="row-label">Žingsniai</div>
+            <div class="steps">
+              <div class="step"><div class="step-num">1</div><div class="step-text">Suvienodiname logaritmų pagrindus, pasirenkame keitinį t = logₐx</div></div>
+              <div class="step"><div class="step-num">2</div><div class="step-text">Išsprendžiame gautą kvadratinę lygtį t atžvilgiu</div></div>
+              <div class="step"><div class="step-num">3</div><div class="step-text">Grįžtame prie x: iš t = logₐx randame x = aᵗ</div></div>
+              <div class="step"><div class="step-num">4</div><div class="step-text">Patikriname sprendinius pradinėje lygtyje</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="theory-row row-pavyzdys">
+          <div class="row-content">
+            <div class="row-label">Pavyzdys</div>
+            <div class="row-text">
+              <strong>2log²₃x + 5log₃x − 3 = 0</strong><br><br>
+              Keitinys t = log₃x:<br>
+              2t² + 5t − 3 = 0<br>
+              t₁ = 1/2, t₂ = −3<br><br>
+              • log₃x = 1/2 → x = 3^(1/2) = √3<br>
+              • log₃x = −3 → x = 3⁻³ = 1/27<br><br>
+              <strong>Atsakymas: √3; 1/27</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══ 4. Logaritmavimo būdas ══════════════════════════ -->
+      <div class="theory-block">
+        <div class="block-title"><div class="block-num">4</div>Logaritmavimo būdas</div>
+
+        <div class="theory-row row-taisykle">
+          <div class="row-content">
+            <div class="row-label">Būdo esmė</div>
+            <div class="row-text">
+              Kai lygtyje nežinomasis yra laipsnio rodiklyje, abi lygties puses logaritmuojame tinkamu pagrindu. Taikome logaritmų savybę ⑤: logₐxᵏ = k·logₐx.
+            </div>
+          </div>
+        </div>
+
+        <div class="theory-row row-pavyzdys">
+          <div class="row-content">
+            <div class="row-label">Pavyzdys</div>
+            <div class="row-text">
+              <strong>x^(lg x + 1) = 100</strong><br><br>
+              Logaritmuojame pagrindu 10:<br>
+              (lg x + 1) · lg x = lg 100 = 2<br>
+              lg²x + lg x − 2 = 0<br><br>
+              Keitinys t = lg x:<br>
+              t² + t − 2 = 0<br>
+              t₁ = 1, t₂ = −2<br><br>
+              • lg x = 1 → x = 10<br>
+              • lg x = −2 → x = 0,01<br><br>
+              <strong>Atsakymas: 0,01; 10</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic-nav">
+        <a class="btn ghost" href="../t10-logaritmine/teorija.html">← T10. Logaritminė funkcija</a>
+        <a class="btn primary" href="../t12-logaritminesnelygybes/teorija.html">T12. Logaritminės nelygybės →</a>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="../../../../js/main.js"></script>
+</body>
+</html>

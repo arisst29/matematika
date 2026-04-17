@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>T2. Geometrinė progresija — Matematika 11</title>
+  <link rel="stylesheet" href="../../../../styles/main.css"/>
+  <style>
+    .row-apibreztis{background:#f1f0ee;border-left:3px solid #9a9a92}.row-apibreztis .row-label{color:#5a5a54;background:#e4e2d8;border-color:#c8c6bc}
+    .row-formule{background:#eff4ff;border-left:3px solid #1d4ed8}.row-formule .row-label{color:#1d4ed8;background:#dbeafe;border-color:#bfdbfe}
+    .row-zymime{background:#fffbeb;border-left:3px solid #b45309}.row-zymime .row-label{color:#b45309;background:#fef3c7;border-color:#fde68a}
+    .row-taisykle{background:#f5f3ff;border-left:3px solid #6d28d9}.row-taisykle .row-label{color:#6d28d9;background:#ede9fe;border-color:#c4b5fd}
+    .row-svarbu{background:#fef2f2;border-left:3px solid #b91c1c}.row-svarbu .row-label{color:#b91c1c;background:#fecaca;border-color:#fca5a5}
+    .row-pavyzdys{background:#f0fdf4;border-left:3px solid #15803d}.row-pavyzdys .row-label{color:#15803d;background:#dcfce7;border-color:#bbf7d0}
+    .theory-row{border-radius:var(--radius);margin-bottom:8px;overflow:hidden}
+    .row-content{padding:13px 16px}
+    .row-label{display:inline-block;font-size:10px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;padding:2px 8px;border-radius:4px;border:1px solid;margin-bottom:7px}
+    .row-text{font-size:13.5px;color:var(--ink2);line-height:1.8}
+    .row-text strong{color:var(--ink);font-weight:600}
+    .formula-big{font-size:18px;font-family:var(--mono);color:var(--accent);display:block;text-align:center;padding:10px 0;font-weight:600}
+    .symbol-table{width:100%;border-collapse:collapse;margin-top:8px}
+    .symbol-table td{padding:8px 12px;border:1px solid var(--border);font-size:13px;color:var(--ink2)}
+    .symbol-table td:first-child{font-weight:700;color:var(--ink);background:var(--bg3);font-family:var(--mono);font-size:15px;width:80px}
+    .symbol-table tr:nth-child(even) td:not(:first-child){background:var(--bg3)}
+    .seq-visual{display:flex;align-items:center;gap:0;margin:12px 0;flex-wrap:wrap}
+    .seq-box{background:var(--accent);color:#fff;padding:8px 14px;border-radius:6px;font-size:14px;font-weight:600;font-family:var(--mono)}
+    .seq-arrow{padding:0 8px;color:var(--ink3);font-size:18px}
+    .diff-label{padding:2px 10px;background:var(--green-bg);color:var(--green);border-radius:4px;font-size:12px;font-weight:600;font-family:var(--mono)}
+    .frac{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;margin:0 3px;font-size:0.9em;line-height:1.1}
+    .frac sup{border-bottom:1px solid currentColor;padding:0 3px}
+    .frac sub{padding:0 3px}
+  </style>
+</head>
+<body>
+<div class="layout">
+  <nav class="sidebar" id="sidebar"></nav>
+  <div class="main">
+    <div class="topbar">
+      <div class="breadcrumb">
+        <a href="../../../../index.html">Matematika 11</a>
+        <span class="sep">›</span><span>Sekos</span>
+        <span class="sep">›</span><span class="current">T2. Geometrinė progresija</span>
+      </div>
+      <div class="tab-switcher">
+        <button class="tab-btn active">Teorija</button>
+        <a href="../t3-taikymai/teorija.html" class="tab-btn" style="text-decoration:none">T3 →</a>
+      </div>
+    </div>
+    <div class="page">
+      <div class="topic-header">
+        <div class="topic-tag">6 skyrius · Tema 2</div>
+        <h1 class="topic-title">Geometrinė progresija</h1>
+        <p class="topic-intro">Kas yra geometrinė progresija, jos formulės, suma ir begalinė suma.</p>
+      </div>
+
+      <!-- ══ 1. Apibrėžimas ══════════════════════════════ -->
+      <div class="theory-block">
+        <div class="block-title"><div class="block-num">1</div>Apibrėžimas</div>
+
+        <div class="theory-row row-apibreztis">
+          <div class="row-content">
+            <div class="row-label">Apibrėžimas</div>
+            <div class="row-text">
+              <strong>Geometrinė progresija</strong> — skaičių seka, kurioje kiekvienas narys (pradedant antruoju) gaunamas ankstesnį narį dauginant iš to paties skaičiaus q.<br><br>
+              Šis pastovus skaičius q vadinamas <strong>geometrinės progresijos vardikliu</strong>.
+            </div>
+          </div>
+        </div>
+
+        <div class="theory-row row-svarbu">
+          <div class="row-content">
+            <div class="row-label">Svarbu</div>
+            <div class="row-text">
+              • Jei <strong>q &gt; 1</strong> ir b₁ &gt; 0 — progresija <strong>didėjanti</strong><br>
+              • Jei <strong>0 &lt; q &lt; 1</strong> ir b₁ &gt; 0 — progresija <strong>mažėjanti</strong><br>
+              • Jei <strong>q &lt; 0</strong> — narių ženklai <strong>kaitaliojasi</strong> (+, −, +, −, ...)<br>
+              • Vardiklis q negali būti lygus 0
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══ 2. Rekurentinė formulė ══════════════════════ -->
+      <div class="theory-block">
+        <div class="block-title"><div class="block-num">2</div>Rekurentinė formulė</div>
+
+        <div class="theory-row row-formule">
+          <div class="row-content">
+            <div class="row-label">Formulė</div>
+            <span class="formula-big">bₙ₊₁ = bₙ · q</span>
+            <div class="row-text" style="text-align:center;color:var(--ink3);font-size:12px">
+              Kitas narys = dabartinis narys × vardiklis
+            </div>
+          </div>
+        </div>
+
+        <div class="theory-row row-taisykle">
+          <div class="row-content">
+            <div class="row-label">Kaip rasti vardiklį q</div>
+            <div class="row-text">
+              q = bet kuris narys ÷ prieš jį einantis narys:<br><br>
+              q = b₂ ÷ b₁ = b₃ ÷ b₂ = b₄ ÷ b₃ = ...<br><br>
+              Pvz.: seka 3, 6, 12, 24, ... → q = 6 ÷ 3 = <strong>2</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══ 3. n-tojo nario formulė ═════════════════════ -->
+      <div class="theory-block">
+        <div class="block-title"><div class="block-num">3</div>n-tojo nario formulė</div>
+
+        <div class="theory-row row-formule">
+          <div class="row-content">
+            <div class="row-label">Formulė</div>
+            <span class="formula-big">bₙ = b₁ · qⁿ⁻¹</span>
+            <div class="row-text" style="margin-top:10px">
+              <strong>b₁</strong> — pirmasis narys<br>
+              <strong>q</strong> — vardiklis<br>
+              <strong>n</strong> — nario numeris<br>
+              <strong>n − 1</strong> — kiek kartų dauginame (pirmąjį narį dauginame 0 kartų, antrąjį — 1 kartą ir t.t.)
+            </div>
+          </div>
+        </div>
+
+        <div class="theory-row row-pavyzdys">
+          <div class="row-content">
+            <div class="row-label">Pavyzdys</div>
+            <div class="row-text">
+              Geometrinė progresija: 3, 6, 12, 24, ... (b₁ = 3, q = 2)<br><br>
+              Raskime 10-ąjį narį:<br>
+              b₁₀ = 3 · 2¹⁰⁻¹ = 3 · 2⁹ = 3 · 512 = <strong>1536</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══ 4. Vidurio savybė ════════════════════════════ -->
+      <div class="theory-block">
+        <div class="block-title"><div class="block-num">4</div>Vidurio savybė</div>
+
+        <div class="theory-row row-taisykle">
+          <div class="row-content">
+            <div class="row-label">Taisyklė</div>
+            <div class="row-text">
+              Kiekvienas geometrinės progresijos narys (išskyrus kraštiniuosius) yra lygus dviejų jo kaimynų <strong>geometriniam vidurkiui</strong>:
+            </div>
+            <span class="formula-big">bₙ² = bₙ₋₁ · bₙ₊₁</span>
+          </div>
+        </div>
+
+        <div class="theory-row row-pavyzdys">
+          <div class="row-content">
+            <div class="row-label">Pavyzdys</div>
+            <div class="row-text">
+              Seka: 2, 6, 18, 54, ...<br>
+              Patikrinimas: b₂² = 6² = 36 = 2 · 18 = b₁ · b₃ ✓
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══ 5. Narių suma ═══════════════════════════════ -->
+      <div class="theory-block">
+        <div class="block-title"><div class="block-num">5</div>Pirmųjų n narių suma</div>
+
+        <div class="theory-row row-formule">
+          <div class="row-content">
+            <div class="row-label">Formulė (kai q ≠ 1)</div>
+            <span class="formula-big">Sₙ = b₁ · (qⁿ − 1) / (q − 1)</span>
+          </div>
+        </div>
+
+        <div class="theory-row row-pavyzdys">
+          <div class="row-content">
+            <div class="row-label">Pavyzdys</div>
+            <div class="row-text">
+              Seka: 2, 6, 18, 54, ... (b₁ = 2, q = 3). Raskite pirmųjų 5 narių sumą.<br><br>
+              S₅ = 2 · (3⁵ − 1) / (3 − 1) = 2 · (243 − 1) / 2 = 2 · 242 / 2 = <strong>242</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══ 6. Begalinė suma ════════════════════════════ -->
+      <div class="theory-block">
+        <div class="block-title"><div class="block-num">6</div>Begalinės geometrinės progresijos suma</div>
+
+        <div class="theory-row row-svarbu">
+          <div class="row-content">
+            <div class="row-label">Svarbu — kada egzistuoja</div>
+            <div class="row-text">
+              Begalinė suma egzistuoja tik tada, kai <strong>|q| &lt; 1</strong> (t. y. −1 &lt; q &lt; 1).<br>
+              Jei |q| ≥ 1 — nariai nesumažėja iki nulio ir suma begalinė.
+            </div>
+          </div>
+        </div>
+
+        <div class="theory-row row-formule">
+          <div class="row-content">
+            <div class="row-label">Formulė</div>
+            <span class="formula-big">S = b₁ / (1 − q), kai |q| &lt; 1</span>
+          </div>
+        </div>
+
+        <div class="theory-row row-pavyzdys">
+          <div class="row-content">
+            <div class="row-label">Pavyzdys — periodinė trupmena</div>
+            <div class="row-text">
+              Išreikšti 0,2(39) paprastąja trupmena:<br><br>
+              0,2(39) = 0,2 + 0,039 + 0,00039 + ...<br>
+              Geometrinė progresija: b₁ = 0,039, q = 0,01<br><br>
+              S = 0,039 / (1 − 0,01) = 0,039 / 0,99 = 39/990 = <strong>13/330</strong><br><br>
+              0,2(39) = 0,2 + 13/330 = 66/330 + 13/330 = <strong>79/330</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic-nav">
+        <a class="btn ghost" href="../t1-aritmetine/teorija.html">← T1. Aritmetinė progresija</a>
+        <a class="btn primary" href="../t3-taikymai/teorija.html">T3. Taikymai →</a>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="../../../../js/main.js"></script>
+</body>
+</html>

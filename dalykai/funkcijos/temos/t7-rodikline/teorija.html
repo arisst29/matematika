@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>T7. Rodiklinė funkcija — Matematika 11</title>
+  <link rel="stylesheet" href="../../../../styles/main.css"/>
+  <style>
+    .row-apibreztis { background: #f1f0ee; border-left: 3px solid #9a9a92; }
+    .row-apibreztis .row-label { color: #5a5a54; background: #e4e2d8; border-color: #c8c6bc; }
+    .row-formule { background: #eff4ff; border-left: 3px solid #1d4ed8; }
+    .row-formule .row-label { color: #1d4ed8; background: #dbeafe; border-color: #bfdbfe; }
+    .row-zymime { background: #fffbeb; border-left: 3px solid #b45309; }
+    .row-zymime .row-label { color: #b45309; background: #fef3c7; border-color: #fde68a; }
+    .row-taisykle { background: #f5f3ff; border-left: 3px solid #6d28d9; }
+    .row-taisykle .row-label { color: #6d28d9; background: #ede9fe; border-color: #c4b5fd; }
+    .row-svarbu { background: #fef2f2; border-left: 3px solid #b91c1c; }
+    .row-svarbu .row-label { color: #b91c1c; background: #fecaca; border-color: #fca5a5; }
+    .row-pavyzdys { background: #f0fdf4; border-left: 3px solid #15803d; }
+    .row-pavyzdys .row-label { color: #15803d; background: #dcfce7; border-color: #bbf7d0; }
+    .theory-row { display: grid; grid-template-columns: 1fr; border-radius: var(--radius); margin-bottom: 8px; overflow: hidden; }
+    .theory-row.has-graph { grid-template-columns: 1fr auto; align-items: stretch; }
+    .row-content { padding: 13px 16px; }
+    .row-label { display: inline-block; font-size: 10px; font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase; padding: 2px 8px; border-radius: 4px; border: 1px solid; margin-bottom: 7px; }
+    .row-text { font-size: 13.5px; color: var(--ink2); line-height: 1.7; }
+    .row-text strong { color: var(--ink); font-weight: 500; }
+    .inline-formula { font-family: var(--mono); font-size: 15px; color: var(--accent); display: block; text-align: center; padding: 6px 0 2px; }
+    .row-graph { width: 240px; border-left: 1px solid rgba(0,0,0,0.06); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 10px 12px; gap: 6px; flex-shrink: 0; }
+    .row-graph svg { width: 100%; height: auto; }
+    .graph-caption { font-size: 10px; color: var(--ink3); text-align: center; font-style: italic; line-height: 1.4; }
+    .savybes-table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 8px; }
+    .savybes-table th { background: var(--bg3); padding: 8px 12px; text-align: left; font-weight: 600; color: var(--ink); border: 1px solid var(--border); }
+    .savybes-table td { padding: 8px 12px; border: 1px solid var(--border); color: var(--ink2); }
+    .savybes-table tr:nth-child(even) td { background: var(--bg3); }
+  </style>
+</head>
+<body>
+<div class="layout">
+  <nav class="sidebar" id="sidebar"></nav>
+  <div class="main">
+    <div class="topbar">
+      <div class="breadcrumb">
+        <a href="../../../../index.html">Matematika 11</a>
+        <span class="sep">›</span><span>Funkcijos</span>
+        <span class="sep">›</span><span class="current">T7. Rodiklinė funkcija</span>
+      </div>
+      <div class="tab-switcher">
+        <button class="tab-btn active">Teorija</button>
+        <a href="../t8-rodiklineslygtys/teorija.html" class="tab-btn" style="text-decoration:none">T8 →</a>
+      </div>
+    </div>
+    <div class="page">
+      <div class="topic-header">
+        <div class="topic-tag">5 skyrius · Tema 7</div>
+        <h1 class="topic-title">Rodiklinė funkcija</h1>
+        <p class="topic-intro">Funkcija f(x) = aˣ — jos apibrėžimas, savybės ir grafikas.</p>
+      </div>
+
+      <!-- ══ 1. Apibrėžimas ══════════════════════════════════ -->
+      <div class="theory-block">
+        <div class="block-title"><div class="block-num">1</div>Rodiklinės funkcijos apibrėžimas</div>
+
+        <div class="theory-row row-apibreztis">
+          <div class="row-content">
+            <div class="row-label">Apibrėžimas</div>
+            <div class="row-text">
+              Funkcija <strong>f(x) = aˣ</strong>, kur a &gt; 0 ir a ≠ 1, vadinama <strong>rodikline funkcija</strong>.<br><br>
+              Pagrindas <strong>a</strong> — realusis skaičius, kintamasis <strong>x</strong> yra laipsnio rodiklyje.<br><br>
+              <strong>Svarbu:</strong> Laipsninė f(x) = xⁿ — kintamasis pagrinde. Rodiklinė f(x) = aˣ — kintamasis rodiklyje!
+            </div>
+          </div>
+        </div>
+
+        <div class="theory-row row-formule">
+          <div class="row-content">
+            <div class="row-label">Formulė</div>
+            <span class="inline-formula">f(x) = aˣ, kur a &gt; 0, a ≠ 1</span>
+          </div>
+        </div>
+
+        <div class="theory-row row-zymime">
+          <div class="row-content">
+            <div class="row-label">Žymime</div>
+            <div class="row-text">
+              <strong>Pavyzdžiai:</strong> f(x) = 2ˣ, g(x) = 3ˣ, h(x) = (½)ˣ, t(x) = 0,7ˣ — rodiklinės funkcijos<br>
+              <strong>Ne rodiklinės:</strong> f(x) = x¹³ (laipsninė), g(x) = xˣ (kintamasis ir pagrinde, ir rodiklyje)
+            </div>
+          </div>
+        </div>
+
+        <div class="theory-row row-svarbu">
+          <div class="row-content">
+            <div class="row-label">Svarbu</div>
+            <div class="row-text">
+              Rodiklinė funkcija f(x) = aˣ įgyja tik <strong>teigiamas reikšmes</strong> — grafikas niekada neliečia x ašies ir yra visada virš jos.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══ 2. Savybės ir grafikas ════════════════════════ -->
+      <div class="theory-block">
+        <div class="block-title"><div class="block-num">2</div>Savybės ir grafikas</div>
+
+        <div class="theory-row row-apibreztis has-graph">
+          <div class="row-content">
+            <div class="row-label">Savybės — abi funkcijos</div>
+            <div class="row-text">
+              Abiem atvejais (a &gt; 1 ir 0 &lt; a &lt; 1):<br><br>
+              • D(f) = ℝ (visos realiųjų skaičių aibė)<br>
+              • E(f) = (0; +∞)<br>
+              • f(x) &gt; 0 visiems x ∈ ℝ<br>
+              • Grafikas kerta y ašį taške <strong>(0; 1)</strong>, nes a⁰ = 1<br>
+              • <strong>Nėra nulių</strong> — nekerta x ašies<br>
+              • Nei lyginė, nei nelyginė
+            </div>
+          </div>
+          <div class="row-graph">
+            <svg viewBox="0 0 220 160" xmlns="http://www.w3.org/2000/svg">
+              <defs><marker id="r1" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="4" markerHeight="4" orient="auto"><path d="M1,1 L7,4 L1,7" fill="none" stroke="#777" stroke-width="1.5"/></marker></defs>
+              <line x1="10" y1="110" x2="212" y2="110" stroke="#aaa" stroke-width="1" marker-end="url(#r1)"/>
+              <line x1="70" y1="152" x2="70" y2="10" stroke="#aaa" stroke-width="1" marker-end="url(#r1)"/>
+              <text x="214" y="113" font-size="9" fill="#888">x</text>
+              <text x="64" y="9" font-size="9" fill="#888">y</text>
+              <text x="63" y="121" font-size="8" fill="#888">0</text>
+              <!-- (0;1) taškas -->
+              <circle cx="70" cy="88" r="3.5" fill="#888"/>
+              <text x="74" y="87" font-size="8" fill="#888">(0;1)</text>
+              <!-- a>1: 2^x didėjanti -->
+              <path d="M15,108 C25,107 40,105 55,100 C62,97 66,93 70,88 C76,80 85,62 100,40 C115,20 135,12 155,8"
+                    fill="none" stroke="#1d4ed8" stroke-width="2.2" stroke-linecap="round"/>
+              <text x="150" y="8" font-size="8" fill="#1d4ed8" font-style="italic">a&gt;1</text>
+              <!-- 0<a<1: (1/2)^x mažėjanti -->
+              <path d="M10,18 C25,22 40,32 55,52 C62,63 66,76 70,88 C76,100 88,106 105,108 C135,110 175,110 205,110"
+                    fill="none" stroke="#dc2626" stroke-width="2.2" stroke-linecap="round"/>
+              <text x="12" y="16" font-size="8" fill="#dc2626" font-style="italic">0&lt;a&lt;1</text>
+            </svg>
+            <div class="graph-caption">Mėlyna — a&gt;1 (didėjanti)<br>Raudona — 0&lt;a&lt;1 (mažėjanti)<br>Abu kerta y ašį taške (0;1)</div>
+          </div>
+        </div>
+
+        <div class="theory-row row-taisykle">
+          <div class="row-content">
+            <div class="row-label">Taisyklė — skirtumas tarp a &gt; 1 ir 0 &lt; a &lt; 1</div>
+            <table class="savybes-table">
+              <tr>
+                <th>Savybė</th>
+                <th>a &gt; 1</th>
+                <th>0 &lt; a &lt; 1</th>
+              </tr>
+              <tr><td>Monotoniškumas</td><td>Didėjanti</td><td>Mažėjanti</td></tr>
+              <tr><td>Kai x → +∞</td><td>f(x) → +∞</td><td>f(x) → 0</td></tr>
+              <tr><td>Kai x → −∞</td><td>f(x) → 0</td><td>f(x) → +∞</td></tr>
+              <tr><td>Grafiko forma</td><td>Kyla į viršų dešinėn</td><td>Leidžiasi žemyn dešinėn</td></tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="theory-row row-pavyzdys">
+          <div class="row-content">
+            <div class="row-label">Pavyzdys — f(x) = 2ˣ reikšmių lentelė</div>
+            <div class="row-text">
+              x: &nbsp; −3 &nbsp;&nbsp; −2 &nbsp;&nbsp; −1 &nbsp;&nbsp; 0 &nbsp;&nbsp; 1 &nbsp;&nbsp; 2 &nbsp;&nbsp; 3<br>
+              2ˣ: &nbsp; ⅛ &nbsp;&nbsp;&nbsp; ¼ &nbsp;&nbsp;&nbsp; ½ &nbsp;&nbsp; 1 &nbsp;&nbsp; 2 &nbsp;&nbsp; 4 &nbsp;&nbsp; 8<br><br>
+              Kintamojo x reikšmėms didėjant po 1, funkcijos reikšmės <strong>padvigubėja</strong>.
+            </div>
+          </div>
+        </div>
+
+        <div class="theory-row row-pavyzdys">
+          <div class="row-content">
+            <div class="row-label">Pavyzdys — f(x) = (½)ˣ reikšmių lentelė</div>
+            <div class="row-text">
+              x: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; −3 &nbsp;&nbsp; −2 &nbsp;&nbsp; −1 &nbsp;&nbsp; 0 &nbsp;&nbsp; 1 &nbsp;&nbsp; 2 &nbsp;&nbsp; 3<br>
+              (½)ˣ: &nbsp;&nbsp; 8 &nbsp;&nbsp;&nbsp;&nbsp; 4 &nbsp;&nbsp;&nbsp;&nbsp; 2 &nbsp;&nbsp;&nbsp; 1 &nbsp;&nbsp; ½ &nbsp;&nbsp; ¼ &nbsp;&nbsp; ⅛<br><br>
+              Pasteba: (½)ˣ = 2⁻ˣ — tai funkcijos y = 2ˣ atspindys y ašies atžvilgiu.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic-nav">
+        <a class="btn ghost" href="../t6-kvadratine/teorija.html">← T6. Kvadratinė funkcija</a>
+        <a class="btn primary" href="../t8-rodiklineslygtys/teorija.html">T8. Rodiklinės lygtys →</a>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="../../../../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>T12. Logaritminės nelygybės — Matematika 11</title>
+  <link rel="stylesheet" href="../../../../styles/main.css"/>
+  <style>
+    .row-apibreztis{background:#f1f0ee;border-left:3px solid #9a9a92}.row-apibreztis .row-label{color:#5a5a54;background:#e4e2d8;border-color:#c8c6bc}
+    .row-formule{background:#eff4ff;border-left:3px solid #1d4ed8}.row-formule .row-label{color:#1d4ed8;background:#dbeafe;border-color:#bfdbfe}
+    .row-taisykle{background:#f5f3ff;border-left:3px solid #6d28d9}.row-taisykle .row-label{color:#6d28d9;background:#ede9fe;border-color:#c4b5fd}
+    .row-svarbu{background:#fef2f2;border-left:3px solid #b91c1c}.row-svarbu .row-label{color:#b91c1c;background:#fecaca;border-color:#fca5a5}
+    .row-pavyzdys{background:#f0fdf4;border-left:3px solid #15803d}.row-pavyzdys .row-label{color:#15803d;background:#dcfce7;border-color:#bbf7d0}
+    .theory-row{display:grid;grid-template-columns:1fr;border-radius:var(--radius);margin-bottom:8px;overflow:hidden}
+    .row-content{padding:13px 16px}
+    .row-label{display:inline-block;font-size:10px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;padding:2px 8px;border-radius:4px;border:1px solid;margin-bottom:7px}
+    .row-text{font-size:13.5px;color:var(--ink2);line-height:1.7}
+    .row-text strong{color:var(--ink);font-weight:500}
+    .inline-formula{font-family:var(--mono);font-size:15px;color:var(--accent);display:block;text-align:center;padding:6px 0 2px}
+    .compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:8px}
+    .compare-box{background:var(--bg3);border-radius:var(--radius);padding:12px 14px;border:1px solid var(--border)}
+    .compare-box-title{font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;margin-bottom:8px}
+    .compare-box-title.blue{color:#1d4ed8}
+    .compare-box-title.red{color:#b91c1c}
+    .compare-box p{font-size:13px;color:var(--ink2);margin:4px 0;line-height:1.5}
+  </style>
+</head>
+<body>
+<div class="layout">
+  <nav class="sidebar" id="sidebar"></nav>
+  <div class="main">
+    <div class="topbar">
+      <div class="breadcrumb">
+        <a href="../../../../index.html">Matematika 11</a>
+        <span class="sep">›</span><span>Funkcijos</span>
+        <span class="sep">›</span><span class="current">T12. Logaritminės nelygybės</span>
+      </div>
+      <div class="tab-switcher">
+        <button class="tab-btn active">Teorija</button>
+        <a href="../../skyriaus-testai/index.html" class="tab-btn" style="text-decoration:none">Testai</a>
+      </div>
+    </div>
+    <div class="page">
+      <div class="topic-header">
+        <div class="topic-tag">5 skyrius · Tema 12</div>
+        <h1 class="topic-title">Logaritminės nelygybės</h1>
+        <p class="topic-intro">Nelygybės su logaritmais — ženklo keitimas priklauso nuo pagrindo.</p>
+      </div>
+
+      <!-- ══ 1. Pagrindinis principas ══════════════════════ -->
+      <div class="theory-block">
+        <div class="block-title"><div class="block-num">1</div>Pagrindinis principas — ženklo keitimas</div>
+
+        <div class="theory-row row-svarbu">
+          <div class="row-content">
+            <div class="row-label">Svarbu</div>
+            <div class="row-text">
+              Logaritminėje nelygybėje <strong>logₐf(x) &gt; logₐg(x)</strong> sprendimas priklauso nuo to, ar pagrindas a didesnis ar mažesnis už 1. Tai lemia ar ženklas keičiasi!
+            </div>
+          </div>
+        </div>
+
+        <div class="theory-row row-taisykle">
+          <div class="row-content">
+            <div class="row-label">Taisyklė</div>
+            <div class="compare-grid">
+              <div class="compare-box">
+                <div class="compare-box-title blue">Kai a &gt; 1 (didėjanti)</div>
+                <p>logₐf(x) &gt; logₐg(x)</p>
+                <p>⟺ f(x) &gt; g(x)</p>
+                <p>ir f(x) &gt; 0, g(x) &gt; 0</p>
+                <p><strong>Ženklas nesikeičia</strong></p>
+              </div>
+              <div class="compare-box">
+                <div class="compare-box-title red">Kai 0 &lt; a &lt; 1 (mažėjanti)</div>
+                <p>logₐf(x) &gt; logₐg(x)</p>
+                <p>⟺ f(x) &lt; g(x)</p>
+                <p>ir f(x) &gt; 0, g(x) &gt; 0</p>
+                <p><strong>Ženklas keičiasi į priešingą!</strong></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="theory-row row-pavyzdys">
+          <div class="row-content">
+            <div class="row-label">Pavyzdys — a &gt; 1</div>
+            <div class="row-text">
+              <strong>log₄(x − 2) &gt; 3</strong><br><br>
+              Skaičių 3 užrašome kaip logaritmą: 3 = log₄4³ = log₄64<br>
+              Nelygybių sistema (pagrindas 4 &gt; 1, ženklas nesikeičia):<br>
+              • x − 2 &gt; 64 → x &gt; 66<br>
+              • x − 2 &gt; 0 → x &gt; 2<br><br>
+              <strong>Atsakymas: x ∈ (66; +∞)</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="theory-row row-pavyzdys">
+          <div class="row-content">
+            <div class="row-label">Pavyzdys — 0 &lt; a &lt; 1</div>
+            <div class="row-text">
+              <strong>log₍₁/₄₎(x − 2) &gt; 3</strong><br><br>
+              3 = log₍₁/₄₎(1/4)³ = log₍₁/₄₎(1/64)<br>
+              Pagrindas 1/4 &lt; 1, ženklas keičiasi:<br>
+              • x − 2 &lt; 1/64 → x &lt; 2 + 1/64<br>
+              • x − 2 &gt; 0 → x &gt; 2<br><br>
+              <strong>Atsakymas: x ∈ (2; 2 + 1/64)</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══ 2. Sudėtingesnių nelygybių sprendimas ═════════ -->
+      <div class="theory-block">
+        <div class="block-title"><div class="block-num">2</div>Sudėtingesnių nelygybių sprendimas</div>
+
+        <div class="theory-row row-taisykle">
+          <div class="row-content">
+            <div class="row-label">Būdo esmė</div>
+            <div class="row-text">
+              Sudėtingesnės logaritminės nelygybės sprendžiamos panašiai kaip logaritminės lygtys — taikant logaritmų savybes, pakeičiant į paprastesnę nelygybę.
+            </div>
+          </div>
+        </div>
+
+        <div class="theory-row row-pavyzdys">
+          <div class="row-content">
+            <div class="row-label">Pavyzdys — su logaritmų savybėmis</div>
+            <div class="row-text">
+              <strong>log₂(x−1) − log₂5 ≤ 1 + log₂(12−x)</strong><br><br>
+              1 = log₂2, todėl:<br>
+              log₂(x−1) − log₂5 ≤ log₂2 + log₂(12−x)<br>
+              log₂((x−1)/5) ≤ log₂(2(12−x))<br><br>
+              Pagrindas 2 &gt; 1, ženklas nesikeičia:<br>
+              (x−1)/5 ≤ 2(12−x)<br>
+              x − 1 ≤ 10(12 − x)<br>
+              x − 1 ≤ 120 − 10x<br>
+              11x ≤ 121 → x ≤ 11<br><br>
+              Pradinės lygties sąlygos: x − 1 &gt; 0 ir 12 − x &gt; 0 → 1 &lt; x &lt; 12<br>
+              <strong>Atsakymas: x ∈ (1; 11]</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══ 3. Keitinio metodas ════════════════════════════ -->
+      <div class="theory-block">
+        <div class="block-title"><div class="block-num">3</div>Keitinio metodas nelygybėms</div>
+
+        <div class="theory-row row-taisykle">
+          <div class="row-content">
+            <div class="row-label">Būdo esmė</div>
+            <div class="row-text">
+              Sudėtingesnėse nelygybėse naudojame keitinį <strong>t = logₐx</strong>, gauname kvadratinę nelygybę ir išsprendžiame ją. Atkreipiame dėmesį į pagrindą — ar keičiasi ženklas.
+            </div>
+          </div>
+        </div>
+
+        <div class="theory-row row-pavyzdys">
+          <div class="row-content">
+            <div class="row-label">Pavyzdys</div>
+            <div class="row-text">
+              <strong>7log²₅x − 4log₅x − 3 &gt; 0</strong><br><br>
+              Keitinys t = log₅x:<br>
+              7t² − 4t − 3 &gt; 0<br>
+              7(t − 1)(t + 3/7) &gt; 0<br>
+              t &lt; −3/7 arba t &gt; 1<br><br>
+              • log₅x &lt; −3/7 → 0 &lt; x &lt; 5^(−3/7)<br>
+              • log₅x &gt; 1 → x &gt; 5<br><br>
+              <strong>Atsakymas: x ∈ (0; 5^(−3/7)) ∪ (5; +∞)</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic-nav">
+        <a class="btn ghost" href="../t11-logaritmineslygtys/teorija.html">← T11. Logaritminės lygtys</a>
+        <a class="btn primary" href="../../skyriaus-testai/index.html">Skyriaus testai →</a>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="../../../../js/main.js"></script>
+</body>
+</html>
