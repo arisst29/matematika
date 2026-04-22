@@ -35,11 +35,18 @@ const NAV = [
       { id: 't3', name: 'T3. Funkcija sin x ir arcsin x', path: 'dalykai/trigonometrija/temos/t3-sinx/teorija.html' },
       { id: 't4', name: 'T4. Funkcija cos x ir arccos x', path: 'dalykai/trigonometrija/temos/t4-cosx/teorija.html' },
       { id: 't5', name: 'T5. Funkcija tg x ir arctg x',  path: 'dalykai/trigonometrija/temos/t5-tgx/teorija.html' },
-    ], tests: 'dalykai/trigonometrija/skyriaus-testai/index.html' },
-  { id: 'isvestines', num: '8.',  name: 'Išvestinės',               topics: [], tests: null },
-  { id: 'integralai', num: '9.',  name: 'Integralai',               topics: [], tests: null },
-  { id: 'statistika', num: '10.', name: 'Statistika ir tikimybės',  topics: [], tests: null },
-  { id: 'geometrija', num: '11.', name: 'Erdvinė geometrija',       topics: [], tests: null },
+    ], tests: 'dalykai/trigonometrija/skyriaus-testai/index.html', exams: 'dalykai/trigonometrija/egzaminai/index.html' },
+  { id: 'planimetrija', num: '8.', name: 'Planimetrija', topics: [
+      { id: 't1', name: 'T1. Įbrėžtiniai kampai, stygos ir liestines', path: 'dalykai/planimetrija/temos/t1-kampai-stygos/teorija.html' },
+      { id: 't2', name: 'T2. Įbrėžtiniai ir apibrėžtiniai daugiakampiai', path: 'dalykai/planimetrija/temos/t2-daugiakampiai/teorija.html' },
+      { id: 't3', name: 'T3. Trikampio ir lygiagretainio plotas', path: 'dalykai/planimetrija/temos/t3-plotas/teorija.html' },
+      { id: 't4', name: 'T4. Sinusų ir kosinusų teoremos', path: 'dalykai/planimetrija/temos/t4-sinusu-kosinusu/teorija.html' },
+      { id: 't5', name: 'T5. Herono formulė ir Talio teorema', path: 'dalykai/planimetrija/temos/t5-herono-talio/teorija.html' },
+    ], tests: 'dalykai/planimetrija/skyriaus-testai/index.html', exams: 'dalykai/planimetrija/egzaminai/index.html' },
+  { id: 'isvestines', num: '9.',  name: 'Išvestinės',               topics: [], tests: null },
+  { id: 'integralai', num: '10.', name: 'Integralai',               topics: [], tests: null },
+  { id: 'statistika', num: '11.', name: 'Statistika ir tikimybės',  topics: [], tests: null },
+  { id: 'geometrija', num: '12.', name: 'Erdvinė geometrija',       topics: [], tests: null },
 ];
 
 // ── KELIO SKAIČIAVIMAS ───────────────────────────────────────────────

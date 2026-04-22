@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Egzaminas 2 — Trigonometrija</title>
+  <link rel="stylesheet" href="../../../../styles/main.css"/>
+  <style>.exam-header{margin-bottom:32px;padding-bottom:20px;border-bottom:2px solid var(--border)}.exam-title{font-size:26px;font-weight:700;color:var(--ink);margin-bottom:6px;letter-spacing:-0.3px}.exam-meta{display:flex;gap:20px;flex-wrap:wrap;margin-top:10px}.exam-meta-item{font-size:12px;color:var(--ink3);display:flex;align-items:center;gap:5px}.variant-badge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-left:10px}.variant-A{background:#dbeafe;color:#1d4ed8}.section-label{font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink3);padding:8px 16px;background:var(--bg3);border-radius:var(--radius);margin:20px 0 12px;border-left:3px solid var(--accent)}.progress-bar{height:5px;background:var(--border);border-radius:2px;margin-bottom:28px;overflow:hidden}.progress-fill{height:100%;background:var(--accent);border-radius:2px;transition:width .3s}.question-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px;margin-bottom:12px}.question-num{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3);margin-bottom:8px}.question-text{font-size:15px;color:var(--ink);line-height:1.8;margin-bottom:16px;font-weight:500}.frac{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;margin:0 2px;font-size:0.85em;line-height:1.1}.frac sup{border-bottom:1px solid currentColor;padding:0 2px;font-size:1em}.frac sub{padding:0 2px;font-size:1em}.options{display:flex;flex-direction:column;gap:8px}.option{display:flex;align-items:center;gap:12px;padding:11px 14px;border:1px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all .12s;background:var(--bg);user-select:none}.option:hover{border-color:var(--accent);background:var(--accent-bg)}.option.selected{border-color:var(--accent);background:var(--accent-bg)}.option.correct{border-color:var(--green);background:var(--green-bg)}.option.wrong{border-color:var(--red);background:var(--red-bg)}.option.show-correct{border-color:var(--green);background:var(--green-bg)}.option-letter{width:28px;height:28px;border-radius:50%;background:var(--border);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;color:var(--ink2);flex-shrink:0}.option.selected .option-letter{background:var(--accent);color:#fff}.option.correct .option-letter{background:var(--green);color:#fff}.option.wrong .option-letter{background:var(--red);color:#fff}.option.show-correct .option-letter{background:var(--green);color:#fff}.option-text{font-size:14px;color:var(--ink2);line-height:1.6}.option.selected .option-text{color:var(--accent)}.option.correct .option-text{color:var(--green)}.option.wrong .option-text{color:var(--red)}.option.show-correct .option-text{color:var(--green)}.submit-area{margin-top:28px;display:flex;align-items:center;gap:14px;padding-top:20px;border-top:1px solid var(--border)}.submit-btn{padding:12px 32px;background:var(--accent);color:#fff;border:none;border-radius:var(--radius);font-size:15px;font-weight:600;font-family:var(--sans);cursor:pointer}.submit-btn:hover{background:#1e40af}.submit-btn:disabled{background:var(--ink3);cursor:not-allowed}.answered-count{font-size:13px;color:var(--ink3)}.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:200;align-items:center;justify-content:center}.modal-overlay.open{display:flex}.modal{background:var(--bg2);border-radius:var(--radius-lg);padding:40px;max-width:520px;width:90%;text-align:center;box-shadow:0 8px 32px rgba(0,0,0,.18)}.modal-score{font-size:72px;font-weight:700;line-height:1;margin-bottom:6px}.modal-score.excellent{color:var(--green)}.modal-score.good{color:var(--accent)}.modal-score.poor{color:var(--red)}.modal-label{font-size:14px;color:var(--ink3);margin-bottom:20px}.modal-stats{display:flex;justify-content:center;gap:32px;margin-bottom:24px;padding:18px;background:var(--bg3);border-radius:var(--radius)}.modal-stat-val{font-size:24px;font-weight:600;color:var(--ink)}.modal-stat-key{font-size:11px;color:var(--ink3);margin-top:2px}.modal-btns{display:flex;gap:10px;justify-content:center}.modal-feedback{font-size:20px;font-weight:600;color:var(--ink);margin-bottom:6px}</style>
+</head>
+<body>
+<div class="layout">
+  <nav class="sidebar" id="sidebar"></nav>
+  <div class="main">
+    <div class="topbar">
+      <div class="breadcrumb">
+        <a href="../../../../index.html">Matematika 11</a>
+        <span class="sep">›</span><span>Trigonometrija</span>
+        <span class="sep">›</span><span class="current">Egzaminas 2</span>
+      </div>
+    </div>
+    <div class="page">
+      <div class="exam-header">
+        <div class="exam-title">Trigonometrija — Egzaminas 2</div>
+        <div class="exam-meta">
+          <div class="exam-meta-item">30 klausimų</div>
+          <div class="exam-meta-item">T1–T5 mišrus</div>
+          <div class="exam-meta-item">∼45 min</div>
+        </div>
+      </div>
+      <div class="progress-bar"><div class="progress-fill" id="progress" style="width:0%"></div></div>
+      <div id="questions"></div>
+      <div class="submit-area">
+        <button class="submit-btn" id="submit-btn" onclick="submitTest()">Pateikti egzaminą</button>
+        <span class="answered-count" id="answered-count">Atsakyta: 0 / 30</span>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal-overlay" id="modal">
+  <div class="modal">
+    <div class="modal-score" id="modal-score"></div>
+    <div class="modal-feedback" id="modal-feedback"></div>
+    <div class="modal-label">Egzamino rezultatas</div>
+    <div class="modal-stats">
+      <div><div class="modal-stat-val" id="stat-correct"></div><div class="modal-stat-key">Teisingi</div></div>
+      <div><div class="modal-stat-val" id="stat-wrong"></div><div class="modal-stat-key">Neteisingi</div></div>
+      <div><div class="modal-stat-val" id="stat-pct"></div><div class="modal-stat-key">Rezultatas</div></div>
+    </div>
+    <div class="modal-btns">
+      <button class="btn" onclick="closeModal()">Peržiūrėti atsakymus</button>
+      <a href="egzaminas-3.html" class="btn primary" style="text-decoration:none">Egzaminas 3 →</a>
+    </div>
+  </div>
+</div>
+<script src="../../../../js/main.js"></script>
+<script>
+var QUESTIONS = [{"text": "Vienetiniame apskritime taškas A=(0;−1). Koks kampas α?", "options": ["0°", "90°", "180°", "270°"], "correct": 3}, {"text": "f(x) = cos x reikšmių sritis:", "options": ["ℝ", "(−1;1)", "[−1;1]", "[0;1]"], "correct": 2}, {"text": "Kiek radianų sudaro 270°?", "options": ["π", "3π/2", "2π", "5π/4"], "correct": 1}, {"text": "arctan(−1) lygus:", "options": ["π/4", "−π/4", "3π/4", "−3π/4"], "correct": 1}, {"text": "f(x) = sin x periodas:", "options": ["π/2", "π", "2π", "4π"], "correct": 2}, {"text": "II ketvirtyje cos α ženklas:", "options": ["Teigiamas", "Neigiamas", "Lygus 0", "Bet koks"], "correct": 1}, {"text": "f(x) = cos x nuliai yra, kai:", "options": ["x=πk", "x=π/2+πk", "x=π/2+2πk", "x=2πk"], "correct": 1}, {"text": "Kuriame ketvirtyje yra kampas −200°?", "options": ["I", "II", "III", "IV"], "correct": 1}, {"text": "arcsin(1) lygus:", "options": ["0", "π", "π/4", "π/2"], "correct": 3}, {"text": "Lygties tg x = √3 bendrasis sprendinys:", "options": ["x=π/3+2πk", "x=π/3+πk", "x=±π/3+πk", "x=π/6+πk"], "correct": 1}, {"text": "Žinoma: cos α=−3/5, α∈II ketvirtis. Koks sin α?", "options": ["4/5", "−4/5", "3/4", "5/3"], "correct": 0}, {"text": "Lygties cos x = √2/2 bendrasis sprendinys:", "options": ["x=π/4+2πk", "x=(−1)ᵏπ/4+πk", "x=±π/4+2πk", "x=π/4+πk"], "correct": 2}, {"text": "Išreikšk laipsniais: 5π/3", "options": ["240°", "270°", "300°", "330°"], "correct": 2}, {"text": "f(x) = sin x yra:", "options": ["Lyginė", "Nelyginė", "Nei lyginė nei nelyginė", "Monotoniška"], "correct": 1}, {"text": "arccos reikšmių sritis:", "options": ["[−π/2;π/2]", "[0;π]", "[−1;1]", "ℝ"], "correct": 1}, {"text": "Apskaičiuok: cos 180°", "options": ["0", "1", "−1", "√2/2"], "correct": 2}, {"text": "f(x) = cos x didėja intervale:", "options": ["(2πk;π+2πk)", "(−π+2πk;2πk)", "(π/2+2πk;3π/2+2πk)", "(0;π)"], "correct": 1}, {"text": "Kuriame ketvirtyje yra kampas 13π/4?", "options": ["I", "II", "III", "IV"], "correct": 2}, {"text": "arcsin x apibrėžimo sritis:", "options": ["ℝ", "[0;π]", "[−1;1]", "(−π/2;π/2)"], "correct": 2}, {"text": "f(x) = tg x reikšmių sritis:", "options": ["[−1;1]", "(−π/2;π/2)", "ℝ", "[0;+∞)"], "correct": 2}, {"text": "Žinoma: tg α=√3, α∈I ketvirtis. Koks sin α?", "options": ["1/2", "√3/2", "√2/2", "1"], "correct": 1}, {"text": "arccos(1/2) lygus:", "options": ["π/6", "π/4", "π/3", "π/2"], "correct": 2}, {"text": "Išreikšk radianais: −330°", "options": ["−11π/6", "−5π/6", "−7π/6", "−π/6"], "correct": 0}, {"text": "Nustatyk f(x)=arcsin(2x−1) apibrėžimo sritį:", "options": ["[0;1]", "[−1;1]", "[−1/2;1/2]", "[0;2]"], "correct": 0}, {"text": "Kuris skaičius negali būti tg x reikšmė?", "options": ["−100", "0", "1000", "Visi gali"], "correct": 3}, {"text": "sin(−α) lygus:", "options": ["sin α", "−sin α", "cos α", "−cos α"], "correct": 1}, {"text": "Kuris teiginys apie cos x teisingas?", "options": ["Nelyginė, periodas π", "Lyginė, periodas 2π", "Nelyginė, periodas 2π", "Lyginė, periodas π"], "correct": 1}, {"text": "Apskaičiuok: tg 45° · cos 60°", "options": ["1/2", "√2/2", "√3/2", "1"], "correct": 0}, {"text": "arctan(0) lygus:", "options": ["π/2", "π", "0", "−π/2"], "correct": 2}, {"text": "sin x > 0, kai x ∈:", "options": ["(π/2+πk;3π/2+πk)", "(2πk;π+2πk)", "(πk;π/2+πk)", "(−π/2+2πk;π/2+2πk)"], "correct": 1}];
+var answers = new Array(QUESTIONS.length).fill(null);
+var submitted = false;
+
+function renderQuestions() {
+  var html = '';
+  for (var qi = 0; qi < QUESTIONS.length; qi++) {
+    var q = QUESTIONS[qi];
+    html += '<div class="question-card"><div class="question-num">Uždavinys ' + (qi+1) + ' iš ' + QUESTIONS.length + '</div>';
+    html += '<div class="question-text">' + q.text + '</div><div class="options">';
+    var L = ['A','B','C','D'];
+    for (var oi = 0; oi < q.options.length; oi++) {
+      html += '<div class="option" id="opt-'+qi+'-'+oi+'" onclick="sel('+qi+','+oi+')">';
+      html += '<div class="option-letter">'+L[oi]+'</div><div class="option-text">'+q.options[oi]+'</div></div>';
+    }
+    html += '</div></div>';
+  }
+  document.getElementById('questions').innerHTML = html;
+}
+
+function sel(qi, oi) {
+  if (submitted) return; answers[qi] = oi;
+  for (var i = 0; i < 4; i++) { var e = document.getElementById('opt-'+qi+'-'+i); if(e) e.classList.remove('selected'); }
+  document.getElementById('opt-'+qi+'-'+oi).classList.add('selected');
+  var a = answers.filter(function(x){return x!==null;}).length;
+  document.getElementById('progress').style.width = (a/QUESTIONS.length*100)+'%';
+  document.getElementById('answered-count').textContent = 'Atsakyta: '+a+' / '+QUESTIONS.length;
+}
+
+function submitTest() {
+  var a = answers.filter(function(x){return x!==null;}).length;
+  if (a < QUESTIONS.length && !confirm('Dar neatsakyta '+(QUESTIONS.length-a)+' klausimai. Pateikti?')) return;
+  submitted = true; document.getElementById('submit-btn').disabled = true;
+  var correct = 0;
+  for (var qi = 0; qi < QUESTIONS.length; qi++) {
+    var q = QUESTIONS[qi]; var s = answers[qi]; if (s===q.correct) correct++;
+    for (var oi = 0; oi < q.options.length; oi++) {
+      var el = document.getElementById('opt-'+qi+'-'+oi); el.classList.remove('selected');
+      if (oi===q.correct) el.classList.add(s===q.correct&&oi===s?'correct':'show-correct');
+      if (oi===s&&s!==q.correct) el.classList.add('wrong');
+    }
+  }
+  var pct = Math.round(correct/QUESTIONS.length*100);
+  document.getElementById('modal-score').textContent = pct+'%';
+  document.getElementById('modal-score').className = 'modal-score '+(pct>=80?'excellent':pct>=50?'good':'poor');
+  document.getElementById('modal-feedback').textContent = pct>=90?'Puikiai! 🎉':pct>=70?'Gerai! 👍':pct>=50?'Neblogai, dar pasikartok':'Reikia pasimokyti 📖';
+  document.getElementById('stat-correct').textContent = correct;
+  document.getElementById('stat-wrong').textContent = QUESTIONS.length-correct;
+  document.getElementById('stat-pct').textContent = correct+'/'+QUESTIONS.length;
+  document.getElementById('modal').classList.add('open');
+}
+function closeModal() { document.getElementById('modal').classList.remove('open'); }
+
+renderQuestions();
+</script>
+</body>
+</html>

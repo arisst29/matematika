@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Trigonometrija — Variantas 3</title>
+  <link rel="stylesheet" href="../../../../styles/main.css"/>
+  <style>
+body{margin:0;font-family:'Segoe UI',system-ui,sans-serif}
+.exam-top{border-bottom:3px solid #1d4ed8;padding-bottom:20px;margin-bottom:32px}
+.exam-top h1{font-size:22px;font-weight:700;color:#1a1a2e;margin:0 0 6px}
+.exam-top .meta{display:flex;gap:20px;flex-wrap:wrap;margin-top:10px}
+.exam-top .meta span{font-size:13px;color:#555;background:#f1f5f9;padding:4px 10px;border-radius:20px}
+.hard-badge{background:#fef2f2;color:#b91c1c;border:1px solid #fca5a5;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700;letter-spacing:0.05em}
+.progress-wrap{margin-bottom:28px}
+.progress-bar{height:6px;background:#e2e8f0;border-radius:3px;overflow:hidden}
+.progress-fill{height:100%;background:#1d4ed8;border-radius:3px;transition:width .3s;width:0%}
+.progress-text{font-size:12px;color:#64748b;margin-top:6px;text-align:right}
+.q-card{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:24px;margin-bottom:16px;box-shadow:0 1px 4px rgba(0,0,0,0.05)}
+.q-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px}
+.q-num{font-size:13px;font-weight:700;color:#64748b;letter-spacing:0.05em}
+.q-pts{background:#eff6ff;color:#1d4ed8;border:1px solid #bfdbfe;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:700}
+.q-pts.two{background:#f0fdf4;color:#15803d;border-color:#bbf7d0}
+.q-text{font-size:15px;color:#1a1a2e;line-height:1.75;margin-bottom:6px;font-weight:500}
+.q-hint{font-size:12px;color:#94a3b8;font-style:italic;margin-bottom:14px}
+.frac{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;margin:0 2px;font-size:0.85em;line-height:1.1}
+.frac sup{border-bottom:1px solid currentColor;padding:0 3px;font-size:1em}
+.frac sub{padding:0 3px;font-size:1em}
+.options{display:flex;flex-direction:column;gap:8px}
+.opt{display:flex;align-items:center;gap:12px;padding:11px 16px;border:1.5px solid #e2e8f0;border-radius:8px;cursor:pointer;transition:all .12s;background:#fff;user-select:none}
+.opt:hover{border-color:#1d4ed8;background:#eff6ff}
+.opt.selected{border-color:#1d4ed8;background:#eff6ff}
+.opt.correct{border-color:#16a34a;background:#f0fdf4}
+.opt.wrong{border-color:#dc2626;background:#fef2f2}
+.opt.show-correct{border-color:#16a34a;background:#f0fdf4}
+.opt-letter{width:30px;height:30px;border-radius:50%;background:#e2e8f0;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#475569;flex-shrink:0}
+.opt.selected .opt-letter{background:#1d4ed8;color:#fff}
+.opt.correct .opt-letter{background:#16a34a;color:#fff}
+.opt.wrong .opt-letter{background:#dc2626;color:#fff}
+.opt.show-correct .opt-letter{background:#16a34a;color:#fff}
+.opt-text{font-size:14px;color:#334155;line-height:1.5}
+.opt.selected .opt-text{color:#1d4ed8;font-weight:500}
+.opt.correct .opt-text{color:#16a34a;font-weight:500}
+.opt.wrong .opt-text{color:#dc2626}
+.opt.show-correct .opt-text{color:#16a34a;font-weight:500}
+.open-answer{margin-top:4px}
+.open-input{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.open-input input{padding:10px 14px;border:1.5px solid #e2e8f0;border-radius:8px;font-size:15px;font-family:inherit;width:200px;outline:none;transition:border .12s}
+.open-input input:focus{border-color:#1d4ed8}
+.open-input input.correct-in{border-color:#16a34a;background:#f0fdf4;color:#16a34a;font-weight:600}
+.open-input input.wrong-in{border-color:#dc2626;background:#fef2f2;color:#dc2626}
+.open-input input.partial-in{border-color:#d97706;background:#fffbeb;color:#d97706}
+.answer-feedback{font-size:13px;font-weight:600;margin-top:6px;display:none}
+.answer-feedback.show{display:block}
+.answer-feedback.ok{color:#16a34a}
+.answer-feedback.partial{color:#d97706}
+.answer-feedback.bad{color:#dc2626}
+.submit-row{margin-top:32px;padding-top:24px;border-top:2px solid #e2e8f0;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.btn-submit{padding:13px 36px;background:#1d4ed8;color:#fff;border:none;border-radius:8px;font-size:15px;font-weight:700;font-family:inherit;cursor:pointer;transition:background .12s}
+.btn-submit:hover{background:#1e40af}
+.btn-submit:disabled{background:#94a3b8;cursor:not-allowed}
+.answered-info{font-size:13px;color:#64748b}
+.modal-bg{display:none;position:fixed;inset:0;background:rgba(15,23,42,0.6);z-index:300;align-items:center;justify-content:center}
+.modal-bg.open{display:flex}
+.modal{background:#fff;border-radius:16px;padding:44px 48px;max-width:540px;width:92%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.2)}
+.modal-pct{font-size:80px;font-weight:800;line-height:1;margin-bottom:4px}
+.modal-pct.ex{color:#16a34a}.modal-pct.good{color:#1d4ed8}.modal-pct.poor{color:#dc2626}
+.modal-feedback{font-size:22px;font-weight:700;color:#1a1a2e;margin-bottom:4px}
+.modal-sub{font-size:14px;color:#64748b;margin-bottom:24px}
+.modal-stats{display:flex;justify-content:center;gap:32px;padding:20px;background:#f8fafc;border-radius:10px;margin-bottom:24px}
+.modal-stat-v{font-size:26px;font-weight:700;color:#1a1a2e}
+.modal-stat-k{font-size:11px;color:#94a3b8;margin-top:2px;text-transform:uppercase;letter-spacing:0.05em}
+.modal-btns{display:flex;gap:10px;justify-content:center}
+.btn{padding:10px 22px;border-radius:8px;font-size:14px;font-weight:600;font-family:inherit;cursor:pointer;border:1.5px solid #e2e8f0;background:#fff;color:#334155}
+.btn:hover{background:#f1f5f9}
+.btn.primary{background:#1d4ed8;color:#fff;border-color:#1d4ed8}
+.btn.primary:hover{background:#1e40af}
+  </style>
+</head>
+<body>
+<div id="g_sin" style="display:none"><div style="margin:10px 0;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:10px 14px;display:inline-block"><svg viewBox="0 0 300 140" xmlns="http://www.w3.org/2000/svg" style="width:270px;height:auto"><defs><marker id="mc" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="4" markerHeight="4" orient="auto"><path d="M1,1 L7,4 L1,7" fill="none" stroke="#666" stroke-width="1.5"/></marker></defs><line x1="10" y1="70" x2="292" y2="70" stroke="#666" stroke-width="1.2" marker-end="url(#mc)"/><line x1="150" y1="128" x2="150" y2="8" stroke="#666" stroke-width="1.2" marker-end="url(#mc)"/><text x="294" y="73" font-size="8" fill="#666">x</text><text x="144" y="7" font-size="8" fill="#666">y</text><line x1="10" y1="30" x2="290" y2="30" stroke="#f1f5f9" stroke-width="0.8"/><line x1="10" y1="110" x2="290" y2="110" stroke="#f1f5f9" stroke-width="0.8"/><path d="M30.0,70.0 L31.0,67.9 L32.0,65.8 L33.0,63.7 L34.0,61.7 L35.0,59.6 L36.0,57.6 L37.0,55.7 L38.0,53.7 L39.0,51.8 L40.0,50.0 L41.0,48.2 L42.0,46.5 L43.0,44.8 L44.0,43.2 L45.0,41.7 L46.0,40.3 L47.0,38.9 L48.0,37.6 L49.0,36.5 L50.0,35.4 L51.0,34.4 L52.0,33.5 L53.0,32.7 L54.0,32.0 L55.0,31.4 L56.0,30.9 L57.0,30.5 L58.0,30.2 L59.0,30.1 L60.0,30.0 L61.0,30.1 L62.0,30.2 L63.0,30.5 L64.0,30.9 L65.0,31.4 L66.0,32.0 L67.0,32.7 L68.0,33.5 L69.0,34.4 L70.0,35.4 L71.0,36.5 L72.0,37.6 L73.0,38.9 L74.0,40.3 L75.0,41.7 L76.0,43.2 L77.0,44.8 L78.0,46.5 L79.0,48.2 L80.0,50.0 L81.0,51.8 L82.0,53.7 L83.0,55.7 L84.0,57.6 L85.0,59.6 L86.0,61.7 L87.0,63.7 L88.0,65.8 L89.0,67.9 L90.0,70.0 L91.0,72.1 L92.0,74.2 L93.0,76.3 L94.0,78.3 L95.0,80.4 L96.0,82.4 L97.0,84.3 L98.0,86.3 L99.0,88.2 L100.0,90.0 L101.0,91.8 L102.0,93.5 L103.0,95.2 L104.0,96.8 L105.0,98.3 L106.0,99.7 L107.0,101.1 L108.0,102.4 L109.0,103.5 L110.0,104.6 L111.0,105.6 L112.0,106.5 L113.0,107.3 L114.0,108.0 L115.0,108.6 L116.0,109.1 L117.0,109.5 L118.0,109.8 L119.0,109.9 L120.0,110.0 L121.0,109.9 L122.0,109.8 L123.0,109.5 L124.0,109.1 L125.0,108.6 L126.0,108.0 L127.0,107.3 L128.0,106.5 L129.0,105.6 L130.0,104.6 L131.0,103.5 L132.0,102.4 L133.0,101.1 L134.0,99.7 L135.0,98.3 L136.0,96.8 L137.0,95.2 L138.0,93.5 L139.0,91.8 L140.0,90.0 L141.0,88.2 L142.0,86.3 L143.0,84.3 L144.0,82.4 L145.0,80.4 L146.0,78.3 L147.0,76.3 L148.0,74.2 L149.0,72.1 L150.0,70.0 L151.0,67.9 L152.0,65.8 L153.0,63.7 L154.0,61.7 L155.0,59.6 L156.0,57.6 L157.0,55.7 L158.0,53.7 L159.0,51.8 L160.0,50.0 L161.0,48.2 L162.0,46.5 L163.0,44.8 L164.0,43.2 L165.0,41.7 L166.0,40.3 L167.0,38.9 L168.0,37.6 L169.0,36.5 L170.0,35.4 L171.0,34.4 L172.0,33.5 L173.0,32.7 L174.0,32.0 L175.0,31.4 L176.0,30.9 L177.0,30.5 L178.0,30.2 L179.0,30.1 L180.0,30.0 L181.0,30.1 L182.0,30.2 L183.0,30.5 L184.0,30.9 L185.0,31.4 L186.0,32.0 L187.0,32.7 L188.0,33.5 L189.0,34.4 L190.0,35.4 L191.0,36.5 L192.0,37.6 L193.0,38.9 L194.0,40.3 L195.0,41.7 L196.0,43.2 L197.0,44.8 L198.0,46.5 L199.0,48.2 L200.0,50.0 L201.0,51.8 L202.0,53.7 L203.0,55.7 L204.0,57.6 L205.0,59.6 L206.0,61.7 L207.0,63.7 L208.0,65.8 L209.0,67.9 L210.0,70.0 L211.0,72.1 L212.0,74.2 L213.0,76.3 L214.0,78.3 L215.0,80.4 L216.0,82.4 L217.0,84.3 L218.0,86.3 L219.0,88.2 L220.0,90.0 L221.0,91.8 L222.0,93.5 L223.0,95.2 L224.0,96.8 L225.0,98.3 L226.0,99.7 L227.0,101.1 L228.0,102.4 L229.0,103.5 L230.0,104.6 L231.0,105.6 L232.0,106.5 L233.0,107.3 L234.0,108.0 L235.0,108.6 L236.0,109.1 L237.0,109.5 L238.0,109.8 L239.0,109.9 L240.0,110.0 L241.0,109.9 L242.0,109.8 L243.0,109.5 L244.0,109.1 L245.0,108.6 L246.0,108.0 L247.0,107.3 L248.0,106.5 L249.0,105.6 L250.0,104.6 L251.0,103.5 L252.0,102.4 L253.0,101.1 L254.0,99.7 L255.0,98.3 L256.0,96.8 L257.0,95.2 L258.0,93.5 L259.0,91.8 L260.0,90.0 L261.0,88.2 L262.0,86.3 L263.0,84.3 L264.0,82.4 L265.0,80.4 L266.0,78.3 L267.0,76.3 L268.0,74.2 L269.0,72.1 L270.0,70.0" fill="none" stroke="#1d4ed8" stroke-width="2.2" stroke-linecap="round"/><text x="150" y="83" font-size="8" fill="#888" text-anchor="middle">0</text><text x="90" y="83" font-size="8" fill="#888" text-anchor="middle">−π</text><text x="210" y="83" font-size="8" fill="#888" text-anchor="middle">π</text><text x="120" y="83" font-size="8" fill="#888" text-anchor="middle">−π/2</text><text x="180" y="83" font-size="8" fill="#888" text-anchor="middle">π/2</text><text x="143" y="33" font-size="8" fill="#888" text-anchor="end">1</text><text x="143" y="113" font-size="8" fill="#888" text-anchor="end">−1</text></svg></div></div>
+<div id="g_ncos" style="display:none"><div style="margin:10px 0;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:10px 14px;display:inline-block"><svg viewBox="0 0 300 140" xmlns="http://www.w3.org/2000/svg" style="width:270px;height:auto"><defs><marker id="md" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="4" markerHeight="4" orient="auto"><path d="M1,1 L7,4 L1,7" fill="none" stroke="#666" stroke-width="1.5"/></marker></defs><line x1="10" y1="70" x2="292" y2="70" stroke="#666" stroke-width="1.2" marker-end="url(#md)"/><line x1="150" y1="128" x2="150" y2="8" stroke="#666" stroke-width="1.2" marker-end="url(#md)"/><text x="294" y="73" font-size="8" fill="#666">x</text><text x="144" y="7" font-size="8" fill="#666">y</text><line x1="10" y1="30" x2="290" y2="30" stroke="#f1f5f9" stroke-width="0.8"/><line x1="10" y1="110" x2="290" y2="110" stroke="#f1f5f9" stroke-width="0.8"/><path d="M30.0,110.0 L31.0,109.9 L32.0,109.8 L33.0,109.5 L34.0,109.1 L35.0,108.6 L36.0,108.0 L37.0,107.3 L38.0,106.5 L39.0,105.6 L40.0,104.6 L41.0,103.5 L42.0,102.4 L43.0,101.1 L44.0,99.7 L45.0,98.3 L46.0,96.8 L47.0,95.2 L48.0,93.5 L49.0,91.8 L50.0,90.0 L51.0,88.2 L52.0,86.3 L53.0,84.3 L54.0,82.4 L55.0,80.4 L56.0,78.3 L57.0,76.3 L58.0,74.2 L59.0,72.1 L60.0,70.0 L61.0,67.9 L62.0,65.8 L63.0,63.7 L64.0,61.7 L65.0,59.6 L66.0,57.6 L67.0,55.7 L68.0,53.7 L69.0,51.8 L70.0,50.0 L71.0,48.2 L72.0,46.5 L73.0,44.8 L74.0,43.2 L75.0,41.7 L76.0,40.3 L77.0,38.9 L78.0,37.6 L79.0,36.5 L80.0,35.4 L81.0,34.4 L82.0,33.5 L83.0,32.7 L84.0,32.0 L85.0,31.4 L86.0,30.9 L87.0,30.5 L88.0,30.2 L89.0,30.1 L90.0,30.0 L91.0,30.1 L92.0,30.2 L93.0,30.5 L94.0,30.9 L95.0,31.4 L96.0,32.0 L97.0,32.7 L98.0,33.5 L99.0,34.4 L100.0,35.4 L101.0,36.5 L102.0,37.6 L103.0,38.9 L104.0,40.3 L105.0,41.7 L106.0,43.2 L107.0,44.8 L108.0,46.5 L109.0,48.2 L110.0,50.0 L111.0,51.8 L112.0,53.7 L113.0,55.7 L114.0,57.6 L115.0,59.6 L116.0,61.7 L117.0,63.7 L118.0,65.8 L119.0,67.9 L120.0,70.0 L121.0,72.1 L122.0,74.2 L123.0,76.3 L124.0,78.3 L125.0,80.4 L126.0,82.4 L127.0,84.3 L128.0,86.3 L129.0,88.2 L130.0,90.0 L131.0,91.8 L132.0,93.5 L133.0,95.2 L134.0,96.8 L135.0,98.3 L136.0,99.7 L137.0,101.1 L138.0,102.4 L139.0,103.5 L140.0,104.6 L141.0,105.6 L142.0,106.5 L143.0,107.3 L144.0,108.0 L145.0,108.6 L146.0,109.1 L147.0,109.5 L148.0,109.8 L149.0,109.9 L150.0,110.0 L151.0,109.9 L152.0,109.8 L153.0,109.5 L154.0,109.1 L155.0,108.6 L156.0,108.0 L157.0,107.3 L158.0,106.5 L159.0,105.6 L160.0,104.6 L161.0,103.5 L162.0,102.4 L163.0,101.1 L164.0,99.7 L165.0,98.3 L166.0,96.8 L167.0,95.2 L168.0,93.5 L169.0,91.8 L170.0,90.0 L171.0,88.2 L172.0,86.3 L173.0,84.3 L174.0,82.4 L175.0,80.4 L176.0,78.3 L177.0,76.3 L178.0,74.2 L179.0,72.1 L180.0,70.0 L181.0,67.9 L182.0,65.8 L183.0,63.7 L184.0,61.7 L185.0,59.6 L186.0,57.6 L187.0,55.7 L188.0,53.7 L189.0,51.8 L190.0,50.0 L191.0,48.2 L192.0,46.5 L193.0,44.8 L194.0,43.2 L195.0,41.7 L196.0,40.3 L197.0,38.9 L198.0,37.6 L199.0,36.5 L200.0,35.4 L201.0,34.4 L202.0,33.5 L203.0,32.7 L204.0,32.0 L205.0,31.4 L206.0,30.9 L207.0,30.5 L208.0,30.2 L209.0,30.1 L210.0,30.0 L211.0,30.1 L212.0,30.2 L213.0,30.5 L214.0,30.9 L215.0,31.4 L216.0,32.0 L217.0,32.7 L218.0,33.5 L219.0,34.4 L220.0,35.4 L221.0,36.5 L222.0,37.6 L223.0,38.9 L224.0,40.3 L225.0,41.7 L226.0,43.2 L227.0,44.8 L228.0,46.5 L229.0,48.2 L230.0,50.0 L231.0,51.8 L232.0,53.7 L233.0,55.7 L234.0,57.6 L235.0,59.6 L236.0,61.7 L237.0,63.7 L238.0,65.8 L239.0,67.9 L240.0,70.0 L241.0,72.1 L242.0,74.2 L243.0,76.3 L244.0,78.3 L245.0,80.4 L246.0,82.4 L247.0,84.3 L248.0,86.3 L249.0,88.2 L250.0,90.0 L251.0,91.8 L252.0,93.5 L253.0,95.2 L254.0,96.8 L255.0,98.3 L256.0,99.7 L257.0,101.1 L258.0,102.4 L259.0,103.5 L260.0,104.6 L261.0,105.6 L262.0,106.5 L263.0,107.3 L264.0,108.0 L265.0,108.6 L266.0,109.1 L267.0,109.5 L268.0,109.8 L269.0,109.9 L270.0,110.0" fill="none" stroke="#b45309" stroke-width="2.2" stroke-linecap="round"/><text x="150" y="83" font-size="8" fill="#888" text-anchor="middle">0</text><text x="90" y="83" font-size="8" fill="#888" text-anchor="middle">−π</text><text x="210" y="83" font-size="8" fill="#888" text-anchor="middle">π</text><text x="120" y="83" font-size="8" fill="#888" text-anchor="middle">−π/2</text><text x="180" y="83" font-size="8" fill="#888" text-anchor="middle">π/2</text><text x="143" y="33" font-size="8" fill="#888" text-anchor="end">1</text><text x="143" y="113" font-size="8" fill="#888" text-anchor="end">−1</text></svg></div></div>
+
+<div class="layout">
+  <nav class="sidebar" id="sidebar"></nav>
+  <div class="main">
+    <div class="topbar">
+      <div class="breadcrumb">
+        <a href="../../../../index.html">Matematika 11</a>
+        <span class="sep">›</span><span>Trigonometrija</span>
+        <span class="sep">›</span><span class="current">Variantas 3</span>
+      </div>
+    </div>
+    <div class="page">
+      <div class="exam-top">
+        <div class="topic-tag">9 skyrius · VBE stiliaus variantas</div>
+        <h1>Trigonometrija — Variantas 3 (∼45 min · Sunkus lygis)</h1>
+        <div class="meta">
+          <span>∼30 taškų</span>
+          <span>T1 · T2 · T3 · T4 · T5</span>
+          <span>Atsakymai matomi po pateikimo</span>
+          <span class="hard-badge">SUNKUS</span>
+        </div>
+      </div>
+      <div class="progress-wrap">
+        <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+        <div class="progress-text" id="progress-text">Atsakyta: 0 / 20</div>
+      </div>
+      <div id="questions"></div>
+      <div class="submit-row">
+        <button class="btn-submit" id="submit-btn" onclick="submitExam()">Pateikti variantą</button>
+        <span class="answered-info" id="answered-info"></span>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal-bg" id="modal-bg">
+  <div class="modal">
+    <div class="modal-pct" id="modal-pct"></div>
+    <div class="modal-feedback" id="modal-feedback"></div>
+    <div class="modal-sub" id="modal-sub"></div>
+    <div class="modal-stats">
+      <div><div class="modal-stat-v" id="stat-correct"></div><div class="modal-stat-k">Taškai</div></div>
+      <div><div class="modal-stat-v" id="stat-wrong"></div><div class="modal-stat-k">Trūksta</div></div>
+      <div><div class="modal-stat-v" id="stat-pct"></div><div class="modal-stat-k">Procentas</div></div>
+    </div>
+    <div class="modal-btns">
+      <button class="btn" onclick="closeModal()">Peržiūrėti</button>
+      <a href="index.html" class="btn primary" style="text-decoration:none">Visi egzaminai →</a>
+    </div>
+  </div>
+</div>
+<script src="../../../../js/main.js"></script>
+<script>
+var QUESTIONS = [{"num": "1.", "type": "mcq", "pts": 1, "text": "Kiek radianų sudaro 315°?", "options": ["5π/4", "7π/4", "3π/2", "5π/3"], "correct": 1, "hint": "pasirinkite vieną atsakymą"}, {"num": "2.", "type": "open", "pts": 2, "text": "Žinoma: tgα = −3/4, α ∈ IV ketvirtis. Apskaičiuokite sinα. Įrašykite atsakymą (formatu skaitiklis/vardiklis).", "answers": ["-3/5"], "partial": ["3/5", "4/5"], "hint": "tg = sin/cos, cos > 0 IV ketvirčiuje, sin < 0"}, {"num": "3.", "type": "mcq", "pts": 1, "text": "arcsin(sin(5π/6)) lygus:", "options": ["5π/6", "π/6", "−π/6", "4π/6"], "correct": 1, "hint": "pasirinkite vieną atsakymą"}, {"num": "4.", "type": "open", "pts": 2, "text": "Šiame grafike pavaizduota funkcija. Kuri? Įrašykite funkcijos formulę (pvz. sinx, cosx, -sinx, -cosx).", "graph_id": "g_sin", "answers": ["sinx", "sin x", "f(x)=sinx", "f(x)=sin x"], "partial": [], "hint": "kur grafikas kerta y ašį ir kuria kryptimi eina pirmiausiai?"}, {"num": "5.", "type": "mcq", "pts": 1, "text": "Lygties cos x = −1 bendrasis sprendinys:", "options": ["x = 2πk", "x = π + 2πk", "x = πk", "x = π/2 + 2πk"], "correct": 1, "hint": "pasirinkite vieną atsakymą"}, {"num": "6.", "type": "open", "pts": 2, "text": "Surašykite visus lygties tg x = 1 sprendinius intervale [0; 2π]. Įrašykite juos atskirdami kabliataškiu.", "answers": ["pi/4; 5pi/4", "pi/4;5pi/4"], "partial": ["2", "pi/4", "5pi/4"], "hint": "tg x = 1 kai x = π/4 + πk, raskite k=0 ir k=1"}, {"num": "7.", "type": "mcq", "pts": 1, "text": "Kuris teiginys teisingas apie f(x) = tg x?", "options": ["Lyginė funkcija", "Reikšmių sritis [−1; 1]", "Periodas π", "Apiėpta visur"], "correct": 2, "hint": "pasirinkite vieną atsakymą"}, {"num": "8.", "type": "open", "pts": 2, "text": "Surašykite visus lygties sin x = −√2/2 sprendinius intervale [0; 2π]. Įrašykite juos atskirdami kabliataškiu.", "answers": ["5pi/4; 7pi/4", "5pi/4;7pi/4"], "partial": ["2", "5pi/4", "7pi/4"], "hint": "arcsin(−√2/2) = −π/4, sprendiniai [0;2π]: π+π/4 ir 2π−π/4"}, {"num": "9.", "type": "mcq", "pts": 1, "text": "f(x) = cos x reikšmių sritis:", "options": ["ℝ", "(−1; 1)", "[−1; 1]", "[0; 1]"], "correct": 2, "hint": "pasirinkite vieną atsakymą"}, {"num": "10.", "type": "open", "pts": 2, "text": "Šiame grafike pavaizduota funkcija. Kuri? Įrašykite funkcijos formulę (pvz. sinx, cosx, -sinx, -cosx).", "graph_id": "g_ncos", "answers": ["-cosx", "-cos x", "f(x)=-cosx", "f(x)=-cos x"], "partial": ["cosx"], "hint": "kur grafikas kerta y ašį ir kuria kryptimi nukreiptas ties x=0?"}, {"num": "11.", "type": "mcq", "pts": 1, "text": "f(x) = arccos x reikšmių sritis:", "options": ["[−π/2; π/2]", "[0; π]", "[−1; 1]", "ℝ"], "correct": 1, "hint": "pasirinkite vieną atsakymą"}, {"num": "12.", "type": "open", "pts": 2, "text": "Raskite funkcijų f(x) = sin x ir g(x) = cos x sankirtos taškų x koordinates intervale [0; 2π). Įrašykite juos atskirdami kabliataškiu.", "answers": ["pi/4; 5pi/4", "pi/4;5pi/4"], "partial": ["pi/4", "5pi/4"], "hint": "sin x = cos x ⇒ tg x = 1 ⇒ x = π/4 + πk"}, {"num": "13.", "type": "mcq", "pts": 1, "text": "sin(−α) lygus:", "options": ["sinα", "−sinα", "cosα", "−cosα"], "correct": 1, "hint": "pasirinkite vieną atsakymą"}, {"num": "14.", "type": "open", "pts": 2, "text": "Kiek sprendinių turi lygtis sin x = √2/2 intervale [0; 3π]? Įrašykite skaičių.", "answers": ["3"], "partial": ["2"], "hint": "sin x = √2/2 intervaluose: π/4, 3π/4, 2π+π/4 = 9π/4"}, {"num": "15.", "type": "mcq", "pts": 1, "text": "f(x) = tg x neegzistuoja, kai:", "options": ["x = πk", "x = π/2 + 2πk", "x = π/2 + πk", "x = 2πk"], "correct": 2, "hint": "pasirinkite vieną atsakymą"}, {"num": "16.", "type": "open", "pts": 2, "text": "Išspreskite nelygybę cos x ≤ 1/2 intervale [0; 2π]. Įrašykite atsakymą kaip intervalą.", "answers": ["[pi/3; 5pi/3]", "pi/3 <= x <= 5pi/3", "[pi/3;5pi/3]"], "partial": ["pi/3", "5pi/3"], "hint": "arccos(1/2) = π/3, cos x ≤ 1/2 kai π/3 ≤ x ≤ 5π/3"}, {"num": "17.", "type": "mcq", "pts": 1, "text": "Kuriuose ketvirčiuose cosα < 0?", "options": ["I ir II", "II ir III", "III ir IV", "I ir IV"], "correct": 1, "hint": "pasirinkite vieną atsakymą"}, {"num": "18.", "type": "open", "pts": 2, "text": "Apskaičiuokite arcsin(sin(7π/6)). Įrašykite atsakymą (pvz. -pi/6).", "answers": ["-pi/6", "−π/6"], "partial": ["pi/6", "7pi/6"], "hint": "sin(7π/6) = −1/2, arcsin(−1/2) = −π/6"}, {"num": "19.", "type": "mcq", "pts": 1, "text": "f(x) = cos x mažėja intervale:", "options": ["(−π+2πk; 2πk)", "(2πk; π+2πk)", "(0; π/2)", "(π; 2π)"], "correct": 1, "hint": "pasirinkite vieną atsakymą"}, {"num": "20.", "type": "open", "pts": 2, "text": "Nustatykite f(x) = arccos(1 − x) apibrėžimo sritį. Įrašykite kaip intervalą.", "answers": ["[0; 2]", "[0;2]"], "partial": ["0", "2"], "hint": "−1 ≤ 1−x ≤ 1 ⇒ 0 ≤ x ≤ 2"}];
+
+var totalPts = 0, earnedPts = 0, submitted = false, answers = {};
+
+function renderAll() {
+  var container = document.getElementById('questions');
+  var html = '';
+  for (var qi = 0; qi < QUESTIONS.length; qi++) {
+    totalPts += QUESTIONS[qi].pts;
+    html += buildCard(QUESTIONS[qi], qi);
+  }
+  container.innerHTML = html;
+  // Inject graphs
+  for (var qi2 = 0; qi2 < QUESTIONS.length; qi2++) {
+    if (QUESTIONS[qi2].graph_id) {
+      var src = document.getElementById(QUESTIONS[qi2].graph_id);
+      var tgt = document.getElementById('graph-slot-' + qi2);
+      if (src && tgt) tgt.innerHTML = src.innerHTML;
+    }
+  }
+  document.getElementById('progress-text').textContent = 'Atsakyta: 0 / ' + QUESTIONS.length;
+}
+
+function buildCard(q, qi) {
+  var ptsClass = q.pts === 2 ? 'q-pts two' : 'q-pts';
+  var h = '<div class="q-card" id="qcard-'+qi+'">';
+  h += '<div class="q-header"><span class="q-num">'+q.num+'</span><span class="'+ptsClass+'">'+q.pts+' t.</span></div>';
+  h += '<div class="q-text">'+q.text+'</div>';
+  if (q.graph_id) h += '<div id="graph-slot-'+qi+'"></div>';
+  if (q.hint) h += '<div class="q-hint">'+q.hint+'</div>';
+  if (q.type === 'mcq') {
+    h += '<div class="options">';
+    var L = ['A','B','C','D'];
+    for (var oi = 0; oi < q.options.length; oi++) {
+      h += '<div class="opt" id="opt-'+qi+'-'+oi+'" onclick="selMcq('+qi+','+oi+')">';
+      h += '<div class="opt-letter">'+L[oi]+'</div>';
+      h += '<div class="opt-text">'+q.options[oi]+'</div></div>';
+    }
+    h += '</div>';
+  } else {
+    h += '<div class="open-answer"><div class="open-input">';
+    h += '<input type="text" id="inp-'+qi+'" placeholder="\u012era\u0161ykite atsakym\u0105" oninput="selOpen('+qi+')" />';
+    h += '</div><div class="answer-feedback" id="fb-'+qi+'"></div></div>';
+  }
+  h += '</div>';
+  return h;
+}
+
+function selMcq(qi, oi) {
+  if (submitted) return;
+  answers[qi] = oi;
+  var q = QUESTIONS[qi];
+  for (var i = 0; i < q.options.length; i++) {
+    document.getElementById('opt-'+qi+'-'+i).className = 'opt' + (i===oi?' selected':'');
+  }
+  updateProgress();
+}
+
+function selOpen(qi) {
+  if (submitted) return;
+  answers[qi] = document.getElementById('inp-'+qi).value.trim();
+  updateProgress();
+}
+
+function updateProgress() {
+  var answered = Object.keys(answers).filter(function(k){ var v = answers[k]; return v !== null && v !== undefined && v !== ''; }).length;
+  document.getElementById('progress-fill').style.width = Math.round(answered/QUESTIONS.length*100) + '%';
+  document.getElementById('progress-text').textContent = 'Atsakyta: ' + answered + ' / ' + QUESTIONS.length;
+}
+
+function checkOpen(userVal, q) {
+  var uv = userVal.toString().trim().replace(',','.').replace(/\s/g,'').toLowerCase();
+  for (var i = 0; i < q.answers.length; i++) {
+    if (uv === q.answers[i].toString().trim().replace(',','.').replace(/\s/g,'').toLowerCase()) return q.pts;
+  }
+  if (q.partial) {
+    for (var j = 0; j < q.partial.length; j++) {
+      if (uv === q.partial[j].toString().trim().replace(',','.').replace(/\s/g,'').toLowerCase()) return 1;
+    }
+  }
+  return 0;
+}
+
+function submitExam() {
+  var answered = Object.keys(answers).filter(function(k){ var v = answers[k]; return v !== null && v !== undefined && v !== ''; }).length;
+  if (answered < QUESTIONS.length && !confirm('Dar neatsakyta ' + (QUESTIONS.length - answered) + ' klausim\u0173. Pateikti?')) return;
+  submitted = true;
+  document.getElementById('submit-btn').disabled = true;
+  earnedPts = 0;
+  for (var qi = 0; qi < QUESTIONS.length; qi++) {
+    var q = QUESTIONS[qi];
+    if (q.type === 'mcq') {
+      var sel = answers[qi];
+      for (var oi = 0; oi < q.options.length; oi++) {
+        var el = document.getElementById('opt-'+qi+'-'+oi);
+        el.className = 'opt';
+        if (oi === q.correct) el.className += (sel === q.correct && oi === sel) ? ' correct' : ' show-correct';
+        if (oi === sel && sel !== q.correct) el.className += ' wrong';
+      }
+      if (sel === q.correct) earnedPts += q.pts;
+    } else {
+      var inp = document.getElementById('inp-'+qi);
+      inp.disabled = true;
+      var userVal = (answers[qi]||'').toString().trim().replace(',','.').replace(/\s/g,'');
+      var fb = document.getElementById('fb-'+qi);
+      fb.className = 'answer-feedback show';
+      var pts = checkOpen(userVal, q);
+      earnedPts += pts;
+      if (pts === q.pts) {
+        inp.className = 'correct-in'; fb.className += ' ok';
+        fb.textContent = '\u2713 Teisingai! (' + pts + '/' + q.pts + ' t.)';
+      } else if (pts > 0) {
+        inp.className = 'partial-in'; fb.className += ' partial';
+        fb.textContent = '~ I\u0161 dalies (' + pts + '/' + q.pts + ' t.) \u2014 Teisingas: ' + q.answers[0];
+      } else {
+        inp.className = 'wrong-in'; fb.className += ' bad';
+        fb.textContent = '\u2717 Neteisingai (0/' + q.pts + ' t.) \u2014 Teisingas: ' + q.answers[0];
+      }
+    }
+  }
+  showModal();
+}
+
+function showModal() {
+  var pct = Math.round(earnedPts / totalPts * 100);
+  var scoreEl = document.getElementById('modal-pct');
+  scoreEl.textContent = earnedPts + '/' + totalPts;
+  scoreEl.className = 'modal-pct ' + (pct>=80?'ex':pct>=50?'good':'poor');
+  document.getElementById('modal-feedback').textContent = pct>=90?'Puikiai!':pct>=70?'Gerai!':pct>=50?'Neblogai':'Reikia pasimokyti';
+  document.getElementById('modal-sub').textContent = 'Surinkai ' + earnedPts + ' i\u0161 ' + totalPts + ' ta\u0161k\u0173 (' + pct + '%)';
+  document.getElementById('stat-correct').textContent = earnedPts;
+  document.getElementById('stat-wrong').textContent = totalPts - earnedPts;
+  document.getElementById('stat-pct').textContent = pct + '%';
+  document.getElementById('modal-bg').className = 'modal-bg open';
+}
+
+function closeModal() { document.getElementById('modal-bg').className = 'modal-bg'; }
+renderAll();
+</script>
+</body>
+</html>

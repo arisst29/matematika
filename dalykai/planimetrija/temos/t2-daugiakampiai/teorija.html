@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>T2. Įbrėžtiniai ir apibrėžtiniai daugiakampiai — Planimetrija</title>
+  <link rel="stylesheet" href="../../../../../styles/main.css"/>
+  <style>
+    .row-apibreztis { background: #f1f0ee; border-left: 3px solid #9a9a92; }
+    .row-apibreztis .row-label { color: #5a5a54; background: #e4e2d8; border-color: #c8c6bc; }
+    .row-formule { background: #eff4ff; border-left: 3px solid #1d4ed8; }
+    .row-formule .row-label { color: #1d4ed8; background: #dbeafe; border-color: #bfdbfe; }
+    .row-zymime { background: #fffbeb; border-left: 3px solid #b45309; }
+    .row-zymime .row-label { color: #b45309; background: #fef3c7; border-color: #fde68a; }
+    .row-svarbu { background: #fef2f2; border-left: 3px solid #b91c1c; }
+    .row-svarbu .row-label { color: #b91c1c; background: #fecaca; border-color: #fca5a5; }
+    .row-taisykle { background: #f5f3ff; border-left: 3px solid #6d28d9; }
+    .row-taisykle .row-label { color: #6d28d9; background: #ede9fe; border-color: #c4b5fd; }
+    .row-pavyzdys { background: #f0fdf4; border-left: 3px solid #15803d; }
+    .row-pavyzdys .row-label { color: #15803d; background: #dcfce7; border-color: #bbf7d0; }
+    .theory-row { display: grid; grid-template-columns: 1fr; border-radius: var(--radius); margin-bottom: 8px; overflow: hidden; }
+    .theory-row.has-graph { grid-template-columns: 1fr auto; align-items: stretch; }
+    .row-content { padding: 13px 16px; }
+    .row-label { display: inline-block; font-size: 10px; font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase; padding: 2px 8px; border-radius: 4px; border: 1px solid; margin-bottom: 7px; }
+    .row-text { font-size: 13.5px; color: var(--ink2); line-height: 1.7; }
+    .row-text strong { color: var(--ink); font-weight: 500; }
+    .formula-inline { font-family: var(--mono); font-size: 14px; color: var(--accent); }
+    .row-graph { width: 220px; border-left: 1px solid rgba(0,0,0,0.06); display: flex; align-items: center; justify-content: center; padding: 10px 12px; flex-shrink: 0; }
+    @media (max-width: 640px) { .theory-row.has-graph { grid-template-columns: 1fr; } .row-graph { width: 100%; border-left: none; border-top: 1px solid rgba(0,0,0,0.06); } }
+  </style>
+</head>
+<body>
+<div class="layout">
+  <nav class="sidebar" id="sidebar"></nav>
+  <div class="main">
+    <div class="topbar">
+      <div class="breadcrumb">
+        <a href="../../../../../index.html">Matematika 11</a>
+        <span class="sep">›</span><span>Planimetrija</span>
+        <span class="sep">›</span><span class="current">T2. Įbrėžtiniai ir apibrėžtiniai daugiakampiai</span>
+      </div>
+      <div class="tab-switcher"><button class="tab-btn active">Teorija</button></div>
+    </div>
+    <div class="page">
+      <div class="topic-header">
+        <div class="topic-tag">8 skyrius · Tema 2</div>
+        <h1 class="topic-title">Įbrėžtiniai ir apibrėžtiniai daugiakampiai. Plotai.</h1>
+        <p class="topic-intro">Apie kiekvieną trikampį galima apibrėžti apskritimą ir į jį įbrėžti apskritimą. Trikampių ir keturkampių savybės bei plotų formulės.</p>
+      </div>
+
+      <div class="theory-block">
+        <div class="block-title"><div class="block-num">1</div>Apibrėžtiniai trikampiai</div>
+
+        <div class="theory-row row-apibreztis">
+          <div class="row-content">
+            <div class="row-label">Apibrėžimas</div>
+            <div class="row-text">
+              <strong>Apie kiekvieną trikampį galima apibrėžti vienintelį apskritimą.</strong>
+              Jo centras yra trikampio kraštinių <strong>vidurio statmenų sankirtos taškas</strong>.
+            </div>
+          </div>
+        </div>
+
+        <div class="theory-row row-zymime has-graph">
+          <div class="row-content">
+            <div class="row-label">Smailusis trikampis</div>
+            <div class="row-text">
+              Smaliajame trikampyje apibrėžto apskritimo centras O yra <strong>viduje</strong> trikampio.
+            </div>
+          </div>
+          <div class="row-graph"><svg viewBox="0 0 210 215" xmlns="http://www.w3.org/2000/svg" style="width:190px"><circle cx="105.0" cy="105.0" r="80" fill="none" stroke="#1d4ed8" stroke-width="1.8"/><line x1="105.0" y1="25.0" x2="35.717967697244916" y2="145.0" stroke="#1d4ed8" stroke-width="1.8"/><line x1="35.717967697244916" y1="145.0" x2="174.28203230275506" y2="145.00000000000003" stroke="#1d4ed8" stroke-width="1.8"/><line x1="105.0" y1="25.0" x2="174.28203230275506" y2="145.00000000000003" stroke="#1d4ed8" stroke-width="1.8"/><circle cx="105" cy="105" r="2.5" fill="#374151"/><text x="112.0" y="110.0" font-size="11" fill="#374151" text-anchor="left">O</text><line x1="105" y1="105" x2="105.0" y2="25.0" stroke="#94a3b8" stroke-width="1" stroke-dasharray="3,2"/><line x1="105" y1="105" x2="35.717967697244916" y2="145.0" stroke="#94a3b8" stroke-width="1" stroke-dasharray="3,2"/><line x1="105" y1="105" x2="174.28203230275506" y2="145.00000000000003" stroke="#94a3b8" stroke-width="1" stroke-dasharray="3,2"/><circle cx="105.0" cy="25.0" r="3" fill="#1d4ed8"/><text x="105.0" y="17.0" font-size="12" fill="#1a1a2e" text-anchor="middle" font-weight="600">A</text><circle cx="35.717967697244916" cy="145.0" r="3" fill="#1d4ed8"/><text x="35.717967697244916" y="154.0" font-size="12" fill="#1a1a2e" text-anchor="middle" font-weight="600">B</text><circle cx="174.28203230275506" cy="145.00000000000003" r="3" fill="#1d4ed8"/><text x="174.28203230275506" y="154.00000000000003" font-size="12" fill="#1a1a2e" text-anchor="middle" font-weight="600">C</text><text x="105.0" y="210.0" font-size="9" fill="#374151" text-anchor="middle">Smailusis — O viduje</text></svg></div>
+        </div>
+
+        <div class="theory-row row-zymime has-graph">
+          <div class="row-content">
+            <div class="row-label">Statusis trikampis</div>
+            <div class="row-text">
+              Centras O yra ant <strong>įžambinės vidurio</strong>. įžambinė lygi apibrėžto apskritimo skersmeniui:<br/><br/>
+              <span class="formula-inline">AB = 2R</span>
+            </div>
+          </div>
+          <div class="row-graph"><svg viewBox="0 0 210 215" xmlns="http://www.w3.org/2000/svg" style="width:190px"><circle cx="105.0" cy="105.0" r="80" fill="none" stroke="#1d4ed8" stroke-width="1.8"/><line x1="25.0" y1="104.99999999999999" x2="185.0" y2="105.0" stroke="#1d4ed8" stroke-width="1.8"/><line x1="25.0" y1="104.99999999999999" x2="91.10814578664558" y2="26.215379759023364" stroke="#1d4ed8" stroke-width="1.8"/><line x1="185.0" y1="105.0" x2="91.10814578664558" y2="26.215379759023364" stroke="#1d4ed8" stroke-width="1.8"/><circle cx="105" cy="105" r="2.5" fill="#374151"/><text x="112.0" y="117.0" font-size="11" fill="#374151" text-anchor="left">O</text><polyline points="84.7,33.9 92.3,40.3 98.8,32.6" fill="none" stroke="#374151" stroke-width="1.2"/><circle cx="25.0" cy="104.99999999999999" r="3" fill="#1d4ed8"/><text x="17.0" y="108.99999999999999" font-size="12" fill="#1a1a2e" text-anchor="middle" font-weight="600">A</text><circle cx="185.0" cy="105.0" r="3" fill="#1d4ed8"/><text x="193.0" y="109.0" font-size="12" fill="#1a1a2e" text-anchor="middle" font-weight="600">B</text><circle cx="91.10814578664558" cy="26.215379759023364" r="3" fill="#1d4ed8"/><text x="91.10814578664558" y="18.215379759023364" font-size="12" fill="#1a1a2e" text-anchor="middle" font-weight="600">C</text><text x="105.0" y="210.0" font-size="9" fill="#374151" text-anchor="middle">Statusis — O ant hipotenuzės</text></svg></div>
+        </div>
+
+        <div class="theory-row row-zymime has-graph">
+          <div class="row-content">
+            <div class="row-label">Bukainis trikampis</div>
+            <div class="row-text">
+              Bukainiame trikampyje centras O yra <strong>išorėje</strong> trikampio.
+            </div>
+          </div>
+          <div class="row-graph"><svg viewBox="0 0 230 225" xmlns="http://www.w3.org/2000/svg" style="width:205px"><circle cx="115.0" cy="120.0" r="80.0" fill="none" stroke="#1d4ed8" stroke-width="1.5"/><line x1="166.42300877492315" y1="58.71644455048176" x2="39.82459033712733" y2="92.63838853394648" stroke="#1d4ed8" stroke-width="1.8"/><line x1="166.42300877492315" y1="58.71644455048176" x2="53.71644455048176" y2="171.42300877492315" stroke="#1d4ed8" stroke-width="1.8"/><line x1="39.82459033712733" y1="92.63838853394648" x2="53.71644455048176" y2="171.42300877492315" stroke="#1d4ed8" stroke-width="1.8"/><circle cx="115" cy="120" r="3" fill="#dc2626"/><text x="122.0" y="125.0" font-size="11" fill="#dc2626" text-anchor="left" font-weight="600">O</text><circle cx="166.42300877492315" cy="58.71644455048176" r="3" fill="#1d4ed8"/><text x="174.42300877492315" y="62.71644455048176" font-size="12" fill="#1a1a2e" text-anchor="middle" font-weight="600">A</text><circle cx="39.82459033712733" cy="92.63838853394648" r="3" fill="#1d4ed8"/><text x="31.824590337127333" y="96.63838853394648" font-size="12" fill="#1a1a2e" text-anchor="middle" font-weight="600">B</text><circle cx="53.71644455048176" cy="171.42300877492315" r="3" fill="#1d4ed8"/><text x="53.71644455048176" y="180.42300877492315" font-size="12" fill="#1a1a2e" text-anchor="middle" font-weight="600">C</text><text x="115.0" y="220.0" font-size="9" fill="#374151" text-anchor="middle">Bukainis — O išorėje</text></svg></div>
+        </div>
+
+        <div class="theory-row row-svarbu has-graph">
+          <div class="row-content">
+            <div class="row-label">Įbrėžtas apskritimas</div>
+            <div class="row-text">
+              <strong>Į kiekvieną trikampį galima įbrėžti vienintelį apskritimą.</strong>
+              Jo centras — trikampio <strong>pusiaukampinių sankirtos taškas</strong> (inkcentras I).<br/><br/>
+              Spindulys r yra statmenas kiekvienai kraštinei.
+            </div>
+          </div>
+          <div class="row-graph"><svg viewBox="0 0 220 215" xmlns="http://www.w3.org/2000/svg" style="width:200px"><line x1="110" y1="22" x2="25" y2="195" stroke="#1d4ed8" stroke-width="1.8"/><line x1="25" y1="195" x2="195" y2="195" stroke="#1d4ed8" stroke-width="1.8"/><line x1="110" y1="22" x2="195" y2="195" stroke="#1d4ed8" stroke-width="1.8"/><circle cx="110.0" cy="142.1" r="52.9" fill="none" stroke="#dc2626" stroke-width="1.8"/><circle cx="110.0" cy="142.1" r="2.5" fill="#dc2626"/><text x="102.0" y="146.1" font-size="10" fill="#dc2626">I</text><line x1="110.0" y1="142.1" x2="110.0" y2="195" stroke="#dc2626" stroke-width="1" stroke-dasharray="3,2"/><text x="118.0" y="168.5" font-size="10" fill="#dc2626" font-weight="600">r</text><circle cx="110" cy="22" r="3" fill="#1d4ed8"/><text x="110" y="14" font-size="12" fill="#1a1a2e" text-anchor="middle" font-weight="600">A</text><circle cx="25" cy="195" r="3" fill="#1d4ed8"/><text x="15" y="199" font-size="12" fill="#1a1a2e" text-anchor="middle" font-weight="600">B</text><circle cx="195" cy="195" r="3" fill="#1d4ed8"/><text x="205" y="199" font-size="12" fill="#1a1a2e" text-anchor="middle" font-weight="600">C</text></svg></div>
+        </div>
+
+        <div class="theory-row row-pavyzdys">
+          <div class="row-content">
+            <div class="row-label">Pavyzdys</div>
+            <div class="row-text">
+              Į apskritimą R = 6 cm įbrėžtas statusis trikampis. Trumpesnysis statinys = 4 cm. Raskite plotą.<br/><br/>
+              įžambinė = 2R = 12 cm. BC = √(144−16) = 8√2 cm.<br/>
+              S = ½ · 4 · 8√2 = <strong>16√2 cm²</strong>.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="theory-block">
+        <div class="block-title"><div class="block-num">2</div>Įbrėžtiniai ir apibrėžtiniai keturkampiai</div>
+
+        <div class="theory-row row-taisykle has-graph">
+          <div class="row-content">
+            <div class="row-label">Įbrėžtinis keturkampis</div>
+            <div class="row-text">
+              Jei į apskritimą galima įbrėžti keturkampį, tai jo <strong>priešingų kampų suma lygi 180°</strong>:<br/><br/>
+              <span class="formula-inline">∠A + ∠C = 180°</span><br/>
+              <span class="formula-inline">∠B + ∠D = 180°</span><br/><br/>
+              Ir atvirkščiai: jei priešingų kampų suma = 180°, apskritimą galima apibrėžti.
+            </div>
+          </div>
+          <div class="row-graph"><svg viewBox="0 0 210 215" xmlns="http://www.w3.org/2000/svg" style="width:190px"><circle cx="105.0" cy="105.0" r="80.0" fill="none" stroke="#1d4ed8" stroke-width="1.8"/><line x1="118.89185421335443" y1="26.215379759023364" x2="26.215379759023364" y2="91.10814578664558" stroke="#1d4ed8" stroke-width="1.8"/><line x1="26.215379759023364" y1="91.10814578664558" x2="77.63838853394651" y2="180.17540966287268" stroke="#1d4ed8" stroke-width="1.8"/><line x1="77.63838853394651" y1="180.17540966287268" x2="183.78462024097664" y2="118.89185421335443" stroke="#1d4ed8" stroke-width="1.8"/><line x1="183.78462024097664" y1="118.89185421335443" x2="118.89185421335443" y2="26.215379759023364" stroke="#1d4ed8" stroke-width="1.8"/><circle cx="105" cy="105" r="2.5" fill="#374151"/><circle cx="118.89185421335443" cy="26.215379759023364" r="3" fill="#1d4ed8"/><text x="118.89185421335443" y="18.215379759023364" font-size="12" fill="#1a1a2e" text-anchor="middle" font-weight="600">A</text><circle cx="26.215379759023364" cy="91.10814578664558" r="3" fill="#1d4ed8"/><text x="18.215379759023364" y="95.10814578664558" font-size="12" fill="#1a1a2e" text-anchor="middle" font-weight="600">B</text><circle cx="77.63838853394651" cy="180.17540966287268" r="3" fill="#1d4ed8"/><text x="77.63838853394651" y="189.17540966287268" font-size="12" fill="#1a1a2e" text-anchor="middle" font-weight="600">C</text><circle cx="183.78462024097664" cy="118.89185421335443" r="3" fill="#1d4ed8"/><text x="191.78462024097664" y="122.89185421335443" font-size="12" fill="#1a1a2e" text-anchor="middle" font-weight="600">D</text></svg></div>
+        </div>
+
+        <div class="theory-row row-taisykle has-graph">
+          <div class="row-content">
+            <div class="row-label">Apibrėžtinis keturkampis</div>
+            <div class="row-text">
+              Jei į keturkampį galima įbrėžti apskritimą, tai <strong>priešingų kraštinių ilgių sumos lygios</strong>:<br/><br/>
+              <span class="formula-inline">AB + CD = BC + AD</span><br/><br/>
+              Ir atvirkščiai: jei priešingų kraštinių sumos lygios, apskritimą galima įbrėžti.
+            </div>
+          </div>
+          <div class="row-graph"><svg viewBox="0 0 225 230" xmlns="http://www.w3.org/2000/svg" style="width:205px"><circle cx="112.0" cy="112.0" r="65.0" fill="none" stroke="#1d4ed8" stroke-width="1.8"/><line x1="187.29963549414404" y1="59.274627602556926" x2="164.72537239744307" y2="187.299635494144" stroke="#1d4ed8" stroke-width="1.8"/><line x1="164.72537239744307" y1="187.299635494144" x2="36.70036450585599" y2="164.72537239744307" stroke="#1d4ed8" stroke-width="1.8"/><line x1="36.70036450585599" y1="164.72537239744307" x2="59.274627602556954" y2="36.700364505856015" stroke="#1d4ed8" stroke-width="1.8"/><line x1="59.274627602556954" y1="36.700364505856015" x2="187.29963549414404" y2="59.274627602556926" stroke="#1d4ed8" stroke-width="1.8"/><circle cx="112" cy="112" r="2.5" fill="#374151"/><circle cx="123.3" cy="48.0" r="3.5" fill="#dc2626"/><circle cx="176.0" cy="123.3" r="3.5" fill="#dc2626"/><circle cx="100.7" cy="176.0" r="3.5" fill="#dc2626"/><circle cx="48.0" cy="100.7" r="3.5" fill="#dc2626"/><circle cx="187.3" cy="59.3" r="3" fill="#1d4ed8"/><text x="187" y="51" font-size="12" fill="#1a1a2e" text-anchor="middle" font-weight="600">A</text><circle cx="164.7" cy="187.3" r="3" fill="#1d4ed8"/><text x="175" y="191" font-size="12" fill="#1a1a2e" text-anchor="middle" font-weight="600">B</text><circle cx="36.7" cy="164.7" r="3" fill="#1d4ed8"/><text x="37" y="177" font-size="12" fill="#1a1a2e" text-anchor="middle" font-weight="600">C</text><circle cx="59.3" cy="36.7" r="3" fill="#1d4ed8"/><text x="49" y="41" font-size="12" fill="#1a1a2e" text-anchor="middle" font-weight="600">D</text><text x="112.0" y="226.0" font-size="9" fill="#374151" text-anchor="middle" font-weight="600">AB + CD = BC + AD</text></svg></div>
+        </div>
+      </div>
+
+      <div class="theory-block">
+        <div class="block-title"><div class="block-num">3</div>Trikampio plotų formulės</div>
+
+        <div class="theory-row row-formule has-graph">
+          <div class="row-content">
+            <div class="row-label">S = r · p</div>
+            <div class="row-text">
+              Trikampio, į kurį įbrėžtas apskritimas, plotas:<br/><br/>
+              <span class="formula-inline">S = r · p</span><br/><br/>
+              <strong>r</strong> — įbrėžto apskritimo spindulys<br/>
+              <strong>p</strong> — pusperimetras: p = (a + b + c) / 2<br/><br/>
+              Ši formulė galioja bet kokiam daugiakampiui su įbrėžtu apskritimu.
+            </div>
+          </div>
+          <div class="row-graph"><svg viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg" style="width:200px"><line x1="110" y1="22" x2="28" y2="188" stroke="#1d4ed8" stroke-width="1.8"/><line x1="28" y1="188" x2="192" y2="188" stroke="#1d4ed8" stroke-width="1.8"/><line x1="110" y1="22" x2="192" y2="188" stroke="#1d4ed8" stroke-width="1.8"/><circle cx="110.0" cy="137.0" r="51.0" fill="none" stroke="#dc2626" stroke-width="1.8"/><line x1="110.0" y1="137.04708255376235" x2="110.0" y2="188" stroke="#dc2626" stroke-width="1.2" stroke-dasharray="3,2"/><rect x="110" y="180" width="8" height="8" fill="none" stroke="#dc2626" stroke-width="1"/><circle cx="110.0" cy="137.0" r="2.5" fill="#dc2626"/><text x="102.0" y="141.0" font-size="10" fill="#dc2626" text-anchor="right" font-weight="600">I</text><text x="118.0" y="162.5" font-size="10" fill="#dc2626" text-anchor="middle" font-weight="600">r</text><circle cx="110" cy="22" r="3" fill="#1d4ed8"/><text x="110" y="14" font-size="12" fill="#1a1a2e" text-anchor="middle" font-weight="600">A</text><circle cx="28" cy="188" r="3" fill="#1d4ed8"/><text x="20" y="192" font-size="12" fill="#1a1a2e" text-anchor="middle" font-weight="600">B</text><circle cx="192" cy="188" r="3" fill="#1d4ed8"/><text x="200" y="192" font-size="12" fill="#1a1a2e" text-anchor="middle" font-weight="600">C</text><text x="110.0" y="215.0" font-size="11" fill="#dc2626" text-anchor="middle" font-weight="600">S = r · p</text></svg></div>
+        </div>
+
+        <div class="theory-row row-formule has-graph">
+          <div class="row-content">
+            <div class="row-label">S = abc / 4R</div>
+            <div class="row-text">
+              Trikampio, apie kurį apibrėžtas apskritimas, plotas:<br/><br/>
+              <span class="formula-inline">S = abc / 4R</span><br/><br/>
+              <strong>a, b, c</strong> — kraštinių ilgiai<br/>
+              <strong>R</strong> — apibrėžto apskritimo spindulys
+            </div>
+          </div>
+          <div class="row-graph"><svg viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg" style="width:200px"><circle cx="110.0" cy="110.0" r="80" fill="none" stroke="#1d4ed8" stroke-width="1.8"/><line x1="103.02754058018733" y1="30.30442415266036" x2="48.71644455048176" y2="161.42300877492315" stroke="#1d4ed8" stroke-width="1.8"/><line x1="48.71644455048176" y1="161.42300877492315" x2="179.28203230275506" y2="150.00000000000003" stroke="#1d4ed8" stroke-width="1.8"/><line x1="103.02754058018733" y1="30.30442415266036" x2="179.28203230275506" y2="150.00000000000003" stroke="#1d4ed8" stroke-width="1.8"/><circle cx="110" cy="110" r="2.5" fill="#374151"/><text x="117.0" y="115.0" font-size="10" fill="#374151" text-anchor="left">O</text><line x1="110" y1="110" x2="103.02754058018733" y2="30.30442415266036" stroke="#374151" stroke-width="1" stroke-dasharray="3,2"/><text x="94.5" y="70.2" font-size="10" fill="#374151" text-anchor="middle" font-weight="600">R</text><text x="104.0" y="160.7" font-size="10" fill="#1d4ed8" text-anchor="middle" font-weight="600">a</text><text x="153.2" y="90.2" font-size="10" fill="#1d4ed8" text-anchor="middle" font-weight="600">b</text><text x="63.9" y="95.9" font-size="10" fill="#1d4ed8" text-anchor="middle" font-weight="600">c</text><circle cx="103.02754058018733" cy="30.30442415266036" r="3" fill="#1d4ed8"/><text x="103.02754058018733" y="22.30442415266036" font-size="12" fill="#1a1a2e" text-anchor="middle" font-weight="600">A</text><circle cx="48.71644455048176" cy="161.42300877492315" r="3" fill="#1d4ed8"/><text x="48.71644455048176" y="170.42300877492315" font-size="12" fill="#1a1a2e" text-anchor="middle" font-weight="600">B</text><circle cx="179.28203230275506" cy="150.00000000000003" r="3" fill="#1d4ed8"/><text x="179.28203230275506" y="159.00000000000003" font-size="12" fill="#1a1a2e" text-anchor="middle" font-weight="600">C</text><text x="110.0" y="216.0" font-size="11" fill="#374151" text-anchor="middle" font-weight="600">S = abc / 4R</text></svg></div>
+        </div>
+
+        <div class="theory-row row-pavyzdys">
+          <div class="row-content">
+            <div class="row-label">Pavyzdys</div>
+            <div class="row-text">
+              Trikampio kraštinės: a = 5, b = 12, c = 13. Raskite r ir R.<br/><br/>
+              Statusis trikampis (5² + 12² = 13²).<br/>
+              R = 13/2 = <strong>6,5</strong>.<br/>
+              r = (5 + 12 − 13)/2 = <strong>2</strong>.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic-nav">
+        <a href="../t1-kampai-stygos/teorija.html" class="nav-btn prev">← T1. Įbrėžtiniai kampai</a>
+        <a href="../../skyriaus-testai/index.html" class="nav-btn next">Skyriaus testai →</a>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="../../../../../js/main.js"></script>
+</body>
+</html>

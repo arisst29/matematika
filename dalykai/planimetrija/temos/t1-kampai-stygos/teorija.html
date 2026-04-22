@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>T1. Įbrėžtiniai kampai, stygos ir liestinės — Planimetrija</title>
+  <link rel="stylesheet" href="../../../../../styles/main.css"/>
+  <style>
+    .row-apibreztis { background: #f1f0ee; border-left: 3px solid #9a9a92; }
+    .row-apibreztis .row-label { color: #5a5a54; background: #e4e2d8; border-color: #c8c6bc; }
+    .row-formule { background: #eff4ff; border-left: 3px solid #1d4ed8; }
+    .row-formule .row-label { color: #1d4ed8; background: #dbeafe; border-color: #bfdbfe; }
+    .row-zymime { background: #fffbeb; border-left: 3px solid #b45309; }
+    .row-zymime .row-label { color: #b45309; background: #fef3c7; border-color: #fde68a; }
+    .row-svarbu { background: #fef2f2; border-left: 3px solid #b91c1c; }
+    .row-svarbu .row-label { color: #b91c1c; background: #fecaca; border-color: #fca5a5; }
+    .row-taisykle { background: #f5f3ff; border-left: 3px solid #6d28d9; }
+    .row-taisykle .row-label { color: #6d28d9; background: #ede9fe; border-color: #c4b5fd; }
+    .row-pavyzdys { background: #f0fdf4; border-left: 3px solid #15803d; }
+    .row-pavyzdys .row-label { color: #15803d; background: #dcfce7; border-color: #bbf7d0; }
+    .theory-row { display: grid; grid-template-columns: 1fr; border-radius: var(--radius); margin-bottom: 8px; overflow: hidden; }
+    .theory-row.has-graph { grid-template-columns: 1fr auto; align-items: stretch; }
+    .row-content { padding: 13px 16px; }
+    .row-label { display: inline-block; font-size: 10px; font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase; padding: 2px 8px; border-radius: 4px; border: 1px solid; margin-bottom: 7px; }
+    .row-text { font-size: 13.5px; color: var(--ink2); line-height: 1.7; }
+    .row-text strong { color: var(--ink); font-weight: 500; }
+    .formula-inline { font-family: var(--mono); font-size: 14px; color: var(--accent); }
+    .row-graph { width: 220px; border-left: 1px solid rgba(0,0,0,0.06); display: flex; align-items: center; justify-content: center; padding: 10px 12px; flex-shrink: 0; }
+    @media (max-width: 640px) { .theory-row.has-graph { grid-template-columns: 1fr; } .row-graph { width: 100%; border-left: none; border-top: 1px solid rgba(0,0,0,0.06); } }
+  </style>
+</head>
+<body>
+<div class="layout">
+  <nav class="sidebar" id="sidebar"></nav>
+  <div class="main">
+    <div class="topbar">
+      <div class="breadcrumb">
+        <a href="../../../../../index.html">Matematika 11</a>
+        <span class="sep">›</span><span>Planimetrija</span>
+        <span class="sep">›</span><span class="current">T1. Įbrėžtiniai kampai, stygos ir liestinės</span>
+      </div>
+      <div class="tab-switcher"><button class="tab-btn active">Teorija</button></div>
+    </div>
+    <div class="page">
+      <div class="topic-header">
+        <div class="topic-tag">8 skyrius · Tema 1</div>
+        <h1 class="topic-title">Įbrėžtiniai kampai, stygos ir liestinės</h1>
+        <p class="topic-intro">Įbrėžtinio kampo teorema, stygų ir liestinių savybės — pagrindiniai įrankiai sprendžiant apskritimo geometrijos užduavinius.</p>
+      </div>
+
+      <div class="theory-block">
+        <div class="block-title"><div class="block-num">1</div>Įbrėžtinio kampo teorema</div>
+
+        <div class="theory-row row-apibreztis has-graph">
+          <div class="row-content">
+            <div class="row-label">Apibrėžimas</div>
+            <div class="row-text">
+              <strong>Įbrėžtinis kampas</strong> — kampas, kurio viršūnė yra <strong>ant apskritimo</strong>, o kraštinės yra apskritimo stygos.<br/><br/>
+              <strong>Centrinis kampas</strong> — kampas, kurio viršūnė yra <strong>apskritimo centre</strong>.
+            </div>
+          </div>
+          <div class="row-graph"><svg viewBox="0 0 220 225" xmlns="http://www.w3.org/2000/svg" style="width:200px"><circle cx="110" cy="115" r="80" fill="none" stroke="#1d4ed8" stroke-width="1.8"/><line x1="40.717967697244916" y1="155.0" x2="179.28203230275506" y2="155.00000000000003" stroke="#94a3b8" stroke-width="1.2" stroke-dasharray="4,3"/><line x1="40.717967697244916" y1="155.0" x2="110.0" y2="35.0" stroke="#1d4ed8" stroke-width="1.8"/><line x1="179.28203230275506" y1="155.00000000000003" x2="110.0" y2="35.0" stroke="#1d4ed8" stroke-width="1.8"/><line x1="110" y1="115" x2="40.717967697244916" y2="155.0" stroke="#dc2626" stroke-width="1.8"/><line x1="110" y1="115" x2="179.28203230275506" y2="155.00000000000003" stroke="#dc2626" stroke-width="1.8"/><circle cx="40.717967697244916" cy="155.0" r="3" fill="#1d4ed8"/><text x="40.717967697244916" y="164.0" font-size="12" fill="#1a1a2e" text-anchor="middle" font-weight="600">A</text><circle cx="179.28203230275506" cy="155.00000000000003" r="3" fill="#1d4ed8"/><text x="179.28203230275506" y="164.00000000000003" font-size="12" fill="#1a1a2e" text-anchor="middle" font-weight="600">B</text><circle cx="110.0" cy="35.0" r="3" fill="#1d4ed8"/><text x="110.0" y="27.0" font-size="12" fill="#1a1a2e" text-anchor="middle" font-weight="600">C</text><circle cx="110" cy="115" r="2.5" fill="#374151"/><text x="100.0" y="120.0" font-size="11" fill="#374151" text-anchor="right">O</text><text x="110.0" y="55.0" font-size="12" fill="#1d4ed8" text-anchor="middle" font-weight="600">α</text><text x="126.0" y="133.0" font-size="12" fill="#dc2626" text-anchor="middle" font-weight="600">2α</text></svg></div>
+        </div>
+
+        <div class="theory-row row-taisykle">
+          <div class="row-content">
+            <div class="row-label">Teorema</div>
+            <div class="row-text">
+              Įbrėžtinio kampo didumas lygus <strong>pusei lanko</strong>, į kurį remiasi šis kampas:<br/><br/>
+              <span class="formula-inline">∠ACB = ½ · ∪AB</span><br/><br/>
+              Kitaip tariant: Įbrėžtinis kampas yra <strong>du kartus mažesnis</strong> už centrinį kampą, kuris remiasi į tą patį linką.
+            </div>
+          </div>
+        </div>
+
+        <div class="theory-row row-svarbu has-graph">
+          <div class="row-content">
+            <div class="row-label">1 savybė</div>
+            <div class="row-text">
+              <strong>Įbrėžtiniai kampai, kurie remiasi į pusapskritimį, yra statūs (= 90°).</strong><br/><br/>
+              Pusapskritimio lanko didumas yra 180°, todėl įbrėžtinis kampas = ½ · 180° = 90°.
+            </div>
+          </div>
+          <div class="row-graph"><svg viewBox="0 0 200 210" xmlns="http://www.w3.org/2000/svg" style="width:185px"><circle cx="100" cy="108" r="78" fill="none" stroke="#1d4ed8" stroke-width="1.8"/><line x1="22.0" y1="107.99999999999999" x2="178.0" y2="108.0" stroke="#374151" stroke-width="1.5"/><line x1="22.0" y1="107.99999999999999" x2="124.1033255612459" y2="33.81759172897803" stroke="#1d4ed8" stroke-width="1.8"/><line x1="178.0" y1="108.0" x2="124.1033255612459" y2="33.81759172897803" stroke="#1d4ed8" stroke-width="1.8"/><circle cx="123.0" cy="40.8" r="3" fill="#dc2626"/><circle cx="22.0" cy="107.99999999999999" r="3" fill="#1d4ed8"/><text x="14.0" y="111.99999999999999" font-size="12" fill="#1a1a2e" text-anchor="middle" font-weight="600">A</text><circle cx="178.0" cy="108.0" r="3" fill="#1d4ed8"/><text x="186.0" y="112.0" font-size="12" fill="#1a1a2e" text-anchor="middle" font-weight="600">B</text><circle cx="124.1033255612459" cy="33.81759172897803" r="3" fill="#1d4ed8"/><text x="124.1033255612459" y="25.81759172897803" font-size="12" fill="#1a1a2e" text-anchor="middle" font-weight="600">C</text><circle cx="100" cy="108" r="2.5" fill="#374151"/><text x="108.0" y="113.0" font-size="11" fill="#374151" text-anchor="middle">O</text><text x="144.1" y="43.8" font-size="10" fill="#dc2626" text-anchor="left" font-weight="600">= 90°</text></svg></div>
+        </div>
+
+        <div class="theory-row row-svarbu has-graph">
+          <div class="row-content">
+            <div class="row-label">2 savybė</div>
+            <div class="row-text">
+              <strong>Įbrėžtiniai kampai, kurie remiasi į tą patį linką, yra lygūs.</strong><br/><br/>
+              ∠C ir ∠D remiasi į linką AB. Tada ∠C = ½·∪AB ir ∠D = ½·∪AB, todėl <span class="formula-inline">∠C = ∠D</span>.
+            </div>
+          </div>
+          <div class="row-graph"><svg viewBox="0 0 200 210" xmlns="http://www.w3.org/2000/svg" style="width:185px"><circle cx="100" cy="105" r="78" fill="none" stroke="#1d4ed8" stroke-width="1.8"/><line x1="26.703975578699144" y1="131.67757117940215" x2="113.54455785802057" y2="28.184995265047775" stroke="#1d4ed8" stroke-width="1.8"/><line x1="173.29602442130084" y1="131.67757117940215" x2="113.54455785802057" y2="28.184995265047775" stroke="#1d4ed8" stroke-width="1.8"/><line x1="26.703975578699144" y1="131.67757117940215" x2="67.03577558422546" y2="34.3079926111413" stroke="#15803d" stroke-width="1.8"/><line x1="173.29602442130084" y1="131.67757117940215" x2="67.03577558422546" y2="34.3079926111413" stroke="#15803d" stroke-width="1.8"/><path d="M26.7,131.7 A78,78 0 0,0 173.3,131.7" fill="none" stroke="#f59e0b" stroke-width="2.5"/><circle cx="26.703975578699144" cy="131.67757117940215" r="3" fill="#1d4ed8"/><text x="26.703975578699144" y="140.67757117940215" font-size="12" fill="#1a1a2e" text-anchor="middle" font-weight="600">A</text><circle cx="173.29602442130084" cy="131.67757117940215" r="3" fill="#1d4ed8"/><text x="173.29602442130084" y="140.67757117940215" font-size="12" fill="#1a1a2e" text-anchor="middle" font-weight="600">B</text><circle cx="113.54455785802057" cy="28.184995265047775" r="3" fill="#1d4ed8"/><text x="113.54455785802057" y="20.184995265047775" font-size="12" fill="#1a1a2e" text-anchor="middle" font-weight="600">C</text><circle cx="67.03577558422546" cy="34.3079926111413" r="3" fill="#1d4ed8"/><text x="67.03577558422546" y="26.3079926111413" font-size="12" fill="#1a1a2e" text-anchor="middle" font-weight="600">D</text><text x="128.5" y="42.2" font-size="12" fill="#1d4ed8" text-anchor="middle" font-weight="600">α</text><text x="55.0" y="48.3" font-size="12" fill="#15803d" text-anchor="middle" font-weight="600">α</text></svg></div>
+        </div>
+
+        <div class="theory-row row-pavyzdys">
+          <div class="row-content">
+            <div class="row-label">Pavyzdys</div>
+            <div class="row-text">
+              Į apskritimą, kurio centras O, įbrėžto kampo ABC didumas lygus 35°. Apskaičiuokite:<br/>
+              <strong>a)</strong> centrinio kampo AOC; <strong>b)</strong> įbrėžtinio kampo ADC.<br/><br/>
+              <strong>a)</strong> ∪AC = 2 · ∠ABC = 2 · 35° = <strong>70°</strong>.<br/>
+              <strong>b)</strong> ∠ADC remiasi į tą patį linką AC, todėl ∠ADC = ∠ABC = <strong>35°</strong>.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="theory-block">
+        <div class="block-title"><div class="block-num">2</div>Stygų savybės</div>
+
+        <div class="theory-row row-taisykle has-graph">
+          <div class="row-content">
+            <div class="row-label">1 savybė</div>
+            <div class="row-text">
+              <strong>Apskritimo skersmuo, statmenas stygai, dalija ją į dvi lygias dalis.</strong><br/><br/>
+              Jei CD ⊥ AB, tai <span class="formula-inline">AE = EB</span>.<br/><br/>
+              Ir atvirkščiai: jei skersmuo dalija stygą per pusę, jis yra statmenas jai.
+            </div>
+          </div>
+          <div class="row-graph"><svg viewBox="0 0 210 215" xmlns="http://www.w3.org/2000/svg" style="width:190px"><circle cx="105" cy="105" r="78" fill="none" stroke="#1d4ed8" stroke-width="1.8"/><line x1="105" y1="27" x2="105" y2="183" stroke="#dc2626" stroke-width="1.8"/><line x1="33.0" y1="75" x2="177.0" y2="75" stroke="#1d4ed8" stroke-width="1.8"/><rect x="105" y="67" width="8" height="8" fill="none" stroke="#374151" stroke-width="1.2"/><circle cx="33.0" cy="75" r="3" fill="#1d4ed8"/><text x="33.0" y="67" font-size="12" fill="#1a1a2e" text-anchor="middle" font-weight="600">A</text><circle cx="177.0" cy="75" r="3" fill="#1d4ed8"/><text x="177.0" y="67" font-size="12" fill="#1a1a2e" text-anchor="middle" font-weight="600">B</text><circle cx="105" cy="27" r="3" fill="#1d4ed8"/><text x="105" y="19" font-size="12" fill="#1a1a2e" text-anchor="middle" font-weight="600">C</text><circle cx="105" cy="183" r="3" fill="#1d4ed8"/><text x="105" y="192" font-size="12" fill="#1a1a2e" text-anchor="middle" font-weight="600">D</text><circle cx="105" cy="75" r="3" fill="#374151"/><text x="115.0" y="79.0" font-size="11" fill="#374151" text-anchor="left">E</text><circle cx="105" cy="105" r="2.5" fill="#374151"/><text x="113.0" y="110.0" font-size="11" fill="#374151" text-anchor="left">O</text><line x1="65.0" y1="72" x2="73.0" y2="72" stroke="#374151" stroke-width="1.8"/><line x1="65.0" y1="76" x2="73.0" y2="76" stroke="#374151" stroke-width="1.8"/><line x1="137.0" y1="72" x2="145.0" y2="72" stroke="#374151" stroke-width="1.8"/><line x1="137.0" y1="76" x2="145.0" y2="76" stroke="#374151" stroke-width="1.8"/><text x="105.0" y="210.0" font-size="10" fill="#374151" text-anchor="middle" font-weight="600">CE = ED</text></svg></div>
+        </div>
+
+        <div class="theory-row row-taisykle has-graph">
+          <div class="row-content">
+            <div class="row-label">2 savybė</div>
+            <div class="row-text">
+              <strong>Jei dvi apskritimo stygos susikerta, tai vienos stygos atkarpų ilgių sandauga lygi kitos stygos atkarpų ilgių sandaugai.</strong><br/><br/>
+              Jei stygos AC ir DB kertasi taške E:<br/>
+              <span class="formula-inline">AE · EC = DE · EB</span>
+            </div>
+          </div>
+          <div class="row-graph"><svg viewBox="0 0 210 215" xmlns="http://www.w3.org/2000/svg" style="width:190px"><circle cx="105" cy="105" r="78" fill="none" stroke="#1d4ed8" stroke-width="1.8"/><line x1="34.3079926111413" y1="72.03577558422543" x2="182.70318645115617" y2="111.79814793431734" stroke="#1d4ed8" stroke-width="1.8"/><line x1="29.65778554945267" y1="125.18788551799662" x2="175.6920073888587" y2="72.03577558422543" stroke="#dc2626" stroke-width="1.8"/><circle cx="34.3079926111413" cy="72.03577558422543" r="3" fill="#1d4ed8"/><text x="26.3079926111413" y="76.03577558422543" font-size="12" fill="#1a1a2e" text-anchor="middle" font-weight="600">A</text><circle cx="175.6920073888587" cy="72.03577558422543" r="3" fill="#1d4ed8"/><text x="183.6920073888587" y="76.03577558422543" font-size="12" fill="#1a1a2e" text-anchor="middle" font-weight="600">B</text><circle cx="182.70318645115617" cy="111.79814793431734" r="3" fill="#1d4ed8"/><text x="190.70318645115617" y="115.79814793431734" font-size="12" fill="#1a1a2e" text-anchor="middle" font-weight="600">C</text><circle cx="29.65778554945267" cy="125.18788551799662" r="3" fill="#1d4ed8"/><text x="21.65778554945267" y="129.18788551799662" font-size="12" fill="#1a1a2e" text-anchor="middle" font-weight="600">D</text><circle cx="115.7" cy="93.9" r="3" fill="#374151"/><text x="125.7" y="97.9" font-size="11" fill="#374151" text-anchor="left" font-weight="600">E</text><text x="105.0" y="210.0" font-size="10" fill="#1d4ed8" text-anchor="middle" font-weight="600">AE · EC = DE · EB</text></svg></div>
+        </div>
+
+        <div class="theory-row row-pavyzdys">
+          <div class="row-content">
+            <div class="row-label">Pavyzdys</div>
+            <div class="row-text">
+              Apskritimo skersmuo AB yra statmenas stygai CD ir kerta ją taške E. AE = 12,5, EB = 8. Apskaičiuokite CD ilgį.<br/><br/>
+              AB ⊥ CD, todėl AE = EB = x (1 savybė).<br/>
+              x · x = 12,5 · 8 = 100 (2 savybė)<br/>
+              x = 10, todėl <strong>CD = 2x = 20</strong>.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="theory-block">
+        <div class="block-title"><div class="block-num">3</div>Liestinių savybės</div>
+
+        <div class="theory-row row-taisykle has-graph">
+          <div class="row-content">
+            <div class="row-label">1 savybė</div>
+            <div class="row-text">
+              <strong>Apskritimo liestinė yra statmena spinduliui, nubrėžtam į liestimosi tašką.</strong><br/><br/>
+              Jei AB yra liestinė, liečianti apskritimą taške A:<br/>
+              <span class="formula-inline">AB ⊥ OA</span>
+            </div>
+          </div>
+          <div class="row-graph"><svg viewBox="0 0 210 210" xmlns="http://www.w3.org/2000/svg" style="width:190px"><circle cx="100" cy="105" r="70" fill="none" stroke="#1d4ed8" stroke-width="1.8"/><line x1="170" y1="25" x2="170" y2="190" stroke="#dc2626" stroke-width="2"/><line x1="100" y1="105" x2="170" y2="105" stroke="#1d4ed8" stroke-width="1.8"/><rect x="160" y="95" width="10" height="10" fill="none" stroke="#374151" stroke-width="1.2"/><circle cx="100" cy="105" r="2.5" fill="#374151"/><text x="92.0" y="110.0" font-size="11" fill="#374151" text-anchor="right">O</text><circle cx="170" cy="105" r="3" fill="#1d4ed8"/><text x="178" y="109" font-size="12" fill="#1a1a2e" text-anchor="middle" font-weight="600">A</text><text x="175.0" y="55.0" font-size="10" fill="#dc2626" text-anchor="left">liestinė</text><text x="135.0" y="95.0" font-size="11" fill="#1d4ed8" text-anchor="middle" font-weight="600">r</text><text x="100.0" y="205.0" font-size="10" fill="#374151" text-anchor="middle" font-weight="600">AB ⊥ OA</text></svg></div>
+        </div>
+
+        <div class="theory-row row-taisykle has-graph">
+          <div class="row-content">
+            <div class="row-label">2 savybė</div>
+            <div class="row-text">
+              <strong>Apskritimo liestinių, nubrėžtų iš to paties išorinio taško, atkarpos iki liestimosi taškų yra lygios.</strong><br/><br/>
+              Jei iš taško A nubrėžtos dvi liestinės, liečiančios apskritimą taškuose B ir C:<br/>
+              <span class="formula-inline">AB = AC</span>
+            </div>
+          </div>
+          <div class="row-graph"><svg viewBox="0 0 250 235" xmlns="http://www.w3.org/2000/svg" style="width:220px"><circle cx="155" cy="150" r="72" fill="none" stroke="#1d4ed8" stroke-width="1.8"/><line x1="68" y1="22" x2="83.45990063875088" y2="158.12491128459902" stroke="#1d4ed8" stroke-width="2"/><line x1="68" y1="22" x2="188.88235294117646" y2="86.47058823529412" stroke="#dc2626" stroke-width="2"/><line x1="83.45990063875088" y1="158.12491128459902" x2="85.49112845990064" y2="176.0099361249113" stroke="#1d4ed8" stroke-width="2"/><line x1="188.88235294117646" y1="86.47058823529412" x2="204.76470588235293" y2="94.94117647058823" stroke="#dc2626" stroke-width="2"/><line x1="155" y1="150" x2="83.45990063875088" y2="158.12491128459902" stroke="#94a3b8" stroke-width="1.2" stroke-dasharray="3,2"/><line x1="155" y1="150" x2="188.88235294117646" y2="86.47058823529412" stroke="#94a3b8" stroke-width="1.2" stroke-dasharray="3,2"/><circle cx="68" cy="22" r="3" fill="#1d4ed8"/><text x="68" y="14" font-size="12" fill="#1a1a2e" text-anchor="middle" font-weight="600">A</text><circle cx="83.45990063875088" cy="158.12491128459902" r="3" fill="#1d4ed8"/><text x="75.45990063875088" y="162.12491128459902" font-size="12" fill="#1a1a2e" text-anchor="middle" font-weight="600">B</text><circle cx="188.88235294117646" cy="86.47058823529412" r="3" fill="#1d4ed8"/><text x="180.88235294117646" y="90.47058823529412" font-size="12" fill="#1a1a2e" text-anchor="middle" font-weight="600">C</text><circle cx="155" cy="150" r="2.5" fill="#374151"/><text x="162.0" y="155.0" font-size="11" fill="#374151" text-anchor="left">O</text><line x1="80.69801277501773" y1="89.49822569198014" x2="70.76188786373314" y2="90.62668559261888" stroke="#374151" stroke-width="1.8"/><line x1="130.7941176470588" y1="49.8235294117647" x2="126.08823529411764" y2="58.64705882352941" stroke="#374151" stroke-width="1.8"/><text x="135.0" y="230.0" font-size="10" fill="#374151" text-anchor="middle" font-weight="600">AB = AC</text></svg></div>
+        </div>
+
+        <div class="theory-row row-pavyzdys">
+          <div class="row-content">
+            <div class="row-label">Pavyzdys</div>
+            <div class="row-text">
+              Į apskritimą, kurio centras O, įbrėžto kampo ADC didumas lygus 40°. Apskaičiuokite apibrėžtinio kampo ABC didumą.<br/><br/>
+              ∪AC = 2 · ∠ADC = 80° (įbrėžtinio kampo teorema).<br/>
+              ∠AOC = ∪AC = 80° (centrinio kampo savybė).<br/>
+              ∠OAB = ∠OCB = 90° (liestinių 1 savybė).<br/>
+              ∠ABC = 360° − 80° − 90° − 90° = <strong>100°</strong>.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic-nav">
+        <a href="../t2-daugiakampiai/teorija.html" class="nav-btn next">T2. Daugiakampiai →</a>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="../../../../../js/main.js"></script>
+</body>
+</html>
