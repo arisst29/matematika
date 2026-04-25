@@ -43,10 +43,16 @@ const NAV = [
       { id: 't4', name: 'T4. Sinusų ir kosinusų teoremos', path: 'dalykai/planimetrija/temos/t4-sinusu-kosinusu/teorija.html' },
       { id: 't5', name: 'T5. Herono formulė ir Talio teorema', path: 'dalykai/planimetrija/temos/t5-herono-talio/teorija.html' },
     ], tests: 'dalykai/planimetrija/skyriaus-testai/index.html', exams: 'dalykai/planimetrija/egzaminai/index.html' },
-  { id: 'isvestines', num: '9.',  name: 'Išvestinės',               topics: [], tests: null },
-  { id: 'integralai', num: '10.', name: 'Integralai',               topics: [], tests: null },
-  { id: 'statistika', num: '11.', name: 'Statistika ir tikimybės',  topics: [], tests: null },
-  { id: 'geometrija', num: '12.', name: 'Erdvinė geometrija',       topics: [], tests: null },
+  { id: 'vektoriai', num: '9.', name: 'Vektoriai ir jų veiksmai', topics: [
+      { id: 't1', name: 'T1. Vektorių sąvokos', path: 'dalykai/vektoriai/temos/t1-savokos/teorija.html' },
+      { id: 't2', name: 'T2. Vektorių sudėtis ir atimtis', path: 'dalykai/vektoriai/temos/t2-sudetis-atimtis/teorija.html' },
+      { id: 't3', name: 'T3. Daugyba iš skaičiaus ir kolinearumas', path: 'dalykai/vektoriai/temos/t3-daugyba-kolinearumas/teorija.html' },
+      { id: 't4', name: 'T4. Skaliarinė sandauga ir statmenumas', path: 'dalykai/vektoriai/temos/t4-skaliarine-statmenumas/teorija.html' },
+    ], tests: 'dalykai/vektoriai/skyriaus-testai/index.html', exams: 'dalykai/vektoriai/egzaminai/index.html' },
+  { id: 'isvestines', num: '10.',  name: 'Išvestinės',               topics: [], tests: null },
+  { id: 'integralai', num: '11.', name: 'Integralai',               topics: [], tests: null },
+  { id: 'statistika', num: '12.', name: 'Statistika ir tikimybės',  topics: [], tests: null },
+  { id: 'geometrija', num: '13.', name: 'Erdvinė geometrija',       topics: [], tests: null },
 ];
 
 // ── KELIO SKAIČIAVIMAS ───────────────────────────────────────────────

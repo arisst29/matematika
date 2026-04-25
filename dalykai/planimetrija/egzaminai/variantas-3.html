@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Planimetrija — Variantas 3</title>
+  <link rel="stylesheet" href="../../../../../styles/main.css"/>
+  <style>
+body{margin:0;font-family:'Segoe UI',system-ui,sans-serif}
+.exam-top{border-bottom:3px solid #1d4ed8;padding-bottom:20px;margin-bottom:32px}
+.exam-top h1{font-size:22px;font-weight:700;color:#1a1a2e;margin:0 0 6px}
+.exam-top .meta{display:flex;gap:20px;flex-wrap:wrap;margin-top:10px}
+.exam-top .meta span{font-size:13px;color:#555;background:#f1f5f9;padding:4px 10px;border-radius:20px}
+.hard-badge{background:#fef2f2;color:#b91c1c;border:1px solid #fca5a5;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700;letter-spacing:0.05em}
+.progress-wrap{margin-bottom:28px}
+.progress-bar{height:6px;background:#e2e8f0;border-radius:3px;overflow:hidden}
+.progress-fill{height:100%;background:#1d4ed8;border-radius:3px;transition:width .3s;width:0%}
+.progress-text{font-size:12px;color:#64748b;margin-top:6px;text-align:right}
+.q-card{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:24px;margin-bottom:16px;box-shadow:0 1px 4px rgba(0,0,0,0.05)}
+.q-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px}
+.q-num{font-size:13px;font-weight:700;color:#64748b;letter-spacing:0.05em}
+.q-pts{background:#eff6ff;color:#1d4ed8;border:1px solid #bfdbfe;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:700}
+.q-pts.two{background:#f0fdf4;color:#15803d;border-color:#bbf7d0}
+.q-text{font-size:15px;color:#1a1a2e;line-height:1.75;margin-bottom:6px;font-weight:500}
+.q-hint{font-size:12px;color:#94a3b8;font-style:italic;margin-bottom:14px}
+.frac{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;margin:0 2px;font-size:0.85em;line-height:1.1}
+.frac sup{border-bottom:1px solid currentColor;padding:0 3px;font-size:1em}
+.frac sub{padding:0 3px;font-size:1em}
+.options{display:flex;flex-direction:column;gap:8px}
+.opt{display:flex;align-items:center;gap:12px;padding:11px 16px;border:1.5px solid #e2e8f0;border-radius:8px;cursor:pointer;transition:all .12s;background:#fff;user-select:none}
+.opt:hover{border-color:#1d4ed8;background:#eff6ff}
+.opt.selected{border-color:#1d4ed8;background:#eff6ff}
+.opt.correct{border-color:#16a34a;background:#f0fdf4}
+.opt.wrong{border-color:#dc2626;background:#fef2f2}
+.opt.show-correct{border-color:#16a34a;background:#f0fdf4}
+.opt-letter{width:30px;height:30px;border-radius:50%;background:#e2e8f0;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#475569;flex-shrink:0}
+.opt.selected .opt-letter{background:#1d4ed8;color:#fff}
+.opt.correct .opt-letter{background:#16a34a;color:#fff}
+.opt.wrong .opt-letter{background:#dc2626;color:#fff}
+.opt.show-correct .opt-letter{background:#16a34a;color:#fff}
+.opt-text{font-size:14px;color:#334155;line-height:1.5}
+.opt.selected .opt-text{color:#1d4ed8;font-weight:500}
+.opt.correct .opt-text{color:#16a34a;font-weight:500}
+.opt.wrong .opt-text{color:#dc2626}
+.opt.show-correct .opt-text{color:#16a34a;font-weight:500}
+.open-answer{margin-top:4px}
+.open-input{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.open-input input{padding:10px 14px;border:1.5px solid #e2e8f0;border-radius:8px;font-size:15px;font-family:inherit;width:200px;outline:none;transition:border .12s}
+.open-input input:focus{border-color:#1d4ed8}
+.open-input input.correct-in{border-color:#16a34a;background:#f0fdf4;color:#16a34a;font-weight:600}
+.open-input input.wrong-in{border-color:#dc2626;background:#fef2f2;color:#dc2626}
+.open-input input.partial-in{border-color:#d97706;background:#fffbeb;color:#d97706}
+.answer-feedback{font-size:13px;font-weight:600;margin-top:6px;display:none}
+.answer-feedback.show{display:block}
+.answer-feedback.ok{color:#16a34a}
+.answer-feedback.partial{color:#d97706}
+.answer-feedback.bad{color:#dc2626}
+.submit-row{margin-top:32px;padding-top:24px;border-top:2px solid #e2e8f0;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.btn-submit{padding:13px 36px;background:#1d4ed8;color:#fff;border:none;border-radius:8px;font-size:15px;font-weight:700;font-family:inherit;cursor:pointer;transition:background .12s}
+.btn-submit:hover{background:#1e40af}
+.btn-submit:disabled{background:#94a3b8;cursor:not-allowed}
+.answered-info{font-size:13px;color:#64748b}
+.modal-bg{display:none;position:fixed;inset:0;background:rgba(15,23,42,0.6);z-index:300;align-items:center;justify-content:center}
+.modal-bg.open{display:flex}
+.modal{background:#fff;border-radius:16px;padding:44px 48px;max-width:540px;width:92%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.2)}
+.modal-pct{font-size:80px;font-weight:800;line-height:1;margin-bottom:4px}
+.modal-pct.ex{color:#16a34a}.modal-pct.good{color:#1d4ed8}.modal-pct.poor{color:#dc2626}
+.modal-feedback{font-size:22px;font-weight:700;color:#1a1a2e;margin-bottom:4px}
+.modal-sub{font-size:14px;color:#64748b;margin-bottom:24px}
+.modal-stats{display:flex;justify-content:center;gap:32px;padding:20px;background:#f8fafc;border-radius:10px;margin-bottom:24px}
+.modal-stat-v{font-size:26px;font-weight:700;color:#1a1a2e}
+.modal-stat-k{font-size:11px;color:#94a3b8;margin-top:2px;text-transform:uppercase;letter-spacing:0.05em}
+.modal-btns{display:flex;gap:10px;justify-content:center}
+.btn{padding:10px 22px;border-radius:8px;font-size:14px;font-weight:600;font-family:inherit;cursor:pointer;border:1.5px solid #e2e8f0;background:#fff;color:#334155}
+.btn:hover{background:#f1f5f9}
+.btn.primary{background:#1d4ed8;color:#fff;border-color:#1d4ed8}
+.btn.primary:hover{background:#1e40af}
+  </style>
+</head>
+<body>
+<div id="v3s1" style="display:none"><div style="margin:10px 0 6px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:10px 14px;display:inline-block"><svg viewBox="0 0 210 195" xmlns="http://www.w3.org/2000/svg" style="width:210px;height:auto"><circle cx="105.0" cy="105.0" r="80.0" fill="none" stroke="#1d4ed8" stroke-width="1.8"/><line x1="25" y1="105" x2="185" y2="105" stroke="#374151" stroke-width="1.5"/><line x1="25" y1="105" x2="143" y2="34" stroke="#1d4ed8" stroke-width="1.8"/><line x1="185" y1="105" x2="143" y2="34" stroke="#1d4ed8" stroke-width="1.8"/><line x1="25" y1="105" x2="67" y2="34" stroke="#dc2626" stroke-width="1.8"/><line x1="185" y1="105" x2="67" y2="34" stroke="#dc2626" stroke-width="1.8"/><circle cx="105" cy="105" r="2.5" fill="#374151"/><text x="125" y="114" font-size="10" fill="#374151" text-anchor="middle" font-weight="600">O</text><text x="151" y="40" font-size="10" fill="#1d4ed8" text-anchor="middle" font-weight="600">α=?</text><text x="59" y="40" font-size="10" fill="#dc2626" text-anchor="middle" font-weight="600">β=?</text><circle cx="25" cy="105" r="2.5" fill="#1d4ed8"/><text x="13" y="109" font-size="10" fill="#1a1a2e" text-anchor="middle" font-weight="600">A</text><circle cx="185" cy="105" r="2.5" fill="#1d4ed8"/><text x="197" y="109" font-size="10" fill="#1a1a2e" text-anchor="middle" font-weight="600">B</text><circle cx="143" cy="34" r="2.5" fill="#1d4ed8"/><text x="143" y="26" font-size="10" fill="#1a1a2e" text-anchor="middle" font-weight="600">C</text><circle cx="67" cy="34" r="2.5" fill="#1d4ed8"/><text x="67" y="26" font-size="10" fill="#1a1a2e" text-anchor="middle" font-weight="600">D</text></svg></div></div><div id="v3s2" style="display:none"><div style="margin:10px 0 6px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:10px 14px;display:inline-block"><svg viewBox="0 0 210 195" xmlns="http://www.w3.org/2000/svg" style="width:210px;height:auto"><polygon points="18,175 195,175 60,42" fill="#eff4ff" stroke="#1d4ed8" stroke-width="1.8"/><text x="48" y="154" font-size="9" fill="#f59e0b" text-anchor="middle" font-weight="600">120°</text><text x="26" y="100" font-size="8" fill="#1d4ed8" text-anchor="middle" font-weight="600">b=7</text><text x="140" y="100" font-size="9" fill="#dc2626" text-anchor="middle" font-weight="600">a=?</text><text x="106" y="179" font-size="8" fill="#1d4ed8" text-anchor="middle" font-weight="600">c=5</text><circle cx="18" cy="175" r="2.5" fill="#1d4ed8"/><text x="6" y="179" font-size="10" fill="#1a1a2e" text-anchor="middle" font-weight="600">A</text><circle cx="195" cy="175" r="2.5" fill="#1d4ed8"/><text x="207" y="179" font-size="10" fill="#1a1a2e" text-anchor="middle" font-weight="600">B</text><circle cx="60" cy="42" r="2.5" fill="#1d4ed8"/><text x="60" y="34" font-size="10" fill="#1a1a2e" text-anchor="middle" font-weight="600">C</text></svg></div></div><div id="v3s3" style="display:none"><div style="margin:10px 0 6px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:10px 14px;display:inline-block"><svg viewBox="0 0 210 195" xmlns="http://www.w3.org/2000/svg" style="width:210px;height:auto"><circle cx="105.0" cy="112.0" r="82.0" fill="none" stroke="#94a3b8" stroke-width="1"/><polygon points="91,31 38,159 172,159" fill="#eff4ff" stroke="#1d4ed8" stroke-width="1.8"/><circle cx="105" cy="112" r="2.5" fill="#374151"/><text x="125" y="121" font-size="10" fill="#374151" text-anchor="middle" font-weight="600">O</text><line x1="105" y1="112" x2="38" y2="159" stroke="#374151" stroke-width="1" stroke-dasharray="3,2"/><text x="59" y="128" font-size="8" fill="#374151" text-anchor="middle" font-weight="600">R=6</text><text x="52" y="156" font-size="9" fill="#dc2626" text-anchor="middle" font-weight="600">35°</text><text x="131" y="99" font-size="9" fill="#dc2626" text-anchor="middle" font-weight="600">b=AC=?</text><circle cx="91" cy="31" r="2.5" fill="#1d4ed8"/><text x="91" y="23" font-size="10" fill="#1a1a2e" text-anchor="middle" font-weight="600">A</text><circle cx="38" cy="159" r="2.5" fill="#1d4ed8"/><text x="38" y="172" font-size="10" fill="#1a1a2e" text-anchor="middle" font-weight="600">B</text><circle cx="172" cy="159" r="2.5" fill="#1d4ed8"/><text x="172" y="172" font-size="10" fill="#1a1a2e" text-anchor="middle" font-weight="600">C</text></svg></div></div><div id="v3s4" style="display:none"><div style="margin:10px 0 6px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:10px 14px;display:inline-block"><svg viewBox="0 0 215 200" xmlns="http://www.w3.org/2000/svg" style="width:215px;height:auto"><polygon points="105,18 18,178 192,178" fill="#eff4ff" stroke="#1d4ed8" stroke-width="1.8"/><circle cx="105.0" cy="126.3" r="51.7" fill="none" stroke="#dc2626" stroke-width="1.5"/><circle cx="105" cy="126" r="2.5" fill="#dc2626"/><text x="109" y="134" font-size="10" fill="#dc2626" text-anchor="middle" font-weight="600">I</text><text x="48" y="90" font-size="8" fill="#1d4ed8" text-anchor="middle" font-weight="600">c=17</text><text x="162" y="90" font-size="8" fill="#1d4ed8" text-anchor="middle" font-weight="600">b=15</text><text x="105" y="182" font-size="8" fill="#1d4ed8" text-anchor="middle" font-weight="600">a=16</text><text x="105" y="-1" font-size="10" fill="#dc2626" text-anchor="middle" font-weight="600">r=?</text><circle cx="105" cy="18" r="2.5" fill="#1d4ed8"/><text x="105" y="10" font-size="10" fill="#1a1a2e" text-anchor="middle" font-weight="600">A</text><circle cx="18" cy="178" r="2.5" fill="#1d4ed8"/><text x="6" y="182" font-size="10" fill="#1a1a2e" text-anchor="middle" font-weight="600">B</text><circle cx="192" cy="178" r="2.5" fill="#1d4ed8"/><text x="204" y="182" font-size="10" fill="#1a1a2e" text-anchor="middle" font-weight="600">C</text></svg></div></div><div id="v3s5" style="display:none"><div style="margin:10px 0 6px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:10px 14px;display:inline-block"><svg viewBox="0 0 215 200" xmlns="http://www.w3.org/2000/svg" style="width:215px;height:auto"><polygon points="105,18 18,178 192,178" fill="#eff4ff" stroke="#1d4ed8" stroke-width="1.8"/><line x1="105" y1="18" x2="105" y2="178" stroke="#dc2626" stroke-width="1.8"/><text x="96" y="30" font-size="10" fill="#dc2626" text-anchor="middle" font-weight="600">α</text><text x="114" y="30" font-size="10" fill="#dc2626" text-anchor="middle" font-weight="600">α</text><text x="48" y="90" font-size="8" fill="#1d4ed8" text-anchor="middle" font-weight="600">AB=12</text><text x="162" y="90" font-size="8" fill="#1d4ed8" text-anchor="middle" font-weight="600">AC=18</text><text x="62" y="181" font-size="9" fill="#dc2626" text-anchor="middle" font-weight="600">BD=?</text><text x="148" y="181" font-size="9" fill="#374151" text-anchor="middle" font-weight="600">DC=?</text><text x="105" y="0" font-size="8" fill="#374151" text-anchor="middle" font-weight="600">BC=20</text><circle cx="105" cy="18" r="2.5" fill="#1d4ed8"/><text x="105" y="10" font-size="10" fill="#1a1a2e" text-anchor="middle" font-weight="600">A</text><circle cx="18" cy="178" r="2.5" fill="#1d4ed8"/><text x="6" y="182" font-size="10" fill="#1a1a2e" text-anchor="middle" font-weight="600">B</text><circle cx="192" cy="178" r="2.5" fill="#1d4ed8"/><text x="204" y="182" font-size="10" fill="#1a1a2e" text-anchor="middle" font-weight="600">C</text><circle cx="105" cy="178" r="2.5" fill="#dc2626"/><text x="105" y="191" font-size="9" fill="#dc2626" text-anchor="middle" font-weight="600">D</text></svg></div></div>
+<div class="layout">
+  <nav class="sidebar" id="sidebar"></nav>
+  <div class="main">
+    <div class="topbar">
+      <div class="breadcrumb">
+        <a href="../../../../../index.html">Matematika 11</a>
+        <span class="sep">›</span><span>Planimetrija</span>
+        <span class="sep">›</span><span class="current">Variantas 3</span>
+      </div>
+    </div>
+    <div class="page">
+      <div class="exam-top">
+        <div class="topic-tag">8 skyrius · VBE stiliaus variantas</div>
+        <h1>Planimetrija — Variantas 3 (∼45 min · Sunkus lygis)</h1>
+        <div class="meta">
+          <span>∼30 taškų</span>
+          <span>T1 · T2 · T3 · T4 · T5</span>
+          <span>Atsakymai matomi po pateikimo</span>
+          <span class="hard-badge">SUNKUS</span>
+        </div>
+      </div>
+      <div class="progress-wrap">
+        <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+        <div class="progress-text" id="progress-text">Atsakyta: 0 / 20</div>
+      </div>
+      <div id="questions"></div>
+      <div class="submit-row">
+        <button class="btn-submit" id="submit-btn" onclick="submitExam()">Pateikti variantą</button>
+        <span class="answered-info" id="answered-info"></span>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal-bg" id="modal-bg">
+  <div class="modal">
+    <div class="modal-pct" id="modal-pct"></div>
+    <div class="modal-feedback" id="modal-feedback"></div>
+    <div class="modal-sub" id="modal-sub"></div>
+    <div class="modal-stats">
+      <div><div class="modal-stat-v" id="m-correct"></div><div class="modal-stat-k">Teisingi</div></div>
+      <div><div class="modal-stat-v" id="m-pts"></div><div class="modal-stat-k">Taškai</div></div>
+      <div><div class="modal-stat-v" id="m-total"></div><div class="modal-stat-k">Iš viso</div></div>
+    </div>
+    <div class="modal-btns">
+      <button class="btn" onclick="document.getElementById('modal-bg').classList.remove('open')">Peržiūrėti</button>
+      <a href="index.html" class="btn primary" style="text-decoration:none">Variantų sąrašas →</a>
+    </div>
+  </div>
+</div>
+<script src="../../../../../js/main.js"></script>
+<script>
+var QUESTIONS = [{"type": "mcq", "pts": 1, "text": "Apskritime skersmuo AB. Taškai C ir D ant apskritimo viršuje (pusapskritimyje). Apskaičiuokite kampus α = ∠ACB ir β = ∠ADB.", "graph_id": "v3s1", "options": ["α=90°, β=90°", "α=90°, β=45°", "α=45°, β=90°", "α=60°, β=90°"], "correct": 0}, {"type": "open", "pts": 2, "text": "Apskritimo dvi stygos kertasi taške E. AE = 5, EC = 7, DE = 2. Apskaičiuokite EB. Įrašykite atsakymą.", "answer": "17,5", "tolerance": 0.1}, {"type": "mcq", "pts": 1, "text": "Trikampio ABC kraštinės b = 7, c = 5, kampas ∠A = 120°. Apskaičiuokite kraštinę a.", "graph_id": "v3s2", "options": ["√(49+25+35) = √109", "√(49+25−35) = √39", "√(49+25) = √74", "√124"], "correct": 0}, {"type": "open", "pts": 2, "text": "Apskritime su centru O įbrėžtas trikampis ABC. Apskritimo spindulys R = 6 cm, kampas ∠B = 35°. Apskaičiuokite kraštinę AC. Įrašykite atsakymą.", "graph_id": "v3s3", "answer": "6,9", "tolerance": 0.2}, {"type": "mcq", "pts": 1, "text": "Lygiagretainio ABCD kraštinės AB = 10 cm, BC = 6 cm, kampas ∠A = 60°. Apskaičiuokite lygiagretainio plotą.", "options": ["30√3 cm²", "30 cm²", "60 cm²", "30√2 cm²"], "correct": 0}, {"type": "open", "pts": 2, "text": "Trikampio kraštinės a = 16, b = 15, c = 17. Apskaičiuokite įbrėžtojo apskritimo spindulį r. Įrašykite atsakymą.", "graph_id": "v3s4", "answer": "4", "tolerance": 0.1}, {"type": "mcq", "pts": 1, "text": "Trikampyje ABC kampas ∠A = 50°, ∠B = 60°, todėl ∠C = 70°. Kraštinė AB = c = 12 cm. Apskaičiuokite kraštinę BC = a.", "options": ["≈ 10,7 cm", "≈ 14,9 cm", "≈ 9,5 cm", "≈ 12,5 cm"], "correct": 0}, {"type": "open", "pts": 2, "text": "Trikampyje ABC iš A nubrėžta pusiaukampinė AD. AB = 12, AC = 18, BC = 20. Apskaičiuokite BD ir DC. Įrašykite BD.", "graph_id": "v3s5", "answer": "8", "tolerance": 0}, {"type": "mcq", "pts": 1, "text": "Trikampio ABC kraštinės a = 8, b = 6, c = 7. Apskaičiuokite kampą ∠B.", "options": ["∠B ≈ 57°", "∠B ≈ 47°", "∠B ≈ 63°", "∠B = 60°"], "correct": 0}, {"type": "open", "pts": 2, "text": "Trikampio ABC kraštinės a = 9, b = 12, c = 15. Tai statusis trikampis. Apskaičiuokite trikampio plotą. Įrašykite atsakymą.", "answer": "54", "tolerance": 0}, {"type": "mcq", "pts": 1, "text": "Iš išorinio taško F apskritimui nubrėžtos dvi liestinės. FB = 15 cm, apskritimo spindulys r = 9 cm. Apskaičiuokite OF.", "options": ["OF = √(225+81) = √306", "OF = 12 cm", "OF = √(225−81) = 12 cm", "OF = 6 cm"], "correct": 1}, {"type": "open", "pts": 2, "text": "Trikampio ABC kraštinės 11, 13, 20. Apskaičiuokite trikampio plotą. Įrašykite atsakymą.", "answer": "√(22·11·9·2) = √4356 = 66", "tolerance": 0}, {"type": "mcq", "pts": 1, "text": "Trikampyje ABC MN ∥ BC, AM = 6, MB = 4. BC = 30 cm. Apskaičiuokite MN.", "options": ["MN = 12 cm", "MN = 16 cm", "MN = 18 cm", "MN = 20 cm"], "correct": 2}, {"type": "open", "pts": 2, "text": "Trikampio ABC kampas ∠C = 45°, kraštinės AC = 8 cm, BC = 6 cm. Apskaičiuokite trikampio plotą. Įrašykite atsakymą.", "answer": "12√2", "tolerance": 0}, {"type": "mcq", "pts": 1, "text": "Į apskritimą įbrėžtas trikampis ABC. Kampas ∠A = 25°, kraštinė BC = 10 cm. Apskaičiuokite apskritimo spindulį R.", "options": ["R ≈ 11,8 cm", "R ≈ 8,5 cm", "R ≈ 5,9 cm", "R ≈ 23,7 cm"], "correct": 0}, {"type": "open", "pts": 2, "text": "Įbrėžtinis keturkampis ABCD: ∠A = 68°, ∠B = 112°. Apskaičiuokite ∠C ir ∠D. Įrašykite ∠C.", "answer": "112", "tolerance": 0}, {"type": "mcq", "pts": 1, "text": "Trikampio plotas lygus 60 cm², pusperimetras p = 15 cm. Apskaičiuokite įbrėžtojo apskritimo spindulį r.", "options": ["r = 4 cm", "r = 3 cm", "r = 5 cm", "r = 6 cm"], "correct": 0}, {"type": "open", "pts": 2, "text": "Trikampyje ABC MN ∥ BC, trikampio AMN plotas = 27 cm², trikampio ABC plotas = 48 cm². Apskaičiuokite AM/AB santykį. Įrašykite atsakymą.", "answer": "3/4", "tolerance": 0}, {"type": "mcq", "pts": 1, "text": "Trikampio ABC kraštinės a = 5, b = 12, c = 13. Apskaičiuokite apibrėžtojo apskritimo spindulį R.", "options": ["R = 6,5 cm", "R = 5 cm", "R = 12 cm", "R = 13 cm"], "correct": 0}, {"type": "open", "pts": 2, "text": "Trikampio ABC kraštinės b = 10, c = 12, kampas ∠A = 90°. Apskaičiuokite kraštinę a. Įrašykite atsakymą.", "answer": "√244 = 2√61", "tolerance": 0}];
+
+var answers = new Array(QUESTIONS.length).fill(null);
+var openInputs = {};
+var submitted = false;
+
+function renderQuestions() {
+  var html = ''; var L = ['A','B','C','D'];
+  for (var qi = 0; qi < QUESTIONS.length; qi++) {
+    var q = QUESTIONS[qi];
+    var ptsClass = q.pts === 2 ? 'two' : '';
+    html += '<div class="q-card"><div class="q-header">';
+    html += '<span class="q-num">KLAUSIMAS ' + (qi+1) + ' IŠ ' + QUESTIONS.length + '</span>';
+    html += '<span class="q-pts ' + ptsClass + '">' + q.pts + ' ' + (q.pts===1?'taškas':'taškai') + '</span>';
+    html += '</div><div class="q-text">' + q.text + '</div>';
+    if (q.graph_id) { var g = document.getElementById(q.graph_id); if (g) html += g.innerHTML; }
+    if (q.type === 'mcq') {
+      html += '<div class="options">';
+      for (var oi = 0; oi < q.options.length; oi++) {
+        html += '<div class="opt" id="opt-'+qi+'-'+oi+'" onclick="selMcq('+qi+','+oi+')">';
+        html += '<div class="opt-letter">'+L[oi]+'</div><div class="opt-text">'+q.options[oi]+'</div></div>';
+      }
+      html += '</div>';
+    } else {
+      html += '<div class="open-answer"><div class="open-input">';
+      html += '<input type="text" id="inp-'+qi+'" placeholder="Įrašykite atsakymą" oninput="markOpen('+qi+')">';
+      html += '</div><div class="answer-feedback" id="fb-'+qi+'"></div></div>';
+    }
+    html += '</div>';
+  }
+  document.getElementById('questions').innerHTML = html;
+}
+
+function selMcq(qi, oi) {
+  if (submitted) return;
+  answers[qi] = oi;
+  for (var i = 0; i < 4; i++) { var e = document.getElementById('opt-'+qi+'-'+i); if (e) e.classList.remove('selected'); }
+  document.getElementById('opt-'+qi+'-'+oi).classList.add('selected');
+  updateProgress();
+}
+
+function markOpen(qi) {
+  if (submitted) return;
+  var val = document.getElementById('inp-'+qi).value.trim();
+  answers[qi] = val !== '' ? val : null;
+  updateProgress();
+}
+
+function updateProgress() {
+  var done = answers.filter(function(x){return x!==null;}).length;
+  document.getElementById('progress-fill').style.width = (done/QUESTIONS.length*100)+'%';
+  document.getElementById('progress-text').textContent = 'Atsakyta: '+done+' / '+QUESTIONS.length;
+  document.getElementById('answered-info').textContent = 'Atsakyta: '+done+' / '+QUESTIONS.length;
+}
+
+function checkOpen(val, answer, tol) {
+  if (!val) return false;
+  val = val.trim().replace(',','.');
+  answer = String(answer).trim().replace(',','.');
+  if (val.toLowerCase() === answer.toLowerCase()) return true;
+  var numV = parseFloat(val); var numA = parseFloat(answer);
+  if (!isNaN(numV) && !isNaN(numA) && Math.abs(numV-numA) <= (tol||0.01)) return true;
+  return false;
+}
+
+function submitExam() {
+  var done = answers.filter(function(x){return x!==null;}).length;
+  if (done < QUESTIONS.length && !confirm('Dar neatsakyta '+(QUESTIONS.length-done)+' klausimai. Pateikti?')) return;
+  submitted = true;
+  document.getElementById('submit-btn').disabled = true;
+  var pts = 0; var correct = 0;
+  for (var qi = 0; qi < QUESTIONS.length; qi++) {
+    var q = QUESTIONS[qi]; var ok = false;
+    if (q.type === 'mcq') {
+      ok = answers[qi] === q.correct;
+      for (var oi = 0; oi < q.options.length; oi++) {
+        var el = document.getElementById('opt-'+qi+'-'+oi);
+        if (!el) continue;
+        el.classList.remove('selected');
+        if (oi === q.correct) el.classList.add(ok && oi===answers[qi] ? 'correct' : 'show-correct');
+        if (oi === answers[qi] && !ok) el.classList.add('wrong');
+      }
+    } else {
+      var inp = document.getElementById('inp-'+qi);
+      var fb = document.getElementById('fb-'+qi);
+      ok = checkOpen(answers[qi], q.answer, q.tolerance);
+      if (inp) inp.classList.add(ok ? 'correct-in' : 'wrong-in');
+      if (fb) { fb.textContent = ok ? '✓ Teisingai!' : '✗ Teisingas atsakymas: '+q.answer; fb.className = 'answer-feedback show '+(ok?'ok':'bad'); }
+    }
+    if (ok) { pts += q.pts; correct++; }
+  }
+  var maxPts = QUESTIONS.reduce(function(s,q){return s+q.pts;},0);
+  var pct = Math.round(pts/maxPts*100);
+  document.getElementById('modal-pct').textContent = pct+'%';
+  document.getElementById('modal-pct').className = 'modal-pct '+(pct>=80?'ex':pct>=50?'good':'poor');
+  document.getElementById('modal-feedback').textContent = pct>=90?'Puikiai!':pct>=70?'Gerai!':pct>=50?'Neblogai':'Reikia pasimokyti';
+  document.getElementById('modal-sub').textContent = 'Surinkta taškų: '+pts+' iš '+maxPts;
+  document.getElementById('m-correct').textContent = correct;
+  document.getElementById('m-pts').textContent = pts;
+  document.getElementById('m-total').textContent = maxPts;
+  document.getElementById('modal-bg').classList.add('open');
+}
+
+renderQuestions();
+
+</script>
+</body>
+</html>

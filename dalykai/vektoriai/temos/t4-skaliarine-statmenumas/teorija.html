@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>T4. Skaliarinė sandauga ir statmenumas — Vektoriai</title>
+  <style>
+    :root {
+      --ink: #1a1a1a;
+      --ink2: #374151;
+      --accent: #1d4ed8;
+      --radius: 8px;
+      --mono: 'Courier New', monospace;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Georgia, serif; background: #f8f7f4; color: var(--ink); line-height: 1.6; }
+    .layout { max-width: 860px; margin: 0 auto; padding: 24px 16px; }
+
+    .breadcrumb { font-size: 13px; color: #6b7280; margin-bottom: 20px; }
+    .breadcrumb a { color: #1d4ed8; text-decoration: none; }
+    .breadcrumb .sep { margin: 0 6px; }
+    .breadcrumb .current { color: #374151; font-weight: 500; }
+
+    .topic-header { margin-bottom: 28px; }
+    .topic-tag { font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: #6b7280; margin-bottom: 6px; }
+    .topic-title { font-size: 26px; font-weight: 700; color: var(--ink); margin-bottom: 8px; }
+    .topic-intro { font-size: 14.5px; color: #4b5563; max-width: 620px; }
+
+    .theory-block { margin-bottom: 32px; }
+    .block-title { display: flex; align-items: center; gap: 10px; font-size: 16px; font-weight: 600; color: var(--ink); margin-bottom: 14px; }
+    .block-num { width: 26px; height: 26px; border-radius: 50%; background: #1d4ed8; color: #fff; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+
+    .theory-row { border-radius: var(--radius); margin-bottom: 10px; overflow: hidden; display: grid; grid-template-columns: 1fr; }
+    .theory-row.has-graph { grid-template-columns: 1fr auto; align-items: stretch; }
+    @media(max-width:600px) { .theory-row.has-graph { grid-template-columns: 1fr; } .row-graph { width: 100% !important; border-left: none !important; border-top: 1px solid rgba(0,0,0,.07); } }
+
+    .row-content { padding: 14px 18px; }
+    .row-label { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; padding: 2px 9px; border-radius: 4px; border: 1px solid; margin-bottom: 9px; }
+    .row-text { font-size: 13.5px; color: var(--ink2); line-height: 1.85; }
+    .row-text strong { color: var(--ink); font-weight: 600; }
+    .formula { font-family: var(--mono); font-size: 14px; color: #1d4ed8; display: block; margin: 5px 0 5px 8px; }
+
+    .row-graph { width: 230px; border-left: 1px solid rgba(0,0,0,.07); display: flex; align-items: center; justify-content: center; padding: 12px; flex-shrink: 0; background: transparent; }
+    .row-graph svg { display: block; overflow: visible; }
+
+    .row-apibreztis { background: #f1f0ee; border-left: 3px solid #9a9a92; }
+    .row-apibreztis .row-label { color: #5a5a54; background: #e4e2d8; border-color: #c8c6bc; }
+    .row-zymime { background: #fffbeb; border-left: 3px solid #b45309; }
+    .row-zymime .row-label { color: #b45309; background: #fef3c7; border-color: #fde68a; }
+    .row-taisykle { background: #f5f3ff; border-left: 3px solid #6d28d9; }
+    .row-taisykle .row-label { color: #6d28d9; background: #ede9fe; border-color: #c4b5fd; }
+    .row-pavyzdys { background: #f0fdf4; border-left: 3px solid #15803d; }
+    .row-pavyzdys .row-label { color: #15803d; background: #dcfce7; border-color: #bbf7d0; }
+
+    .topic-nav { display: flex; gap: 10px; margin-top: 32px; flex-wrap: wrap; }
+    .nav-btn { display: inline-block; padding: 9px 18px; border-radius: 6px; background: #e5e7eb; color: #374151; text-decoration: none; font-size: 13px; font-weight: 500; }
+    .nav-btn:hover { background: #d1d5db; }
+
+    .vec { display:inline-block; position:relative; padding-top:8px; white-space:nowrap; }
+    .vec .vl { font-style:italic; font-weight:600; }
+    .vec .va { position:absolute; top:0; left:0; right:0; text-align:center; font-size:9px; line-height:1; }
+
+  </style>
+</head>
+<body>
+<div class="layout">
+  <nav class="breadcrumb">
+    <a href="#">Matematika 11</a>
+    <span class="sep">&#8250;</span><span>Vektoriai</span>
+    <span class="sep">&#8250;</span><span class="current">T4. Skaliarinė sandauga ir statmenumas</span>
+  </nav>
+
+  <div class="topic-header">
+    <div class="topic-tag">9 skyrius &middot; Tema 4</div>
+    <h1 class="topic-title">Skaliarinė vektorių sandauga. Statmenumo sąlyga.</h1>
+    <p class="topic-intro">Skaliarinė sandauga &mdash; operacija su dviem vektoriais, kurios rezultatas yra skaičius. Ji naudojama kampams ir statmenumui nustatyti.</p>
+  </div>
+
+  <!-- BLOCK 1 -->
+  <div class="theory-block">
+    <div class="block-title"><div class="block-num">1</div>Skaliarinė sandauga</div>
+
+    <!-- Apibrėžimas -->
+    <div class="theory-row row-apibreztis has-graph">
+      <div class="row-content">
+        <div class="row-label">Apibrėžimas</div>
+        <div class="row-text">
+          <strong>Skaliarinė dviejų vektorių sandauga</strong> &mdash; skaičius, lygus jų ilgių ir kampo tarp jų kosinuso sandaugai:
+          <span class="formula"><span class="vec"><span class="vl">a</span><span class="va">→</span></span> &middot; <span class="vec"><span class="vl">b</span><span class="va">→</span></span> = |<span class="vec"><span class="vl">a</span><span class="va">→</span></span>| &middot; |<span class="vec"><span class="vl">b</span><span class="va">→</span></span>| &middot; cos&thinsp;&#x03C6;</span>
+          &#381;ymima: <strong><span class="vec"><span class="vl">a</span><span class="va">→</span></span> &middot; <span class="vec"><span class="vl">b</span><span class="va">→</span></span></strong> arba tiesiog <em>ab</em>
+        </div>
+      </div>
+      <div class="row-graph">
+        <svg viewBox="0 0 200 165" width="200" height="165" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <marker id="mB1" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+              <polygon points="0,1 7,4 0,7" fill="#1d4ed8"/>
+            </marker>
+            <marker id="mR1" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+              <polygon points="0,1 7,4 0,7" fill="#dc2626"/>
+            </marker>
+          </defs>
+
+          <!-- Origin -->
+          <circle cx="36" cy="128" r="3" fill="#374151"/>
+
+          <!-- Vector a (blue): up-right ~55deg above horizontal -->
+          <line x1="36" y1="128" x2="147" y2="40" stroke="#1d4ed8" stroke-width="2.5"
+                stroke-linecap="round" marker-end="url(#mB1)"/>
+
+          <!-- Vector b (red): horizontal right -->
+          <line x1="36" y1="128" x2="174" y2="128" stroke="#dc2626" stroke-width="2.5"
+                stroke-linecap="round" marker-end="url(#mR1)"/>
+
+          <!-- Angle arc phi between the two -->
+          <path d="M 76,128 A 40,40 0 0,1 61.5,96" fill="none" stroke="#f59e0b" stroke-width="1.8"/>
+          <text x="90" y="108" font-size="13" fill="#f59e0b" font-weight="bold"
+                font-family="Georgia,serif" font-style="italic">&#x03C6;</text>
+
+          <!-- Label a with over-arrow -->
+          <!-- Letter at (157,32), arrow drawn just above -->
+          <text x="157" y="35" font-size="14" fill="#1d4ed8" font-style="italic" font-weight="bold"
+                font-family="Georgia,serif" text-anchor="middle">a</text>
+          <line x1="150" y1="20" x2="160" y2="20" stroke="#1d4ed8" stroke-width="1.4"
+                marker-end="url(#mB1)"/>
+
+          <!-- Label b with over-arrow -->
+          <text x="182" y="132" font-size="14" fill="#dc2626" font-style="italic" font-weight="bold"
+                font-family="Georgia,serif" text-anchor="middle">b</text>
+          <line x1="175" y1="118" x2="186" y2="118" stroke="#dc2626" stroke-width="1.4"
+                marker-end="url(#mR1)"/>
+
+        </svg>
+      </div>
+    </div>
+
+    <!-- Svarbūs atvejai -->
+    <div class="theory-row row-zymime">
+      <div class="row-content">
+        <div class="row-label">Svarbūs atvejai</div>
+        <div class="row-text">
+          <strong>Vektoriaus skaliarinis kvadratas</strong> (&#x03C6; = 0&deg;):
+          <span class="formula"><span class="vec"><span class="vl">a</span><span class="va">→</span></span> &middot; <span class="vec"><span class="vl">a</span><span class="va">→</span></span> = |<span class="vec"><span class="vl">a</span><span class="va">→</span></span>|&sup2;</span>
+          <strong>Vektoriaus ilgis:</strong>
+          <span class="formula">|<span class="vec"><span class="vl">a</span><span class="va">→</span></span>| = &radic;(<span class="vec"><span class="vl">a</span><span class="va">→</span></span> &middot; <span class="vec"><span class="vl">a</span><span class="va">→</span></span>)</span>
+          <strong>Vienakrypčiai</strong> (&#x03C6; = 0&deg;):&emsp; <span class="vec"><span class="vl">a</span><span class="va">→</span></span> &middot; <span class="vec"><span class="vl">b</span><span class="va">→</span></span> = |<span class="vec"><span class="vl">a</span><span class="va">→</span></span>| &middot; |<span class="vec"><span class="vl">b</span><span class="va">→</span></span>|<br/>
+          <strong>Priešpriešiniai</strong> (&#x03C6; = 180&deg;):&emsp; <span class="vec"><span class="vl">a</span><span class="va">→</span></span> &middot; <span class="vec"><span class="vl">b</span><span class="va">→</span></span> = &minus;|<span class="vec"><span class="vl">a</span><span class="va">→</span></span>| &middot; |<span class="vec"><span class="vl">b</span><span class="va">→</span></span>|
+        </div>
+      </div>
+    </div>
+
+    <!-- Pavyzdys 1 -->
+    <div class="theory-row row-pavyzdys has-graph">
+      <div class="row-content">
+        <div class="row-label">Pavyzdys</div>
+        <div class="row-text">
+          Lygiakraščio trikampio ABC kraštinė 7 cm. Kraštinėse atidėti vektoriai
+          <strong><span class="vec"><span class="vl">AB</span><span class="va">→</span></span> = <span class="vec"><span class="vl">a</span><span class="va">→</span></span></strong>, <strong><span class="vec"><span class="vl">BC</span><span class="va">→</span></span> = <span class="vec"><span class="vl">b</span><span class="va">→</span></span></strong>, <strong><span class="vec"><span class="vl">AC</span><span class="va">→</span></span> = <span class="vec"><span class="vl">c</span><span class="va">→</span></span></strong>. Apskaičiuokite:<br/><br/>
+          <strong>a)&ensp; <span class="vec"><span class="vl">a</span><span class="va">→</span></span> &middot; <span class="vec"><span class="vl">c</span><span class="va">→</span></span></strong> &mdash; kampas tarp jų 60&deg;:<br/>
+          <span class="formula"><span class="vec"><span class="vl">a</span><span class="va">→</span></span> &middot; <span class="vec"><span class="vl">c</span><span class="va">→</span></span> = 7&middot;7&middot;cos 60&deg; = 49&middot;&frac12; = <strong>24,5</strong></span>
+          <strong>b)&ensp; <span class="vec"><span class="vl">a</span><span class="va">→</span></span> &middot; <span class="vec"><span class="vl">b</span><span class="va">→</span></span></strong> &mdash; vektoriai skirtinguose pradžios taškuose.<br/>
+          Pastumkime &minus;<span class="vec"><span class="vl">b</span><span class="va">→</span></span> iš taško A (punktyras brėžinyje).<br/>
+          Kampas tarp <span class="vec"><span class="vl">a</span><span class="va">→</span></span> ir &minus;<span class="vec"><span class="vl">b</span><span class="va">→</span></span> lygus 60&deg;.
+          <span class="formula"><span class="vec"><span class="vl">a</span><span class="va">→</span></span>&middot;<span class="vec"><span class="vl">b</span><span class="va">→</span></span> = &minus;(<span class="vec"><span class="vl">a</span><span class="va">→</span></span>&middot;(&minus;<span class="vec"><span class="vl">b</span><span class="va">→</span></span>)) = &minus;7&middot;7&middot;cos 60&deg; = <strong>&minus;24,5</strong></span>
+        </div>
+      </div>
+      <div class="row-graph">
+        <!--
+          Equilateral triangle ABC:
+            A=(28,178), B=(192,178), C=(110,45)
+          Vectors:
+            a: A->B  blue
+            c: A->C  green
+            b: B->C  red
+          -b dashed: from A going opposite of b direction.
+            b direction = C - B = (110-192, 45-178) = (-82,-133)
+            -b direction = (+82,+133), from A(28,178) => end=(110,311)
+          Angle 60deg at A between rightward a and downward -b, shown with arc.
+        -->
+        <svg viewBox="0 0 230 255" width="220" height="245" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <marker id="mB2" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+              <polygon points="0,1 7,4 0,7" fill="#1d4ed8"/>
+            </marker>
+            <marker id="mG2" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+              <polygon points="0,1 7,4 0,7" fill="#15803d"/>
+            </marker>
+            <marker id="mR2" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+              <polygon points="0,1 7,4 0,7" fill="#dc2626"/>
+            </marker>
+            <marker id="mC2" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+              <polygon points="0,1 7,4 0,7" fill="#9f1239"/>
+            </marker>
+          </defs>
+
+          <!-- Triangle -->
+          <polygon points="28,178 192,178 110,45" fill="#eff4ff" stroke="#94a3b8" stroke-width="1.3"/>
+
+          <!-- a: A->B blue -->
+          <line x1="28" y1="178" x2="183" y2="178" stroke="#1d4ed8" stroke-width="2.5"
+                stroke-linecap="round" marker-end="url(#mB2)"/>
+
+          <!-- c: A->C green -->
+          <line x1="28" y1="178" x2="110" y2="52" stroke="#15803d" stroke-width="2.5"
+                stroke-linecap="round" marker-end="url(#mG2)"/>
+
+          <!-- b: B->C red -->
+          <line x1="192" y1="178" x2="117" y2="52" stroke="#dc2626" stroke-width="2.5"
+                stroke-linecap="round" marker-end="url(#mR2)"/>
+
+          <!-- -b dashed: from A(28,178) to (110,311) -->
+          <line x1="28" y1="178" x2="107" y2="308" stroke="#9f1239" stroke-width="2.2"
+                stroke-dasharray="7,4" marker-end="url(#mC2)"/>
+
+          <!-- Angle arc at A between a (right) and -b (down-right ~58deg below horiz) -->
+          <path d="M 70,178 A 42,42 0 0,1 49.5,214" fill="none" stroke="#f59e0b" stroke-width="1.8"/>
+          <text x="82" y="213" font-size="11" fill="#f59e0b" font-weight="bold"
+                font-family="Georgia,serif">60&deg;</text>
+
+          <!-- Label a on AB -->
+          <text x="110" y="196" font-size="13" fill="#1d4ed8" font-style="italic" font-weight="bold"
+                font-family="Georgia,serif" text-anchor="middle">a</text>
+          <line x1="103" y1="183" x2="114" y2="183" stroke="#1d4ed8" stroke-width="1.3"
+                marker-end="url(#mB2)"/>
+
+          <!-- Label c on AC -->
+          <text x="54" y="118" font-size="13" fill="#15803d" font-style="italic" font-weight="bold"
+                font-family="Georgia,serif" text-anchor="middle">c</text>
+          <line x1="47" y1="105" x2="58" y2="105" stroke="#15803d" stroke-width="1.3"
+                marker-end="url(#mG2)"/>
+
+          <!-- Label b on BC -->
+          <text x="163" y="118" font-size="13" fill="#dc2626" font-style="italic" font-weight="bold"
+                font-family="Georgia,serif" text-anchor="middle">b</text>
+          <line x1="156" y1="105" x2="167" y2="105" stroke="#dc2626" stroke-width="1.3"
+                marker-end="url(#mR2)"/>
+
+          <!-- -b label: clearly boxed, connected to dashed line with leader -->
+          <!-- Box at right of dashed line endpoint -->
+          <rect x="116" y="296" width="68" height="22" rx="4"
+                fill="#fff0f3" stroke="#9f1239" stroke-width="1.3"/>
+          <text x="150" y="311" font-size="12" fill="#9f1239" font-weight="bold"
+                font-family="Georgia,serif" text-anchor="middle">&minus;b</text>
+          <!-- arrow over the -b letter (inside box) -->
+          <line x1="145" y1="300" x2="154" y2="300" stroke="#9f1239" stroke-width="1.3"
+                marker-end="url(#mC2)"/>
+          <!-- thin leader from box to line endpoint -->
+          <line x1="116" y1="307" x2="110" y2="308" stroke="#9f1239" stroke-width="1"
+                stroke-dasharray="3,2"/>
+
+          <!-- Vertex dots -->
+          <circle cx="28" cy="178" r="3" fill="#374151"/>
+          <text x="15" y="182" font-size="11" fill="#374151" font-weight="bold"
+                font-family="Georgia,serif">A</text>
+          <circle cx="192" cy="178" r="3" fill="#374151"/>
+          <text x="203" y="182" font-size="11" fill="#374151" font-weight="bold"
+                font-family="Georgia,serif">B</text>
+          <circle cx="110" cy="45" r="3" fill="#374151"/>
+          <text x="110" y="37" font-size="11" fill="#374151" font-weight="bold"
+                font-family="Georgia,serif" text-anchor="middle">C</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- BLOCK 2 -->
+  <div class="theory-block">
+    <div class="block-title"><div class="block-num">2</div>Vektorių statmenumo sąlyga</div>
+
+    <!-- Teorema -->
+    <div class="theory-row row-taisykle has-graph">
+      <div class="row-content">
+        <div class="row-label">Teorema</div>
+        <div class="row-text">
+          Jei nenuliniai vektoriai yra statmeni, tai skaliarinė jų sandauga lygi nuliui, ir atvirkščiai:
+          <span class="formula"><span class="vec"><span class="vl">a</span><span class="va">→</span></span> &perp; <span class="vec"><span class="vl">b</span><span class="va">→</span></span> &nbsp;&hArr;&nbsp; <span class="vec"><span class="vl">a</span><span class="va">→</span></span> &middot; <span class="vec"><span class="vl">b</span><span class="va">→</span></span> = 0</span>
+          Jei &#x03C6; = 90&deg;, tai cos 90&deg; = 0, todėl sandauga lygi nuliui.
+        </div>
+      </div>
+      <div class="row-graph">
+        <svg viewBox="0 0 175 165" width="175" height="165" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <marker id="mB3" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+              <polygon points="0,1 7,4 0,7" fill="#1d4ed8"/>
+            </marker>
+            <marker id="mR3" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+              <polygon points="0,1 7,4 0,7" fill="#dc2626"/>
+            </marker>
+          </defs>
+
+          <!-- Origin -->
+          <circle cx="44" cy="124" r="3" fill="#374151"/>
+
+          <!-- a: straight up -->
+          <line x1="44" y1="124" x2="44" y2="20" stroke="#1d4ed8" stroke-width="2.5"
+                stroke-linecap="round" marker-end="url(#mB3)"/>
+
+          <!-- b: right -->
+          <line x1="44" y1="124" x2="160" y2="124" stroke="#dc2626" stroke-width="2.5"
+                stroke-linecap="round" marker-end="url(#mR3)"/>
+
+          <!-- Right angle mark -->
+          <path d="M 44,109 L 59,109 L 59,124" fill="none" stroke="#374151" stroke-width="1.8"/>
+
+          <!-- Label a with over-arrow -->
+          <text x="62" y="24" font-size="14" fill="#1d4ed8" font-style="italic" font-weight="bold"
+                font-family="Georgia,serif">a</text>
+          <line x1="57" y1="11" x2="68" y2="11" stroke="#1d4ed8" stroke-width="1.4"
+                marker-end="url(#mB3)"/>
+
+          <!-- Label b with over-arrow -->
+          <text x="166" y="129" font-size="14" fill="#dc2626" font-style="italic" font-weight="bold"
+                font-family="Georgia,serif">b</text>
+          <line x1="160" y1="116" x2="171" y2="116" stroke="#dc2626" stroke-width="1.4"
+                marker-end="url(#mR3)"/>
+
+        </svg>
+      </div>
+    </div>
+
+    <!-- Pavyzdys 2 -->
+    <div class="theory-row row-pavyzdys has-graph">
+      <div class="row-content">
+        <div class="row-label">Pavyzdys</div>
+        <div class="row-text">
+          Įrodykite: jei lygiagretainio ABCD įstrižainės <strong><span class="vec"><span class="vl">AC</span><span class="va">→</span></span></strong> ir <strong><span class="vec"><span class="vl">BD</span><span class="va">→</span></span></strong>
+          yra <strong>lygios</strong>, tai lygiagretainis yra stačiakampis.<br/><br/>
+          Žymime: <strong><span class="vec"><span class="vl">OB</span><span class="va">→</span></span> = <span class="vec"><span class="vl">b</span><span class="va">→</span></span></strong>, <strong><span class="vec"><span class="vl">OA</span><span class="va">→</span></span> = <span class="vec"><span class="vl">a</span><span class="va">→</span></span></strong>, tada |<span class="vec"><span class="vl">a</span><span class="va">→</span></span>| = |<span class="vec"><span class="vl">b</span><span class="va">→</span></span>|.<br/><br/>
+          <span class="formula"><span class="vec"><span class="vl">AB</span><span class="va">→</span></span> &middot; <span class="vec"><span class="vl">AD</span><span class="va">→</span></span> = (<span class="vec"><span class="vl">b</span><span class="va">→</span></span>&minus;<span class="vec"><span class="vl">a</span><span class="va">→</span></span>)&middot;(&minus;<span class="vec"><span class="vl">a</span><span class="va">→</span></span>&minus;<span class="vec"><span class="vl">b</span><span class="va">→</span></span>)</span>
+          <span class="formula">= &minus;(|<span class="vec"><span class="vl">b</span><span class="va">→</span></span>|&sup2; &minus; |<span class="vec"><span class="vl">a</span><span class="va">→</span></span>|&sup2;) = 0</span>
+          Kadangi sandauga = 0, tai <strong>AB &perp; AD</strong> &mdash; ABCD yra stačiakampis.&ensp;&#x220E;
+        </div>
+      </div>
+      <div class="row-graph">
+        <svg viewBox="0 0 245 205" width="232" height="195" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <marker id="mB4" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+              <polygon points="0,1 7,4 0,7" fill="#1d4ed8"/>
+            </marker>
+            <marker id="mR4" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+              <polygon points="0,1 7,4 0,7" fill="#dc2626"/>
+            </marker>
+          </defs>
+
+          <!-- Rectangle ABCD: A bottom-left, B bottom-right, C top-right, D top-left -->
+          <polygon points="22,172 218,172 218,42 22,42" fill="#eff4ff" stroke="#94a3b8" stroke-width="1.5"/>
+
+          <!-- Diagonal AC: A(22,172)->C(218,42) blue -->
+          <line x1="22" y1="172" x2="209" y2="49" stroke="#1d4ed8" stroke-width="2.5"
+                stroke-linecap="round" marker-end="url(#mB4)"/>
+
+          <!-- Diagonal BD: B(218,172)->D(22,42) red -->
+          <line x1="218" y1="172" x2="31" y2="49" stroke="#dc2626" stroke-width="2.5"
+                stroke-linecap="round" marker-end="url(#mR4)"/>
+
+          <!-- Center O = (120,107) -->
+          <circle cx="120" cy="107" r="3" fill="#374151"/>
+          <text x="130" y="103" font-size="11" fill="#374151" font-weight="bold"
+                font-family="Georgia,serif">O</text>
+
+          <!-- Label a on OA half (lower-left portion of AC diagonal) -->
+          <text x="64" y="143" font-size="13" fill="#1d4ed8" font-style="italic" font-weight="bold"
+                font-family="Georgia,serif" text-anchor="middle">a</text>
+          <line x1="57" y1="130" x2="68" y2="130" stroke="#1d4ed8" stroke-width="1.3"
+                marker-end="url(#mB4)"/>
+
+          <!-- Label b on OB half (lower-right portion of BD diagonal) -->
+          <text x="175" y="143" font-size="13" fill="#dc2626" font-style="italic" font-weight="bold"
+                font-family="Georgia,serif" text-anchor="middle">b</text>
+          <line x1="168" y1="130" x2="179" y2="130" stroke="#dc2626" stroke-width="1.3"
+                marker-end="url(#mR4)"/>
+
+          <!-- Right angle at A (bottom-left) -->
+          <path d="M 22,155 L 39,155 L 39,172" fill="none" stroke="#15803d" stroke-width="2"/>
+
+          <!-- Vertex labels -->
+          <circle cx="22" cy="172" r="2.5" fill="#374151"/>
+          <text x="10" y="176" font-size="11" fill="#374151" font-weight="bold"
+                font-family="Georgia,serif">A</text>
+          <circle cx="218" cy="172" r="2.5" fill="#374151"/>
+          <text x="225" y="176" font-size="11" fill="#374151" font-weight="bold"
+                font-family="Georgia,serif">B</text>
+          <circle cx="218" cy="42" r="2.5" fill="#374151"/>
+          <text x="225" y="46" font-size="11" fill="#374151" font-weight="bold"
+                font-family="Georgia,serif">C</text>
+          <circle cx="22" cy="42" r="2.5" fill="#374151"/>
+          <text x="10" y="38" font-size="11" fill="#374151" font-weight="bold"
+                font-family="Georgia,serif">D</text>
+
+
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <div class="topic-nav">
+    <a href="#" class="nav-btn">&#8592; T3. Daugyba ir kolinearumas</a>
+    <a href="#" class="nav-btn">Skyriaus testai &#8594;</a>
+  </div>
+</div>
+</body>
+</html>
