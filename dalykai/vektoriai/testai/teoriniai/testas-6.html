@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Teorinis testas 6 — Vektoriai</title>
+  <link rel="stylesheet" href="../../../../../../styles/main.css"/>
+  <style>.test-header{margin-bottom:28px}.test-header h1{font-size:24px;font-weight:600;color:var(--ink);margin-bottom:6px}
+.test-meta{display:flex;gap:16px;margin-top:10px;flex-wrap:wrap}.test-meta-item{font-size:12px;color:var(--ink3)}
+.progress-bar{height:4px;background:var(--border);border-radius:2px;margin-bottom:28px;overflow:hidden}
+.progress-fill{height:100%;background:var(--accent);border-radius:2px;transition:width .3s}
+.question-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px;margin-bottom:16px}
+.question-num{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3);margin-bottom:8px}
+.question-text{font-size:15px;color:var(--ink);line-height:1.75;margin-bottom:16px;font-weight:500}
+.options{display:flex;flex-direction:column;gap:8px}
+.option{display:flex;align-items:center;gap:12px;padding:11px 14px;border:1px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all .12s;background:var(--bg);user-select:none}
+.option:hover{border-color:var(--accent);background:var(--accent-bg)}
+.option.selected{border-color:var(--accent);background:var(--accent-bg)}
+.option.correct{border-color:var(--green);background:var(--green-bg)}
+.option.wrong{border-color:var(--red);background:var(--red-bg)}
+.option.show-correct{border-color:var(--green);background:var(--green-bg)}
+.option-letter{width:28px;height:28px;border-radius:50%;background:var(--border);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;color:var(--ink2);flex-shrink:0}
+.option.selected .option-letter{background:var(--accent);color:#fff}
+.option.correct .option-letter{background:var(--green);color:#fff}
+.option.wrong .option-letter{background:var(--red);color:#fff}
+.option.show-correct .option-letter{background:var(--green);color:#fff}
+.option-text{font-size:14px;color:var(--ink2);line-height:1.5}
+.submit-area{margin-top:28px;display:flex;align-items:center;gap:14px;padding-top:20px;border-top:1px solid var(--border)}
+.submit-btn{padding:11px 28px;background:var(--accent);color:#fff;border:none;border-radius:var(--radius);font-size:14px;font-weight:600;font-family:var(--sans);cursor:pointer}
+.submit-btn:disabled{background:var(--ink3);cursor:not-allowed}
+.answered-count{font-size:13px;color:var(--ink3)}
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:200;align-items:center;justify-content:center}
+.modal-overlay.open{display:flex}
+.modal{background:var(--bg2);border-radius:var(--radius-lg);padding:36px 40px;max-width:480px;width:90%;text-align:center}
+.modal-score{font-size:64px;font-weight:700;line-height:1;margin-bottom:6px}
+.modal-score.excellent{color:var(--green)}.modal-score.good{color:var(--accent)}.modal-score.poor{color:var(--red)}
+.modal-label{font-size:14px;color:var(--ink3);margin-bottom:20px}
+.modal-stats{display:flex;justify-content:center;gap:28px;margin-bottom:24px;padding:16px;background:var(--bg3);border-radius:var(--radius)}
+.modal-stat-val{font-size:22px;font-weight:600;color:var(--ink)}.modal-stat-key{font-size:11px;color:var(--ink3);margin-top:2px}
+.modal-btns{display:flex;gap:10px;justify-content:center}
+.modal-feedback{font-size:18px;font-weight:600;color:var(--ink);margin-bottom:6px}
+.v{display:inline-block;position:relative;padding-top:8px;white-space:nowrap}
+.vl{font-style:italic;font-weight:600}
+.va{position:absolute;top:0;left:0;right:0;text-align:center;font-size:9px;line-height:1}</style>
+</head>
+<body>
+<div class="layout">
+  <nav class="sidebar" id="sidebar"></nav>
+  <div class="main">
+    <div class="topbar">
+      <div class="breadcrumb">
+        <a href="../../../../../../index.html">Matematika 11</a>
+        <span class="sep">›</span><span>Vektoriai</span>
+        <span class="sep">›</span><span class="current">Teorinis testas 6</span>
+      </div>
+      <div class="tab-switcher"><button class="tab-btn active">Testai</button></div>
+    </div>
+    <div class="page">
+      <div class="test-header">
+        <div class="topic-tag">9 skyrius · Teorinis testas 6</div>
+        <h1>Teorinis testas 6 — T5·T6·T7 mišrus</h1>
+        <div class="test-meta">
+          <div class="test-meta-item">10 klausimų</div>
+          <div class="test-meta-item">T5 · T6 · T7</div>
+          <div class="test-meta-item">Atsakymas matomas po pateikimo</div>
+        </div>
+      </div>
+      <div class="progress-bar"><div class="progress-fill" id="progress" style="width:0%"></div></div>
+      <div id="questions"></div>
+      <div class="submit-area">
+        <button class="submit-btn" id="submit-btn" onclick="submitTest()">Pateikti testą</button>
+        <span class="answered-count" id="answered-count">Atsakyta: 0 / 10</span>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal-overlay" id="modal">
+  <div class="modal">
+    <div class="modal-score" id="modal-score"></div>
+    <div class="modal-feedback" id="modal-feedback"></div>
+    <div class="modal-label">Testo rezultatas</div>
+    <div class="modal-stats">
+      <div><div class="modal-stat-val" id="stat-correct"></div><div class="modal-stat-key">Teisingi</div></div>
+      <div><div class="modal-stat-val" id="stat-wrong"></div><div class="modal-stat-key">Neteisingi</div></div>
+      <div><div class="modal-stat-val" id="stat-pct"></div><div class="modal-stat-key">Rezultatas</div></div>
+    </div>
+    <div class="modal-btns">
+      <button class="btn" onclick="closeModal()">Peržiūrėti atsakymus</button>
+      
+    </div>
+  </div>
+</div>
+<script src="../../../../../../js/main.js"></script>
+<script>var QUESTIONS=[{"text": "Kodėl vektoriaus ilgis visada neneigiamas?", "options": ["Nes koordinatės visada teigiamos", "Nes jis apskaičiuojamas kaip koordinačių kvadratų sumos šaknis", "Nes ilgis yra skaičius be ženklo", "Abu B ir C atsakymai teisingi"], "correct": 3}, {"text": "Kas yra vektoriaus koordinatės?", "options": ["Pradžios taško koordinatės", "Galo taško koordinatės", "Koeficientai x ir y, kuriais vektorius išreiškiamas per {v(\"i\")} ir {v(\"j\")}", "Vektoriaus ilgis ir kampas"], "correct": 2}, {"text": "Kodėl lygių vektorių koordinatės sutampa?", "options": ["Nes jie prasideda tame pačiame taške", "Nes lygūs vektoriai turi vienodą ilgį, kryptį — o koordinatės tai ir aprašo", "Nes jų galų taškai sutampa", "Tai ne visada tiesa"], "correct": 1}, {"text": "Kokiu atveju vektoriai yra kolinearūs, kai viena koordinatė lygi nuliui?", "options": ["Kai abu vektoriai lygūs nuliui", "Kai kryžminė sandauga xₐ·y_b − x_b·yₐ = 0", "Kai jų ilgiai lygūs", "Tokiu atveju vektoriai niekada nėra kolinearūs"], "correct": 1}, {"text": "Ką reiškia trijų taškų kolinearumas geometriškai?", "options": ["Taškai yra vienodai nutolę vienas nuo kito", "Taškai yra vienoje tiesėje", "Taškai sudaro lygiakraštį trikampį", "Taškai yra simetriškai išdėstyti"], "correct": 1}, {"text": "Kaip vektorių atimtis <span class=\"v\"><span class=\"vl\">a</span><span class=\"va\">&#x2192;</span></span> − <span class=\"v\"><span class=\"vl\">b</span><span class=\"va\">&#x2192;</span></span> susijusi su sudėtimi?", "options": ["<span class=\"v\"><span class=\"vl\">a</span><span class=\"va\">&#x2192;</span></span> − <span class=\"v\"><span class=\"vl\">b</span><span class=\"va\">&#x2192;</span></span> = <span class=\"v\"><span class=\"vl\">a</span><span class=\"va\">&#x2192;</span></span> + (−<span class=\"v\"><span class=\"vl\">b</span><span class=\"va\">&#x2192;</span></span>), t. y. pridedamas priešingas vektorius", "<span class=\"v\"><span class=\"vl\">a</span><span class=\"va\">&#x2192;</span></span> − <span class=\"v\"><span class=\"vl\">b</span><span class=\"va\">&#x2192;</span></span> = −<span class=\"v\"><span class=\"vl\">a</span><span class=\"va\">&#x2192;</span></span> + <span class=\"v\"><span class=\"vl\">b</span><span class=\"va\">&#x2192;</span></span>", "Atimtis koordinatėmis neįmanoma", "<span class=\"v\"><span class=\"vl\">a</span><span class=\"va\">&#x2192;</span></span> − <span class=\"v\"><span class=\"vl\">b</span><span class=\"va\">&#x2192;</span></span> = <span class=\"v\"><span class=\"vl\">a</span><span class=\"va\">&#x2192;</span></span> + <span class=\"v\"><span class=\"vl\">b</span><span class=\"va\">&#x2192;</span></span>"], "correct": 0}, {"text": "Kodėl skaliarinės sandaugos rezultatas yra skaičius, o ne vektorius?", "options": ["Nes sandaugoje dalyvauja du vektoriai", "Nes atitinkamos koordinatės dauginamos ir susumuojamos — gaunamas skaičius", "Nes vektoriai visada statmeni", "Nes koordinatės visada teigiamos"], "correct": 1}, {"text": "Ką reiškia skaliarinė sandauga <span class=\"v\"><span class=\"vl\">a</span><span class=\"va\">&#x2192;</span></span>·<span class=\"v\"><span class=\"vl\">b</span><span class=\"va\">&#x2192;</span></span> < 0 geometriškai?", "options": ["Kampas tarp vektorių yra mažesnis nei 90°", "Vektoriai yra statmeni", "Kampas tarp vektorių yra didesnis nei 90°", "Vektoriai yra kolinearūs"], "correct": 2}, {"text": "Kodėl statmenumo sąlyga yra <span class=\"v\"><span class=\"vl\">a</span><span class=\"va\">&#x2192;</span></span>·<span class=\"v\"><span class=\"vl\">b</span><span class=\"va\">&#x2192;</span></span> = 0?", "options": ["Nes kai φ = 90°, cos 90° = 0, todėl sandauga lygi nuliui", "Nes stačiu kampu susikertančių vektorių ilgiai lygūs", "Nes koordinatės tada visada priešingos", "Nes sandauga visada lygi nuliui"], "correct": 0}, {"text": "Kam naudojama kampų tarp vektorių formulė koordinatėmis praktikoje?", "options": ["Tik vektoriaus ilgiui rasti", "Tikrinti statmenumą ir rasti tikslų kampą tarp krypčių", "Tik kolinearumui tikrinti", "Atkarpos vidurio taškui rasti"], "correct": 1}];
+var answers=new Array(QUESTIONS.length).fill(null);var submitted=false;
+function renderQuestions(){var html='';for(var qi=0;qi<QUESTIONS.length;qi++){var q=QUESTIONS[qi];html+='<div class="question-card"><div class="question-num">Klausimas '+(qi+1)+' iš '+QUESTIONS.length+'</div>';html+='<div class="question-text">'+q.text+'</div>';html+='<div class="options">';var L=['A','B','C','D'];for(var oi=0;oi<q.options.length;oi++){html+='<div class="option" id="opt-'+qi+'-'+oi+'" onclick="sel('+qi+','+oi+')">';html+='<div class="option-letter">'+L[oi]+'</div><div class="option-text">'+q.options[oi]+'</div></div>';}html+='</div></div>';}document.getElementById('questions').innerHTML=html;}
+function sel(qi,oi){if(submitted)return;answers[qi]=oi;for(var i=0;i<4;i++){var e=document.getElementById('opt-'+qi+'-'+i);if(e)e.classList.remove('selected');}document.getElementById('opt-'+qi+'-'+oi).classList.add('selected');var a=answers.filter(function(x){return x!==null;}).length;document.getElementById('progress').style.width=(a/QUESTIONS.length*100)+'%';document.getElementById('answered-count').textContent='Atsakyta: '+a+' / '+QUESTIONS.length;}
+function submitTest(){var a=answers.filter(function(x){return x!==null;}).length;if(a<QUESTIONS.length&&!confirm('Dar neatsakyta '+(QUESTIONS.length-a)+' klausimai. Pateikti?'))return;submitted=true;document.getElementById('submit-btn').disabled=true;var correct=0;for(var qi=0;qi<QUESTIONS.length;qi++){var q=QUESTIONS[qi];var s=answers[qi];if(s===q.correct)correct++;for(var oi=0;oi<q.options.length;oi++){var el=document.getElementById('opt-'+qi+'-'+oi);el.classList.remove('selected');if(oi===q.correct)el.classList.add(s===q.correct&&oi===s?'correct':'show-correct');if(oi===s&&s!==q.correct)el.classList.add('wrong');}}var pct=Math.round(correct/QUESTIONS.length*100);document.getElementById('modal-score').textContent=pct+'%';document.getElementById('modal-score').className='modal-score '+(pct>=80?'excellent':pct>=50?'good':'poor');document.getElementById('modal-feedback').textContent=pct>=90?'Puikiai!':pct>=70?'Gerai!':pct>=50?'Neblogai, dar pasikartok':'Reikia pasimokyti';document.getElementById('stat-correct').textContent=correct;document.getElementById('stat-wrong').textContent=QUESTIONS.length-correct;document.getElementById('stat-pct').textContent=correct+'/'+QUESTIONS.length;document.getElementById('modal').classList.add('open');}
+function closeModal(){document.getElementById('modal').classList.remove('open');}
+renderQuestions();</script>
+</body>
+</html>

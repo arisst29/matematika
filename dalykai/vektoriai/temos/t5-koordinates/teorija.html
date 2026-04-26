@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>T5. Vektoriaus koordinatės — Vektoriai</title>
+  <link rel="stylesheet" href="../../../../../styles/main.css"/>
+  <style>
+    .row-apibreztis{background:#f1f0ee;border-left:3px solid #9a9a92}.row-apibreztis .row-label{color:#5a5a54;background:#e4e2d8;border-color:#c8c6bc}
+    .row-zymime{background:#fffbeb;border-left:3px solid #b45309}.row-zymime .row-label{color:#b45309;background:#fef3c7;border-color:#fde68a}
+    .row-svarbu{background:#fef2f2;border-left:3px solid #b91c1c}.row-svarbu .row-label{color:#b91c1c;background:#fecaca;border-color:#fca5a5}
+    .row-taisykle{background:#f5f3ff;border-left:3px solid #6d28d9}.row-taisykle .row-label{color:#6d28d9;background:#ede9fe;border-color:#c4b5fd}
+    .row-pavyzdys{background:#f0fdf4;border-left:3px solid #15803d}.row-pavyzdys .row-label{color:#15803d;background:#dcfce7;border-color:#bbf7d0}
+    .theory-row{display:grid;grid-template-columns:1fr;border-radius:var(--radius);margin-bottom:8px;overflow:hidden}
+    .theory-row.has-graph{grid-template-columns:1fr auto;align-items:stretch}
+    .row-content{padding:13px 16px}
+    .row-label{display:inline-block;font-size:10px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;padding:2px 8px;border-radius:4px;border:1px solid;margin-bottom:7px}
+    .row-text{font-size:13.5px;color:var(--ink2);line-height:1.7}
+    .row-text strong{color:var(--ink);font-weight:500}
+    .formula{font-family:var(--mono);font-size:13.5px;color:var(--accent);display:block;margin:5px 0 5px 8px}
+    .formula-inline{font-family:var(--mono);font-size:13.5px;color:var(--accent)}
+    .row-graph{width:260px;border-left:1px solid rgba(0,0,0,.06);display:flex;align-items:center;justify-content:center;padding:10px 12px;flex-shrink:0}
+    @media(max-width:640px){.theory-row.has-graph{grid-template-columns:1fr}.row-graph{width:100%;border-left:none;border-top:1px solid rgba(0,0,0,.06)}}
+    .vec{display:inline-block;position:relative;padding-top:8px;white-space:nowrap}
+    .vec .vl{font-style:italic;font-weight:600}
+    .vec .va{position:absolute;top:0;left:0;right:0;text-align:center;font-size:9px;line-height:1}
+  </style>
+</head>
+<body>
+<div class="layout">
+  <nav class="sidebar" id="sidebar"></nav>
+  <div class="main">
+    <div class="topbar">
+      <div class="breadcrumb">
+        <a href="../../../../../index.html">Matematika 11</a>
+        <span class="sep">›</span><span>Vektoriai</span>
+        <span class="sep">›</span><span class="current">T5. Vektoriaus koordinatės</span>
+      </div>
+      <div class="tab-switcher"><button class="tab-btn active">Teorija</button></div>
+    </div>
+    <div class="page">
+      <div class="topic-header">
+        <div class="topic-tag">9 skyrius · Tema 5</div>
+        <h1 class="topic-title">Vektoriaus koordinatės</h1>
+        <p class="topic-intro">Vektorius galima išreikšti koordinatėmis — tai labai palengvina skaičiavimus. Šioje temoje sužinosime, kas yra koordinatiniai vienetiniai vektoriai, kaip rasti vektoriaus koordinates ir jo ilgį.</p>
+      </div>
+
+      <!-- BLOCK 1 -->
+      <div class="theory-block">
+        <div class="block-title"><div class="block-num">1</div>Koordinatiniai vienetiniai vektoriai</div>
+
+        <div class="theory-row row-apibreztis has-graph">
+          <div class="row-content">
+            <div class="row-label">Apibrėžimas</div>
+            <div class="row-text">
+              Koordinačių plokštumoje išskiriami du <strong>koordinatiniai vienetiniai vektoriai</strong>:<br/><br/>
+              • <span class="vec"><span class="vl">i</span><span class="va">→</span></span> — vienetinis vektorius kryptimi ašies <em>Ox</em><br/>
+              • <span class="vec"><span class="vl">j</span><span class="va">→</span></span> — vienetinis vektorius kryptimi ašies <em>Oy</em><br/><br/>
+              Jie statmeni vienas kitam ir jų ilgiai lygūs 1:
+              <span class="formula">|<span class="vec"><span class="vl">i</span><span class="va">→</span></span>| = 1,&ensp; |<span class="vec"><span class="vl">j</span><span class="va">→</span></span>| = 1,&ensp; <span class="vec"><span class="vl">i</span><span class="va">→</span></span> ⊥ <span class="vec"><span class="vl">j</span><span class="va">→</span></span></span>
+            </div>
+          </div>
+          <div class="row-graph">
+            <svg viewBox="0 0 200 180" xmlns="http://www.w3.org/2000/svg" style="width:200px">
+              <defs>
+                <marker id="ax" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><polygon points="0,1 7,4 0,7" fill="#374151"/></marker>
+                <marker id="mi" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><polygon points="0,1 7,4 0,7" fill="#1d4ed8"/></marker>
+                <marker id="mj" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><polygon points="0,1 7,4 0,7" fill="#dc2626"/></marker>
+              </defs>
+              <!-- axes -->
+              <line x1="20" y1="100" x2="185" y2="100" stroke="#374151" stroke-width="1.5" marker-end="url(#ax)"/>
+              <line x1="80" y1="170" x2="80" y2="15" stroke="#374151" stroke-width="1.5" marker-end="url(#ax)"/>
+              <text x="188" y="104" font-size="11" fill="#374151" font-style="italic">x</text>
+              <text x="76" y="13" font-size="11" fill="#374151" font-style="italic">y</text>
+              <text x="72" y="113" font-size="10" fill="#374151">O</text>
+              <!-- i vector -->
+              <line x1="80" y1="100" x2="138" y2="100" stroke="#1d4ed8" stroke-width="2.5" marker-end="url(#mi)"/>
+              <text x="107" y="92" font-size="13" fill="#1d4ed8" font-style="italic" font-weight="600">i</text>
+              <line x1="102" y1="80" x2="112" y2="80" stroke="#1d4ed8" stroke-width="1.3" marker-end="url(#mi)"/>
+              <!-- j vector -->
+              <line x1="80" y1="100" x2="80" y2="42" stroke="#dc2626" stroke-width="2.5" marker-end="url(#mj)"/>
+              <text x="88" y="73" font-size="13" fill="#dc2626" font-style="italic" font-weight="600">j</text>
+              <line x1="98" y1="63" x2="98" y2="53" stroke="#dc2626" stroke-width="1.3" marker-end="url(#mj)"/>
+              <!-- unit marks -->
+              <line x1="138" y1="96" x2="138" y2="104" stroke="#1d4ed8" stroke-width="1.5"/>
+              <text x="135" y="116" font-size="9" fill="#1d4ed8">1</text>
+              <line x1="76" y1="42" x2="84" y2="42" stroke="#dc2626" stroke-width="1.5"/>
+              <text x="60" y="45" font-size="9" fill="#dc2626">1</text>
+              <!-- right angle -->
+              <path d="M80,100 L80,90 L90,90" fill="none" stroke="#6b7280" stroke-width="1.2"/>
+            </svg>
+          </div>
+        </div>
+
+        <div class="theory-row row-zymime">
+          <div class="row-content">
+            <div class="row-label">Koordinatinė išraiška</div>
+            <div class="row-text">
+              Bet kurį plokštumos vektorių <span class="vec"><span class="vl">a</span><span class="va">→</span></span> galima išreikšti koordinatiniais vektoriais:
+              <span class="formula"><span class="vec"><span class="vl">a</span><span class="va">→</span></span> = x<span class="vec"><span class="vl">i</span><span class="va">→</span></span> + y<span class="vec"><span class="vl">j</span><span class="va">→</span></span></span>
+              Čia <strong>x</strong> ir <strong>y</strong> — vektoriaus <strong>koordinatės</strong>. Trumpai žymima:
+              <span class="formula"><span class="vec"><span class="vl">a</span><span class="va">→</span></span> = (x; y)</span>
+              <strong>Pavyzdžiui:</strong> <span class="vec"><span class="vl">OA</span><span class="va">→</span></span> = (3; 2) reiškia, kad <span class="vec"><span class="vl">OA</span><span class="va">→</span></span> = 3<span class="vec"><span class="vl">i</span><span class="va">→</span></span> + 2<span class="vec"><span class="vl">j</span><span class="va">→</span></span>.<br/><br/>
+              <strong>Nulinio vektoriaus</strong> koordinatės: <span class="formula-inline"><span class="vec"><span class="vl">0</span><span class="va">→</span></span> = (0; 0)</span><br/>
+              <strong>Vienetinių vektorių</strong> koordinatės: <span class="formula-inline"><span class="vec"><span class="vl">i</span><span class="va">→</span></span> = (1; 0),&ensp; <span class="vec"><span class="vl">j</span><span class="va">→</span></span> = (0; 1)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BLOCK 2 -->
+      <div class="theory-block">
+        <div class="block-title"><div class="block-num">2</div>Vektoriaus ilgis koordinatėmis</div>
+
+        <div class="theory-row row-taisykle has-graph">
+          <div class="row-content">
+            <div class="row-label">Formulė</div>
+            <div class="row-text">
+              Jei vektoriaus <span class="vec"><span class="vl">a</span><span class="va">→</span></span> koordinatės yra (x; y), tai jo ilgis randamas pagal <strong>Pitagoro teoremą</strong>:
+              <span class="formula">|<span class="vec"><span class="vl">a</span><span class="va">→</span></span>| = √(x² + y²)</span>
+              Geometriškai — tai įžambinė stačiojo trikampio, kurio statiniai lygūs |x| ir |y|.
+            </div>
+          </div>
+          <div class="row-graph">
+            <svg viewBox="0 0 200 170" xmlns="http://www.w3.org/2000/svg" style="width:200px">
+              <defs>
+                <marker id="ma2" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><polygon points="0,1 7,4 0,7" fill="#1d4ed8"/></marker>
+                <marker id="ax2" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><polygon points="0,1 7,4 0,7" fill="#374151"/></marker>
+              </defs>
+              <line x1="15" y1="135" x2="185" y2="135" stroke="#374151" stroke-width="1.3" marker-end="url(#ax2)"/>
+              <line x1="30" y1="155" x2="30" y2="15" stroke="#374151" stroke-width="1.3" marker-end="url(#ax2)"/>
+              <text x="187" y="139" font-size="10" fill="#374151" font-style="italic">x</text>
+              <text x="26" y="13" font-size="10" fill="#374151" font-style="italic">y</text>
+              <text x="22" y="148" font-size="9" fill="#374151">O</text>
+              <!-- vector a -->
+              <line x1="30" y1="135" x2="158" y2="42" stroke="#1d4ed8" stroke-width="2.5" marker-end="url(#ma2)"/>
+              <!-- dashed legs -->
+              <line x1="158" y1="135" x2="158" y2="50" stroke="#9ca3af" stroke-width="1.4" stroke-dasharray="5,3"/>
+              <line x1="30" y1="135" x2="152" y2="135" stroke="#9ca3af" stroke-width="1.4" stroke-dasharray="5,3"/>
+              <!-- right angle -->
+              <path d="M158,135 L158,125 L148,125" fill="none" stroke="#6b7280" stroke-width="1.2"/>
+              <!-- labels -->
+              <text x="90" y="130" font-size="11" fill="#6b7280" text-anchor="middle" font-style="italic">x</text>
+              <text x="163" y="92" font-size="11" fill="#6b7280" font-style="italic">y</text>
+              <text x="80" y="82" font-size="12" fill="#1d4ed8" font-style="italic" font-weight="600">a</text>
+              <line x1="74" y1="70" x2="84" y2="70" stroke="#1d4ed8" stroke-width="1.3" marker-end="url(#ma2)"/>
+              <text x="58" y="58" font-size="10" fill="#1d4ed8">√(x²+y²)</text>
+            </svg>
+          </div>
+        </div>
+
+        <div class="theory-row row-pavyzdys">
+          <div class="row-content">
+            <div class="row-label">Pavyzdys</div>
+            <div class="row-text">
+              Vektorius <span class="vec"><span class="vl">a</span><span class="va">→</span></span> = −6<span class="vec"><span class="vl">i</span><span class="va">→</span></span> + 4<span class="vec"><span class="vl">j</span><span class="va">→</span></span>, t. y. <span class="vec"><span class="vl">a</span><span class="va">→</span></span> = (−6; 4). Raskite jo ilgį.<br/><br/>
+              <span class="formula">|<span class="vec"><span class="vl">a</span><span class="va">→</span></span>| = √((−6)² + 4²) = √(36 + 16) = √52 = 2√13</span>
+              <strong>Atsakymas:</strong> |<span class="vec"><span class="vl">a</span><span class="va">→</span></span>| = 2√13.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BLOCK 3 -->
+      <div class="theory-block">
+        <div class="block-title"><div class="block-num">3</div>Vektoriaus AB→ koordinatės per taškus</div>
+
+        <div class="theory-row row-taisykle has-graph">
+          <div class="row-content">
+            <div class="row-label">Taisyklė</div>
+            <div class="row-text">
+              Jei žinome taškų <strong>A(x<sub>a</sub>; y<sub>a</sub>)</strong> ir <strong>B(x<sub>b</sub>; y<sub>b</sub>)</strong> koordinates, tai:
+              <span class="formula"><span class="vec"><span class="vl">AB</span><span class="va">→</span></span> = (x<sub>b</sub> − x<sub>a</sub>;&ensp; y<sub>b</sub> − y<sub>a</sub>)</span>
+              <strong>Vektoriaus koordinatės = galo taškas − pradžios taškas.</strong><br/><br/>
+              Vektoriaus ilgis:
+              <span class="formula">|<span class="vec"><span class="vl">AB</span><span class="va">→</span></span>| = √((x<sub>b</sub>−x<sub>a</sub>)² + (y<sub>b</sub>−y<sub>a</sub>)²)</span>
+            </div>
+          </div>
+          <div class="row-graph">
+            <svg viewBox="0 0 210 180" xmlns="http://www.w3.org/2000/svg" style="width:210px">
+              <defs>
+                <marker id="mab" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><polygon points="0,1 7,4 0,7" fill="#1d4ed8"/></marker>
+                <marker id="ax3" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><polygon points="0,1 7,4 0,7" fill="#374151"/></marker>
+              </defs>
+              <line x1="10" y1="150" x2="200" y2="150" stroke="#374151" stroke-width="1.3" marker-end="url(#ax3)"/>
+              <line x1="25" y1="165" x2="25" y2="10" stroke="#374151" stroke-width="1.3" marker-end="url(#ax3)"/>
+              <text x="202" y="154" font-size="10" fill="#374151" font-style="italic">x</text>
+              <text x="21" y="9" font-size="10" fill="#374151" font-style="italic">y</text>
+              <!-- A point -->
+              <circle cx="55" cy="130" r="3" fill="#374151"/>
+              <text x="43" y="128" font-size="11" fill="#374151" font-weight="600">A</text>
+              <!-- B point -->
+              <circle cx="165" cy="50" r="3" fill="#374151"/>
+              <text x="168" y="48" font-size="11" fill="#374151" font-weight="600">B</text>
+              <!-- vector -->
+              <line x1="55" y1="130" x2="158" y2="57" stroke="#1d4ed8" stroke-width="2.5" marker-end="url(#mab)"/>
+              <!-- dashed legs -->
+              <line x1="55" y1="130" x2="165" y2="130" stroke="#9ca3af" stroke-width="1.3" stroke-dasharray="5,3"/>
+              <line x1="165" y1="130" x2="165" y2="56" stroke="#9ca3af" stroke-width="1.3" stroke-dasharray="5,3"/>
+              <path d="M165,130 L165,120 L155,120" fill="none" stroke="#6b7280" stroke-width="1.2"/>
+              <!-- x labels -->
+              <line x1="55" y1="144" x2="55" y2="150" stroke="#374151" stroke-width="1.2"/>
+              <text x="52" y="162" font-size="9" fill="#374151">xₐ</text>
+              <line x1="165" y1="144" x2="165" y2="150" stroke="#374151" stroke-width="1.2"/>
+              <text x="162" y="162" font-size="9" fill="#374151">x<tspan font-size="7" dy="2">b</tspan></text>
+              <!-- y labels -->
+              <line x1="19" y1="130" x2="25" y2="130" stroke="#374151" stroke-width="1.2"/>
+              <text x="4" y="133" font-size="9" fill="#374151">yₐ</text>
+              <line x1="19" y1="50" x2="25" y2="50" stroke="#374151" stroke-width="1.2"/>
+              <text x="4" y="53" font-size="9" fill="#374151">y<tspan font-size="7" dy="2">b</tspan></text>
+              <!-- diff labels -->
+              <text x="107" y="143" font-size="9" fill="#6b7280" text-anchor="middle">x<tspan font-size="7" dy="2">b</tspan>−xₐ</text>
+              <text x="178" y="93" font-size="9" fill="#6b7280" text-anchor="middle">y<tspan font-size="7" dy="2">b</tspan>−yₐ</text>
+            </svg>
+          </div>
+        </div>
+
+        <div class="theory-row row-pavyzdys">
+          <div class="row-content">
+            <div class="row-label">Pavyzdys</div>
+            <div class="row-text">
+              Duoti taškai <strong>A(−3; 2)</strong> ir <strong>B(4; −1)</strong>. Raskite vektoriaus <span class="vec"><span class="vl">AB</span><span class="va">→</span></span> koordinates ir ilgį.<br/><br/>
+              <span class="formula"><span class="vec"><span class="vl">AB</span><span class="va">→</span></span> = (4 − (−3);&ensp; −1 − 2) = (7;&ensp; −3)</span>
+              <span class="formula">|<span class="vec"><span class="vl">AB</span><span class="va">→</span></span>| = √(7² + (−3)²) = √(49 + 9) = √58</span>
+              <strong>Atsakymas:</strong> <span class="vec"><span class="vl">AB</span><span class="va">→</span></span> = (7; −3),&ensp; |<span class="vec"><span class="vl">AB</span><span class="va">→</span></span>| = √58.
+            </div>
+          </div>
+        </div>
+
+        <div class="theory-row row-svarbu">
+          <div class="row-content">
+            <div class="row-label">Svarbu</div>
+            <div class="row-text">
+              <strong>Lygių vektorių koordinatės yra lygios.</strong><br/><br/>
+              Jei <span class="vec"><span class="vl">AB</span><span class="va">→</span></span> = <span class="vec"><span class="vl">CD</span><span class="va">→</span></span>, tai x<sub>b</sub>−x<sub>a</sub> = x<sub>d</sub>−x<sub>c</sub> ir y<sub>b</sub>−y<sub>a</sub> = y<sub>d</sub>−y<sub>c</sub>.<br/><br/>
+              Šia savybe naudojamės įrodant, kad keturkampis yra lygiagretainis — reikia parodyti, kad dvi kraštinės yra lygios ir lygiagrečios, t. y. jas sudarantys vektoriai yra lygūs.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BLOCK 4 -->
+      <div class="theory-block">
+        <div class="block-title"><div class="block-num">4</div>Atkarpos vidurio taško koordinatės</div>
+
+        <div class="theory-row row-taisykle has-graph">
+          <div class="row-content">
+            <div class="row-label">Formulė</div>
+            <div class="row-text">
+              Jei <strong>V</strong> yra atkarpos <strong>AB</strong> vidurio taškas, tai jo koordinatės:
+              <span class="formula">x<sub>V</sub> = (x<sub>a</sub> + x<sub>b</sub>) / 2</span>
+              <span class="formula">y<sub>V</sub> = (y<sub>a</sub> + y<sub>b</sub>) / 2</span>
+              Vidurio taško koordinatės lygios atitinkamų galų koordinačių aritmetiniams vidurkiams.
+            </div>
+          </div>
+          <div class="row-graph">
+            <svg viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg" style="width:200px">
+              <defs>
+                <marker id="mv" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><polygon points="0,1 5,3 0,5" fill="#374151"/></marker>
+              </defs>
+              <line x1="20" y1="50" x2="185" y2="50" stroke="#374151" stroke-width="2"/>
+              <circle cx="20" cy="50" r="4" fill="#1d4ed8"/>
+              <circle cx="185" cy="50" r="4" fill="#1d4ed8"/>
+              <circle cx="102" cy="50" r="5" fill="#dc2626"/>
+              <text x="12" y="70" font-size="11" fill="#1d4ed8" font-weight="600">A(xₐ; yₐ)</text>
+              <text x="155" y="70" font-size="11" fill="#1d4ed8" font-weight="600">B(x<tspan font-size="8" dy="2">b</tspan><tspan dy="-2">; y</tspan><tspan font-size="8" dy="2">b</tspan><tspan dy="-2">)</tspan></text>
+              <text x="88" y="38" font-size="11" fill="#dc2626" font-weight="600">V</text>
+              <line x1="20" y1="55" x2="20" y2="80" stroke="#1d4ed8" stroke-width="1" stroke-dasharray="3,2"/>
+              <line x1="102" y1="55" x2="102" y2="80" stroke="#dc2626" stroke-width="1" stroke-dasharray="3,2"/>
+              <line x1="185" y1="55" x2="185" y2="80" stroke="#1d4ed8" stroke-width="1" stroke-dasharray="3,2"/>
+              <line x1="20" y1="42" x2="102" y2="42" stroke="#374151" stroke-width="1" stroke-dasharray="4,2"/>
+              <line x1="102" y1="42" x2="185" y2="42" stroke="#374151" stroke-width="1" stroke-dasharray="4,2"/>
+              <text x="58" y="34" font-size="9" fill="#374151" text-anchor="middle">½</text>
+              <text x="143" y="34" font-size="9" fill="#374151" text-anchor="middle">½</text>
+            </svg>
+          </div>
+        </div>
+
+        <div class="theory-row row-pavyzdys">
+          <div class="row-content">
+            <div class="row-label">Pavyzdys</div>
+            <div class="row-text">
+              Duoti taškai <strong>A(3; 5)</strong> ir <strong>B(11; −3)</strong>. Raskite atkarpos AB vidurio taško <strong>V</strong> koordinates.<br/><br/>
+              <span class="formula">x<sub>V</sub> = (3 + 11) / 2 = 14 / 2 = 7</span>
+              <span class="formula">y<sub>V</sub> = (5 + (−3)) / 2 = 2 / 2 = 1</span>
+              <strong>Atsakymas:</strong> V(7; 1).
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic-nav">
+        <a href="../t4-skaliarine-statmenumas/teorija.html" class="nav-btn prev">← T4. Skaliarinė sandauga ir statmenumas</a>
+        <a href="../t6-veiksmai-koordinatemis/teorija.html" class="nav-btn next">T6. Veiksmai koordinatėmis →</a>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="../../../../../js/main.js"></script>
+</body>
+</html>

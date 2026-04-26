@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>T7. Skaliarinė sandauga ir kampas koordinatėmis — Vektoriai</title>
+  <link rel="stylesheet" href="../../../../../styles/main.css"/>
+  <style>
+    .row-apibreztis{background:#f1f0ee;border-left:3px solid #9a9a92}.row-apibreztis .row-label{color:#5a5a54;background:#e4e2d8;border-color:#c8c6bc}
+    .row-zymime{background:#fffbeb;border-left:3px solid #b45309}.row-zymime .row-label{color:#b45309;background:#fef3c7;border-color:#fde68a}
+    .row-svarbu{background:#fef2f2;border-left:3px solid #b91c1c}.row-svarbu .row-label{color:#b91c1c;background:#fecaca;border-color:#fca5a5}
+    .row-taisykle{background:#f5f3ff;border-left:3px solid #6d28d9}.row-taisykle .row-label{color:#6d28d9;background:#ede9fe;border-color:#c4b5fd}
+    .row-pavyzdys{background:#f0fdf4;border-left:3px solid #15803d}.row-pavyzdys .row-label{color:#15803d;background:#dcfce7;border-color:#bbf7d0}
+    .theory-row{display:grid;grid-template-columns:1fr;border-radius:var(--radius);margin-bottom:8px;overflow:hidden}
+    .theory-row.has-graph{grid-template-columns:1fr auto;align-items:stretch}
+    .row-content{padding:13px 16px}
+    .row-label{display:inline-block;font-size:10px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;padding:2px 8px;border-radius:4px;border:1px solid;margin-bottom:7px}
+    .row-text{font-size:13.5px;color:var(--ink2);line-height:1.7}
+    .row-text strong{color:var(--ink);font-weight:500}
+    .formula{font-family:var(--mono);font-size:13.5px;color:var(--accent);display:block;margin:5px 0 5px 8px}
+    .formula-inline{font-family:var(--mono);font-size:13.5px;color:var(--accent)}
+    .row-graph{width:240px;border-left:1px solid rgba(0,0,0,.06);display:flex;align-items:center;justify-content:center;padding:10px 12px;flex-shrink:0}
+    @media(max-width:640px){.theory-row.has-graph{grid-template-columns:1fr}.row-graph{width:100%;border-left:none;border-top:1px solid rgba(0,0,0,.06)}}
+    .vec{display:inline-block;position:relative;padding-top:8px;white-space:nowrap}
+    .vec .vl{font-style:italic;font-weight:600}
+    .vec .va{position:absolute;top:0;left:0;right:0;text-align:center;font-size:9px;line-height:1}
+  </style>
+</head>
+<body>
+<div class="layout">
+  <nav class="sidebar" id="sidebar"></nav>
+  <div class="main">
+    <div class="topbar">
+      <div class="breadcrumb">
+        <a href="../../../../../index.html">Matematika 11</a>
+        <span class="sep">›</span><span>Vektoriai</span>
+        <span class="sep">›</span><span class="current">T7. Skaliarinė sandauga ir kampas koordinatėmis</span>
+      </div>
+      <div class="tab-switcher"><button class="tab-btn active">Teorija</button></div>
+    </div>
+    <div class="page">
+      <div class="topic-header">
+        <div class="topic-tag">9 skyrius · Tema 7</div>
+        <h1 class="topic-title">Skaliarinė sandauga ir kampas koordinatėmis</h1>
+        <p class="topic-intro">Žinodami vektorių koordinates, galime apskaičiuoti skaliarinę sandaugą paprastu veiksmu — be kampų. O iš skaliarinės sandaugos lengvai randame kampą tarp vektorių.</p>
+      </div>
+
+      <!-- BLOCK 1 -->
+      <div class="theory-block">
+        <div class="block-title"><div class="block-num">1</div>Skaliarinė sandauga koordinatėmis</div>
+
+        <div class="theory-row row-taisykle">
+          <div class="row-content">
+            <div class="row-label">Formulė</div>
+            <div class="row-text">
+              Jei <span class="vec"><span class="vl">a</span><span class="va">→</span></span> = (x<sub>a</sub>; y<sub>a</sub>) ir <span class="vec"><span class="vl">b</span><span class="va">→</span></span> = (x<sub>b</sub>; y<sub>b</sub>), tai:
+              <span class="formula"><span class="vec"><span class="vl">a</span><span class="va">→</span></span> · <span class="vec"><span class="vl">b</span><span class="va">→</span></span> = x<sub>a</sub> · x<sub>b</sub> + y<sub>a</sub> · y<sub>b</sub></span>
+              <strong>Skaliarinė sandauga lygi atitinkamų koordinačių sandaugų sumai.</strong><br/><br/>
+              Taip pat galioja: <span class="formula-inline">|<span class="vec"><span class="vl">a</span><span class="va">→</span></span>|² = <span class="vec"><span class="vl">a</span><span class="va">→</span></span> · <span class="vec"><span class="vl">a</span><span class="va">→</span></span> = x<sub>a</sub>² + y<sub>a</sub>²</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="theory-row row-pavyzdys">
+          <div class="row-content">
+            <div class="row-label">Pavyzdys</div>
+            <div class="row-text">
+              <span class="vec"><span class="vl">a</span><span class="va">→</span></span> = (3; −4), <span class="vec"><span class="vl">b</span><span class="va">→</span></span> = (−1; 2). Apskaičiuokite (3<span class="vec"><span class="vl">a</span><span class="va">→</span></span> − 2<span class="vec"><span class="vl">b</span><span class="va">→</span></span>) · (<span class="vec"><span class="vl">a</span><span class="va">→</span></span> + <span class="vec"><span class="vl">b</span><span class="va">→</span></span>).<br/><br/>
+              <strong>1. Apskaičiuojame 3<span class="vec"><span class="vl">a</span><span class="va">→</span></span> − 2<span class="vec"><span class="vl">b</span><span class="va">→</span></span>:</strong>
+              <span class="formula">= (3·3 − 2·(−1);&ensp; 3·(−4) − 2·2) = (11;&ensp; −16)</span>
+              <strong>2. Apskaičiuojame <span class="vec"><span class="vl">a</span><span class="va">→</span></span> + <span class="vec"><span class="vl">b</span><span class="va">→</span></span>:</strong>
+              <span class="formula">= (3+(−1);&ensp; −4+2) = (2;&ensp; −2)</span>
+              <strong>3. Skaliarinė sandauga:</strong>
+              <span class="formula">(11; −16) · (2; −2) = 11·2 + (−16)·(−2) = 22 + 32 = 54</span>
+              <strong>Atsakymas:</strong> 54.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BLOCK 2 -->
+      <div class="theory-block">
+        <div class="block-title"><div class="block-num">2</div>Statmenumo sąlyga koordinatėmis</div>
+
+        <div class="theory-row row-taisykle">
+          <div class="row-content">
+            <div class="row-label">Teorema</div>
+            <div class="row-text">
+              Nenuliniai vektoriai <span class="vec"><span class="vl">a</span><span class="va">→</span></span> = (x<sub>a</sub>; y<sub>a</sub>) ir <span class="vec"><span class="vl">b</span><span class="va">→</span></span> = (x<sub>b</sub>; y<sub>b</sub>) yra <strong>statmeni</strong> tada ir tik tada, kai:
+              <span class="formula">x<sub>a</sub> · x<sub>b</sub> + y<sub>a</sub> · y<sub>b</sub> = 0</span>
+              Tai tiesiogiai išplaukia iš T4 — kai φ = 90°, cos 90° = 0, todėl sandauga = 0.
+            </div>
+          </div>
+        </div>
+
+        <div class="theory-row row-pavyzdys has-graph">
+          <div class="row-content">
+            <div class="row-label">Pavyzdys</div>
+            <div class="row-text">
+              Ar vektoriai <span class="vec"><span class="vl">AB</span><span class="va">→</span></span> ir <span class="vec"><span class="vl">CD</span><span class="va">→</span></span> yra statmeni, jei A(2; 1), B(5; 6), C(4; 1), D(9; −2)?<br/><br/>
+              <span class="vec"><span class="vl">AB</span><span class="va">→</span></span> = (5−2; 6−1) = (3; 5)<br/>
+              <span class="vec"><span class="vl">CD</span><span class="va">→</span></span> = (9−4; −2−1) = (5; −3)<br/><br/>
+              Tikriname:
+              <span class="formula">3·5 + 5·(−3) = 15 − 15 = 0 ✓</span>
+              Taip, <span class="vec"><span class="vl">AB</span><span class="va">→</span></span> ⊥ <span class="vec"><span class="vl">CD</span><span class="va">→</span></span>.
+            </div>
+          </div>
+          <div class="row-graph">
+            <!-- O=(80,120), scale=18px/unit -->
+            <!-- A(2,1): (116,102), B(5,6): (170,12) — B per aukštai -->
+            <!-- scale=14px: A(2,1)=(108,106), B(5,6)=(150,36), C(4,1)=(136,106), D(9,-2)=(206,148) — D outside -->
+            <!-- scale=12px: A(2,1)=(104,108), B(5,6)=(140,48), C(4,1)=(128,108), D(9,-2)=(188,144) -->
+            <!-- O=(80,120), scale=12: A=(104,108), B=(140,48), C=(128,108), D=(188,144) — telpa 210x170 -->
+            <svg viewBox="0 0 220 175" xmlns="http://www.w3.org/2000/svg" style="width:215px;height:auto">
+              <defs>
+                <marker id="mab7" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><polygon points="0,1 6,3.5 0,6" fill="#1d4ed8"/></marker>
+                <marker id="mcd7" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><polygon points="0,1 6,3.5 0,6" fill="#dc2626"/></marker>
+                <marker id="ax7" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><polygon points="0,1 6,3.5 0,6" fill="#374151"/></marker>
+              </defs>
+              <!-- grid -->
+              <line x1="10" y1="120" x2="215" y2="120" stroke="#f0f0f0" stroke-width="1"/>
+              <line x1="10" y1="108" x2="215" y2="108" stroke="#f0f0f0" stroke-width="1"/>
+              <line x1="104" y1="10" x2="104" y2="165" stroke="#f0f0f0" stroke-width="1"/>
+              <!-- ašys -->
+              <line x1="10" y1="120" x2="215" y2="120" stroke="#9ca3af" stroke-width="1.4" marker-end="url(#ax7)"/>
+              <line x1="80" y1="165" x2="80" y2="10" stroke="#9ca3af" stroke-width="1.4" marker-end="url(#ax7)"/>
+              <text x="216" y="124" font-size="10" fill="#6b7280" font-style="italic">x</text>
+              <text x="76" y="9"   font-size="10" fill="#6b7280" font-style="italic">y</text>
+              <text x="66"  y="133" font-size="9" fill="#6b7280">O</text>
+              <!-- AB vektorius: A(104,108) → B(140,48) -->
+              <circle cx="104" cy="108" r="3.5" fill="#1d4ed8"/>
+              <circle cx="140" cy="48"  r="3.5" fill="#1d4ed8"/>
+              <line x1="104" y1="108" x2="137" y2="51" stroke="#1d4ed8" stroke-width="2.2" marker-end="url(#mab7)"/>
+              <text x="94"  y="116" font-size="10" fill="#1d4ed8" font-weight="600">A</text>
+              <text x="143" y="46"  font-size="10" fill="#1d4ed8" font-weight="600">B</text>
+              <!-- CD vektorius: C(128,108) → D(188,144) -->
+              <circle cx="128" cy="108" r="3.5" fill="#dc2626"/>
+              <circle cx="188" cy="144" r="3.5" fill="#dc2626"/>
+              <line x1="128" y1="108" x2="183" y2="141" stroke="#dc2626" stroke-width="2.2" marker-end="url(#mcd7)"/>
+              <text x="120" y="103" font-size="10" fill="#dc2626" font-weight="600">C</text>
+              <text x="191" y="148" font-size="10" fill="#dc2626" font-weight="600">D</text>
+              <!-- stataus kampo ženklas AB ir CD sankirtos taške -->
+              <!-- AB kryptis (3,5) normalizuota, CD kryptis (5,-3) normalizuota — statmeni -->
+              <!-- Sankirta: rasti t: A+t*(3,5) = C+s*(5,-3) -->
+              <!-- 104+3t=128+5s, 108-5t=108+3s → 3t=24+5s, -5t=3s → s=-5t/3 -->
+              <!-- 3t=24+5(-5t/3)=24-25t/3 → 9t=72-25t → 34t=72 → t≈2.12 -->
+              <!-- sankirta: (104+6.35, 108-10.6)=(110.35, 97.4) — ne vizualiai aiški -->
+              <!-- Geriau: stataus kampo ženklelis prie C -->
+              <text x="75" y="75" font-size="9" fill="#6b7280">⊥</text>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- BLOCK 3 -->
+      <div class="theory-block">
+        <div class="block-title"><div class="block-num">3</div>Kampas tarp vektorių koordinatėmis</div>
+
+        <div class="theory-row row-taisykle has-graph">
+          <div class="row-content">
+            <div class="row-label">Išvedimas</div>
+            <div class="row-text">
+              Pagrindinė skaliarinės sandaugos formulė (iš T4):
+              <span class="formula"><span class="vec"><span class="vl">a</span><span class="va">→</span></span> · <span class="vec"><span class="vl">b</span><span class="va">→</span></span> = |<span class="vec"><span class="vl">a</span><span class="va">→</span></span>| · |<span class="vec"><span class="vl">b</span><span class="va">→</span></span>| · cos φ</span>
+              Bet koordinatėmis žinome, kad <span class="vec"><span class="vl">a</span><span class="va">→</span></span> · <span class="vec"><span class="vl">b</span><span class="va">→</span></span> = x<sub>a</sub>·x<sub>b</sub> + y<sub>a</sub>·y<sub>b</sub>. Todėl:
+              <span class="formula">|<span class="vec"><span class="vl">a</span><span class="va">→</span></span>| · |<span class="vec"><span class="vl">b</span><span class="va">→</span></span>| · cos φ = x<sub>a</sub>·x<sub>b</sub> + y<sub>a</sub>·y<sub>b</sub></span>
+              Išreiškiame cos φ — dalijame abi puses iš |<span class="vec"><span class="vl">a</span><span class="va">→</span></span>|·|<span class="vec"><span class="vl">b</span><span class="va">→</span></span>|:
+              <span class="formula">cos φ = (x<sub>a</sub>·x<sub>b</sub> + y<sub>a</sub>·y<sub>b</sub>) / (|<span class="vec"><span class="vl">a</span><span class="va">→</span></span>| · |<span class="vec"><span class="vl">b</span><span class="va">→</span></span>|)</span>
+              kur &ensp;<span class="formula-inline">|<span class="vec"><span class="vl">a</span><span class="va">→</span></span>| = √(x<sub>a</sub>² + y<sub>a</sub>²)</span>, &ensp;<span class="formula-inline">|<span class="vec"><span class="vl">b</span><span class="va">→</span></span>| = √(x<sub>b</sub>² + y<sub>b</sub>²)</span><br/><br/>
+              Kampas φ ∈ [0°; 180°].
+            </div>
+          </div>
+          <div class="row-graph">
+            <svg viewBox="0 0 180 150" xmlns="http://www.w3.org/2000/svg" style="width:170px;height:auto">
+              <defs>
+                <marker id="ma7" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><polygon points="0,1 6,3.5 0,6" fill="#1d4ed8"/></marker>
+                <marker id="mb7" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><polygon points="0,1 6,3.5 0,6" fill="#dc2626"/></marker>
+              </defs>
+              <circle cx="40" cy="120" r="3" fill="#374151"/>
+              <!-- a vektorius -->
+              <line x1="40" y1="120" x2="155" y2="35" stroke="#1d4ed8" stroke-width="2.3" marker-end="url(#ma7)"/>
+              <!-- b vektorius -->
+              <line x1="40" y1="120" x2="165" y2="120" stroke="#dc2626" stroke-width="2.3" marker-end="url(#mb7)"/>
+              <!-- kampas -->
+              <path d="M 88,120 A 48,48 0 0,1 72.5,83" fill="none" stroke="#f59e0b" stroke-width="1.8"/>
+              <text x="96" y="105" font-size="12" fill="#f59e0b" font-weight="600" font-style="italic">φ</text>
+              <!-- labels -->
+              <text x="158" y="32" font-size="13" fill="#1d4ed8" font-style="italic" font-weight="600">a</text>
+              <line x1="151" y1="20" x2="162" y2="20" stroke="#1d4ed8" stroke-width="1.3" marker-end="url(#ma7)"/>
+              <text x="168" y="124" font-size="13" fill="#dc2626" font-style="italic" font-weight="600">b</text>
+              <line x1="160" y1="112" x2="171" y2="112" stroke="#dc2626" stroke-width="1.3" marker-end="url(#mb7)"/>
+              <!-- formulė grafike -->
+              <text x="20" y="20" font-size="9" fill="#6b7280">cos φ = (a·b) / (|a|·|b|)</text>
+            </svg>
+          </div>
+        </div>
+
+        <div class="theory-row row-pavyzdys">
+          <div class="row-content">
+            <div class="row-label">Pavyzdys</div>
+            <div class="row-text">
+              Raskite kampą tarp vektorių <span class="vec"><span class="vl">a</span><span class="va">→</span></span> = (3; −4) ir <span class="vec"><span class="vl">b</span><span class="va">→</span></span> = (−1; 2).<br/><br/>
+              <strong>Skaliarinė sandauga:</strong>
+              <span class="formula"><span class="vec"><span class="vl">a</span><span class="va">→</span></span> · <span class="vec"><span class="vl">b</span><span class="va">→</span></span> = 3·(−1) + (−4)·2 = −3 − 8 = −11</span>
+              <strong>Ilgiai:</strong>
+              <span class="formula">|<span class="vec"><span class="vl">a</span><span class="va">→</span></span>| = √(9 + 16) = √25 = 5</span>
+              <span class="formula">|<span class="vec"><span class="vl">b</span><span class="va">→</span></span>| = √(1 + 4) = √5</span>
+              <strong>Kampas:</strong>
+              <span class="formula">cos φ = −11 / (5 · √5) = −11 / (5√5) ≈ −0,983</span>
+              <span class="formula">φ = arccos(−0,983) ≈ 169°</span>
+              <strong>Atsakymas:</strong> φ ≈ 169°.
+            </div>
+          </div>
+        </div>
+
+        <div class="theory-row row-zymime">
+          <div class="row-content">
+            <div class="row-label">Žingsnis po žingsnio</div>
+            <div class="row-text">
+              Norėdami rasti kampą tarp dviejų vektorių koordinatėmis:<br/><br/>
+              <strong>1.</strong> Apskaičiuokite skaliarinę sandaugą: x<sub>a</sub>·x<sub>b</sub> + y<sub>a</sub>·y<sub>b</sub><br/>
+              <strong>2.</strong> Apskaičiuokite abiejų vektorių ilgius<br/>
+              <strong>3.</strong> Padalinkite sandaugą iš ilgių sandaugos — gausite cos φ<br/>
+              <strong>4.</strong> Raskite φ = arccos(...)
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic-nav">
+        <a href="../t6-veiksmai-koordinatemis/teorija.html" class="nav-btn prev">← T6. Veiksmai koordinatėmis</a>
+        <a href="../../skyriaus-testai/index.html" class="nav-btn next">Skyriaus testai →</a>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="../../../../../js/main.js"></script>
+</body>
+</html>

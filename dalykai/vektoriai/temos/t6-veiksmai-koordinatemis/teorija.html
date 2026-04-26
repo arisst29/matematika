@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>T6. Veiksmai su vektoriais koordinatėmis — Vektoriai</title>
+  <link rel="stylesheet" href="../../../../../styles/main.css"/>
+  <style>
+    .row-apibreztis{background:#f1f0ee;border-left:3px solid #9a9a92}.row-apibreztis .row-label{color:#5a5a54;background:#e4e2d8;border-color:#c8c6bc}
+    .row-zymime{background:#fffbeb;border-left:3px solid #b45309}.row-zymime .row-label{color:#b45309;background:#fef3c7;border-color:#fde68a}
+    .row-svarbu{background:#fef2f2;border-left:3px solid #b91c1c}.row-svarbu .row-label{color:#b91c1c;background:#fecaca;border-color:#fca5a5}
+    .row-taisykle{background:#f5f3ff;border-left:3px solid #6d28d9}.row-taisykle .row-label{color:#6d28d9;background:#ede9fe;border-color:#c4b5fd}
+    .row-pavyzdys{background:#f0fdf4;border-left:3px solid #15803d}.row-pavyzdys .row-label{color:#15803d;background:#dcfce7;border-color:#bbf7d0}
+    .theory-row{display:grid;grid-template-columns:1fr;border-radius:var(--radius);margin-bottom:8px;overflow:hidden}
+    .theory-row.has-graph{grid-template-columns:1fr auto;align-items:stretch}
+    .row-content{padding:13px 16px}
+    .row-label{display:inline-block;font-size:10px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;padding:2px 8px;border-radius:4px;border:1px solid;margin-bottom:7px}
+    .row-text{font-size:13.5px;color:var(--ink2);line-height:1.7}
+    .row-text strong{color:var(--ink);font-weight:500}
+    .formula{font-family:var(--mono);font-size:13.5px;color:var(--accent);display:block;margin:5px 0 5px 8px}
+    .formula-inline{font-family:var(--mono);font-size:13.5px;color:var(--accent)}
+    .row-graph{width:260px;border-left:1px solid rgba(0,0,0,.06);display:flex;align-items:center;justify-content:center;padding:10px 12px;flex-shrink:0}
+    @media(max-width:640px){.theory-row.has-graph{grid-template-columns:1fr}.row-graph{width:100%;border-left:none;border-top:1px solid rgba(0,0,0,.06)}}
+    .vec{display:inline-block;position:relative;padding-top:8px;white-space:nowrap}
+    .vec .vl{font-style:italic;font-weight:600}
+    .vec .va{position:absolute;top:0;left:0;right:0;text-align:center;font-size:9px;line-height:1}
+  </style>
+</head>
+<body>
+<div class="layout">
+  <nav class="sidebar" id="sidebar"></nav>
+  <div class="main">
+    <div class="topbar">
+      <div class="breadcrumb">
+        <a href="../../../../../index.html">Matematika 11</a>
+        <span class="sep">›</span><span>Vektoriai</span>
+        <span class="sep">›</span><span class="current">T6. Veiksmai su vektoriais koordinatėmis</span>
+      </div>
+      <div class="tab-switcher"><button class="tab-btn active">Teorija</button></div>
+    </div>
+    <div class="page">
+      <div class="topic-header">
+        <div class="topic-tag">9 skyrius · Tema 6</div>
+        <h1 class="topic-title">Veiksmai su vektoriais koordinatėmis</h1>
+        <p class="topic-intro">Žinodami vektorių koordinates, galime lengvai atlikti sudėtį, atimtį ir daugybą iš skaičiaus — tiesiog veikiame su atitinkamomis koordinatėmis atskirai.</p>
+      </div>
+
+      <!-- BLOCK 1 -->
+      <div class="theory-block">
+        <div class="block-title"><div class="block-num">1</div>Sudėtis, atimtis ir daugyba iš skaičiaus</div>
+
+        <div class="theory-row row-taisykle">
+          <div class="row-content">
+            <div class="row-label">Taisyklė</div>
+            <div class="row-text">
+              Jei <span class="vec"><span class="vl">a</span><span class="va">→</span></span> = (x<sub>a</sub>; y<sub>a</sub>) ir <span class="vec"><span class="vl">b</span><span class="va">→</span></span> = (x<sub>b</sub>; y<sub>b</sub>), k — bet koks realusis skaičius, tai:<br/><br/>
+              <strong>Sudėtis:</strong>
+              <span class="formula"><span class="vec"><span class="vl">a</span><span class="va">→</span></span> + <span class="vec"><span class="vl">b</span><span class="va">→</span></span> = (x<sub>a</sub> + x<sub>b</sub>;&ensp; y<sub>a</sub> + y<sub>b</sub>)</span>
+              <strong>Atimtis:</strong>
+              <span class="formula"><span class="vec"><span class="vl">a</span><span class="va">→</span></span> − <span class="vec"><span class="vl">b</span><span class="va">→</span></span> = (x<sub>a</sub> − x<sub>b</sub>;&ensp; y<sub>a</sub> − y<sub>b</sub>)</span>
+              <strong>Daugyba iš skaičiaus:</strong>
+              <span class="formula">k<span class="vec"><span class="vl">a</span><span class="va">→</span></span> = (k·x<sub>a</sub>;&ensp; k·y<sub>a</sub>)</span>
+              Kitaip tariant: <strong>veikiame su kiekviena koordinate atskirai.</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="theory-row row-pavyzdys">
+          <div class="row-content">
+            <div class="row-label">Pavyzdys</div>
+            <div class="row-text">
+              <span class="vec"><span class="vl">a</span><span class="va">→</span></span> = (3; −4), <span class="vec"><span class="vl">b</span><span class="va">→</span></span> = (−1; 2). Apskaičiuokite 3<span class="vec"><span class="vl">a</span><span class="va">→</span></span> − 2<span class="vec"><span class="vl">b</span><span class="va">→</span></span> ir <span class="vec"><span class="vl">a</span><span class="va">→</span></span> + <span class="vec"><span class="vl">b</span><span class="va">→</span></span>.<br/><br/>
+              <strong>3<span class="vec"><span class="vl">a</span><span class="va">→</span></span> − 2<span class="vec"><span class="vl">b</span><span class="va">→</span></span>:</strong>
+              <span class="formula">= (3·3 − 2·(−1);&ensp; 3·(−4) − 2·2) = (9+2;&ensp; −12−4) = (11;&ensp; −16)</span>
+              <strong><span class="vec"><span class="vl">a</span><span class="va">→</span></span> + <span class="vec"><span class="vl">b</span><span class="va">→</span></span>:</strong>
+              <span class="formula">= (3+(−1);&ensp; −4+2) = (2;&ensp; −2)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BLOCK 2 -->
+      <div class="theory-block">
+        <div class="block-title"><div class="block-num">2</div>Kolinearumo sąlyga koordinatėmis</div>
+
+        <div class="theory-row row-taisykle">
+          <div class="row-content">
+            <div class="row-label">Teorema</div>
+            <div class="row-text">
+              Nenuliniai vektoriai <span class="vec"><span class="vl">a</span><span class="va">→</span></span> = (x<sub>a</sub>; y<sub>a</sub>) ir <span class="vec"><span class="vl">b</span><span class="va">→</span></span> = (x<sub>b</sub>; y<sub>b</sub>) yra <strong>kolinearūs</strong> tada ir tik tada, kai jų koordinatės yra proporcingos:
+              <span class="formula">x<sub>a</sub> / x<sub>b</sub> = y<sub>a</sub> / y<sub>b</sub> &ensp;(arba lygiavertiškai: x<sub>a</sub> · y<sub>b</sub> − x<sub>b</sub> · y<sub>a</sub> = 0)</span>
+              Jei k > 0 — vektoriai <strong>vienakrypčiai</strong>.<br/>
+              Jei k &lt; 0 — vektoriai <strong>priešpriešiniai</strong>.
+            </div>
+          </div>
+        </div>
+
+        <div class="theory-row row-svarbu">
+          <div class="row-content">
+            <div class="row-label">Svarbu</div>
+            <div class="row-text">
+              Ši proporcijų formulė <strong>netaikoma</strong> vektoriams, kurie yra lygiagrečiai koordinačių ašims — tada viena koordinatė lygi nuliui ir dalyba neapibrėžta.<br/><br/>
+              <strong>Pavyzdys:</strong> <span class="vec"><span class="vl">a</span><span class="va">→</span></span> = (4; 0) ir <span class="vec"><span class="vl">b</span><span class="va">→</span></span> = (−6; 0). Abu vektoriai lygiagrečiai ašiai <em>Ox</em>, todėl y<sub>a</sub> = y<sub>b</sub> = 0 — negalime dalinti. Naudojame kryžminę sandaugą:
+              <span class="formula">4 · 0 − (−6) · 0 = 0 ✓ &ensp;→ vektoriai kolinearūs</span>
+              Tokiu atveju naudokite: <span class="formula-inline">x<sub>a</sub> · y<sub>b</sub> − x<sub>b</sub> · y<sub>a</sub> = 0</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="theory-row row-pavyzdys">
+          <div class="row-content">
+            <div class="row-label">Pavyzdys</div>
+            <div class="row-text">
+              Žinoma, kad <span class="vec"><span class="vl">u</span><span class="va">→</span></span> = 2<span class="vec"><span class="vl">i</span><span class="va">→</span></span> + 5<span class="vec"><span class="vl">j</span><span class="va">→</span></span>, <span class="vec"><span class="vl">v</span><span class="va">→</span></span> = −2<span class="vec"><span class="vl">i</span><span class="va">→</span></span> + 3<span class="vec"><span class="vl">j</span><span class="va">→</span></span>, <span class="vec"><span class="vl">t</span><span class="va">→</span></span> = (3; 2), <span class="vec"><span class="vl">z</span><span class="va">→</span></span> = (11; 6). Ar <span class="vec"><span class="vl">a</span><span class="va">→</span></span> = <span class="vec"><span class="vl">u</span><span class="va">→</span></span> − <span class="vec"><span class="vl">v</span><span class="va">→</span></span> ir <span class="vec"><span class="vl">b</span><span class="va">→</span></span> = <span class="vec"><span class="vl">t</span><span class="va">→</span></span> − <span class="vec"><span class="vl">z</span><span class="va">→</span></span> yra kolinearūs?<br/><br/>
+              <span class="vec"><span class="vl">a</span><span class="va">→</span></span> = (2−(−2); 5−3) = (4; 2)<br/>
+              <span class="vec"><span class="vl">b</span><span class="va">→</span></span> = (3−11; 2−6) = (−8; −4)<br/><br/>
+              Tikriname: <span class="formula">4 / (−8) = −½,&ensp; 2 / (−4) = −½</span>
+              Santykiai lygūs, taigi vektoriai <strong>kolinearūs</strong> (ir priešpriešiniai, nes k = −½ &lt; 0).
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BLOCK 3 -->
+      <div class="theory-block">
+        <div class="block-title"><div class="block-num">3</div>Taškų kolinearumas tiesėje</div>
+
+        <div class="theory-row row-taisykle">
+          <div class="row-content">
+            <div class="row-label">Taisyklė</div>
+            <div class="row-text">
+              Taškai <strong>A, B, C yra vienoje tiesėje</strong> tada ir tik tada, kai vektoriai <span class="vec"><span class="vl">AB</span><span class="va">→</span></span> ir <span class="vec"><span class="vl">AC</span><span class="va">→</span></span> yra kolinearūs, t. y.:
+              <span class="formula">x<sub>AB</sub> · y<sub>AC</sub> − x<sub>AC</sub> · y<sub>AB</sub> = 0</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="theory-row row-pavyzdys has-graph">
+          <div class="row-content">
+            <div class="row-label">Pavyzdys</div>
+            <div class="row-text">
+              Įrodykite, kad taškai <strong>A(1; −5)</strong>, <strong>B(3; −1)</strong> ir <strong>C(−2; −11)</strong> yra vienoje tiesėje.<br/><br/>
+              <span class="vec"><span class="vl">AB</span><span class="va">→</span></span> = (3−1; −1−(−5)) = (2; 4)<br/>
+              <span class="vec"><span class="vl">AC</span><span class="va">→</span></span> = (−2−1; −11−(−5)) = (−3; −6)<br/><br/>
+              Tikriname kolinearumą:
+              <span class="formula">2 · (−6) − (−3) · 4 = −12 + 12 = 0 ✓</span>
+              Kadangi rezultatas lygus nuliui, vektoriai kolinearūs — taškai <strong>A, B, C yra vienoje tiesėje</strong>.
+            </div>
+          </div>
+          <div class="row-graph">
+            <!-- O=(120,55), scale=12px/unit, y axis flipped (up=positive) -->
+            <!-- A(1,-5):   x=120+1*12=132,  y=55+5*12=115  -->
+            <!-- B(3,-1):   x=120+3*12=156,  y=55+1*12=67   -->
+            <!-- C(-2,-11): x=120-2*12=96,   y=55+11*12=187 -->
+            <!-- tiesė kryptis (2,4) normalizuota: dx=2,dy=4 ekrane dy=-4(up) -->
+            <!-- per A(132,115): t=−7→(118,143); t=+8→(148,83) — ilgesnė per C ir B -->
+            <!-- per C(96,187) ir B(156,67): line nuo (82,211) iki (170,35) -->
+            <svg viewBox="0 0 210 230" xmlns="http://www.w3.org/2000/svg" style="width:200px;height:auto">
+              <defs>
+                <marker id="axc2" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><polygon points="0,1 6,3.5 0,6" fill="#374151"/></marker>
+              </defs>
+              <!-- grid linijos -->
+              <line x1="10" y1="55"  x2="205" y2="55"  stroke="#f0f0f0" stroke-width="1"/>
+              <line x1="10" y1="115" x2="205" y2="115" stroke="#f0f0f0" stroke-width="1"/>
+              <line x1="10" y1="175" x2="205" y2="175" stroke="#f0f0f0" stroke-width="1"/>
+              <line x1="72"  y1="10" x2="72"  y2="220" stroke="#f0f0f0" stroke-width="1"/>
+              <line x1="120" y1="10" x2="120" y2="220" stroke="#f0f0f0" stroke-width="1"/>
+              <line x1="168" y1="10" x2="168" y2="220" stroke="#f0f0f0" stroke-width="1"/>
+              <!-- ašys -->
+              <line x1="10" y1="55" x2="205" y2="55" stroke="#9ca3af" stroke-width="1.5" marker-end="url(#axc2)"/>
+              <line x1="120" y1="220" x2="120" y2="10" stroke="#9ca3af" stroke-width="1.5" marker-end="url(#axc2)"/>
+              <text x="207" y="59" font-size="11" fill="#6b7280" font-style="italic">x</text>
+              <text x="115" y="9"  font-size="11" fill="#6b7280" font-style="italic">y</text>
+              <text x="106" y="70" font-size="10" fill="#6b7280">O</text>
+              <!-- ašių skaičiai -->
+              <text x="128" y="70" font-size="9" fill="#9ca3af">1</text>
+              <text x="109" y="46" font-size="9" fill="#9ca3af">1</text>
+              <!-- tiesė per C, A, B -->
+              <line x1="82" y1="211" x2="170" y2="35" stroke="#6d28d9" stroke-width="1.5" stroke-dasharray="6,3" opacity="0.6"/>
+              <!-- C(-2,-11): (96, 187) -->
+              <circle cx="96" cy="187" r="5" fill="#15803d"/>
+              <text x="32" y="191" font-size="11" fill="#15803d" font-weight="600">C(−2;−11)</text>
+              <!-- A(1,-5): (132, 115) -->
+              <circle cx="132" cy="115" r="5" fill="#1d4ed8"/>
+              <text x="136" y="113" font-size="11" fill="#1d4ed8" font-weight="600">A(1;−5)</text>
+              <!-- B(3,-1): (156, 67) -->
+              <circle cx="156" cy="67" r="5" fill="#dc2626"/>
+              <text x="160" y="65" font-size="11" fill="#dc2626" font-weight="600">B(3;−1)</text>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic-nav">
+        <a href="../t5-koordinates/teorija.html" class="nav-btn prev">← T5. Vektoriaus koordinatės</a>
+        <a href="../t7-kampas-koordinatemis/teorija.html" class="nav-btn next">T7. Skaliarinė sandauga koordinatėmis →</a>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="../../../../../js/main.js"></script>
+</body>
+</html>
