@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>T2. n-tojo laipsnio šaknys — Reiškiniai</title>
+  <link rel="stylesheet" href="../../../../../styles/main.css"/>
+  <style>
+    .row-apibreztis{background:#f1f0ee;border-left:3px solid #9a9a92}.row-apibreztis .row-label{color:#5a5a54;background:#e4e2d8;border-color:#c8c6bc}
+    .row-zymime{background:#fffbeb;border-left:3px solid #b45309}.row-zymime .row-label{color:#b45309;background:#fef3c7;border-color:#fde68a}
+    .row-svarbu{background:#fef2f2;border-left:3px solid #b91c1c}.row-svarbu .row-label{color:#b91c1c;background:#fecaca;border-color:#fca5a5}
+    .row-taisykle{background:#f5f3ff;border-left:3px solid #6d28d9}.row-taisykle .row-label{color:#6d28d9;background:#ede9fe;border-color:#c4b5fd}
+    .row-pavyzdys{background:#f0fdf4;border-left:3px solid #15803d}.row-pavyzdys .row-label{color:#15803d;background:#dcfce7;border-color:#bbf7d0}
+    .theory-row{display:grid;grid-template-columns:1fr;border-radius:var(--radius);margin-bottom:8px;overflow:hidden}
+    .theory-row.has-graph{grid-template-columns:1fr auto;align-items:stretch}
+    .row-content{padding:13px 16px}
+    .row-label{display:inline-block;font-size:10px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;padding:2px 8px;border-radius:4px;border:1px solid;margin-bottom:7px}
+    .row-text{font-size:13.5px;color:var(--ink2);line-height:1.7}
+    .row-text strong{color:var(--ink);font-weight:500}
+    .formula{font-family:var(--mono);font-size:13.5px;color:var(--accent);display:block;margin:5px 0 5px 8px}
+    .formula-inline{font-family:var(--mono);font-size:13.5px;color:var(--accent)}
+    .row-graph{width:220px;border-left:1px solid rgba(0,0,0,.06);display:flex;align-items:center;justify-content:center;padding:10px 12px;flex-shrink:0}
+    @media(max-width:640px){.theory-row.has-graph{grid-template-columns:1fr}.row-graph{width:100%;border-left:none;border-top:1px solid rgba(0,0,0,.06)}}
+  </style>
+</head>
+<body>
+<div class="layout">
+  <nav class="sidebar" id="sidebar"></nav>
+  <div class="main">
+    <div class="topbar">
+      <div class="breadcrumb">
+        <a href="../../../../../index.html">Matematika 11</a>
+        <span class="sep">›</span><span>Reiškiniai</span>
+        <span class="sep">›</span><span class="current">T2. n-tojo laipsnio šaknys</span>
+      </div>
+      <div class="tab-switcher"><button class="tab-btn active">Teorija</button></div>
+    </div>
+    <div class="page">
+      <div class="topic-header">
+        <div class="topic-tag">3 skyrius · Tema 2</div>
+        <h1 class="topic-title">n-tojo laipsnio šaknys</h1>
+        <p class="topic-intro">Kvadratinę ir kubinę šaknį jau mokate traukti. Šioje temoje apibendrinsime šią sąvoką — sužinosite, kas yra n-tojo laipsnio šaknis, kokios jos savybės ir kaip šaknį susieti su laipsniu turinčiu racionaliuoju rodikliu.</p>
+      </div>
+
+      <!-- BLOKAS 1 -->
+      <div class="theory-block">
+        <div class="block-title"><div class="block-num">1</div>n-tojo laipsnio šaknies apibrėžimas</div>
+
+        <div class="theory-row row-apibreztis">
+          <div class="row-content">
+            <div class="row-label">Apibrėžimas</div>
+            <div class="row-text">
+              <strong>n-tojo laipsnio šaknimi</strong> (n ∈ ℕ, n &gt; 1) iš skaičiaus <em>a</em> vadinamas toks realusis skaičius <em>x</em>, kurio n-tasis laipsnis lygus <em>a</em>:<br/><br/>
+              <span class="formula">ⁿ√a = x, kai xⁿ = a</span>
+              Čia <strong>n</strong> — <em>šaknies rodiklis</em>, <strong>a</strong> — <em>pošakninis reiškinys</em> (arba pošaknis).
+            </div>
+          </div>
+        </div>
+
+        <div class="theory-row row-taisykle has-graph">
+          <div class="row-content">
+            <div class="row-label">Lyginių ir nelyginių šaknų savybės</div>
+            <div class="row-text">
+              Kai <strong>n — lyginis</strong> skaičius:<br/>
+              • ⁿ√a yra apibrėžta tik kai <strong>a ≥ 0</strong><br/>
+              • rezultatas visada <strong>neneigiamas</strong>: ⁿ√a ≥ 0<br/>
+              • lygtis xⁿ = a turi <strong>du sprendinius</strong>: x = ±ⁿ√a<br/><br/>
+              Kai <strong>n — nelyginis</strong> skaičius:<br/>
+              • ⁿ√a apibrėžta <strong>visiems</strong> a ∈ ℝ (ir neigiamam a)<br/>
+              • rezultatas turi tą patį <strong>ženklą</strong> kaip a<br/>
+              • lygtis xⁿ = a turi <strong>vieną sprendinį</strong>
+            </div>
+          </div>
+          <div class="row-graph">
+            <svg viewBox="0 0 200 170" xmlns="http://www.w3.org/2000/svg" style="width:195px;height:auto">
+              <!-- Lyginis -->
+              <rect x="4" y="4" width="192" height="76" rx="6" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.3"/>
+              <text x="12" y="22" font-size="10" fill="#1d4ed8" font-weight="700">n — lyginis</text>
+              <text x="12" y="40" font-size="11" fill="#374151">⁴√16 = 2 &ensp;(nes 2⁴=16)</text>
+              <text x="12" y="56" font-size="11" fill="#374151">⁴√16 ≠ −2 &ensp;(šaknis ≥ 0)</text>
+              <text x="12" y="72" font-size="11" fill="#dc2626">⁴√(−16) — neapibrėžta</text>
+              <!-- Nelyginis -->
+              <rect x="4" y="90" width="192" height="76" rx="6" fill="#f0fdf4" stroke="#15803d" stroke-width="1.3"/>
+              <text x="12" y="108" font-size="10" fill="#15803d" font-weight="700">n — nelyginis</text>
+              <text x="12" y="126" font-size="11" fill="#374151">³√8 = 2 &ensp;(nes 2³=8)</text>
+              <text x="12" y="142" font-size="11" fill="#374151">³√(−8) = −2 &ensp;(nes (−2)³=−8)</text>
+              <text x="12" y="158" font-size="11" fill="#374151">⁵√(−32) = −2</text>
+            </svg>
+          </div>
+        </div>
+
+        <div class="theory-row row-svarbu">
+          <div class="row-content">
+            <div class="row-label">Atkreipk dėmesį</div>
+            <div class="row-text">
+              Lyginio laipsnio šaknis <strong>²ⁿ√a</strong> yra visada <strong>neneigiama</strong>.<br/>
+              Todėl: <span class="formula-inline">²ⁿ√a ≥ 0</span> visada, kai a ≥ 0.<br/><br/>
+              Lyginio laipsnio šaknis <strong>²ⁿ√(aⁿ)</strong> yra lygus <strong>|a|</strong>, o ne a:<br/>
+              <span class="formula">²ⁿ√(a²ⁿ) = |a|</span>
+              Pavyzdžiui: √(x²) = |x|, nes jei x = −3, tai √(9) = 3, o ne −3.
+            </div>
+          </div>
+        </div>
+
+        <div class="theory-row row-pavyzdys">
+          <div class="row-content">
+            <div class="row-label">Pavyzdys</div>
+            <div class="row-text">
+              Apskaičiuokite: ⁴√625, ³√(−27), √(49), ⁵√(−1).<br/><br/>
+              <strong>⁴√625</strong>: ieškome x, kad x⁴ = 625. Kadangi 5⁴ = 625, tai <strong>⁴√625 = 5</strong><br/>
+              <strong>³√(−27)</strong>: n = 3 (nelyginis), (−3)³ = −27, tai <strong>³√(−27) = −3</strong><br/>
+              <strong>√49</strong>: 7² = 49, tai <strong>√49 = 7</strong> (ne ±7, nes šaknis neneigiama)<br/>
+              <strong>⁵√(−1)</strong>: (−1)⁵ = −1, tai <strong>⁵√(−1) = −1</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BLOKAS 2 -->
+      <div class="theory-block">
+        <div class="block-title"><div class="block-num">2</div>Laipsnis su racionaliuoju rodikliu</div>
+
+        <div class="theory-row row-apibreztis">
+          <div class="row-content">
+            <div class="row-label">Apibrėžimas</div>
+            <div class="row-text">
+              Skaičiaus <em>a</em> (a &gt; 0) <strong>laipsniu su racionaliuoju rodikliu m/n</strong> (m ∈ ℤ, n ∈ ℕ, n &gt; 1) vadinamas skaičius:<br/><br/>
+              <span class="formula">a<sup>m/n</sup> = ⁿ√(aᵐ)</span>
+              Laipsnio su racionaliuoju rodikliu pagrindas yra teigiamasis skaičius.
+            </div>
+          </div>
+        </div>
+
+        <div class="theory-row row-zymime">
+          <div class="row-content">
+            <div class="row-label">Ryšys su šaknimis</div>
+            <div class="row-text">
+              Specialūs atvejai — kaip šaknys ir laipsniai siejasi:<br/><br/>
+              <strong>Šaknis ↔ laipsnis su trupmeniniu rodikliu:</strong>
+              <span class="formula">ⁿ√a = a<sup>1/n</sup></span>
+              <strong>Bendruoju atveju:</strong>
+              <span class="formula">ⁿ√(aᵐ) = (ⁿ√a)ᵐ = a<sup>m/n</sup></span>
+              <strong>Neigiamas rodiklis:</strong>
+              <span class="formula">a<sup>−m/n</sup> = 1 / a<sup>m/n</sup></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="theory-row row-pavyzdys has-graph">
+          <div class="row-content">
+            <div class="row-label">Pavyzdys</div>
+            <div class="row-text">
+              Užrašykime laipsnius šaknimis ir šaknis laipsniais:<br/><br/>
+              <strong>2<sup>1/3</sup></strong> = ³√2<br/>
+              <strong>3<sup>2/3</sup></strong> = ³√(3²) = ³√9<br/>
+              <strong>5<sup>1,25</sup></strong> = 5<sup>5/4</sup> = ⁴√(5⁵)<br/>
+              <strong>3<sup>−1/3</sup></strong> = ³√(3⁻¹) = ³√(1/3)<br/><br/>
+              Atvirkščiai — šaknis į laipsnį:<br/>
+              <strong>³√3</strong> = 3<sup>1/3</sup><br/>
+              <strong>⁴√(3³)</strong> = 3<sup>3/4</sup> = 3<sup>0,75</sup><br/>
+              <strong>⁸√(1/a²)</strong> = a<sup>−2/8</sup> = a<sup>−1/4</sup>
+            </div>
+          </div>
+          <div class="row-graph">
+            <svg viewBox="0 0 190 180" xmlns="http://www.w3.org/2000/svg" style="width:185px;height:auto">
+              <rect x="4" y="4" width="182" height="172" rx="8" fill="#f5f3ff" stroke="#6d28d9" stroke-width="1.5"/>
+              <text x="20" y="28" font-size="11" fill="#6d28d9" font-weight="700">Šaknis ↔ Laipsnis</text>
+              <!-- rodyklės ir formulės -->
+              <text x="14" y="52" font-size="12" fill="#374151">ⁿ√a</text>
+              <line x1="50" y1="48" x2="90" y2="48" stroke="#6d28d9" stroke-width="1.5" marker-end="url(#arr)"/>
+              <line x1="90" y1="54" x2="50" y2="54" stroke="#6d28d9" stroke-width="1.5" marker-end="url(#arr2)"/>
+              <text x="98" y="52" font-size="12" fill="#374151">a<tspan font-size="9" dy="-4">1/n</tspan></text>
+              <defs>
+                <marker id="arr" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><polygon points="0,1 5,3 0,5" fill="#6d28d9"/></marker>
+                <marker id="arr2" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><polygon points="0,1 5,3 0,5" fill="#6d28d9"/></marker>
+              </defs>
+              <line x1="4" y1="68" x2="186" y2="68" stroke="#e5e7eb" stroke-width="1"/>
+              <text x="14" y="90" font-size="11" fill="#374151">³√2 = 2<tspan font-size="9" dy="-3">1/3</tspan></text>
+              <text x="14" y="112" font-size="11" fill="#374151">⁴√(3³) = 3<tspan font-size="9" dy="-3">3/4</tspan></text>
+              <text x="14" y="134" font-size="11" fill="#374151">8<tspan font-size="9" dy="-3">1/3</tspan><tspan dy="3"> = ³√8 = 2</tspan></text>
+              <text x="14" y="156" font-size="11" fill="#374151">16<tspan font-size="9" dy="-3">3/4</tspan><tspan dy="3"> = ⁴√(16³) = 8</tspan></text>
+            </svg>
+          </div>
+        </div>
+
+        <div class="theory-row row-svarbu">
+          <div class="row-content">
+            <div class="row-label">Atkreipk dėmesį</div>
+            <div class="row-text">
+              Laipsnis su racionaliuoju rodikliu <strong>apibrėžtas tik teigiamam pagrindui</strong> (a &gt; 0).<br/><br/>
+              Išimtis: kai m/n yra sveikasis skaičius — tuomet galimas ir neigiamas pagrindas.<br/><br/>
+              Pavyzdžiui: (−8)<sup>1/3</sup> = ³√(−8) = −2 ✓, nes rodiklis 1/3 — trečiojo laipsnio šaknis (nelyginis).<br/>
+              Tačiau (−4)<sup>1/2</sup> = √(−4) — <strong>neapibrėžta</strong> ℝ, nes lyginio laipsnio šaknis iš neigiamo skaičiaus.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic-nav">
+        <a href="../t1-aibes/teorija.html" class="nav-btn prev">← T1. Aibės ir jų veiksmai</a>
+        <a href="../t3-veiksmai-saknimis/teorija.html" class="nav-btn next">T3. Veiksmai su šaknimis ir laipsniais →</a>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="../../../../../js/main.js"></script>
+</body>
+</html>

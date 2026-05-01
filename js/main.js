@@ -3,6 +3,11 @@
 // ── SIDEBAR DUOMENYS ─────────────────────────────────────────────────
 // Norėdami pridėti naują temą — tiesiog pridėkite čia!
 const NAV = [
+  { id: 'reiskiniai', num: '3.', name: 'Reiškiniai', topics: [
+      { id: 't1', name: 'T1. Aibės ir jų veiksmai',              path: 'dalykai/reiskiniai/temos/t1-aibes/teorija.html' },
+      { id: 't2', name: 'T2. n-tojo laipsnio šaknys',            path: 'dalykai/reiskiniai/temos/t2-saknys/teorija.html' },
+      { id: 't3', name: 'T3. Veiksmai su šaknimis ir laipsniais', path: 'dalykai/reiskiniai/temos/t3-veiksmai-saknimis/teorija.html' },
+    ], tests: 'dalykai/reiskiniai/skyriaus-testai/index.html', exams: 'dalykai/reiskiniai/egzaminai/index.html' },
   {
     id: 'funkcijos',
     num: '5.',

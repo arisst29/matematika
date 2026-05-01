@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>T1. Aibės ir jų veiksmai — Reiškiniai</title>
+  <link rel="stylesheet" href="../../../../../styles/main.css"/>
+  <style>
+    .row-apibreztis{background:#f1f0ee;border-left:3px solid #9a9a92}.row-apibreztis .row-label{color:#5a5a54;background:#e4e2d8;border-color:#c8c6bc}
+    .row-zymime{background:#fffbeb;border-left:3px solid #b45309}.row-zymime .row-label{color:#b45309;background:#fef3c7;border-color:#fde68a}
+    .row-svarbu{background:#fef2f2;border-left:3px solid #b91c1c}.row-svarbu .row-label{color:#b91c1c;background:#fecaca;border-color:#fca5a5}
+    .row-taisykle{background:#f5f3ff;border-left:3px solid #6d28d9}.row-taisykle .row-label{color:#6d28d9;background:#ede9fe;border-color:#c4b5fd}
+    .row-pavyzdys{background:#f0fdf4;border-left:3px solid #15803d}.row-pavyzdys .row-label{color:#15803d;background:#dcfce7;border-color:#bbf7d0}
+    .theory-row{display:grid;grid-template-columns:1fr;border-radius:var(--radius);margin-bottom:8px;overflow:hidden}
+    .theory-row.has-graph{grid-template-columns:1fr auto;align-items:stretch}
+    .row-content{padding:13px 16px}
+    .row-label{display:inline-block;font-size:10px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;padding:2px 8px;border-radius:4px;border:1px solid;margin-bottom:7px}
+    .row-text{font-size:13.5px;color:var(--ink2);line-height:1.7}
+    .row-text strong{color:var(--ink);font-weight:500}
+    .formula{font-family:var(--mono);font-size:13.5px;color:var(--accent);display:block;margin:5px 0 5px 8px}
+    .row-graph{width:240px;border-left:1px solid rgba(0,0,0,.06);display:flex;align-items:center;justify-content:center;padding:10px 12px;flex-shrink:0}
+    @media(max-width:640px){.theory-row.has-graph{grid-template-columns:1fr}.row-graph{width:100%;border-left:none;border-top:1px solid rgba(0,0,0,.06)}}
+  </style>
+</head>
+<body>
+<div class="layout">
+  <nav class="sidebar" id="sidebar"></nav>
+  <div class="main">
+    <div class="topbar">
+      <div class="breadcrumb">
+        <a href="../../../../../index.html">Matematika 11</a>
+        <span class="sep">›</span><span>Reiškiniai</span>
+        <span class="sep">›</span><span class="current">T1. Aibės ir jų veiksmai</span>
+      </div>
+      <div class="tab-switcher"><button class="tab-btn active">Teorija</button></div>
+    </div>
+    <div class="page">
+      <div class="topic-header">
+        <div class="topic-tag">3 skyrius · Tema 1</div>
+        <h1 class="topic-title">Aibės ir jų veiksmai</h1>
+        <p class="topic-intro">Aibė — viena iš pagrindinių matematikos sąvokų. Šioje temoje sužinosime, kas yra aibė, kokios būna skaičių aibės, kas yra intervalas ir kaip atliekamos operacijos su aibėmis.</p>
+      </div>
+
+      <!-- BLOKAS 1 -->
+      <div class="theory-block">
+        <div class="block-title"><div class="block-num">1</div>Aibės sąvoka</div>
+
+        <div class="theory-row row-apibreztis">
+          <div class="row-content">
+            <div class="row-label">Apibrėžimas</div>
+            <div class="row-text">
+              <strong>Aibė</strong> — tam tikrų objektų rinkinys. Aibę sudarantys objektai vadinami <strong>aibės elementais</strong>.<br/><br/>
+              Aibės žymimos didžiosiomis raidėmis: <em>A</em>, <em>B</em>, <em>C</em> ir t. t.<br/>
+              Elementai žymimi mažosiomis raidėmis: <em>a</em>, <em>b</em>, <em>c</em> ir t. t.
+            </div>
+          </div>
+        </div>
+
+        <div class="theory-row row-zymime">
+          <div class="row-content">
+            <div class="row-label">Žymėjimas</div>
+            <div class="row-text">
+              <strong>a ∈ A</strong> — skaičius a <strong>priklauso</strong> aibei A<br/>
+              <strong>a ∉ A</strong> — skaičius a <strong>nepriklauso</strong> aibei A<br/>
+              <strong>∅</strong> — <strong>tuščioji aibė</strong> (neturi nė vieno elemento)<br/><br/>
+              Aibę galima užrašyti išvardijant elementus: <span class="formula">A = {1, 2, 3, 5}</span>
+              arba aprašant taisyklę: <span class="formula">A = {2n | n ∈ ℕ} — lyginiųjų skaičių aibė</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="theory-row row-apibreztis">
+          <div class="row-content">
+            <div class="row-label">Aibių rūšys</div>
+            <div class="row-text">
+              • <strong>Baigtinė aibė</strong> — turi baigtinį skaičių elementų. Pvz.: {1, 3, 5, 7}<br/>
+              • <strong>Begalinė aibė</strong> — elementų yra be galo daug. Pvz.: natūraliųjų skaičių aibė<br/>
+              • <strong>Tuščioji aibė ∅</strong> — neturi nė vieno elemento
+            </div>
+          </div>
+        </div>
+
+        <div class="theory-row row-pavyzdys">
+          <div class="row-content">
+            <div class="row-label">Pavyzdys</div>
+            <div class="row-text">
+              Užrašykime dviženklių pirminių skaičių, ne didesnių kaip 25, aibę.<br/><br/>
+              Pirminiai skaičiai iki 25: 11, 13, 17, 19, 23.<br/>
+              <span class="formula">P = {11, 13, 17, 19, 23}</span>
+              Ši aibė yra <strong>baigtinė</strong> — ją galime išvardyti.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BLOKAS 2 -->
+      <div class="theory-block">
+        <div class="block-title"><div class="block-num">2</div>Žinomos skaičių aibės</div>
+
+        <div class="theory-row row-zymime has-graph">
+          <div class="row-content">
+            <div class="row-label">Skaičių aibės</div>
+            <div class="row-text">
+              <strong>ℕ</strong> — <strong>natūraliųjų skaičių aibė</strong>: {1, 2, 3, 4, …}<br/><br/>
+              <strong>ℤ</strong> — <strong>sveikųjų skaičių aibė</strong>: {…, −3, −2, −1, 0, 1, 2, 3, …}<br/><br/>
+              <strong>ℚ</strong> — <strong>racionaliųjų skaičių aibė</strong>: skaičiai, kuriuos galima išreikšti paprastąja trupmena m/n (m ∈ ℤ, n ∈ ℕ). Tai visi baigtinės arba periodinės dešimtainės trupmenos.<br/><br/>
+              <strong>𝕀</strong> — <strong>iracionaliųjų skaičių aibė</strong>: skaičiai, išreiškiami begalinėmis neperiodinėmis dešimtainėmis trupmenomis. Pvz.: √2, √3, π, √17<br/><br/>
+              <strong>ℝ</strong> — <strong>realiausiųjų skaičių aibė</strong>: visi racionaliojo ir iracionaliojo skaičiai. ℚ ∪ 𝕀 = ℝ
+            </div>
+          </div>
+          <div class="row-graph">
+            <svg viewBox="0 0 220 160" xmlns="http://www.w3.org/2000/svg" style="width:210px;height:auto">
+              <!-- ℝ — didžiausias -->
+              <rect x="2" y="2" width="216" height="156" rx="6" fill="#eff6ff" stroke="#1d4ed8" stroke-width="2"/>
+              <text x="196" y="90" font-size="14" fill="#1d4ed8" font-weight="800">ℝ</text>
+              <!-- ℚ -->
+              <rect x="10" y="10" width="180" height="100" rx="5" fill="#dbeafe" stroke="#0369a1" stroke-width="1.8"/>
+              <text x="172" y="60" font-size="13" fill="#0369a1" font-weight="700">ℚ</text>
+              <!-- ℤ -->
+              <rect x="18" y="18" width="130" height="84" rx="4" fill="#bfdbfe" stroke="#1d4ed8" stroke-width="1.5"/>
+              <text x="130" y="62" font-size="13" fill="#1e40af" font-weight="700">ℤ</text>
+              <!-- ℕ -->
+              <rect x="26" y="26" width="80" height="68" rx="4" fill="#93c5fd" stroke="#2563eb" stroke-width="1.5"/>
+              <text x="56" y="65" font-size="13" fill="#1e3a8a" font-weight="700">ℕ</text>
+              <!-- 𝕀 — apačioje, per visą plotį, išorėje ℚ -->
+              <rect x="10" y="118" width="180" height="32" rx="4" fill="#f5f3ff" stroke="#7c3aed" stroke-width="1.8"/>
+              <text x="90" y="139" font-size="13" fill="#7c3aed" font-weight="700">𝕀</text>
+            </svg>
+          </div>
+        </div>
+
+        <div class="theory-row row-svarbu">
+          <div class="row-content">
+            <div class="row-label">Svarbu</div>
+            <div class="row-text">
+              Aibės yra įdėtinės viena į kitą: <strong>ℕ ⊂ ℤ ⊂ ℚ ⊂ ℝ</strong><br/><br/>
+              Racionaliųjų ir iracionaliųjų aibės neturi bendrų elementų: <strong>ℚ ∩ 𝕀 = ∅</strong><br/>
+              Tačiau kartu jos sudaro realiausiųjų skaičių aibę: <strong>ℚ ∪ 𝕀 = ℝ</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BLOKAS 3 -->
+      <div class="theory-block">
+        <div class="block-title"><div class="block-num">3</div>Intervalai</div>
+
+        <div class="theory-row row-apibreztis">
+          <div class="row-content">
+            <div class="row-label">Apibrėžimas</div>
+            <div class="row-text">
+              <strong>Intervalas</strong> — aibė, sudaryta iš realiausiųjų skaičių x, tenkinančių tam tikrą sąlygą. Sakykime, a ∈ ℝ, b ∈ ℝ, a &lt; b.
+            </div>
+          </div>
+        </div>
+
+        <div class="theory-row row-zymime has-graph">
+          <div class="row-content">
+            <div class="row-label">Intervalų tipai</div>
+            <div class="row-text">
+              <strong>Uždarasis intervalas</strong> [a; b] — a ≤ x ≤ b (galiniai taškai įeina)<br/><br/>
+              <strong>Atvirasis intervalas</strong> (a; b) — a &lt; x &lt; b (galiniai taškai neįeina)<br/><br/>
+              <strong>Pusiau atvirieji:</strong><br/>
+              [a; b) — a ≤ x &lt; b &emsp; arba &emsp; (a; b] — a &lt; x ≤ b<br/><br/>
+              <strong>Begaliniai:</strong><br/>
+              (a; +∞) — x &gt; a &emsp;&emsp; [a; +∞) — x ≥ a<br/>
+              (−∞; b) — x &lt; b &emsp;&emsp; (−∞; b] — x ≤ b<br/><br/>
+              Visa realiausiųjų skaičių aibė ℝ žymima (−∞; +∞).
+            </div>
+          </div>
+          <div class="row-graph">
+            <svg viewBox="0 0 200 220" xmlns="http://www.w3.org/2000/svg" style="width:190px;height:auto">
+              <defs>
+                <marker id="ax" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><polygon points="0,1 5,3 0,5" fill="#374151"/></marker>
+              </defs>
+              <!-- [a;b] -->
+              <text x="8" y="18" font-size="9" fill="#374151" font-weight="600">[a; b]</text>
+              <line x1="30" y1="28" x2="170" y2="28" stroke="#e5e7eb" stroke-width="1.5" marker-end="url(#ax)"/>
+              <line x1="70" y1="24" x2="130" y2="24" stroke="#1d4ed8" stroke-width="3"/>
+              <circle cx="70" cy="28" r="4" fill="#1d4ed8"/>
+              <circle cx="130" cy="28" r="4" fill="#1d4ed8"/>
+              <text x="67" y="42" font-size="8" fill="#374151">a</text>
+              <text x="127" y="42" font-size="8" fill="#374151">b</text>
+              <!-- (a;b) -->
+              <text x="8" y="65" font-size="9" fill="#374151" font-weight="600">(a; b)</text>
+              <line x1="30" y1="75" x2="170" y2="75" stroke="#e5e7eb" stroke-width="1.5" marker-end="url(#ax)"/>
+              <line x1="70" y1="71" x2="130" y2="71" stroke="#dc2626" stroke-width="3"/>
+              <circle cx="70" cy="75" r="4" fill="white" stroke="#dc2626" stroke-width="2"/>
+              <circle cx="130" cy="75" r="4" fill="white" stroke="#dc2626" stroke-width="2"/>
+              <text x="67" y="89" font-size="8" fill="#374151">a</text>
+              <text x="127" y="89" font-size="8" fill="#374151">b</text>
+              <!-- [a;b) -->
+              <text x="8" y="112" font-size="9" fill="#374151" font-weight="600">[a; b)</text>
+              <line x1="30" y1="122" x2="170" y2="122" stroke="#e5e7eb" stroke-width="1.5" marker-end="url(#ax)"/>
+              <line x1="70" y1="118" x2="130" y2="118" stroke="#15803d" stroke-width="3"/>
+              <circle cx="70" cy="122" r="4" fill="#15803d"/>
+              <circle cx="130" cy="122" r="4" fill="white" stroke="#15803d" stroke-width="2"/>
+              <text x="67" y="136" font-size="8" fill="#374151">a</text>
+              <text x="127" y="136" font-size="8" fill="#374151">b</text>
+              <!-- (a;+∞) -->
+              <text x="8" y="159" font-size="9" fill="#374151" font-weight="600">(a; +∞)</text>
+              <line x1="30" y1="169" x2="175" y2="169" stroke="#e5e7eb" stroke-width="1.5" marker-end="url(#ax)"/>
+              <line x1="70" y1="165" x2="165" y2="165" stroke="#6d28d9" stroke-width="3"/>
+              <circle cx="70" cy="169" r="4" fill="white" stroke="#6d28d9" stroke-width="2"/>
+              <text x="67" y="183" font-size="8" fill="#374151">a</text>
+              <!-- uždaras = pilnas taškas, atviras = tuščias -->
+              <text x="10" y="210" font-size="8" fill="#374151">● — įeina &ensp; ○ — neįeina</text>
+            </svg>
+          </div>
+        </div>
+
+        <div class="theory-row row-pavyzdys">
+          <div class="row-content">
+            <div class="row-label">Pavyzdys</div>
+            <div class="row-text">
+              Kokio intervalo elementai tenkiną sąlygą −3 ≤ x &lt; 7?<br/><br/>
+              Kairysis galas −3 įeina (≤), dešinysis 7 neįeina (&lt;), todėl tai <strong>pusiau atviras intervalas</strong>:
+              <span class="formula">[−3; 7)</span>
+              Skaičių tiesėje: užpildytas taškas ties −3, tuščias ties 7, tarp jų — linija.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BLOKAS 4 -->
+      <div class="theory-block">
+        <div class="block-title"><div class="block-num">4</div>Aibių veiksmai</div>
+
+        <div class="theory-row row-apibreztis">
+          <div class="row-content">
+            <div class="row-label">Poaibis</div>
+            <div class="row-text">
+              Aibė <strong>A</strong> yra aibės <strong>B poaibis</strong> (A ⊂ B), jei visi aibės A elementai priklauso aibei B.<br/><br/>
+              Tuščioji aibė yra bet kurios aibės poaibis. Kiekviena aibė yra savo pačios poaibis.
+            </div>
+          </div>
+        </div>
+
+        <div class="theory-row row-taisykle has-graph">
+          <div class="row-content">
+            <div class="row-label">Sąjunga ir sankirta</div>
+            <div class="row-text">
+              <strong>Aibių A ir B sąjunga</strong> A ∪ B — aibė, sudaryta iš elementų, priklausančių <em>bent vienai</em> iš aibių A arba B.
+              <span class="formula">A ∪ B = {x | x ∈ A arba x ∈ B}</span>
+              <strong>Aibių A ir B sankirta</strong> A ∩ B — aibė, sudaryta iš elementų, priklausančių <em>abiem</em> aibėms A ir B.
+              <span class="formula">A ∩ B = {x | x ∈ A ir x ∈ B}</span>
+            </div>
+          </div>
+          <div class="row-graph">
+            <svg viewBox="0 0 200 180" xmlns="http://www.w3.org/2000/svg" style="width:190px;height:auto">
+              <!-- Sąjunga -->
+              <text x="60" y="16" font-size="10" fill="#374151" font-weight="600">A ∪ B</text>
+              <ellipse cx="72" cy="45" rx="38" ry="28" fill="#bfdbfe" fill-opacity="0.8" stroke="#1d4ed8" stroke-width="1.5"/>
+              <ellipse cx="108" cy="45" rx="38" ry="28" fill="#bfdbfe" fill-opacity="0.8" stroke="#1d4ed8" stroke-width="1.5"/>
+              <text x="58" y="48" font-size="11" fill="#1e40af" font-weight="600">A</text>
+              <text x="112" y="48" font-size="11" fill="#1e40af" font-weight="600">B</text>
+              <!-- Sankirta -->
+              <text x="60" y="98" font-size="10" fill="#374151" font-weight="600">A ∩ B</text>
+              <ellipse cx="72" cy="130" rx="38" ry="28" fill="#e0f2fe" stroke="#0369a1" stroke-width="1.5"/>
+              <ellipse cx="108" cy="130" rx="38" ry="28" fill="#e0f2fe" stroke="#0369a1" stroke-width="1.5"/>
+              <!-- Sankirta paryškinta -->
+              <clipPath id="clipA"><ellipse cx="72" cy="130" rx="38" ry="28"/></clipPath>
+              <ellipse cx="108" cy="130" rx="38" ry="28" fill="#1d4ed8" fill-opacity="0.4" clip-path="url(#clipA)"/>
+              <text x="58" y="133" font-size="11" fill="#0369a1" font-weight="600">A</text>
+              <text x="112" y="133" font-size="11" fill="#0369a1" font-weight="600">B</text>
+            </svg>
+          </div>
+        </div>
+
+        <div class="theory-row row-taisykle has-graph">
+          <div class="row-content">
+            <div class="row-label">Skirtumas ir papildinys</div>
+            <div class="row-text">
+              <strong>Aibių A ir B skirtumas</strong> A \ B — aibė, sudaryta iš tų aibės A elementų, kurie <em>nepriklauso</em> aibei B.
+              <span class="formula">A \ B = {x | x ∈ A ir x ∉ B}</span>
+              Analogiškai B \ A — tie aibės B elementai, kurie nepriklauso A.
+            </div>
+          </div>
+          <div class="row-graph">
+            <svg viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg" style="width:190px;height:auto">
+              <text x="60" y="16" font-size="10" fill="#374151" font-weight="600">A \ B</text>
+              <ellipse cx="72" cy="55" rx="42" ry="30" fill="#fef3c7" stroke="#b45309" stroke-width="1.5"/>
+              <ellipse cx="118" cy="55" rx="42" ry="30" fill="#e0f2fe" stroke="#0369a1" stroke-width="1.5"/>
+              <!-- A\B paryškintas -->
+              <clipPath id="notB"><rect x="0" y="0" width="200" height="200"/></clipPath>
+              <ellipse cx="72" cy="55" rx="42" ry="30" fill="#b45309" fill-opacity="0.3"/>
+              <clipPath id="clipB2"><ellipse cx="118" cy="55" rx="42" ry="30"/></clipPath>
+              <ellipse cx="72" cy="55" rx="42" ry="30" fill="#e0f2fe" clip-path="url(#clipB2)"/>
+              <text x="48" y="58" font-size="11" fill="#92400e" font-weight="600">A</text>
+              <text x="124" y="58" font-size="11" fill="#0369a1" font-weight="600">B</text>
+            </svg>
+          </div>
+        </div>
+
+        <div class="theory-row row-pavyzdys">
+          <div class="row-content">
+            <div class="row-label">Pavyzdys</div>
+            <div class="row-text">
+              Duotos aibės A = {2, 3, 4, 5, 6} ir B = {2, 4, 8}. Raskite A ∪ B, A ∩ B, A \ B ir B \ A.<br/><br/>
+              <strong>A ∪ B</strong> — visi elementai iš abiejų aibių:
+              <span class="formula">A ∪ B = {2, 3, 4, 5, 6, 8}</span>
+              <strong>A ∩ B</strong> — elementai, esantys abiejose aibėse:
+              <span class="formula">A ∩ B = {2, 4}</span>
+              <strong>A \ B</strong> — A elementai, kurių nėra B:
+              <span class="formula">A \ B = {3, 5, 6}</span>
+              <strong>B \ A</strong> — B elementai, kurių nėra A:
+              <span class="formula">B \ A = {8}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="theory-row row-pavyzdys">
+          <div class="row-content">
+            <div class="row-label">Pavyzdys su intervalais</div>
+            <div class="row-text">
+              Duotos aibės A = [−2,7; 7) ir B = [4⅓; 9). Raskite A ∩ B ir A ∪ B.<br/><br/>
+              Pavaizdavę skaičių tiesėje matome, kad intervalai persidengia.<br/><br/>
+              <strong>A ∩ B</strong> — bendroji dalis (kur abu intervalai sutampa):
+              <span class="formula">A ∩ B = [4⅓; 7)</span>
+              <strong>A ∪ B</strong> — visa subrūkšniuota sritis:
+              <span class="formula">A ∪ B = [−2,7; 9)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic-nav">
+        <a href="../../skyriaus-testai/index.html" class="nav-btn prev">← Skyriaus testai</a>
+        <a href="../t2-saknys/teorija.html" class="nav-btn next">T2. n-tojo laipsnio šaknys →</a>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="../../../../../js/main.js"></script>
+</body>
+</html>
