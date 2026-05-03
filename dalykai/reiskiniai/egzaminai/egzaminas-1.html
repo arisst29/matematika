@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Reiškiniai — Egzaminas 1 (Variantas A)</title>
+  <link rel="stylesheet" href="../../../../../styles/main.css"/>
+  <style>body{margin:0;font-family:'Segoe UI',system-ui,sans-serif}
+.exam-top{border-bottom:3px solid #1d4ed8;padding-bottom:20px;margin-bottom:32px}
+.exam-top h1{font-size:22px;font-weight:700;color:#1a1a2e;margin:0 0 6px}
+.exam-top .meta{display:flex;gap:20px;flex-wrap:wrap;margin-top:10px}
+.exam-top .meta span{font-size:13px;color:#555;background:#f1f5f9;padding:4px 10px;border-radius:20px}
+.hard-badge{background:#fef2f2;color:#b91c1c;border:1px solid #fca5a5;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700;letter-spacing:0.05em}
+.progress-wrap{margin-bottom:28px}
+.progress-bar{height:6px;background:#e2e8f0;border-radius:3px;overflow:hidden}
+.progress-fill{height:100%;background:#1d4ed8;border-radius:3px;transition:width .3s;width:0%}
+.progress-text{font-size:12px;color:#64748b;margin-top:6px;text-align:right}
+.q-card{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:24px;margin-bottom:16px;box-shadow:0 1px 4px rgba(0,0,0,0.05)}
+.q-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px}
+.q-num{font-size:13px;font-weight:700;color:#64748b;letter-spacing:0.05em}
+.q-pts{background:#eff6ff;color:#1d4ed8;border:1px solid #bfdbfe;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:700}
+.q-text{font-size:15px;color:#1a1a2e;line-height:1.75;margin-bottom:6px;font-weight:500}
+.options{display:flex;flex-direction:column;gap:8px;margin-top:12px}
+.opt{display:flex;align-items:center;gap:12px;padding:11px 16px;border:1.5px solid #e2e8f0;border-radius:8px;cursor:pointer;transition:all .12s;background:#fff;user-select:none}
+.opt:hover{border-color:#1d4ed8;background:#eff6ff}
+.opt.selected{border-color:#1d4ed8;background:#eff6ff}
+.opt.correct{border-color:#16a34a;background:#f0fdf4}
+.opt.wrong{border-color:#dc2626;background:#fef2f2}
+.opt.show-correct{border-color:#16a34a;background:#f0fdf4}
+.opt-letter{width:30px;height:30px;border-radius:50%;background:#e2e8f0;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#475569;flex-shrink:0}
+.opt.selected .opt-letter{background:#1d4ed8;color:#fff}
+.opt.correct .opt-letter{background:#16a34a;color:#fff}
+.opt.wrong .opt-letter{background:#dc2626;color:#fff}
+.opt.show-correct .opt-letter{background:#16a34a;color:#fff}
+.opt-text{font-size:14px;color:#334155;line-height:1.5}
+.submit-row{margin-top:32px;padding-top:24px;border-top:2px solid #e2e8f0;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.btn-submit{padding:13px 36px;background:#1d4ed8;color:#fff;border:none;border-radius:8px;font-size:15px;font-weight:700;font-family:inherit;cursor:pointer}
+.btn-submit:disabled{background:#94a3b8;cursor:not-allowed}
+.answered-info{font-size:13px;color:#64748b}
+.modal-bg{display:none;position:fixed;inset:0;background:rgba(15,23,42,0.6);z-index:300;align-items:center;justify-content:center}
+.modal-bg.open{display:flex}
+.modal{background:#fff;border-radius:16px;padding:44px 48px;max-width:540px;width:92%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.2)}
+.modal-pct{font-size:80px;font-weight:800;line-height:1;margin-bottom:4px}
+.modal-pct.ex{color:#16a34a}.modal-pct.good{color:#1d4ed8}.modal-pct.poor{color:#dc2626}
+.modal-feedback{font-size:22px;font-weight:700;color:#1a1a2e;margin-bottom:4px}
+.modal-sub{font-size:14px;color:#64748b;margin-bottom:24px}
+.modal-stats{display:flex;justify-content:center;gap:32px;padding:20px;background:#f8fafc;border-radius:10px;margin-bottom:24px}
+.modal-stat-v{font-size:26px;font-weight:700;color:#1a1a2e}
+.modal-stat-k{font-size:11px;color:#94a3b8;margin-top:2px;text-transform:uppercase;letter-spacing:0.05em}
+.modal-btns{display:flex;gap:10px;justify-content:center}
+.btn{padding:10px 22px;border-radius:8px;font-size:14px;font-weight:600;font-family:inherit;cursor:pointer;border:1.5px solid #e2e8f0;background:#fff;color:#334155}
+.btn.primary{background:#1d4ed8;color:#fff;border-color:#1d4ed8}</style>
+</head>
+<body>
+<div class="layout">
+  <nav class="sidebar" id="sidebar"></nav>
+  <div class="main">
+    <div class="topbar">
+      <div class="breadcrumb">
+        <a href="../../../../../index.html">Matematika 11</a>
+        <span class="sep">›</span><span>Reiškiniai</span>
+        <span class="sep">›</span><span class="current">Egzaminas 1 — Variantas A</span>
+      </div>
+    </div>
+    <div class="page">
+      <div class="exam-top">
+        <div class="topic-tag">3 skyrius · Egzaminas 1</div>
+        <h1>Reiškiniai — Egzaminas 1, Variantas A (∼45 min)</h1>
+        <div class="meta">
+          <span>30 klausimų</span>
+          <span>T1 · T2 · T3 · T4 · T5</span>
+          <span>Atsakymai matomi po pateikimo</span>
+          <span class="hard-badge">SUNKUS</span>
+        </div>
+      </div>
+      <div class="progress-wrap">
+        <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+        <div class="progress-text" id="progress-text">Atsakyta: 0 / 30</div>
+      </div>
+      <div id="questions"></div>
+      <div class="submit-row">
+        <button class="btn-submit" id="submit-btn" onclick="submitExam()">Pateikti egzaminą</button>
+        <span class="answered-info" id="answered-info"></span>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal-bg" id="modal-bg">
+  <div class="modal">
+    <div class="modal-pct" id="modal-pct"></div>
+    <div class="modal-feedback" id="modal-feedback"></div>
+    <div class="modal-sub" id="modal-sub"></div>
+    <div class="modal-stats">
+      <div><div class="modal-stat-v" id="stat-c"></div><div class="modal-stat-k">Teisingi</div></div>
+      <div><div class="modal-stat-v" id="stat-w"></div><div class="modal-stat-k">Neteisingi</div></div>
+      <div><div class="modal-stat-v" id="stat-p"></div><div class="modal-stat-k">Rezultatas</div></div>
+    </div>
+    <div class="modal-btns"><button class="btn" onclick="closeModal()">Peržiūrėti atsakymus</button></div>
+  </div>
+</div>
+<script src="../../../../../js/main.js"></script>
+<script>var QUESTIONS=[{"text": "Apskaičiuokite ⁴√(0,0016).", "options": ["0,2", "0,04", "0,4", "0,002"], "correct": 0}, {"text": "Išskaidyk daugikliais: x² − 5x + 6.", "options": ["(x − 2)(x − 3)", "(x + 2)(x + 3)", "(x − 1)(x − 6)", "(x − 2)(x + 3)"], "correct": 0}, {"text": "Kam lygi ⁴√(3 − x)⁴ + ³√(x − 5)³, kai x < 3?", "options": ["2x − 8", "8 − 2x", "(3 − x) + (x − 5) = −2", "(3−x) − (x−5) = 8−2x"], "correct": 3}, {"text": "Nustatyk reiškinio ³√(x + 2) / (x − 4) apibrėžimo sritį.", "options": ["x ≠ 4", "x ≠ 4 ir x ≠ −2", "x ∈ ℝ \\ {4}", "x > −2"], "correct": 2}, {"text": "Apskaičiuokite 27^(−2/3).", "options": ["1/9", "9", "−9", "1/3"], "correct": 0}, {"text": "Kuri x reikšmė nepriklauso reiškinio (x + 1) / (x² − 3x) apibrėžimo sričiai?", "options": ["x = 1", "x = 0", "x = −1", "x = 2"], "correct": 1}, {"text": "Suprastink: (a³ − 8) / (a² − 4).", "options": ["(a² + 2a + 4)/(a + 2)", "a − 2", "(a + 2)/(a² + 2a + 4)", "(a² + 2a + 4)/(a − 2)"], "correct": 0}, {"text": "Pakelk kubu: (x − 2)³.", "options": ["x³ − 8", "x³ − 6x² + 12x − 8", "x³ + 6x² − 12x + 8", "x³ − 6x² − 12x − 8"], "correct": 1}, {"text": "Šaknį ⁵√(a⁴) užrašykite laipsnio forma.", "options": ["a^(5/4)", "a^(4/5)", "a^(1/5)", "a^(9/5)"], "correct": 1}, {"text": "Suprastink: (x² − 4) / (x² − 4x + 4).", "options": ["(x + 2)/(x − 2)", "(x − 2)/(x + 2)", "1/(x − 2)", "(x + 2)/(x − 2)²"], "correct": 0}, {"text": "Kokiai sąlygai turi tenkinti x, kad (2x − 5)^(1/4) turėtų prasmę?", "options": ["x > 5/2", "x ≥ 5/2", "x ≠ 5/2", "x ∈ ℝ"], "correct": 1}, {"text": "Pakelk kvadratu: (2x − 5y)².", "options": ["4x² − 25y²", "4x² + 20xy + 25y²", "4x² − 20xy + 25y²", "4x² − 10xy + 25y²"], "correct": 2}, {"text": "Suprastinkite: 3√50 − 4√18 + √8.", "options": ["3√2", "11√2", "5√2", "−√2"], "correct": 0}, {"text": "Duotos aibės A = [−3; 5) ir B = (1; 8]. Raskite A ∩ B.", "options": ["[−3; 8]", "(1; 5)", "[1; 5)", "(1; 8]"], "correct": 1}, {"text": "Apskaičiuokite ³√4 · ³√16.", "options": ["³√64 = 4", "⁶√20", "³√20", "8"], "correct": 0}, {"text": "Suprastinkite: a^(2/3) · a^(1/3) / a^(1/2).", "options": ["a^(1/6)", "a^(1/2)", "a^(7/6)", "a^(5/6)"], "correct": 1}, {"text": "Kuri aibė žymi sąlygą −2 ≤ x < 6?", "options": ["(−2; 6)", "[−2; 6]", "[−2; 6)", "(−2; 6]"], "correct": 2}, {"text": "Išskaidyk daugikliais: 9a² − 25b⁴.", "options": ["(3a − 5b²)²", "(3a − 5b²)(3a + 5b²)", "(9a − 25b²)(a + b²)", "(3a + 5b²)²"], "correct": 1}, {"text": "Kuris skaičius priklauso ℚ, bet nepriklauso ℤ?", "options": ["√2", "−5", "3/7", "π"], "correct": 2}, {"text": "Duotos aibės A = {2, 4, 6, 8, 10} ir B = {4, 8, 12}. Raskite A \\ B.", "options": ["{4, 8}", "{2, 6, 10}", "{12}", "{2, 4, 6, 8, 10, 12}"], "correct": 1}, {"text": "Sudėk: 2/(x − 3) + 3/(x + 3).", "options": ["5x + 3)/(x² − 9)", "(5x − 3)/(x² − 9)", "5/(x² − 9)", "(5x + 3)/(x² − 9)"], "correct": 0}, {"text": "Nustatyk reiškinio √(4 − x) / (x + 3) apibrėžimo sritį.", "options": ["x ≤ 4", "x ≤ 4 ir x ≠ −3", "x < 4", "x ≤ 4 ir x > −3"], "correct": 1}, {"text": "Duotos A = [−5; 3] ir B = [1; 7]. Raskite A ∪ B.", "options": ["[1; 3]", "[−5; 7]", "[−5; 3]", "[1; 7]"], "correct": 1}, {"text": "Ką lygus √((2x − 3)²), kai 2x − 3 < 0?", "options": ["2x − 3", "3 − 2x", "|2x − 3|", "B ir C teisingi"], "correct": 3}, {"text": "Kurios x reikšmės nepriklauso reiškinio √(x² − 9) / (x − 1) apibrėžimo sričiai?", "options": ["x ∈ (−3; 3)", "x = 1 ir x ∈ (−3; 3)", "x = 1 ir x ∈ [−3; 3]", "x ∈ [−3; 3] \\ {1}"], "correct": 3}, {"text": "Padalink: (x² − 1)/(x² + 2x) ÷ (x − 1)/(x + 2).", "options": ["(x + 1)/x", "(x − 1)/x", "x + 1", "(x + 1)(x + 2)/x"], "correct": 0}, {"text": "Suprastink: (4^(3/2) + 8^(2/3)) / 2^(5/2).", "options": ["1", "2", "3/2", "√2"], "correct": 0}, {"text": "Išskaidyk daugikliais: x³ + 3x² − x − 3.", "options": ["(x + 3)(x² − 1)", "(x + 3)(x − 1)(x + 1)", "(x − 1)(x + 1)(x + 3)", "B ir C teisingi"], "correct": 3}, {"text": "Nustatyk reiškinio √(6 − 2x) / √(x² − 4) apibrėžimo sritį.", "options": ["x ≤ 3 ir x ≠ ±2", "x < 3 ir |x| > 2", "−3 < x < 3, x ≠ ±2... Ne — tiksliai: x ∈ (−∞;−2)∪(2;3]", "x ∈ (2; 3]"], "correct": 3}, {"text": "Apskaičiuokite: (2^(1/3) · 4^(1/6))³.", "options": ["4", "2√2", "2", "8"], "correct": 0}];
+var answers=new Array(QUESTIONS.length).fill(null);var submitted=false;
+function renderQuestions(){var html='';var L=['A','B','C','D'];for(var qi=0;qi<QUESTIONS.length;qi++){var q=QUESTIONS[qi];html+='<div class="q-card"><div class="q-header"><span class="q-num">KLAUSIMAS '+(qi+1)+' IŠ '+QUESTIONS.length+'</span><span class="q-pts">1 taškas</span></div><div class="q-text">'+q.text+'</div><div class="options">';for(var oi=0;oi<q.options.length;oi++){html+='<div class="opt" id="opt-'+qi+'-'+oi+'" onclick="sel('+qi+','+oi+')">';html+='<div class="opt-letter">'+L[oi]+'</div><div class="opt-text">'+q.options[oi]+'</div></div>';}html+='</div></div>';}document.getElementById('questions').innerHTML=html;document.getElementById('progress-text').textContent='Atsakyta: 0 / '+QUESTIONS.length;}
+function sel(qi,oi){if(submitted)return;answers[qi]=oi;for(var i=0;i<4;i++){var e=document.getElementById('opt-'+qi+'-'+i);if(e)e.classList.remove('selected');}document.getElementById('opt-'+qi+'-'+oi).classList.add('selected');var a=answers.filter(function(x){return x!==null;}).length;document.getElementById('progress-fill').style.width=(a/QUESTIONS.length*100)+'%';document.getElementById('progress-text').textContent='Atsakyta: '+a+' / '+QUESTIONS.length;document.getElementById('answered-info').textContent=a+' / '+QUESTIONS.length+' atsakyta';}
+function submitExam(){var a=answers.filter(function(x){return x!==null;}).length;if(a<QUESTIONS.length&&!confirm('Dar neatsakyta '+(QUESTIONS.length-a)+' klausimų. Pateikti?'))return;submitted=true;document.getElementById('submit-btn').disabled=true;var correct=0;for(var qi=0;qi<QUESTIONS.length;qi++){var q=QUESTIONS[qi];var s=answers[qi];if(s===q.correct)correct++;for(var oi=0;oi<q.options.length;oi++){var el=document.getElementById('opt-'+qi+'-'+oi);el.classList.remove('selected');if(oi===q.correct)el.classList.add(s===q.correct&&oi===s?'correct':'show-correct');if(oi===s&&s!==q.correct)el.classList.add('wrong');}}var pct=Math.round(correct/QUESTIONS.length*100);document.getElementById('modal-pct').textContent=pct+'%';document.getElementById('modal-pct').className='modal-pct '+(pct>=80?'ex':pct>=50?'good':'poor');document.getElementById('modal-feedback').textContent=pct>=90?'Puikiai!':pct>=70?'Gerai!':pct>=50?'Neblogai':'Reikia daugiau pasirengimo';document.getElementById('modal-sub').textContent='Teisingai: '+correct+' iš '+QUESTIONS.length;document.getElementById('stat-c').textContent=correct;document.getElementById('stat-w').textContent=QUESTIONS.length-correct;document.getElementById('stat-p').textContent=pct+'%';document.getElementById('modal-bg').classList.add('open');}
+function closeModal(){document.getElementById('modal-bg').classList.remove('open');}
+renderQuestions();</script>
+</body>
+</html>

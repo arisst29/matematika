@@ -4,9 +4,11 @@
 // Norėdami pridėti naują temą — tiesiog pridėkite čia!
 const NAV = [
   { id: 'reiskiniai', num: '3.', name: 'Reiškiniai', topics: [
-      { id: 't1', name: 'T1. Aibės ir jų veiksmai',              path: 'dalykai/reiskiniai/temos/t1-aibes/teorija.html' },
-      { id: 't2', name: 'T2. n-tojo laipsnio šaknys',            path: 'dalykai/reiskiniai/temos/t2-saknys/teorija.html' },
-      { id: 't3', name: 'T3. Veiksmai su šaknimis ir laipsniais', path: 'dalykai/reiskiniai/temos/t3-veiksmai-saknimis/teorija.html' },
+      { id: 't1', name: 'T1. Aibės ir jų veiksmai',                       path: 'dalykai/reiskiniai/temos/t1-aibes/teorija.html' },
+      { id: 't2', name: 'T2. n-tojo laipsnio šaknys',                     path: 'dalykai/reiskiniai/temos/t2-saknys/teorija.html' },
+      { id: 't3', name: 'T3. Veiksmai su šaknimis ir laipsniais',          path: 'dalykai/reiskiniai/temos/t3-veiksmai-saknimis/teorija.html' },
+      { id: 't4', name: 'T4. Apibrėžimo sritis ir veiksmai su reiškiniais', path: 'dalykai/reiskiniai/temos/t4-apibreztis/teorija.html' },
+      { id: 't5', name: 'T5. Formulės, skaidymas ir algebrinės trupmenos', path: 'dalykai/reiskiniai/temos/t5-formules-skaidymas/teorija.html' },
     ], tests: 'dalykai/reiskiniai/skyriaus-testai/index.html', exams: 'dalykai/reiskiniai/egzaminai/index.html' },
   {
     id: 'funkcijos',
