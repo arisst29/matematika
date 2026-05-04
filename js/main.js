@@ -10,6 +10,11 @@ const NAV = [
       { id: 't4', name: 'T4. Apibrėžimo sritis ir veiksmai su reiškiniais', path: 'dalykai/reiskiniai/temos/t4-apibreztis/teorija.html' },
       { id: 't5', name: 'T5. Formulės, skaidymas ir algebrinės trupmenos', path: 'dalykai/reiskiniai/temos/t5-formules-skaidymas/teorija.html' },
     ], tests: 'dalykai/reiskiniai/skyriaus-testai/index.html', exams: 'dalykai/reiskiniai/egzaminai/index.html' },
+  { id: 'lygtys', num: '4.', name: 'Lygtys, nelygybės ir jų sistemos', topics: [
+      { id: 't1', name: 'T1. Trupmeninės ir aukštesniojo laipsnio lygtys', path: 'dalykai/lygtys/temos/t1-lygtys/teorija.html' },
+      { id: 't2', name: 'T2. Iracionaliosios lygtys ir lygtys su moduliais', path: 'dalykai/lygtys/temos/t2-irac-moduliai/teorija.html' },
+      { id: 't3', name: 'T3. Vjeto formulės ir praktinių uždavinių sprendimas',       path: 'dalykai/lygtys/temos/t3-vjeto-uzdaviniai/teorija.html' },
+    ], tests: 'dalykai/lygtys/skyriaus-testai/index.html', exams: 'dalykai/lygtys/egzaminai/index.html' },
   {
     id: 'funkcijos',
     num: '5.',
@@ -179,7 +184,7 @@ function autoOpen() {
     const chevron = header?.querySelector('.subject-chevron');
     if (list) list.classList.add('open');
     if (chevron) chevron.classList.add('open');
-    if (header) header.classList.add('active');
+    if (header) classList.add('active');
   }
 }
 
