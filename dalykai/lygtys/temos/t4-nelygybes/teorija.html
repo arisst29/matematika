@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>T4. Kvadratinės ir trupmeninės nelygybės</title>
+  <link rel="stylesheet" href="../../../../../styles/main.css"/>
+  <style>
+    .row-apibreztis{background:#f1f0ee;border-left:3px solid #9a9a92}.row-apibreztis .row-label{color:#5a5a54;background:#e4e2d8;border-color:#c8c6bc}
+    .row-zymime{background:#fffbeb;border-left:3px solid #b45309}.row-zymime .row-label{color:#b45309;background:#fef3c7;border-color:#fde68a}
+    .row-svarbu{background:#fef2f2;border-left:3px solid #b91c1c}.row-svarbu .row-label{color:#b91c1c;background:#fecaca;border-color:#fca5a5}
+    .row-taisykle{background:#f5f3ff;border-left:3px solid #6d28d9}.row-taisykle .row-label{color:#6d28d9;background:#ede9fe;border-color:#c4b5fd}
+    .row-pavyzdys{background:#f0fdf4;border-left:3px solid #15803d}.row-pavyzdys .row-label{color:#15803d;background:#dcfce7;border-color:#bbf7d0}
+    .theory-row{display:grid;grid-template-columns:1fr;border-radius:var(--radius);margin-bottom:8px;overflow:hidden}
+    .row-content{padding:13px 16px}
+    .row-label{display:inline-block;font-size:10px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;padding:2px 8px;border-radius:4px;border:1px solid;margin-bottom:7px}
+    .row-text{font-size:13.5px;color:var(--ink2);line-height:1.7}
+    .row-text strong{color:var(--ink);font-weight:500}
+    .formula{font-family:var(--mono);font-size:13.5px;color:var(--accent);display:block;margin:5px 0 5px 8px}
+    .step-list{counter-reset:step;list-style:none;padding:0;margin:8px 0}
+    .step-list li{counter-increment:step;padding:6px 0 6px 36px;position:relative;font-size:13.5px;color:var(--ink2);line-height:1.6;border-bottom:1px solid var(--border)}
+    .step-list li:last-child{border-bottom:none}
+    .step-list li::before{content:counter(step);position:absolute;left:0;top:6px;width:24px;height:24px;background:var(--accent);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700}
+  </style>
+</head>
+<body>
+<div class="layout">
+  <nav class="sidebar" id="sidebar"></nav>
+  <div class="main">
+    <div class="topbar">
+      <div class="breadcrumb">
+        <a href="../../../../../index.html">Matematika 11</a>
+        <span class="sep">›</span><span>Lygtys</span>
+        <span class="sep">›</span><span class="current">T4. Kvadratinės ir trupmeninės nelygybės</span>
+      </div>
+      <div class="tab-switcher"><button class="tab-btn active">Teorija</button></div>
+    </div>
+    <div class="page">
+      <div class="topic-header">
+        <div class="topic-tag">4 skyrius · Tema 4</div>
+        <h1 class="topic-title">Kvadratinės, aukštesniojo laipsnio ir trupmeninės nelygybės</h1>
+        <p class="topic-intro">Kvadratines ir aukštesniojo laipsnio nelygybes sprendžiame intervalų metodu — universaliu būdu, tinkančiu daugeliui nelygybių tipų.</p>
+      </div>
+
+      <!-- BLOKAS 1 -->
+      <div class="theory-block">
+        <div class="block-title"><div class="block-num">1</div>Intervalų metodas</div>
+
+        <div class="theory-row row-apibreztis">
+          <div class="row-content">
+            <div class="row-label">Metodo esmė</div>
+            <div class="row-text">
+              Pirmiausia išsprendžiame pradinei nelygybei analogišką <strong>lygtį</strong>. Jos sprendiniai padalija skaičių tiesę į <strong>intervalus</strong>. Kiekviename intervale nustatome nelygybės reiškinio ženklą ir parenkame tinkamą atsakymą.
+            </div>
+          </div>
+        </div>
+
+        <div class="theory-row row-taisykle">
+          <div class="row-content">
+            <div class="row-label">4 žingsnių algoritmas</div>
+            <div class="row-text">
+              <ol class="step-list">
+                <li>Visus nelygybės narius perkeliame į kairiąją pusę ir išskaidome daugikliais.</li>
+                <li>Nelygybės ženklą pakeičiame lygybės ženklu ir išsprendžiame lygtį — randame x reikšmes, su kuriomis kiekvienas daugiklis lygus nuliui. Šios reikšmės padalija skaičių tiesę į intervalus.</li>
+                <li>Kiekviename intervale nustatome daugiklių ženklus — įrašome vieną to intervalo x reikšmę ir sužinome, kokią reikšmę (teigiamą ar neigiamą) kiekviename intervale įgyja nelygybės reiškinio daugiklis. Jei neigiamų daugiklių skaičius lyginis — sandauga teigiama, jei nelyginis — neigiama.</li>
+                <li>Užrašome nelygybės sprendinius — t. y. tuos x reikšmių intervalus, kuriuose reiškinio ženklas sutampa su nelygybės ženklu. Atkreipiame dėmesį į taškus, kuriuose reiškinys lygus nuliui.</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+
+        <div class="theory-row row-svarbu">
+          <div class="row-content">
+            <div class="row-label">Taškai skaičių tiesėje</div>
+            <div class="row-text">
+              Taškai, kuriuose reiškinys lygus nuliui:<br/>
+              • Jei nelygybė <strong>griežta</strong> (&lt; arba &gt;) — taškai <strong>neįeina</strong> į sprendinį (žymima tuščiaviduriu skrituliu ○)<br/>
+              • Jei nelygybė <strong>negriežta</strong> (≤ arba ≥) — taškai <strong>įeina</strong> į sprendinį (žymima pilnaviduriu skrituliu ●)
+            </div>
+          </div>
+        </div>
+
+        <div class="theory-row row-pavyzdys">
+          <div class="row-content">
+            <div class="row-label">Pavyzdys — kvadratinė nelygybė</div>
+            <div class="row-text">
+              Išspręskime nelygybę x² − x − 6 ≤ 0.<br/><br/>
+              Išsprendžiame lygtį x² − x − 6 = 0:
+              <span class="formula">D = 1 + 24 = 25; x₁ = −2, x₂ = 3</span>
+              Išskaidome: x² − x − 6 = (x + 2)(x − 3).<br/>
+              Pažymime x = −2 ir x = 3 skaičių tiesėje — ji dalijama į tris intervalus.<br/>
+              Iš kiekvieno intervalo paimame po vieną skaičių ir tikriname ženklą:<br/>
+              x = −3: (−1)(−6) = + &ensp; x = 0: (2)(−3) = − &ensp; x = 5: (7)(2) = +<br/>
+              Nelygybė ≤ 0, tai imame intervalą su minusu: [−2; 3].
+              <span class="formula">Atsakymas: x ∈ [−2; 3]</span><br/><br/>
+<div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:12px 16px;margin-top:8px">
+<div style="font-size:11px;color:#64748b;margin-bottom:6px;font-weight:600">SKAIČIŲ TIESĖ:</div>
+<svg viewBox="0 0 420 70" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:420px;height:auto">
+  <defs><marker id="ax1" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><polygon points="0,1 5,3 0,5" fill="#94a3b8"/></marker></defs>
+  <!-- tiesė -->
+  <line x1="20" y1="35" x2="400" y2="35" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#ax1)"/>
+  <!-- ženklai intervale -->
+  <text x="60" y="25" font-size="14" fill="#dc2626" font-weight="700" text-anchor="middle">+</text>
+  <text x="185" y="25" font-size="14" fill="#16a34a" font-weight="700" text-anchor="middle">−</text>
+  <text x="330" y="25" font-size="14" fill="#dc2626" font-weight="700" text-anchor="middle">+</text>
+  <!-- sprendinys [−2;3] -->
+  <line x1="130" y1="28" x2="240" y2="28" stroke="#16a34a" stroke-width="3"/>
+  <!-- taškai -->
+  <circle cx="130" cy="35" r="5" fill="#16a34a"/>
+  <text x="130" y="52" font-size="11" fill="#374151" text-anchor="middle">−2</text>
+  <circle cx="240" cy="35" r="5" fill="#16a34a"/>
+  <text x="240" y="52" font-size="11" fill="#374151" text-anchor="middle">3</text>
+  <!-- etiketės -->
+  <text x="60" y="65" font-size="10" fill="#94a3b8" text-anchor="middle">(x+2)&lt;0</text>
+  <text x="185" y="65" font-size="10" fill="#16a34a" text-anchor="middle">sprendinys</text>
+  <text x="330" y="65" font-size="10" fill="#94a3b8" text-anchor="middle">(x−3)&gt;0</text>
+</svg>
+<div style="font-size:11px;color:#64748b;margin-top:4px">● — taškas įeina (≤), sprendinys: <strong style="color:#16a34a">x ∈ [−2; 3]</strong></div>
+</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="theory-row row-pavyzdys">
+          <div class="row-content">
+            <div class="row-label">Pavyzdys — aukštesniojo laipsnio nelygybė</div>
+            <div class="row-text">
+              Išspręskime nelygybę (x + 3)(x − 1)(x − 4) &gt; 0.<br/><br/>
+              Daugikliai lygūs nuliui kai x = −3, x = 1, x = 4. Tiesė dalijama į 4 intervalus.<br/>
+              Tikriname ženklą kiekviename intervale:<br/>
+              x = −4: (−)(−)(−) = − &ensp; x = 0: (+)(−)(−) = + &ensp; x = 2: (+)(+)(−) = − &ensp; x = 5: (+)(+)(+) = +<br/>
+              Nelygybė &gt; 0, imame teigiamus intervalus (taškai neįeina):
+              <span class="formula">Atsakymas: x ∈ (−3; 1) ∪ (4; +∞)</span><br/><br/>
+<div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:12px 16px;margin-top:8px">
+<div style="font-size:11px;color:#64748b;margin-bottom:6px;font-weight:600">SKAIČIŲ TIESĖ:</div>
+<svg viewBox="0 0 460 70" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:460px;height:auto">
+  <defs><marker id="ax2" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><polygon points="0,1 5,3 0,5" fill="#94a3b8"/></marker></defs>
+  <line x1="20" y1="35" x2="440" y2="35" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#ax2)"/>
+  <!-- ženklai -->
+  <text x="70" y="25" font-size="14" fill="#dc2626" font-weight="700" text-anchor="middle">−</text>
+  <text x="185" y="25" font-size="14" fill="#16a34a" font-weight="700" text-anchor="middle">+</text>
+  <text x="295" y="25" font-size="14" fill="#dc2626" font-weight="700" text-anchor="middle">−</text>
+  <text x="385" y="25" font-size="14" fill="#16a34a" font-weight="700" text-anchor="middle">+</text>
+  <!-- sprendiniai (−3;1) ir (4;+∞) -->
+  <line x1="120" y1="28" x2="250" y2="28" stroke="#16a34a" stroke-width="3"/>
+  <line x1="340" y1="28" x2="430" y2="28" stroke="#16a34a" stroke-width="3"/>
+  <!-- taškai (griežta — tuščiaviduris) -->
+  <circle cx="120" cy="35" r="5" fill="white" stroke="#374151" stroke-width="2"/>
+  <text x="120" y="52" font-size="11" fill="#374151" text-anchor="middle">−3</text>
+  <circle cx="250" cy="35" r="5" fill="white" stroke="#374151" stroke-width="2"/>
+  <text x="250" y="52" font-size="11" fill="#374151" text-anchor="middle">1</text>
+  <circle cx="340" cy="35" r="5" fill="white" stroke="#374151" stroke-width="2"/>
+  <text x="340" y="52" font-size="11" fill="#374151" text-anchor="middle">4</text>
+</svg>
+<div style="font-size:11px;color:#64748b;margin-top:4px">○ — taškas neįeina (&gt;), sprendinys: <strong style="color:#16a34a">x ∈ (−3; 1) ∪ (4; +∞)</strong></div>
+</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BLOKAS 2 -->
+      <div class="theory-block">
+        <div class="block-title"><div class="block-num">2</div>Trupmeninės nelygybės</div>
+
+        <div class="theory-row row-apibreztis">
+          <div class="row-content">
+            <div class="row-label">Skirtumas nuo įprastų nelygybių</div>
+            <div class="row-text">
+              Trupmeninės nelygybės sprendžiamos intervalų metodu panašiai kaip įprastos, tačiau yra vienas svarbus skirtumas — <strong>taškus, kuriuose vardiklis lygus nuliui</strong>, reikia pažymėti <strong>tuščiaviduriais skrituliukais</strong>. Šie taškai nėra nelygybės sprendiniai.
+            </div>
+          </div>
+        </div>
+
+        <div class="theory-row row-taisykle">
+          <div class="row-content">
+            <div class="row-label">Sprendimo tvarka</div>
+            <div class="row-text">
+              <ol class="step-list">
+                <li>Nelygybę pertvarkome taip, kad ji įgytų pavidalą A(x)/B(x) &gt; 0 (vietoj ženklo „&gt;" gali būti ženklas „&lt;", „≤" arba „≥").</li>
+                <li>Sprendžiame lygtį A(x) = 0 ir nelygybę B(x) ≠ 0. Gautus taškus pažymime skaičių tiesėje ir padalijame ją į intervalus.</li>
+                <li>Nustatome reiškinio ženklą kiekviename intervale, atsižvelgdami į sąlygos reikalavimus bei apibrėžimo sritį, užrašome atsakymą.</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+
+        <div class="theory-row row-pavyzdys">
+          <div class="row-content">
+            <div class="row-label">Pavyzdys</div>
+            <div class="row-text">
+              Išspręskime nelygybę (x + 4) / (x − 2) ≤ 0.<br/><br/>
+              Skaitiklis lygus nuliui kai x = −4, vardiklis lygus nuliui kai x = 2.<br/>
+              Pažymime skaičių tiesėje: x = −4 (pilnaviduris ●, nes ≤), x = 2 (tuščiaviduris ○, nes vardiklis).<br/>
+              Tikriname ženklą intervaluose:<br/>
+              x = −5: (−)/(−) = + &ensp; x = 0: (+)/(−) = − &ensp; x = 3: (+)/(+) = +<br/>
+              Imame intervalą su minusu ir tašką x = −4:
+              <span class="formula">Atsakymas: x ∈ [−4; 2)</span><br/><br/>
+<div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:12px 16px;margin-top:8px">
+<div style="font-size:11px;color:#64748b;margin-bottom:6px;font-weight:600">SKAIČIŲ TIESĖ:</div>
+<svg viewBox="0 0 420 70" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:420px;height:auto">
+  <defs><marker id="ax3" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><polygon points="0,1 5,3 0,5" fill="#94a3b8"/></marker></defs>
+  <line x1="20" y1="35" x2="400" y2="35" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#ax3)"/>
+  <!-- ženklai -->
+  <text x="80" y="25" font-size="14" fill="#dc2626" font-weight="700" text-anchor="middle">+</text>
+  <text x="210" y="25" font-size="14" fill="#16a34a" font-weight="700" text-anchor="middle">−</text>
+  <text x="330" y="25" font-size="14" fill="#dc2626" font-weight="700" text-anchor="middle">+</text>
+  <!-- sprendinys [−4;2) -->
+  <line x1="140" y1="28" x2="280" y2="28" stroke="#16a34a" stroke-width="3"/>
+  <!-- x=−4: pilnaviduris (≤, skaitiklio šaknis) -->
+  <circle cx="140" cy="35" r="5" fill="#16a34a"/>
+  <text x="140" y="52" font-size="11" fill="#374151" text-anchor="middle">−4</text>
+  <text x="140" y="65" font-size="9" fill="#16a34a" text-anchor="middle">● įeina</text>
+  <!-- x=2: tuščiaviduris (vardiklis) -->
+  <circle cx="280" cy="35" r="5" fill="white" stroke="#dc2626" stroke-width="2"/>
+  <text x="280" y="52" font-size="11" fill="#374151" text-anchor="middle">2</text>
+  <text x="280" y="65" font-size="9" fill="#dc2626" text-anchor="middle">○ vardiklis</text>
+</svg>
+<div style="font-size:11px;color:#64748b;margin-top:4px">Sprendinys: <strong style="color:#16a34a">x ∈ [−4; 2)</strong></div>
+</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="theory-row row-svarbu">
+          <div class="row-content">
+            <div class="row-label">Svarbu</div>
+            <div class="row-text">
+              Vardiklio nuliniai taškai <strong>niekada</strong> nepriklauso trupmeninės nelygybės sprendiniams — net kai nelygybė negriežta (≤ arba ≥). Todėl šie taškai visada žymimi tuščiaviduriu skrituliuku ○.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BLOKAS 3 -->
+      <div class="theory-block">
+        <div class="block-title"><div class="block-num">3</div>Kvadratinės lygties sprendinių skaičiaus nustatymas</div>
+
+        <div class="theory-row row-taisykle">
+          <div class="row-content">
+            <div class="row-label">Diskriminanto taisyklė</div>
+            <div class="row-text">
+              Kvadratinė lygtis ax² + bx + c = 0 (a ≠ 0):<br/><br/>
+              • turi <strong>du skirtingus realiuosius sprendinius</strong>, kai D = b² − 4ac &gt; 0<br/>
+              • turi <strong>vieną kartotinį sprendinį</strong>, kai D = 0<br/>
+              • <strong>neturi realiųjų sprendinių</strong>, kai D &lt; 0<br/><br/>
+              Tai naudojama sudarant nelygybes, kad nustatytume, kokioms parametro reikšmėms lygtis turi tam tikrą sprendinių skaičių.
+            </div>
+          </div>
+        </div>
+
+        <div class="theory-row row-pavyzdys">
+          <div class="row-content">
+            <div class="row-label">Pavyzdys</div>
+            <div class="row-text">
+              Su kuriomis m reikšmėmis lygtis x² + (m − 1)x + m = 0 turi du skirtingus realiuosius sprendinius?<br/><br/>
+              Sudarome nelygybę D &gt; 0:
+              <span class="formula">(m − 1)² − 4m &gt; 0</span>
+              <span class="formula">m² − 2m + 1 − 4m &gt; 0</span>
+              <span class="formula">m² − 6m + 1 &gt; 0</span>
+              Sprendžiame intervalų metodu: m₁ = 3 − 2√2, m₂ = 3 + 2√2.
+              <span class="formula">Atsakymas: m ∈ (−∞; 3 − 2√2) ∪ (3 + 2√2; +∞)</span>
+
+<div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:12px 16px;margin-top:8px">
+<div style="font-size:11px;color:#64748b;margin-bottom:6px;font-weight:600">SKAIČIŲ TIESĖ (parametras m):</div>
+<svg viewBox="0 0 460 70" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:460px;height:auto">
+  <defs><marker id="ax4" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><polygon points="0,1 5,3 0,5" fill="#94a3b8"/></marker></defs>
+  <line x1="20" y1="35" x2="440" y2="35" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#ax4)"/>
+  <!-- ženklai: + − + -->
+  <text x="90" y="25" font-size="14" fill="#16a34a" font-weight="700" text-anchor="middle">+</text>
+  <text x="230" y="25" font-size="14" fill="#dc2626" font-weight="700" text-anchor="middle">−</text>
+  <text x="370" y="25" font-size="14" fill="#16a34a" font-weight="700" text-anchor="middle">+</text>
+  <!-- sprendiniai: (−∞; m₁) ir (m₂; +∞) -->
+  <line x1="30" y1="28" x2="160" y2="28" stroke="#16a34a" stroke-width="3"/>
+  <line x1="300" y1="28" x2="430" y2="28" stroke="#16a34a" stroke-width="3"/>
+  <!-- taškai — tuščiavidurii (griežta >) -->
+  <circle cx="160" cy="35" r="5" fill="white" stroke="#374151" stroke-width="2"/>
+  <text x="160" y="52" font-size="11" fill="#374151" text-anchor="middle">3−2√2</text>
+  <text x="160" y="65" font-size="9" fill="#94a3b8" text-anchor="middle">≈ 0,17</text>
+  <circle cx="300" cy="35" r="5" fill="white" stroke="#374151" stroke-width="2"/>
+  <text x="300" y="52" font-size="11" fill="#374151" text-anchor="middle">3+2√2</text>
+  <text x="300" y="65" font-size="9" fill="#94a3b8" text-anchor="middle">≈ 5,83</text>
+</svg>
+<div style="font-size:11px;color:#64748b;margin-top:4px">○ — taškai neįeina (&gt;), sprendinys: <strong style="color:#16a34a">m ∈ (−∞; 3−2√2) ∪ (3+2√2; +∞)</strong></div>
+</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic-nav">
+        <a href="../t3-vjeto-uzdaviniai/teorija.html" class="nav-btn prev">← T3. Vjeto formulės</a>
+        <a href="../t5-nelygybes-sistemos/teorija.html" class="nav-btn next">T5. Nelygybių sistemos ir moduliai →</a>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="../../../../../js/main.js"></script>
+</body>
+</html>

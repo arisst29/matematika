@@ -13,7 +13,10 @@ const NAV = [
   { id: 'lygtys', num: '4.', name: 'Lygtys, nelygybės ir jų sistemos', topics: [
       { id: 't1', name: 'T1. Trupmeninės ir aukštesniojo laipsnio lygtys', path: 'dalykai/lygtys/temos/t1-lygtys/teorija.html' },
       { id: 't2', name: 'T2. Iracionaliosios lygtys ir lygtys su moduliais', path: 'dalykai/lygtys/temos/t2-irac-moduliai/teorija.html' },
-      { id: 't3', name: 'T3. Vjeto formulės ir praktinių uždavinių sprendimas',       path: 'dalykai/lygtys/temos/t3-vjeto-uzdaviniai/teorija.html' },
+      { id: 't3', name: 'T3. Vjeto formulės ir uždavinių sprendimas',       path: 'dalykai/lygtys/temos/t3-vjeto-uzdaviniai/teorija.html' },
+      { id: 't4', name: 'T4. Kvadratinės ir trupmeninės nelygybės',           path: 'dalykai/lygtys/temos/t4-nelygybes/teorija.html' },
+      { id: 't5', name: 'T5. Nelygybių sistemos ir su moduliu',  path: 'dalykai/lygtys/temos/t5-nelygybes-sistemos/teorija.html' },
+      { id: 't6', name: 'T6. Lygčių sistemos ir jų taikymas',                  path: 'dalykai/lygtys/temos/t6-sistemos/teorija.html' },
     ], tests: 'dalykai/lygtys/skyriaus-testai/index.html', exams: 'dalykai/lygtys/egzaminai/index.html' },
   {
     id: 'funkcijos',
@@ -184,7 +187,7 @@ function autoOpen() {
     const chevron = header?.querySelector('.subject-chevron');
     if (list) list.classList.add('open');
     if (chevron) chevron.classList.add('open');
-    if (header) classList.add('active');
+    if (header) header.classList.add('active');
   }
 }
 

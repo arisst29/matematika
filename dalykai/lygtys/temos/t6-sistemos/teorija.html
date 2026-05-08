@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>T6. Lygčių sistemos</title>
+  <link rel="stylesheet" href="../../../../../styles/main.css"/>
+  <style>
+    .row-apibreztis{background:#f1f0ee;border-left:3px solid #9a9a92}.row-apibreztis .row-label{color:#5a5a54;background:#e4e2d8;border-color:#c8c6bc}
+    .row-zymime{background:#fffbeb;border-left:3px solid #b45309}.row-zymime .row-label{color:#b45309;background:#fef3c7;border-color:#fde68a}
+    .row-svarbu{background:#fef2f2;border-left:3px solid #b91c1c}.row-svarbu .row-label{color:#b91c1c;background:#fecaca;border-color:#fca5a5}
+    .row-taisykle{background:#f5f3ff;border-left:3px solid #6d28d9}.row-taisykle .row-label{color:#6d28d9;background:#ede9fe;border-color:#c4b5fd}
+    .row-pavyzdys{background:#f0fdf4;border-left:3px solid #15803d}.row-pavyzdys .row-label{color:#15803d;background:#dcfce7;border-color:#bbf7d0}
+    .theory-row{display:grid;grid-template-columns:1fr;border-radius:var(--radius);margin-bottom:8px;overflow:hidden}
+    .row-content{padding:13px 16px}
+    .row-label{display:inline-block;font-size:10px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;padding:2px 8px;border-radius:4px;border:1px solid;margin-bottom:7px}
+    .row-text{font-size:13.5px;color:var(--ink2);line-height:1.7}
+    .row-text strong{color:var(--ink);font-weight:500}
+    .formula{font-family:var(--mono);font-size:13.5px;color:var(--accent);display:block;margin:5px 0 5px 8px}
+    .step-list{counter-reset:step;list-style:none;padding:0;margin:8px 0}
+    .step-list li{counter-increment:step;padding:6px 0 6px 36px;position:relative;font-size:13.5px;color:var(--ink2);line-height:1.6;border-bottom:1px solid var(--border)}
+    .step-list li:last-child{border-bottom:none}
+    .step-list li::before{content:counter(step);position:absolute;left:0;top:6px;width:24px;height:24px;background:var(--accent);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700}
+    .lentele{width:100%;border-collapse:collapse;margin:10px 0;font-size:13px}
+    .lentele th{background:var(--bg3);padding:7px 10px;text-align:center;border:1px solid var(--border);font-weight:600;color:var(--ink2)}
+    .lentele td{padding:7px 10px;text-align:center;border:1px solid var(--border);color:var(--ink2)}
+  </style>
+</head>
+<body>
+<div class="layout">
+  <nav class="sidebar" id="sidebar"></nav>
+  <div class="main">
+    <div class="topbar">
+      <div class="breadcrumb">
+        <a href="../../../../../index.html">Matematika 11</a>
+        <span class="sep">›</span><span>Lygtys</span>
+        <span class="sep">›</span><span class="current">T6. Lygčių sistemos</span>
+      </div>
+      <div class="tab-switcher"><button class="tab-btn active">Teorija</button></div>
+    </div>
+    <div class="page">
+      <div class="topic-header">
+        <div class="topic-tag">4 skyrius · Tema 6</div>
+        <h1 class="topic-title">Lygčių sistemos ir jų taikymas</h1>
+        <p class="topic-intro">Lygčių sistemos sprendžiamos pakeitimo arba sudėties būdu. Daugelis žodinių uždavinių (judėjimo, darbo, skaitmenų) sprendžiami sudarant dviejų lygčių sistemas.</p>
+      </div>
+
+      <!-- BLOKAS 2 -->
+      <div class="theory-block">
+        <div class="block-title"><div class="block-num">1</div>Judėjimo uždaviniai</div>
+
+        <div class="theory-row row-zymime">
+          <div class="row-content">
+            <div class="row-label">Pagrindinė formulė</div>
+            <div class="row-text">
+              Judėjimo uždaviniuose ryšys tarp greičio, kelio ir laiko:
+              <span class="formula">s = v · t</span>
+              kur s — nueitas kelias, v — greitis, t — laikas.<br/><br/>
+              Dažnai patogiau sudaryti <strong>lentelę</strong> su trimis stulpeliais (s, v, t) ir užpildyti žinomus dydžius.
+            </div>
+          </div>
+        </div>
+
+        <div class="theory-row row-pavyzdys">
+          <div class="row-content">
+            <div class="row-label">Pavyzdys</div>
+            <div class="row-text">
+              Du dviratininkai vienu metu išvažiavo vienas kito link iš miestų, esančių 60 km atstumu. Jie susitiko po 2 valandų. Pirmojo greitis 6 km/h didesnis už antrojo. Raskite kiekvieno greitį.<br/><br/>
+              <table class="lentele">
+                <tr><th></th><th>s (km)</th><th>v (km/h)</th><th>t (h)</th></tr>
+                <tr><td>1-asis</td><td>s₁</td><td>x</td><td>2</td></tr>
+                <tr><td>2-asis</td><td>s₂</td><td>x − 6</td><td>2</td></tr>
+              </table>
+              Sudarome sistemą:
+              <span class="formula">{ s₁ + s₂ = 60 → 2x + 2(x−6) = 60</span>
+              <span class="formula">4x − 12 = 60 → x = 18</span>
+              <strong>Atsakymas: 1-asis — 18 km/h, 2-asis — 12 km/h.</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BLOKAS 3 -->
+      <div class="theory-block">
+        <div class="block-title"><div class="block-num">2</div>Darbo uždaviniai</div>
+
+        <div class="theory-row row-zymime">
+          <div class="row-content">
+            <div class="row-label">Pagrindinė formulė</div>
+            <div class="row-text">
+              Darbo uždaviniuose: A = N · t, kur A — visas darbas, N — darbo sparta, t — laikas.<br/><br/>
+              Jei vienas darbininkas visą darbą atliktų per <strong>x</strong> dienų, tai per vieną dieną jis atlieka <strong>1/x</strong> darbo dalį.<br/><br/>
+              Jei du darbininkai dirba kartu ir atlieka visą darbą, tai jų per vieną dieną atliktų darbo dalių suma lygi 1.
+            </div>
+          </div>
+        </div>
+
+        <div class="theory-row row-pavyzdys">
+          <div class="row-content">
+            <div class="row-label">Pavyzdys</div>
+            <div class="row-text">
+              Du dažytojai kartu nudažo kambarį per 6 valandas. Pirmasis tai padarytų 5 valandomis greičiau nei antrasis. Per kiek valandų nudažytų kiekvienas atskirai?<br/><br/>
+              Tarkime, antrasis nudažytų per y valandų, pirmasis — per y − 5 valandų.<br/>
+              Per 6 valandas abu kartu atlieka visą darbą:
+              <span class="formula">6/(y−5) + 6/y = 1</span>
+              Dauginame iš y(y−5):
+              <span class="formula">6y + 6(y−5) = y(y−5)</span>
+              <span class="formula">12y − 30 = y² − 5y</span>
+              <span class="formula">y² − 17y + 30 = 0 → y = 15 arba y = 2</span>
+              y = 2 netinka (pirmasis turėtų dirbti −3 h). Taigi y = 15.<br/>
+              <strong>Atsakymas: antrasis — 15 val., pirmasis — 10 val.</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BLOKAS 4 -->
+      <div class="theory-block">
+        <div class="block-title"><div class="block-num">3</div>Skaitmenų uždaviniai</div>
+
+        <div class="theory-row row-apibreztis">
+          <div class="row-content">
+            <div class="row-label">Pagrindinė idėja</div>
+            <div class="row-text">
+              Dviženklį skaičių galima užrašyti kaip:
+              <span class="formula">dviženkliai = 10a + b</span>
+              kur a — dešimčių skaitmuo, b — vienetų skaitmuo.<br/><br/>
+              Apkeitus skaitmenimis vietomis gaunamas skaičius: <strong>10b + a</strong>.<br/>
+              Triženkliai skaičiai: <strong>100a + 10b + c</strong>.
+            </div>
+          </div>
+        </div>
+
+        <div class="theory-row row-pavyzdys">
+          <div class="row-content">
+            <div class="row-label">Pavyzdys</div>
+            <div class="row-text">
+              Dviženklio skaičiaus skaitmenų suma lygi 9. Apkeitus skaitmenimis vietomis, naujas skaičius yra 27 mažesnis už pradinį. Raskite pradinį skaičių.<br/><br/>
+              Tarkime, dešimčių skaitmuo a, vienetų — b. Pradiniai skaičius 10a + b.<br/>
+              Sudarome sistemą:
+              <span class="formula">{ a + b = 9</span>
+              <span class="formula">{ (10a + b) − (10b + a) = 27 → 9a − 9b = 27 → a − b = 3</span>
+              Sprendžiame sudėties būdu: 2a = 12 → a = 6, b = 3.<br/>
+              <strong>Atsakymas: 63.</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic-nav">
+        <a href="../t5-nelygybes-sistemos/teorija.html" class="nav-btn prev">← T5. Nelygybių sistemos</a>
+        <a href="../../skyriaus-testai/index.html" class="nav-btn next">Skyriaus testai →</a>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="../../../../../js/main.js"></script>
+</body>
+</html>

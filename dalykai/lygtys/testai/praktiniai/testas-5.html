@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Praktinis testas 5 — Lygtys</title>
+  <link rel="stylesheet" href="../../../../../../styles/main.css"/>
+  <style>.test-header{margin-bottom:28px}.test-header h1{font-size:24px;font-weight:600;color:var(--ink);margin-bottom:6px}
+.test-meta{display:flex;gap:16px;margin-top:10px;flex-wrap:wrap}.test-meta-item{font-size:12px;color:var(--ink3)}
+.progress-bar{height:4px;background:var(--border);border-radius:2px;margin-bottom:28px;overflow:hidden}
+.progress-fill{height:100%;background:var(--accent);border-radius:2px;transition:width .3s}
+.question-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px;margin-bottom:16px}
+.question-num{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3);margin-bottom:8px}
+.question-text{font-size:15px;color:var(--ink);line-height:1.75;margin-bottom:16px;font-weight:500}
+.options{display:flex;flex-direction:column;gap:8px}
+.option{display:flex;align-items:center;gap:12px;padding:11px 14px;border:1px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all .12s;background:var(--bg);user-select:none}
+.option:hover{border-color:var(--accent);background:var(--accent-bg)}
+.option.selected{border-color:var(--accent);background:var(--accent-bg)}
+.option.correct{border-color:var(--green);background:var(--green-bg)}
+.option.wrong{border-color:var(--red);background:var(--red-bg)}
+.option.show-correct{border-color:var(--green);background:var(--green-bg)}
+.option-letter{width:28px;height:28px;border-radius:50%;background:var(--border);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;color:var(--ink2);flex-shrink:0}
+.option.selected .option-letter{background:var(--accent);color:#fff}
+.option.correct .option-letter{background:var(--green);color:#fff}
+.option.wrong .option-letter{background:var(--red);color:#fff}
+.option.show-correct .option-letter{background:var(--green);color:#fff}
+.option-text{font-size:14px;color:var(--ink2);line-height:1.5}
+.submit-area{margin-top:28px;display:flex;align-items:center;gap:14px;padding-top:20px;border-top:1px solid var(--border)}
+.submit-btn{padding:11px 28px;background:var(--accent);color:#fff;border:none;border-radius:var(--radius);font-size:14px;font-weight:600;font-family:var(--sans);cursor:pointer}
+.submit-btn:disabled{background:var(--ink3);cursor:not-allowed}
+.answered-count{font-size:13px;color:var(--ink3)}
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:200;align-items:center;justify-content:center}
+.modal-overlay.open{display:flex}
+.modal{background:var(--bg2);border-radius:var(--radius-lg);padding:36px 40px;max-width:480px;width:90%;text-align:center}
+.modal-score{font-size:64px;font-weight:700;line-height:1;margin-bottom:6px}
+.modal-score.excellent{color:var(--green)}.modal-score.good{color:var(--accent)}.modal-score.poor{color:var(--red)}
+.modal-label{font-size:14px;color:var(--ink3);margin-bottom:20px}
+.modal-stats{display:flex;justify-content:center;gap:28px;margin-bottom:24px;padding:16px;background:var(--bg3);border-radius:var(--radius)}
+.modal-stat-val{font-size:22px;font-weight:600;color:var(--ink)}.modal-stat-key{font-size:11px;color:var(--ink3);margin-top:2px}
+.modal-btns{display:flex;gap:10px;justify-content:center}
+.modal-feedback{font-size:18px;font-weight:600;color:var(--ink);margin-bottom:6px}</style>
+</head>
+<body>
+<div class="layout">
+  <nav class="sidebar" id="sidebar"></nav>
+  <div class="main">
+    <div class="topbar">
+      <div class="breadcrumb">
+        <a href="../../../../../../index.html">Matematika 11</a>
+        <span class="sep">›</span><span>Lygtys</span>
+        <span class="sep">›</span><span class="current">Praktinis testas 5</span>
+      </div>
+    </div>
+    <div class="page">
+      <div class="test-header">
+        <div class="topic-tag">4 skyrius · Praktinis testas 5</div>
+        <h1>Praktinis testas 5 — T4·T5·T6 mišrus</h1>
+        <div class="test-meta">
+          <div class="test-meta-item">10 uždavinių</div>
+          <div class="test-meta-item">T4 · T5 · T6</div>
+          <div class="test-meta-item">Atsakymas matomas po pateikimo</div>
+        </div>
+      </div>
+      <div class="progress-bar"><div class="progress-fill" id="progress" style="width:0%"></div></div>
+      <div id="questions"></div>
+      <div class="submit-area">
+        <button class="submit-btn" id="submit-btn" onclick="submitTest()">Pateikti testą</button>
+        <span class="answered-count" id="answered-count">Atsakyta: 0 / 10</span>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal-overlay" id="modal">
+  <div class="modal">
+    <div class="modal-score" id="modal-score"></div>
+    <div class="modal-feedback" id="modal-feedback"></div>
+    <div class="modal-label">Testo rezultatas</div>
+    <div class="modal-stats">
+      <div><div class="modal-stat-val" id="stat-correct"></div><div class="modal-stat-key">Teisingi</div></div>
+      <div><div class="modal-stat-val" id="stat-wrong"></div><div class="modal-stat-key">Neteisingi</div></div>
+      <div><div class="modal-stat-val" id="stat-pct"></div><div class="modal-stat-key">Rezultatas</div></div>
+    </div>
+    <div class="modal-btns">
+      <button class="btn" onclick="closeModal()">Peržiūrėti atsakymus</button>
+      <a href="testas-6.html" class="btn primary" style="text-decoration:none">Testas 6 →</a>
+    </div>
+  </div>
+</div>
+<script src="../../../../../../js/main.js"></script>
+<script>var QUESTIONS=[{"text": "Nelygybės x² + 2x − 15 ≤ 0 sprendiniai:", "options": ["x ∈ (−∞; −5] ∪ [3; +∞)", "x ∈ [−5; 3]", "x ∈ (−5; 3)", "x ∈ [−3; 5]"], "correct": 1}, {"text": "Nelygybė x² &gt; 9. Kiek sveikųjų skaičių yra jos sprendiniai?", "options": ["6", "4", "Begalė", "0"], "correct": 2}, {"text": "Nelygybės (x − 2) / (x + 5) ≥ 0 sprendiniai:", "options": ["x ∈ [−5; 2]", "x ∈ (−∞; −5) ∪ [2; +∞)", "x ∈ (−∞; −5] ∪ [2; +∞)", "x ∈ (−5; 2)"], "correct": 1}, {"text": "Su kuriomis k reikšmėmis lygtis x² − kx + 9 = 0 neturi realiųjų sprendinių?", "options": ["k ∈ (−6; 6)", "k ∈ (−∞; −6) ∪ (6; +∞)", "k ∈ [−6; 6]", "k ∈ (−3; 3)"], "correct": 0}, {"text": "Nelygybių sistemos { −x² + 3x + 10 ≥ 0;  x − 4 &lt; 0 } sprendiniai:", "options": ["x ∈ [−2; 5]", "x ∈ (−∞; 4)", "x ∈ [−2; 4)", "x ∈ (−2; 4)"], "correct": 2}, {"text": "Dvigubosios nelygybės −5 &lt; 4 − 3x ≤ 7 sprendiniai:", "options": ["x ∈ (−1; 3)", "x ∈ [−1; 3)", "x ∈ (−1; 3]", "x ∈ [−1; 3]"], "correct": 1}, {"text": "Nelygybės |x + 4| ≤ 6 sprendiniai:", "options": ["x ∈ [−10; 2]", "x ∈ (−∞; −10] ∪ [2; +∞)", "x ∈ (−10; 2)", "x ∈ [−2; 10]"], "correct": 0}, {"text": "Kateris plaukė 4 valandas prieš srovę ir 2 valandas pasroviui, iš viso įveikdamas 90 km. Katerio greitis ramiam vandenyje 18 km/h. Koks upės tėkmės greitis?", "options": ["3 km/h", "6 km/h", "9 km/h", "12 km/h"], "correct": 2}, {"text": "Pirmasis ekskavatorius duobę iškastų per 10 valandų, antrasis — per 15 valandų. Jie dirbo kartu 3 valandas, po to pirmasis sugedo. Kokia darbo dalis liko atlikti antrajam?", "options": ["1/4", "1/3", "1/2", "2/3"], "correct": 2}, {"text": "Stačiakampio perimetras 44 cm, o plotas 120 cm². Kokios jo kraštinės?", "options": ["10 cm ir 12 cm", "8 cm ir 15 cm", "6 cm ir 20 cm", "11 cm ir 11 cm"], "correct": 0}];
+var answers=new Array(QUESTIONS.length).fill(null);var submitted=false;
+function renderQuestions(){var html='';for(var qi=0;qi<QUESTIONS.length;qi++){var q=QUESTIONS[qi];html+='<div class="question-card"><div class="question-num">Klausimas '+(qi+1)+' iš '+QUESTIONS.length+'</div>';html+='<div class="question-text">'+q.text+'</div>';html+='<div class="options">';var L=['A','B','C','D'];for(var oi=0;oi<q.options.length;oi++){html+='<div class="option" id="opt-'+qi+'-'+oi+'" onclick="sel('+qi+','+oi+')">';html+='<div class="option-letter">'+L[oi]+'</div><div class="option-text">'+q.options[oi]+'</div></div>';}html+='</div></div>';}document.getElementById('questions').innerHTML=html;}
+function sel(qi,oi){if(submitted)return;answers[qi]=oi;for(var i=0;i<4;i++){var e=document.getElementById('opt-'+qi+'-'+i);if(e)e.classList.remove('selected');}document.getElementById('opt-'+qi+'-'+oi).classList.add('selected');var a=answers.filter(function(x){return x!==null;}).length;document.getElementById('progress').style.width=(a/QUESTIONS.length*100)+'%';document.getElementById('answered-count').textContent='Atsakyta: '+a+' / '+QUESTIONS.length;}
+function submitTest(){var a=answers.filter(function(x){return x!==null;}).length;if(a<QUESTIONS.length&&!confirm('Dar neatsakyta '+(QUESTIONS.length-a)+' klausimai. Pateikti?'))return;submitted=true;document.getElementById('submit-btn').disabled=true;var correct=0;for(var qi=0;qi<QUESTIONS.length;qi++){var q=QUESTIONS[qi];var s=answers[qi];if(s===q.correct)correct++;for(var oi=0;oi<q.options.length;oi++){var el=document.getElementById('opt-'+qi+'-'+oi);el.classList.remove('selected');if(oi===q.correct)el.classList.add(s===q.correct&&oi===s?'correct':'show-correct');if(oi===s&&s!==q.correct)el.classList.add('wrong');}}var pct=Math.round(correct/QUESTIONS.length*100);document.getElementById('modal-score').textContent=pct+'%';document.getElementById('modal-score').className='modal-score '+(pct>=80?'excellent':pct>=50?'good':'poor');document.getElementById('modal-feedback').textContent=pct>=90?'Puikiai!':pct>=70?'Gerai!':pct>=50?'Neblogai, dar pasikartok':'Reikia pasimokyti';document.getElementById('stat-correct').textContent=correct;document.getElementById('stat-wrong').textContent=QUESTIONS.length-correct;document.getElementById('stat-pct').textContent=correct+'/'+QUESTIONS.length;document.getElementById('modal').classList.add('open');}
+function closeModal(){document.getElementById('modal').classList.remove('open');}
+renderQuestions();</script>
+</body>
+</html>

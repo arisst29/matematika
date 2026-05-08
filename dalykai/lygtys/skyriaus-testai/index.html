@@ -5,6 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Skyriaus testai — Lygtys</title>
   <link rel="stylesheet" href="../../../styles/main.css"/>
+  <style>
+    .section-label{font-size:13px;font-weight:700;color:var(--ink2);text-transform:uppercase;letter-spacing:.06em;margin:28px 0 12px}
+    .tests-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:8px}
+    .test-card{display:block;text-decoration:none;background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-lg);padding:16px;transition:border-color .15s,box-shadow .15s;cursor:pointer}
+    .test-card:hover{border-color:var(--accent);box-shadow:0 2px 8px rgba(0,0,0,0.07)}
+    .test-card.green:hover{border-color:var(--green)}
+    .test-card-num{font-size:11px;font-weight:600;color:var(--ink3);margin-bottom:5px;text-transform:uppercase;letter-spacing:.05em}
+    .test-card-title{font-size:13px;font-weight:600;color:var(--ink);margin-bottom:4px}
+    .test-card-meta{font-size:12px;color:var(--ink3)}
+    .test-card-note{font-size:11px;color:#b45309;background:#fef3c7;border:1px solid #fde68a;border-radius:4px;padding:3px 7px;margin-top:7px;display:inline-block;line-height:1.4}
+    .divider{border:none;border-top:1px solid var(--border);margin:24px 0}
+  </style>
 </head>
 <body>
 <div class="layout">
@@ -21,50 +33,78 @@
       <div class="topic-header">
         <div class="topic-tag">4 skyrius</div>
         <h1 class="topic-title">Skyriaus testai</h1>
-        <p class="topic-intro">Teoriniai ir praktiniai testai visoms lygčių skyriaus temoms — T1·T2·T3 mišrus.</p>
+        <p class="topic-intro">Teoriniai ir praktiniai testai visoms skyriaus temoms — T1–T3 (lygtys) ir T4–T6 (nelygybės ir sistemos).</p>
       </div>
 
-      <div class="section-title" style="margin-bottom:10px">Teoriniai testai — T1 · T2 · T3 mišrus</div>
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:24px;">
-        <a href="../testai/teoriniai/testas-1.html" style="text-decoration:none">
-          <div class="theory-block" style="cursor:pointer" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">
-            <div style="font-size:13px;font-weight:600;color:var(--ink);margin-bottom:4px">Teorinis testas 1</div>
-            <div style="font-size:12px;color:var(--ink3)">10 klausimų · T1–T3 mišrus</div>
-          </div>
+      <!-- TEORINIAI T1-T3 -->
+      <div class="section-label">Teoriniai testai · T1 · T2 · T3 — Lygtys</div>
+      <div class="tests-grid">
+        <a href="../testai/teoriniai/testas-1.html" class="test-card">
+          <div class="test-card-num">Teorinis testas 1</div>
+          <div class="test-card-title">T1 · T2 · T3 mišrus</div>
+          <div class="test-card-meta">10 klausimų · algoritmai ir principai</div>
         </a>
-        <a href="../testai/teoriniai/testas-2.html" style="text-decoration:none">
-          <div class="theory-block" style="cursor:pointer" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">
-            <div style="font-size:13px;font-weight:600;color:var(--ink);margin-bottom:4px">Teorinis testas 2</div>
-            <div style="font-size:12px;color:var(--ink3)">10 klausimų · T1–T3 mišrus</div>
-          </div>
+        <a href="../testai/teoriniai/testas-2.html" class="test-card">
+          <div class="test-card-num">Teorinis testas 2</div>
+          <div class="test-card-title">T1 · T2 · T3 mišrus</div>
+          <div class="test-card-meta">10 klausimų · algoritmai ir principai</div>
         </a>
-        <a href="../testai/teoriniai/testas-3.html" style="text-decoration:none">
-          <div class="theory-block" style="cursor:pointer" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">
-            <div style="font-size:13px;font-weight:600;color:var(--ink);margin-bottom:4px">Teorinis testas 3</div>
-            <div style="font-size:12px;color:var(--ink3)">10 klausimų · T1–T3 mišrus</div>
-          </div>
+        <a href="../testai/teoriniai/testas-3.html" class="test-card">
+          <div class="test-card-num">Teorinis testas 3</div>
+          <div class="test-card-title">T1 · T2 · T3 mišrus</div>
+          <div class="test-card-meta">10 klausimų · algoritmai ir principai</div>
         </a>
       </div>
 
-      <div class="section-title" style="margin-bottom:10px">Praktiniai testai — T1 · T2 · T3 mišrus</div>
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;">
-        <a href="../testai/praktiniai/testas-1.html" style="text-decoration:none">
-          <div class="theory-block" style="cursor:pointer" onmouseover="this.style.borderColor='var(--green)'" onmouseout="this.style.borderColor='var(--border)'">
-            <div style="font-size:13px;font-weight:600;color:var(--ink);margin-bottom:4px">Praktinis testas 1</div>
-            <div style="font-size:12px;color:var(--ink3)">10 uždavinių · T1–T3 mišrus</div>
-          </div>
+      <hr class="divider"/>
+
+      <!-- TEORINIAI T4-T6 — nėra -->
+      <div class="section-label">Teoriniai testai · T4 · T5 · T6 — Nelygybės ir sistemos</div>
+      <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:var(--radius-lg);padding:18px 20px;color:var(--ink3);font-size:13.5px;line-height:1.7">
+         Teorinių testų šioms temoms nėra — nelygybių ir sistemų teorija persipina su kitų skyrių medžiaga ir yra geriau įtvirtinama sprendžiant praktinius uždavinius. Naudok žemiau esančius <strong>praktinius testus</strong>!
+      </div>
+
+      <hr class="divider"/>
+
+      <!-- PRAKTINIAI T1-T3 -->
+      <div class="section-label">Praktiniai testai · T1 · T2 · T3 — Lygtys</div>
+      <div class="tests-grid">
+        <a href="../testai/praktiniai/testas-1.html" class="test-card green">
+          <div class="test-card-num">Praktinis testas 1</div>
+          <div class="test-card-title">T1 · T2 · T3 mišrus</div>
+          <div class="test-card-meta">10 uždavinių · skaičiavimas</div>
         </a>
-        <a href="../testai/praktiniai/testas-2.html" style="text-decoration:none">
-          <div class="theory-block" style="cursor:pointer" onmouseover="this.style.borderColor='var(--green)'" onmouseout="this.style.borderColor='var(--border)'">
-            <div style="font-size:13px;font-weight:600;color:var(--ink);margin-bottom:4px">Praktinis testas 2</div>
-            <div style="font-size:12px;color:var(--ink3)">10 uždavinių · T1–T3 mišrus</div>
-          </div>
+        <a href="../testai/praktiniai/testas-2.html" class="test-card green">
+          <div class="test-card-num">Praktinis testas 2</div>
+          <div class="test-card-title">T1 · T2 · T3 mišrus</div>
+          <div class="test-card-meta">10 uždavinių · skaičiavimas</div>
         </a>
-        <a href="../testai/praktiniai/testas-3.html" style="text-decoration:none">
-          <div class="theory-block" style="cursor:pointer" onmouseover="this.style.borderColor='var(--green)'" onmouseout="this.style.borderColor='var(--border)'">
-            <div style="font-size:13px;font-weight:600;color:var(--ink);margin-bottom:4px">Praktinis testas 3</div>
-            <div style="font-size:12px;color:var(--ink3)">10 uždavinių · T1–T3 mišrus</div>
-          </div>
+        <a href="../testai/praktiniai/testas-3.html" class="test-card green">
+          <div class="test-card-num">Praktinis testas 3</div>
+          <div class="test-card-title">T1 · T2 · T3 mišrus</div>
+          <div class="test-card-meta">10 uždavinių · skaičiavimas</div>
+        </a>
+      </div>
+
+      <hr class="divider"/>
+
+      <!-- PRAKTINIAI T4-T6 -->
+      <div class="section-label">Praktiniai testai · T4 · T5 · T6 — Nelygybės ir sistemos</div>
+      <div class="tests-grid">
+        <a href="../testai/praktiniai/testas-4.html" class="test-card green">
+          <div class="test-card-num">Praktinis testas 4</div>
+          <div class="test-card-title">T4 · T5 · T6 mišrus</div>
+          <div class="test-card-meta">10 uždavinių · skaičiavimas</div>
+        </a>
+        <a href="../testai/praktiniai/testas-5.html" class="test-card green">
+          <div class="test-card-num">Praktinis testas 5</div>
+          <div class="test-card-title">T4 · T5 · T6 mišrus</div>
+          <div class="test-card-meta">10 uždavinių · skaičiavimas</div>
+        </a>
+        <a href="../testai/praktiniai/testas-6.html" class="test-card green">
+          <div class="test-card-num">Praktinis testas 6</div>
+          <div class="test-card-title">T4 · T5 · T6 mišrus</div>
+          <div class="test-card-meta">10 uždavinių · skaičiavimas</div>
         </a>
       </div>
 
