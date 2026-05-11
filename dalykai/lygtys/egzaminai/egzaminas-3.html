@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Egzaminas 1 C — Lygtys</title>
+  <link rel="stylesheet" href="../../../../styles/main.css"/>
+  <style>.exam-top{border-bottom:3px solid #1d4ed8;padding-bottom:20px;margin-bottom:32px}.exam-top h1{font-size:22px;font-weight:700;color:#1a1a2e;margin:0 0 6px}.exam-top .meta{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px}.exam-top .meta span{font-size:12px;color:#555;background:#f1f5f9;padding:3px 10px;border-radius:20px}.variant-badge{padding:3px 12px;border-radius:20px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.vA{background:#dbeafe;color:#1d4ed8}.vB{background:#dcfce7;color:#15803d}.vC{background:#f3e8ff;color:#7c3aed}.progress-wrap{margin-bottom:28px}.progress-bar{height:5px;background:#e2e8f0;border-radius:3px;overflow:hidden}.progress-fill{height:100%;background:#1d4ed8;border-radius:3px;transition:width .3s}.q-card{background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:22px;margin-bottom:12px}.q-num{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#64748b;margin-bottom:8px}.q-text{font-size:15px;color:#1a1a2e;line-height:1.8;margin-bottom:14px;font-weight:500}.options{display:flex;flex-direction:column;gap:7px}.opt{display:flex;align-items:center;gap:12px;padding:10px 14px;border:1px solid #e2e8f0;border-radius:8px;cursor:pointer;transition:all .12s;background:#fff;user-select:none}.opt:hover{border-color:#1d4ed8;background:#eff6ff}.opt.selected{border-color:#1d4ed8;background:#eff6ff}.opt.correct{border-color:#16a34a;background:#f0fdf4}.opt.wrong{border-color:#dc2626;background:#fef2f2}.opt.show-correct{border-color:#16a34a;background:#f0fdf4}.opt-l{width:28px;height:28px;border-radius:50%;background:#e2e8f0;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#475569;flex-shrink:0}.opt.selected .opt-l{background:#1d4ed8;color:#fff}.opt.correct .opt-l{background:#16a34a;color:#fff}.opt.wrong .opt-l{background:#dc2626;color:#fff}.opt.show-correct .opt-l{background:#16a34a;color:#fff}.opt-t{font-size:14px;color:#334155;line-height:1.5}.submit-row{margin-top:28px;padding-top:20px;border-top:2px solid #e2e8f0;display:flex;align-items:center;gap:14px;flex-wrap:wrap}.sub-btn{padding:12px 32px;background:#1d4ed8;color:#fff;border:none;border-radius:8px;font-size:15px;font-weight:700;font-family:inherit;cursor:pointer}.sub-btn:disabled{background:#94a3b8;cursor:not-allowed}.ai{font-size:13px;color:#64748b}.modal-bg{display:none;position:fixed;inset:0;background:rgba(15,23,42,.55);z-index:300;align-items:center;justify-content:center}.modal-bg.open{display:flex}.modal{background:#fff;border-radius:16px;padding:40px 44px;max-width:500px;width:92%;text-align:center;box-shadow:0 16px 48px rgba(0,0,0,.18)}.mp{font-size:72px;font-weight:800;line-height:1;margin-bottom:4px}.mp.ex{color:#16a34a}.mp.good{color:#1d4ed8}.mp.poor{color:#dc2626}.mf{font-size:20px;font-weight:700;color:#1a1a2e;margin-bottom:4px}.ms{font-size:13px;color:#64748b;margin-bottom:20px}.mst{display:flex;justify-content:center;gap:28px;padding:16px;background:#f8fafc;border-radius:10px;margin-bottom:20px}.msv{font-size:24px;font-weight:700;color:#1a1a2e}.msk{font-size:11px;color:#94a3b8;margin-top:2px;text-transform:uppercase}.mbtns{display:flex;gap:10px;justify-content:center}.btn{padding:10px 20px;border-radius:8px;font-size:13px;font-weight:600;font-family:inherit;cursor:pointer;border:1.5px solid #e2e8f0;background:#fff;color:#334155}.btn.p{background:#1d4ed8;color:#fff;border-color:#1d4ed8}</style>
+</head>
+<body>
+<div class="layout">
+  <nav class="sidebar" id="sidebar"></nav>
+  <div class="main">
+    <div class="topbar">
+      <div class="breadcrumb">
+        <a href="../../../../index.html">Matematika 11</a>
+        <span class="sep">&#x203a;</span><span>Lygtys</span>
+        <span class="sep">&#x203a;</span><span class="current">Egzaminas 1 C</span>
+      </div>
+    </div>
+    <div class="page">
+      <div class="exam-top">
+        <div class="topic-tag">4 skyrius &middot; Egzaminas 1</div>
+        <h1>Lygtys ir nelygybės &mdash; Egzaminas 1 <span class="variant-badge vC">C variantas</span></h1>
+        <div class="meta">
+          <span>20 u&#382;davini&#371;</span>
+          <span>T1 &middot; T2 &middot; T3 &middot; T4 &middot; T5 &middot; T6</span>
+          <span>&#x7e;40 min</span>
+        </div>
+      </div>
+      <div class="progress-wrap">
+        <div class="progress-bar"><div class="progress-fill" id="pf" style="width:0%"></div></div>
+      </div>
+      <div id="qs"></div>
+      <div class="submit-row">
+        <button class="sub-btn" id="sb" onclick="submit()">Pateikti egzamin&#x105;</button>
+        <span class="ai" id="ac">Atsakyta: 0 / 20</span>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal-bg" id="mbg">
+  <div class="modal">
+    <div class="mp" id="mpct"></div>
+    <div class="mf" id="mf"></div>
+    <div class="ms" id="ms"></div>
+    <div class="mst">
+      <div><div class="msv" id="sc"></div><div class="msk">Teisingi</div></div>
+      <div><div class="msv" id="sw"></div><div class="msk">Neteisingi</div></div>
+      <div><div class="msv" id="sp"></div><div class="msk">Rezultatas</div></div>
+    </div>
+    <div class="mbtns">
+      <button class="btn" onclick="closeM()">Per&#382;i&#363;r&#279;ti</button>
+      <a href="index.html" class="btn p" style="text-decoration:none">Egzamin&#371; s&#x105;ra&#353;as &#x2192;</a>
+    </div>
+  </div>
+</div>
+<script src="../../../../js/main.js"></script>
+<script>var QUESTIONS=[{"text": "I\u0161spr\u0119skite lygt\u012f: (x\u00b2 \u2212 4) / (x \u2212 2) = 0.", "options": ["x = 2", "x = \u22122", "x = 2 ir x = \u22122", "Sprendini\u0173 n\u0117ra"], "correct": 1}, {"text": "I\u0161spr\u0119skite lygt\u012f: x\u00b3 \u2212 9x = 0.", "options": ["x = 0 ir x = 3", "x = 0, x = 3, x = \u22123", "x = 3 ir x = \u22123", "x = 9"], "correct": 1}, {"text": "I\u0161spr\u0119skite lygt\u012f: x\u2074 \u2212 5x\u00b2 + 4 = 0.", "options": ["x = \u00b11", "x = \u00b12", "x = \u00b11 ir x = \u00b12", "x = 1 ir x = 4"], "correct": 2}, {"text": "I\u0161spr\u0119skite lygt\u012f: \u221a(x + 6) = x.", "options": ["x = 3", "x = \u22122", "x = 3 ir x = \u22122", "x = 6"], "correct": 0}, {"text": "I\u0161spr\u0119skite lygt\u012f: |5x \u2212 5| = 20.", "options": ["x = 5", "x = \u22123", "x = 5 ir x = \u22123", "x = 5 ir x = 3"], "correct": 2}, {"text": "Pagal Vjeto formules raskite lygties x\u00b2 \u2212 5x + 6 = 0 sprendinius.", "options": ["x\u2081 = 2, x\u2082 = 3", "x\u2081 = \u22122, x\u2082 = \u22123", "x\u2081 = 1, x\u2082 = 6", "x\u2081 = 2, x\u2082 = \u22123"], "correct": 0}, {"text": "Dviej\u0173 teigiamos skai\u010di\u0173 skirtumas lygi 4, o j\u0173 sandauga lygi 96. Raskite \u0161iuos skai\u010dius.", "options": ["8 ir 12", "6 ir 16", "10 ir 14", "4 ir 24"], "correct": 0}, {"text": "I\u0161spr\u0119skite nelygyb\u0119: 2x\u00b2 \u2212 x \u2212 3 \u2264 0.", "options": ["x \u2208 [\u22121; 3/2]", "x \u2208 (\u2212\u221e; \u22121] \u222a [3/2; +\u221e)", "x \u2208 (\u22121; 3/2)", "x \u2208 [\u22123/2; 1]"], "correct": 0}, {"text": "I\u0161spr\u0119skite nelygyb\u0119: (2x \u2212 6) / (x + 1) &gt; 0.", "options": ["x \u2208 (\u2212\u221e; \u22121) \u222a (3; +\u221e)", "x \u2208 (\u22121; 3)", "x \u2208 (3; +\u221e)", "x \u2208 [\u22121; 3]"], "correct": 0}, {"text": "Su kuriomis k reik\u0161m\u0117mis lygtis x\u00b2 \u2212 kx + 9 = 0 turi du skirtingus reali\u0173j\u0173 sprendini\u0173?", "options": ["k \u2208 (\u2212\u221e; \u22126) \u222a (6; +\u221e)", "k \u2208 (\u22126; 6)", "k \u2208 [\u22126; 6]", "k \u2208 (\u22129; 9)"], "correct": 0}, {"text": "I\u0161spr\u0119skite nelygybi\u0173 sistem\u0105: { x\u00b2 \u2212 16 \u2264 0;  x \u2265 0 }.", "options": ["x \u2208 [0; 4]", "x \u2208 [\u22124; 4]", "x \u2208 [0; 4)", "x \u2208 (0; 4]"], "correct": 0}, {"text": "I\u0161spr\u0119skite dvigub\u0105j\u0105 nelygyb\u0119: \u22122 \u2264 4x + 2 &lt; 10.", "options": ["x \u2208 [\u22121; 2)", "x \u2208 (\u22121; 2]", "x \u2208 [\u22121; 2]", "x \u2208 (\u22121; 2)"], "correct": 0}, {"text": "I\u0161spr\u0119skite nelygyb\u0119: |3x \u2212 9| &gt; 6.", "options": ["x \u2208 (1; 5)", "x \u2208 (\u2212\u221e; 1) \u222a (5; +\u221e)", "x \u2208 [1; 5]", "x \u2208 (\u2212\u221e; 1] \u222a [5; +\u221e)"], "correct": 1}, {"text": "Automobilis ir dviratininkas vienu metu i\u0161va\u017eiavo i\u0161 to paties ta\u0161ko priesingomis kryptimis. Automobilio greitis 60 km/h, dviratininko \u2014 15 km/h. Koks atstumas tarp j\u0173 bus po 2 valand\u0173?", "options": ["120 km", "150 km", "90 km", "100 km"], "correct": 1}, {"text": "Pirmasis darbininkas darb\u0105 atlikt\u0173 per 12 dien\u0173, antrasis \u2014 per 8 dienas. Jie dirbo kartu 3 dienas, o po to pirmasis i\u0161va\u017eiavo. Per kiek dien\u0173 antrasis baigs darb\u0105?", "options": ["2 d.", "3 d.", "4 d.", "5 d."], "correct": 1}, {"text": "Dvi\u017eenklio skai\u010diaus skaitmen\u0173 suma lygi 9. Skai\u010dius yra 45 didesnis nei skai\u010dius, gautas apkeit\u0119 skaitmenimis vietomis. Koks \u0161is skai\u010dius?", "options": ["63", "72", "81", "54"], "correct": 1}, {"text": "Lygties x\u00b2 + px + 10 = 0 vienas sprendinys yra x\u2081 = \u22122. Raskite kit\u0105 sprendinį x\u2082 ir koeficient\u0105 p.", "options": ["x\u2082 = \u22125, p = 7", "x\u2082 = 5, p = \u22127", "x\u2082 = \u22125, p = \u22127", "x\u2082 = 5, p = 7"], "correct": 0}, {"text": "I\u0161spr\u0119skite lygt\u012f: \u00b3\u221a(x + 1) = 2.", "options": ["x = 7", "x = 1", "x = 3", "x = 9"], "correct": 0}, {"text": "I\u0161spr\u0119skite lygt\u012f: 4/(x \u2212 3) \u2212 2/(x + 3) = 0.", "options": ["x = \u22129", "x = 9", "x = 3", "x = \u22123"], "correct": 0}, {"text": "I\u0161spr\u0119skite nelygyb\u0119: (x + 2)\u00b2(x \u2212 1) \u2265 0.", "options": ["x \u2208 [1; +\u221e)", "x \u2208 {\u22122} \u222a [1; +\u221e)", "x \u2208 [\u22122; 1]", "x \u2208 (\u2212\u221e; \u22122] \u222a [1; +\u221e)"], "correct": 1}];
+var QS=QUESTIONS;var ans=new Array(QS.length).fill(null);var done=false;
+function render(){var L=['A','B','C','D'];var h='';for(var qi=0;qi<QS.length;qi++){var q=QS[qi];h+='<div class="q-card"><div class="q-num">Uždavinys '+(qi+1)+' iš '+QS.length+'</div><div class="q-text">'+q.text+'</div><div class="options">';for(var oi=0;oi<q.options.length;oi++){h+='<div class="opt" id="o'+qi+'x'+oi+'" onclick="pick('+qi+','+oi+')"><div class="opt-l">'+L[oi]+'</div><div class="opt-t">'+q.options[oi]+'</div></div>';}h+='</div></div>';}document.getElementById('qs').innerHTML=h;upd();}
+function pick(qi,oi){if(done)return;ans[qi]=oi;for(var i=0;i<4;i++){var e=document.getElementById('o'+qi+'x'+i);if(e)e.classList.remove('selected');}document.getElementById('o'+qi+'x'+oi).classList.add('selected');upd();}
+function upd(){var n=ans.filter(function(x){return x!==null;}).length;document.getElementById('pf').style.width=(n/QS.length*100)+'%';document.getElementById('ac').textContent='Atsakyta: '+n+' / '+QS.length;}
+function submit(){var n=ans.filter(function(x){return x!==null;}).length;if(n<QS.length&&!confirm('Dar neatsakyta '+(QS.length-n)+'. Pateikti?'))return;done=true;document.getElementById('sb').disabled=true;var c=0;for(var qi=0;qi<QS.length;qi++){var q=QS[qi];var s=ans[qi];if(s===q.correct)c++;for(var oi=0;oi<q.options.length;oi++){var el=document.getElementById('o'+qi+'x'+oi);el.classList.remove('selected');if(oi===q.correct)el.classList.add(s===q.correct&&oi===s?'correct':'show-correct');if(oi===s&&s!==q.correct)el.classList.add('wrong');}}var pct=Math.round(c/QS.length*100);document.getElementById('mpct').textContent=pct+'%';document.getElementById('mpct').className='mp '+(pct>=80?'ex':pct>=50?'good':'poor');document.getElementById('mf').textContent=pct>=90?'Puikiai!':pct>=70?'Gerai!':pct>=50?'Neblogai':'Reikia pasimokyti';document.getElementById('ms').textContent='Surinkta: '+c+' iš '+QS.length;document.getElementById('sc').textContent=c;document.getElementById('sw').textContent=QS.length-c;document.getElementById('sp').textContent=pct+'%';document.getElementById('mbg').classList.add('open');}
+function closeM(){document.getElementById('mbg').classList.remove('open');}
+render();</script>
+</body>
+</html>

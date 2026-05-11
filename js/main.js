@@ -3,14 +3,14 @@
 // ── SIDEBAR DUOMENYS ─────────────────────────────────────────────────
 // Norėdami pridėti naują temą — tiesiog pridėkite čia!
 const NAV = [
-  { id: 'reiskiniai', num: '3.', name: 'Reiškiniai', topics: [
+  { id: 'reiskiniai', num: '', name: 'Reiškiniai', topics: [
       { id: 't1', name: 'T1. Aibės ir jų veiksmai',                       path: 'dalykai/reiskiniai/temos/t1-aibes/teorija.html' },
       { id: 't2', name: 'T2. n-tojo laipsnio šaknys',                     path: 'dalykai/reiskiniai/temos/t2-saknys/teorija.html' },
       { id: 't3', name: 'T3. Veiksmai su šaknimis ir laipsniais',          path: 'dalykai/reiskiniai/temos/t3-veiksmai-saknimis/teorija.html' },
       { id: 't4', name: 'T4. Apibrėžimo sritis ir veiksmai su reiškiniais', path: 'dalykai/reiskiniai/temos/t4-apibreztis/teorija.html' },
       { id: 't5', name: 'T5. Formulės, skaidymas ir algebrinės trupmenos', path: 'dalykai/reiskiniai/temos/t5-formules-skaidymas/teorija.html' },
     ], tests: 'dalykai/reiskiniai/skyriaus-testai/index.html', exams: 'dalykai/reiskiniai/egzaminai/index.html' },
-  { id: 'lygtys', num: '4.', name: 'Lygtys, nelygybės ir jų sistemos', topics: [
+  { id: 'lygtys', num: '', name: 'Lygtys, nelygybės ir jų sistemos', topics: [
       { id: 't1', name: 'T1. Trupmeninės ir aukštesniojo laipsnio lygtys', path: 'dalykai/lygtys/temos/t1-lygtys/teorija.html' },
       { id: 't2', name: 'T2. Iracionaliosios lygtys ir lygtys su moduliais', path: 'dalykai/lygtys/temos/t2-irac-moduliai/teorija.html' },
       { id: 't3', name: 'T3. Vjeto formulės ir uždavinių sprendimas',       path: 'dalykai/lygtys/temos/t3-vjeto-uzdaviniai/teorija.html' },
@@ -20,7 +20,7 @@ const NAV = [
     ], tests: 'dalykai/lygtys/skyriaus-testai/index.html', exams: 'dalykai/lygtys/egzaminai/index.html' },
   {
     id: 'funkcijos',
-    num: '5.',
+    num: '',
     name: 'Funkcijos',
     topics: [
       { id: 't1', name: 'T1. Apibrėžtis ir sritys',      path: 'dalykai/funkcijos/temos/t1-apibreztis/teorija.html' },
@@ -39,26 +39,26 @@ const NAV = [
     tests: 'dalykai/funkcijos/skyriaus-testai/index.html',
     exams: 'dalykai/funkcijos/egzaminai/index.html'
   },
-  { id: 'sekos', num: '6.', name: 'Sekos ir progresijos', topics: [
+  { id: 'sekos', num: '', name: 'Sekos ir progresijos', topics: [
       { id: 't1', name: 'T1. Aritmetinė progresija',  path: 'dalykai/sekos/temos/t1-aritmetine/teorija.html' },
       { id: 't2', name: 'T2. Geometrinė progresija',  path: 'dalykai/sekos/temos/t2-geometrine/teorija.html' },
       { id: 't3', name: 'T3. Taikymai',               path: 'dalykai/sekos/temos/t3-taikymai/teorija.html' },
     ], tests: 'dalykai/sekos/skyriaus-testai/index.html', exams: 'dalykai/sekos/egzaminai/index.html' },
-  { id: 'trig', num: '7.', name: 'Trigonometrija', topics: [
+  { id: 'trig', num: '', name: 'Trigonometrija', topics: [
       { id: 't1', name: 'T1. Radianinis kampo matas',   path: 'dalykai/trigonometrija/temos/t1-radianai/teorija.html' },
       { id: 't2', name: 'T2. sin, cos, tg apibrėžtys',  path: 'dalykai/trigonometrija/temos/t2-apibreztys/teorija.html' },
       { id: 't3', name: 'T3. Funkcija sin x ir arcsin x', path: 'dalykai/trigonometrija/temos/t3-sinx/teorija.html' },
       { id: 't4', name: 'T4. Funkcija cos x ir arccos x', path: 'dalykai/trigonometrija/temos/t4-cosx/teorija.html' },
       { id: 't5', name: 'T5. Funkcija tg x ir arctg x',  path: 'dalykai/trigonometrija/temos/t5-tgx/teorija.html' },
     ], tests: 'dalykai/trigonometrija/skyriaus-testai/index.html', exams: 'dalykai/trigonometrija/egzaminai/index.html' },
-  { id: 'planimetrija', num: '8.', name: 'Planimetrija', topics: [
+  { id: 'planimetrija', num: '', name: 'Planimetrija', topics: [
       { id: 't1', name: 'T1. Įbrėžtiniai kampai, stygos ir liestines', path: 'dalykai/planimetrija/temos/t1-kampai-stygos/teorija.html' },
       { id: 't2', name: 'T2. Įbrėžtiniai ir apibrėžtiniai daugiakampiai', path: 'dalykai/planimetrija/temos/t2-daugiakampiai/teorija.html' },
       { id: 't3', name: 'T3. Trikampio ir lygiagretainio plotas', path: 'dalykai/planimetrija/temos/t3-plotas/teorija.html' },
       { id: 't4', name: 'T4. Sinusų ir kosinusų teoremos', path: 'dalykai/planimetrija/temos/t4-sinusu-kosinusu/teorija.html' },
       { id: 't5', name: 'T5. Herono formulė ir Talio teorema', path: 'dalykai/planimetrija/temos/t5-herono-talio/teorija.html' },
     ], tests: 'dalykai/planimetrija/skyriaus-testai/index.html', exams: 'dalykai/planimetrija/egzaminai/index.html' },
-  { id: 'vektoriai', num: '9.', name: 'Vektoriai ir jų veiksmai', topics: [
+  { id: 'vektoriai', num: '', name: 'Vektoriai ir jų veiksmai', topics: [
       { id: 't1', name: 'T1. Vektorių sąvokos',                        path: 'dalykai/vektoriai/temos/t1-savokos/teorija.html' },
       { id: 't2', name: 'T2. Vektorių sudėtis ir atimtis',             path: 'dalykai/vektoriai/temos/t2-sudetis-atimtis/teorija.html' },
       { id: 't3', name: 'T3. Daugyba iš skaičiaus ir kolinearumas',    path: 'dalykai/vektoriai/temos/t3-daugyba-kolinearumas/teorija.html' },
@@ -67,10 +67,6 @@ const NAV = [
       { id: 't6', name: 'T6. Veiksmai koordinatėmis',                  path: 'dalykai/vektoriai/temos/t6-veiksmai-koordinatemis/teorija.html' },
       { id: 't7', name: 'T7. Skaliarinė sandauga ir kampas koordinatėmis', path: 'dalykai/vektoriai/temos/t7-kampas-koordinatemis/teorija.html' },
     ], tests: 'dalykai/vektoriai/skyriaus-testai/index.html', exams: 'dalykai/vektoriai/egzaminai/index.html' },
-  { id: 'isvestines', num: '10.',  name: 'Išvestinės',               topics: [], tests: null },
-  { id: 'integralai', num: '11.', name: 'Integralai',               topics: [], tests: null },
-  { id: 'statistika', num: '12.', name: 'Statistika ir tikimybės',  topics: [], tests: null },
-  { id: 'geometrija', num: '13.', name: 'Erdvinė geometrija',       topics: [], tests: null },
 ];
 
 // ── KELIO SKAIČIAVIMAS ───────────────────────────────────────────────
