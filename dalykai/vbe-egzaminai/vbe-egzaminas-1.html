@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>VBE egzaminas 1 — Matematika 11</title>
+  <link rel="stylesheet" href="../styles/main.css"/>
+  <style>
+body{margin:0;font-family:'Segoe UI',system-ui,sans-serif}
+.exam-top{border-bottom:3px solid #1d4ed8;padding-bottom:20px;margin-bottom:32px}
+.exam-top h1{font-size:22px;font-weight:700;color:#1a1a2e;margin:0 0 6px}
+.meta{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px}
+.meta span{font-size:12px;color:#555;background:#f1f5f9;padding:3px 10px;border-radius:20px}
+.progress-bar{height:5px;background:#e2e8f0;border-radius:3px;overflow:hidden;margin-bottom:28px}
+.progress-fill{height:100%;background:#1d4ed8;border-radius:3px;transition:width .3s;width:0%}
+.q-card{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:22px;margin-bottom:14px;box-shadow:0 1px 4px rgba(0,0,0,.04)}
+.q-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.q-num{font-size:11px;font-weight:700;color:#64748b;letter-spacing:.06em;text-transform:uppercase}
+.q-pts{font-size:12px;font-weight:700;padding:2px 10px;border-radius:12px;background:#eff6ff;color:#1d4ed8;border:1px solid #bfdbfe}
+.q-pts.t2{background:#f0fdf4;color:#15803d;border-color:#bbf7d0}
+.q-text{font-size:15px;color:#1a1a2e;line-height:1.8;margin-bottom:12px;font-weight:500}
+
+/* MCQ — apvalūs radiobutton stiliaus */
+.opts-radio{display:flex;flex-direction:column;gap:7px;margin-top:10px}
+.opt-r{display:flex;align-items:center;gap:12px;padding:10px 14px;border:1.5px solid #e2e8f0;border-radius:8px;cursor:pointer;transition:all .12s;background:#fff;user-select:none}
+.opt-r:hover{border-color:#1d4ed8;background:#eff6ff}
+.opt-r.sel{border-color:#1d4ed8;background:#eff6ff}
+.opt-r.ok{border-color:#16a34a;background:#f0fdf4}
+.opt-r.bad{border-color:#dc2626;background:#fef2f2}
+.opt-r.show{border-color:#16a34a;background:#f0fdf4}
+.radio-icon{width:20px;height:20px;border-radius:50%;border:2px solid #cbd5e1;background:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .12s}
+.opt-r.sel .radio-icon{border-color:#1d4ed8;background:#1d4ed8}
+.opt-r.sel .radio-icon::after{content:'';width:8px;height:8px;border-radius:50%;background:#fff}
+.opt-r.ok .radio-icon{border-color:#16a34a;background:#16a34a}
+.opt-r.ok .radio-icon::after{content:'';width:8px;height:8px;border-radius:50%;background:#fff}
+.opt-r.bad .radio-icon{border-color:#dc2626;background:#dc2626}
+.opt-r.bad .radio-icon::after{content:'';width:8px;height:8px;border-radius:50%;background:#fff}
+.opt-r.show .radio-icon{border-color:#16a34a;background:#16a34a}
+.opt-r.show .radio-icon::after{content:'';width:8px;height:8px;border-radius:50%;background:#fff}
+.opt-rt{font-size:14px;color:#334155;line-height:1.5}
+
+/* Multi-select — kvadratiniai checkbox stiliaus */
+.multi-hint{font-size:12px;color:#7c3aed;background:#f3e8ff;border:1px solid #c4b5fd;border-radius:6px;padding:4px 10px;display:inline-block;margin-bottom:8px}
+.opts-check{display:flex;flex-direction:column;gap:7px;margin-top:10px}
+.opt-c{display:flex;align-items:center;gap:12px;padding:10px 14px;border:1.5px solid #e2e8f0;border-radius:8px;cursor:pointer;transition:all .12s;background:#fff;user-select:none}
+.opt-c:hover{border-color:#7c3aed;background:#f3e8ff}
+.opt-c.sel{border-color:#7c3aed;background:#f3e8ff}
+.opt-c.ok{border-color:#16a34a;background:#f0fdf4}
+.opt-c.bad{border-color:#dc2626;background:#fef2f2}
+.opt-c.show{border-color:#16a34a;background:#f0fdf4}
+.check-icon{width:20px;height:20px;border-radius:4px;border:2px solid #cbd5e1;background:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:13px;font-weight:700;transition:all .12s}
+.opt-c.sel .check-icon{border-color:#7c3aed;background:#7c3aed;color:#fff}
+.opt-c.ok .check-icon{border-color:#16a34a;background:#16a34a;color:#fff}
+.opt-c.bad .check-icon{border-color:#dc2626;background:#dc2626;color:#fff}
+.opt-c.show .check-icon{border-color:#16a34a;background:#16a34a;color:#fff}
+.opt-ct{font-size:14px;color:#334155;line-height:1.5}
+
+/* Atviri laukeliai */
+.open-row{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:10px}
+.open-label{font-size:14px;color:#334155;font-style:italic}
+.open-inp{padding:8px 12px;border:1.5px solid #e2e8f0;border-radius:8px;font-size:15px;font-family:inherit;width:90px;outline:none;text-align:center}
+.open-inp:focus{border-color:#1d4ed8}
+.open-inp.ci{border-color:#16a34a;background:#f0fdf4;color:#16a34a;font-weight:700}
+.open-inp.wi{border-color:#dc2626;background:#fef2f2;color:#dc2626}
+.fb{font-size:13px;font-weight:600;margin-top:6px;display:none}
+.fb.show{display:block}.fb.ok{color:#16a34a}.fb.bad{color:#dc2626}
+
+/* SVG wrapper */
+.fig{margin:12px 0;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:12px;display:inline-block}
+.vec{position:relative;display:inline-block;margin-right:2px}
+.vec::after{content:'→';position:absolute;top:-0.52em;left:50%;transform:translateX(-50%);font-size:0.62em;line-height:1;font-style:normal}
+
+
+.submit-row{margin-top:32px;padding-top:20px;border-top:2px solid #e2e8f0;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.sub-btn{padding:12px 32px;background:#1d4ed8;color:#fff;border:none;border-radius:8px;font-size:15px;font-weight:700;font-family:inherit;cursor:pointer}
+.sub-btn:disabled{background:#94a3b8;cursor:not-allowed}
+.ai{font-size:13px;color:#64748b}
+.modal-bg{display:none;position:fixed;inset:0;background:rgba(15,23,42,.6);z-index:300;align-items:center;justify-content:center}
+.modal-bg.open{display:flex}
+.modal{background:#fff;border-radius:16px;padding:44px 48px;max-width:520px;width:92%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.2)}
+.mp{font-size:72px;font-weight:800;line-height:1;margin-bottom:4px}
+.mp.ex{color:#16a34a}.mp.good{color:#1d4ed8}.mp.poor{color:#dc2626}
+.mf{font-size:20px;font-weight:700;color:#1a1a2e;margin-bottom:4px}
+.ms{font-size:13px;color:#64748b;margin-bottom:20px}
+.mst{display:flex;justify-content:center;gap:28px;padding:16px;background:#f8fafc;border-radius:10px;margin-bottom:20px}
+.msv{font-size:24px;font-weight:700;color:#1a1a2e}
+.msk{font-size:11px;color:#94a3b8;margin-top:2px;text-transform:uppercase}
+.mbtns{display:flex;gap:10px;justify-content:center}
+.btn{padding:10px 20px;border-radius:8px;font-size:14px;font-weight:600;font-family:inherit;cursor:pointer;border:1.5px solid #e2e8f0;background:#fff;color:#334155}
+.btn.p{background:#1d4ed8;color:#fff;border-color:#1d4ed8}
+  </style>
+</head>
+<body>
+<div class="layout">
+  <nav class="sidebar" id="sidebar"></nav>
+  <div class="main">
+    <div class="topbar">
+      <div class="breadcrumb">
+        <a href="../index.html">Matematika 11</a>
+        <span class="sep">›</span><span class="current">VBE egzaminas 1</span>
+      </div>
+    </div>
+    <div class="page">
+      <div class="exam-top">
+        <div class="topic-tag">VBE stiliaus egzaminas · Visos temos</div>
+        <h1>VBE egzaminas 1</h1>
+        <div class="meta">
+          <span>33 klausimai</span><span>40 taškų</span><span>Visos temos</span><span>~90 min</span>
+        </div>
+      </div>
+      <div class="progress-bar"><div class="progress-fill" id="pf"></div></div>
+      <div id="qs"></div>
+      <div class="submit-row">
+        <button class="sub-btn" id="sb" onclick="submitExam()">Pateikti egzaminą</button>
+        <span class="ai" id="ac">Atsakyta: 0 / 33</span>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal-bg" id="mbg">
+  <div class="modal">
+    <div class="mp" id="mpct"></div>
+    <div class="mf" id="mf"></div>
+    <div class="ms" id="ms"></div>
+    <div class="mst">
+      <div><div class="msv" id="sc"></div><div class="msk">Taškai</div></div>
+      <div><div class="msv" id="sw"></div><div class="msk">Prarasta</div></div>
+      <div><div class="msv" id="sp"></div><div class="msk">Rezultatas</div></div>
+    </div>
+    <div class="mbtns">
+      <button class="btn" onclick="closeM()">Peržiūrėti</button>
+      <a href="../index.html" class="btn p" style="text-decoration:none">Pagrindinis →</a>
+    </div>
+  </div>
+</div>
+<script src="../js/main.js"></script>
+<script>var QS = [
+
+{type:"open2", pts:2,
+ text:`Vektorių koordinatės: <span class="vec">a</span> = (1; √3) ir <span class="vec">b</span> = (2; 0). Apskaičiuokite vektoriaus <span class="vec">a</span> ilgį ir vektorių tarpusavio kampą α laipsniais.`,
+ labels:[`|<span class="vec">a</span>| =`,"α ="], sfx:["","°"], answers:["2","60"]},
+
+{type:"open2", pts:2,
+ text:"Išspręskite lygtį sin x = √2/2 intervale [0°; 360°]. Atsakymą įrašykite laipsniais.",
+ labels:["x₁ =","x₂ ="], sfx:["°","°"], answers:["45","135"]},
+
+{type:"mcq", pts:1,
+ text:`Apskaičiuokite trikampio ABC plotą.
+<div class="fig"><svg viewBox="0 0 270 210" xmlns="http://www.w3.org/2000/svg" style="width:270px;height:auto">
+  <polygon points="30,178 250,178 100,48" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.8"/>
+  <circle cx="30" cy="178" r="2.5" fill="#1d4ed8"/>
+  <text x="12" y="183" font-size="12" fill="#1a1a2e" font-weight="700">C</text>
+  <circle cx="250" cy="178" r="2.5" fill="#1d4ed8"/>
+  <text x="254" y="183" font-size="12" fill="#1a1a2e" font-weight="700">B</text>
+  <circle cx="100" cy="48" r="2.5" fill="#1d4ed8"/>
+  <text x="100" y="40" font-size="12" fill="#1a1a2e" font-weight="700" text-anchor="middle">A</text>
+  <!-- Side labels -->
+  <text x="52" y="118" font-size="12" fill="#1d4ed8" font-weight="600">b = 8</text>
+  <text x="186" y="118" font-size="12" fill="#1d4ed8" font-weight="600">a = 6</text>
+  <text x="140" y="194" font-size="12" fill="#64748b" text-anchor="middle">c</text>
+  <!-- Angle arc at C — drawn between the two sides -->
+  <path d="M 58,178 A 28,28 0 0,0 46,154" fill="none" stroke="#f59e0b" stroke-width="2"/>
+  <text x="65" y="162" font-size="11" fill="#f59e0b" font-weight="700">30°</text>
+</svg></div>`,
+ opts:["12 cm²","24 cm²","6√3 cm²","48 cm²"],
+ correct:0},
+
+{type:"mcq", pts:1,
+ text:"Išspręskite nelygybę x² − 5x + 4 &lt; 0. Pažymėkite teisingą atsakymą.",
+ opts:["x ∈ (1; 4)","x ∈ [1; 4]","x ∈ (−∞; 1) ∪ (4; +∞)","x ∈ (0; 5)"],
+ correct:0},
+
+{type:"mcq", pts:1,
+ text:"Kuris iš šių teiginių yra teisingas?",
+ opts:["log₂(x + y) = log₂ x + log₂ y","log₂(x · y) = log₂ x + log₂ y","log₂(x/y) = log₂ x · log₂ y","√(log₂ x) = ½ · log₂ x visada"],
+ correct:1},
+
+{type:"mcq", pts:1,
+ text:"Lygties √(3x + 4) = x sprendinys:",
+ opts:["x = −1","x = 4","x = 4 ir x = −1","Sprendinių nėra"],
+ correct:1},
+
+{type:"open1", pts:1,
+ text:"Išspręskite lygtį: log₃(2x − 1) = 2.",
+ labels:["x ="], answers:["5"]},
+
+{type:"mcq", pts:1,
+ text:"Geometrinės progresijos b₁ = 2, q = 3. Kuris narys lygus 486?",
+ opts:["5-asis","6-asis","7-asis","8-asis"],
+ correct:1},
+
+{type:"mcq", pts:1,
+ text:"Pertvarkykite reiškinį ⁶√(x⁴), kai x &gt; 0.",
+ opts:["³√(x²)","x^(2/3)","x^(4/6)","Visi atsakymai teisingi"],
+ correct:3},
+
+{type:"open1", pts:1,
+ text:`Vektorių koordinatės: <span class="vec">a</span> = (2; 3) ir <span class="vec">b</span> = (4; −1). Apskaičiuokite skaliarinę sandaugą <span class="vec">a</span> · <span class="vec">b</span>.`,
+ labels:[`<span class="vec">a</span> · <span class="vec">b</span> =`], answers:["5"]},
+
+{type:"mcq", pts:1,
+ text:`Nustatykite, kurios funkcijos grafiko eskizas pavaizduotas paveiksle.
+<div class="fig"><svg viewBox="0 0 200 180" xmlns="http://www.w3.org/2000/svg" style="width:200px;height:auto">
+  <defs><marker id="ah" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto"><polygon points="0,0 7,3.5 0,7" fill="#64748b"/></marker></defs>
+  <line x1="20" y1="155" x2="185" y2="155" stroke="#64748b" stroke-width="1.4" marker-end="url(#ah)"/>
+  <line x1="80" y1="170" x2="80" y2="10" stroke="#64748b" stroke-width="1.4" marker-end="url(#ah)"/>
+  <text x="188" y="159" font-size="11" fill="#64748b">x</text>
+  <text x="74" y="8" font-size="11" fill="#64748b">y</text>
+  <text x="82" y="109" font-size="10" fill="#64748b">1</text>
+  <text x="118" y="168" font-size="10" fill="#64748b">1</text>
+  <line x1="116" y1="152" x2="116" y2="158" stroke="#64748b" stroke-width="1"/>
+  <line x1="77" y1="107" x2="83" y2="107" stroke="#64748b" stroke-width="1"/>
+  <line x1="116" y1="107" x2="80" y2="107" stroke="#94a3b8" stroke-width="1" stroke-dasharray="3,2"/>
+  <line x1="116" y1="107" x2="116" y2="155" stroke="#94a3b8" stroke-width="1" stroke-dasharray="3,2"/>
+  <!-- y = x³ curve: passes through (0,0), goes negative x→negative y, steep rise -->
+  <path d="M 28,170 C 45,160 65,145 80,107 C 95,68 110,28 150,12" fill="none" stroke="#1d4ed8" stroke-width="2.2"/>
+</svg></div>`,
+ opts:["y = ³√x","y = x³","y = log₃ x","y = 3ˣ"],
+ correct:1},
+
+{type:"mcq", pts:1,
+ text:"Nelygybės x² − x − 12 ≤ 0 sprendiniai:",
+ opts:["x ∈ [−3; 4]","x ∈ (−∞; −3] ∪ [4; +∞)","x ∈ (−3; 4)","x ∈ [−4; 3]"],
+ correct:0},
+
+{type:"open1", pts:1,
+ text:`Trikampio kraštinės a = 5 cm, b = 8 cm, kampas C = 60°. Raskite kraštinę c.
+<div class="fig"><svg viewBox="0 0 240 180" xmlns="http://www.w3.org/2000/svg" style="width:240px;height:auto">
+  <polygon points="20,155 220,155 130,35" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.8"/>
+  <circle cx="20" cy="155" r="2.5" fill="#1d4ed8"/>
+  <text x="4" y="160" font-size="11" fill="#1a1a2e" font-weight="700">C</text>
+  <circle cx="220" cy="155" r="2.5" fill="#1d4ed8"/>
+  <text x="224" y="160" font-size="11" fill="#1a1a2e" font-weight="700">B</text>
+  <circle cx="130" cy="35" r="2.5" fill="#1d4ed8"/>
+  <text x="130" y="27" font-size="11" fill="#1a1a2e" font-weight="700" text-anchor="middle">A</text>
+  <text x="50" y="100" font-size="11" fill="#1d4ed8" font-weight="600">b = 8</text>
+  <text x="184" y="100" font-size="11" fill="#1d4ed8" font-weight="600">a = 5</text>
+  <text x="120" y="170" font-size="11" fill="#64748b" text-anchor="middle">c = ?</text>
+  <path d="M 47,155 A 27,27 0 0,0 38,133" fill="none" stroke="#f59e0b" stroke-width="2"/>
+  <text x="52" y="141" font-size="11" fill="#f59e0b" font-weight="700">60°</text>
+</svg></div>`,
+ labels:["c ="], answers:["7"]},
+
+{type:"mcq", pts:1,
+ text:`Paveiksle pavaizduotas vektorius <span class="vec">AB</span>. Nustatykite vektoriaus <span class="vec">AB</span> koordinates.
+<div class="fig"><svg viewBox="0 0 220 180" xmlns="http://www.w3.org/2000/svg" style="width:220px;height:auto">
+  <defs><marker id="ah3" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto"><polygon points="0,0 7,3.5 0,7" fill="#94a3b8"/></marker>
+  <marker id="ah4" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto"><polygon points="0,0 7,3.5 0,7" fill="#1d4ed8"/></marker></defs>
+  <line x1="18" y1="148" x2="198" y2="148" stroke="#94a3b8" stroke-width="1.2" marker-end="url(#ah3)"/>
+  <line x1="18" y1="148" x2="18" y2="18" stroke="#94a3b8" stroke-width="1.2" marker-end="url(#ah3)"/>
+  <text x="201" y="152" font-size="11" fill="#64748b">x</text>
+  <text x="12" y="15" font-size="11" fill="#64748b">y</text>
+  <!-- Grid lines -->
+  <line x1="58" y1="18" x2="58" y2="148" stroke="#e2e8f0" stroke-width="0.8"/>
+  <line x1="98" y1="18" x2="98" y2="148" stroke="#e2e8f0" stroke-width="0.8"/>
+  <line x1="138" y1="18" x2="138" y2="148" stroke="#e2e8f0" stroke-width="0.8"/>
+  <line x1="178" y1="18" x2="178" y2="148" stroke="#e2e8f0" stroke-width="0.8"/>
+  <line x1="18" y1="108" x2="198" y2="108" stroke="#e2e8f0" stroke-width="0.8"/>
+  <line x1="18" y1="68" x2="198" y2="68" stroke="#e2e8f0" stroke-width="0.8"/>
+  <!-- Scale labels -->
+  <text x="56" y="160" font-size="9" fill="#64748b" text-anchor="middle">1</text>
+  <text x="96" y="160" font-size="9" fill="#64748b" text-anchor="middle">2</text>
+  <text x="136" y="160" font-size="9" fill="#64748b" text-anchor="middle">3</text>
+  <text x="176" y="160" font-size="9" fill="#64748b" text-anchor="middle">4</text>
+  <text x="12" y="111" font-size="9" fill="#64748b" text-anchor="middle">1</text>
+  <text x="12" y="71" font-size="9" fill="#64748b" text-anchor="middle">2</text>
+  <!-- A(1,1) → B(4,3) -->
+  <circle cx="58" cy="108" r="3.5" fill="#1d4ed8"/>
+  <text x="46" y="106" font-size="11" fill="#1a1a2e" font-weight="700">A</text>
+  <circle cx="178" cy="68" r="3.5" fill="#1d4ed8"/>
+  <text x="182" y="66" font-size="11" fill="#1a1a2e" font-weight="700">B</text>
+  <line x1="58" y1="108" x2="172" y2="72" stroke="#1d4ed8" stroke-width="2.2" marker-end="url(#ah4)"/>
+</svg></div>`,
+ opts:["(3; 2)","(5; 4)","(2; 3)","(−3; −2)"],
+ correct:0},
+
+{type:"mcq", pts:1,
+ text:"Nustatykite funkcijos f(x) = √(log₂(x + 4)) apibrėžimo sritį.",
+ opts:["x &gt; −4","x ≥ −4","x ≥ −3","x &gt; −3"],
+ correct:2},
+
+{type:"multi", pts:2,
+ text:"Kurie teiginiai yra teisingi? Pažymėkite <strong>du</strong> teisingus atsakymus.",
+ opts:["Jei f(−x) = f(x) visoms x, tai funkcija lyginė","Monotoniška funkcija su kiekviena horizontalia tiese turi daugiausiai vieną bendrą tašką","Kiekvienos periodinės funkcijos apibrėžimo sritis yra ℝ","Jei f(x) apibrėžta visiems x ∈ ℝ, tai f yra periodinė","Kvadratinė funkcija yra periodinė"],
+ correct:[0,1]},
+
+{type:"mcq", pts:1,
+ text:"Su kuriomis k reikšmėmis lygtis x² + kx + k + 3 = 0 turi du skirtingus realiuosius sprendinius?",
+ opts:["k ∈ (−∞; −2) ∪ (6; +∞)","k ∈ (−2; 6)","k ∈ [−2; 6]","k ∈ (−∞; 2) ∪ (−6; +∞)"],
+ correct:0},
+
+{type:"mcq", pts:1,
+ text:`Vektorių koordinatės: <span class="vec">a</span> = (3; −1) ir <span class="vec">b</span> = (−1; 4). Apskaičiuokite <span class="vec">a</span> + 2<span class="vec">b</span>.`,
+ opts:["(1; 7)","(5; −9)","(2; 3)","(4; 6)"],
+ correct:0},
+
+{type:"mcq", pts:1,
+ text:`Iš išorinio taško F nubrėžta liestinė FB prie apskritimo. Apskaičiuokite FB ilgį.
+<div class="fig"><svg viewBox="0 0 210 185" xmlns="http://www.w3.org/2000/svg" style="width:210px;height:auto">
+  <!-- Circle centered at O, radius 50px = 5 units -->
+  <circle cx="50" cy="130" r="50" fill="#f0f6ff" stroke="#1d4ed8" stroke-width="1.8"/>
+  <!-- Center O -->
+  <circle cx="50" cy="130" r="2.5" fill="#374151"/>
+  <text x="36" y="134" font-size="12" fill="#374151" font-weight="700">O</text>
+  <!-- Radius OB (dashed) -->
+  <line x1="50" y1="130" x2="69.2" y2="83.8" stroke="#94a3b8" stroke-width="1.2" stroke-dasharray="3,2"/>
+  <!-- OF (dashed) -->
+  <line x1="50" y1="130" x2="180" y2="130" stroke="#94a3b8" stroke-width="1.2" stroke-dasharray="3,2"/>
+  <!-- Tangent line FB (red) -->
+  <line x1="180" y1="130" x2="69.2" y2="83.8" stroke="#dc2626" stroke-width="2.2"/>
+  <!-- Point B on circle -->
+  <circle cx="69.2" cy="83.8" r="3" fill="#dc2626"/>
+  <text x="69" y="76" font-size="12" fill="#dc2626" font-weight="700">B</text>
+  <!-- Point F -->
+  <circle cx="180" cy="130" r="3" fill="#374151"/>
+  <text x="184" y="134" font-size="12" fill="#1a1a2e" font-weight="700">F</text>
+  <!-- Right angle square at B -->
+  <polygon points="69,84 66,92 74,96 78,87" fill="none" stroke="#374151" stroke-width="1.3"/>
+  <!-- Labels -->
+  <text x="40" y="107" font-size="11" fill="#374151">OB = 5</text>
+  <text x="105" y="144" font-size="11" fill="#374151">OF = 13</text>
+  <text x="129" y="107" font-size="11" fill="#dc2626" font-weight="600">FB = ?</text>
+</svg></div>`,
+ opts:["8 cm","12 cm","18 cm","√194 cm"],
+ correct:1},
+
+{type:"open2", pts:2,
+ text:`Trikampio ABC kraštinės: a = 6 cm, b = 8 cm, c = 10 cm. Apskaičiuokite trikampio plotą S ir įbrėžtojo apskritimo spindulį r.
+<div class="fig"><svg viewBox="0 0 260 185" xmlns="http://www.w3.org/2000/svg" style="width:260px;height:auto">
+  <!-- Triangle A(20,155) B(220,155) C(20,35): right angle at A, a=BC=10px*10=... -->
+  <!-- Scale: a=6→60px, b=8→80px, c=10→100px. Place A(30,155), B(30,75), C(110,155) -->
+  <!-- AB=80px=b=8, AC=80px... let me use: A(30,155), C(150,155), B(30,55) -->
+  <!-- AC=120px=c? No. Let scale=15px/unit: a=6→90px, b=8→120px, c=10→150px -->
+  <!-- A(30,160), B(30,40), C(120,160): AB=120=b=8✓, AC=90=a=6✓ -->
+  <!-- BC=sqrt(90²+120²)=sqrt(8100+14400)=sqrt(22500)=150=c=10✓ -->
+  <polygon points="30,160 30,40 120,160" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.8"/>
+  <circle cx="30" cy="160" r="2.5" fill="#1d4ed8"/>
+  <text x="10" y="165" font-size="12" fill="#1a1a2e" font-weight="700">A</text>
+  <circle cx="30" cy="40" r="2.5" fill="#1d4ed8"/>
+  <text x="10" y="44" font-size="12" fill="#1a1a2e" font-weight="700">B</text>
+  <circle cx="120" cy="160" r="2.5" fill="#1d4ed8"/>
+  <text x="124" y="165" font-size="12" fill="#1a1a2e" font-weight="700">C</text>
+  <!-- Right angle at A -->
+  <rect x="30" y="145" width="12" height="12" fill="none" stroke="#374151" stroke-width="1.3"/>
+  <!-- Side labels: a=BC opposite A, b=AC opposite B, c=AB opposite C -->
+  <text x="2" y="100" font-size="12" fill="#1d4ed8" font-weight="600">c = 8</text>
+  <text x="60" y="172" font-size="12" fill="#1d4ed8" font-weight="600">b = 6</text>
+  <text x="86" y="88" font-size="12" fill="#1d4ed8" font-weight="600">a = 10</text>
+  <!-- Inscribed circle: center=(60,125), r=30px, tangent to all 3 sides -->
+  <circle cx="60" cy="125" r="30" fill="#f5f0ff" fill-opacity="0.5" stroke="#7c3aed" stroke-width="1.5" stroke-dasharray="5,3"/>
+</svg></div>`,
+ labels:["S =","r ="], answers:["24","2"]},
+
+{type:"open1", pts:1,
+ text:`Paveiksle pavaizduoti geometrinės progresijos nariai. Apskaičiuokite b₆.
+<div class="fig"><svg viewBox="0 0 310 95" xmlns="http://www.w3.org/2000/svg" style="width:310px;height:auto">
+  <rect x="8" y="25" width="46" height="42" rx="6" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1.5"/>
+  <text x="31" y="51" font-size="14" fill="#1d4ed8" font-weight="700" text-anchor="middle">2</text>
+  <text x="31" y="17" font-size="10" fill="#64748b" text-anchor="middle">b₁</text>
+  <rect x="64" y="25" width="46" height="42" rx="6" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1.5"/>
+  <text x="87" y="51" font-size="14" fill="#1d4ed8" font-weight="700" text-anchor="middle">6</text>
+  <text x="87" y="17" font-size="10" fill="#64748b" text-anchor="middle">b₂</text>
+  <rect x="120" y="25" width="46" height="42" rx="6" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1.5"/>
+  <text x="143" y="51" font-size="14" fill="#1d4ed8" font-weight="700" text-anchor="middle">18</text>
+  <text x="143" y="17" font-size="10" fill="#64748b" text-anchor="middle">b₃</text>
+  <rect x="176" y="25" width="46" height="42" rx="6" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1.5"/>
+  <text x="199" y="51" font-size="14" fill="#1d4ed8" font-weight="700" text-anchor="middle">54</text>
+  <text x="199" y="17" font-size="10" fill="#64748b" text-anchor="middle">b₄</text>
+  <rect x="250" y="25" width="46" height="42" rx="6" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+  <text x="273" y="51" font-size="14" fill="#16a34a" font-weight="700" text-anchor="middle">?</text>
+  <text x="273" y="17" font-size="10" fill="#16a34a" text-anchor="middle">b₆</text>
+  <text x="55" y="78" font-size="10" fill="#7c3aed" text-anchor="middle">×3</text>
+  <text x="111" y="78" font-size="10" fill="#7c3aed" text-anchor="middle">×3</text>
+  <text x="167" y="78" font-size="10" fill="#7c3aed" text-anchor="middle">×3</text>
+</svg></div>`,
+ labels:["b₆ ="], answers:["486"]},
+
+{type:"mcq", pts:1,
+ text:"Kuri iš šių sekų yra geometrinė progresija?",
+ opts:["3; 6; 12; 24; 48","1; 3; 6; 10; 15","0; 2; 4; 6; 8","1; 1; 2; 3; 5"],
+ correct:0},
+
+{type:"open1", pts:1,
+ text:"Išspręskite lygtį: 2^(x + 1) = 16.",
+ labels:["x ="], answers:["3"]},
+
+{type:"multi", pts:2,
+ text:"Kurie teiginiai apie funkciją f(x) = sin(x) yra teisingi? Pažymėkite <strong>du</strong> teisingus atsakymus.",
+ opts:["sin(−x) = −sin(x)","sin(x + 2π) = sin(x)","sin²x + cos²x = 2","sin(π + x) = sin(x)","sin(x) &gt; 0 visoms x reikšmėms"],
+ correct:[0,1]},
+
+{type:"mcq", pts:1,
+ text:`Vienetiniame apskritime taškas A(−0,6; 0,8) atitinka posūkio kampą α. Apskaičiuokite sin α.
+<div class="fig"><svg viewBox="0 0 190 190" xmlns="http://www.w3.org/2000/svg" style="width:190px;height:auto">
+  <defs><marker id="ah2" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto"><polygon points="0,0 7,3.5 0,7" fill="#64748b"/></marker></defs>
+  <circle cx="95" cy="95" r="70" fill="none" stroke="#e2e8f0" stroke-width="1.5"/>
+  <line x1="15" y1="95" x2="175" y2="95" stroke="#64748b" stroke-width="1.2" marker-end="url(#ah2)"/>
+  <line x1="95" y1="175" x2="95" y2="15" stroke="#64748b" stroke-width="1.2" marker-end="url(#ah2)"/>
+  <text x="178" y="99" font-size="11" fill="#64748b">x</text>
+  <text x="88" y="12" font-size="11" fill="#64748b">y</text>
+  <text x="96" y="109" font-size="10" fill="#64748b">O</text>
+  <!-- Point A(-0.6, 0.8): x=95-0.6*70=53, y=95-0.8*70=39 -->
+  <circle cx="53" cy="39" r="4" fill="#dc2626"/>
+  <text x="30" y="34" font-size="11" fill="#dc2626" font-weight="700">A(−0,6; 0,8)</text>
+  <!-- Radius line -->
+  <line x1="95" y1="95" x2="53" y2="39" stroke="#1d4ed8" stroke-width="1.8"/>
+  <!-- Dashed y-coordinate -->
+  <line x1="53" y1="39" x2="95" y2="39" stroke="#94a3b8" stroke-width="1" stroke-dasharray="3,2"/>
+  <text x="97" y="43" font-size="10" fill="#94a3b8">0,8</text>
+</svg></div>`,
+ opts:["−0,8","0,6","0,8","−0,6"],
+ correct:2},
+
+{type:"multi", pts:2,
+ text:"Kurie teiginiai apie funkciją f(x) = ln x yra teisingi? Pažymėkite <strong>du</strong> teisingus atsakymus.",
+ opts:["√f(x) = ½ · f(x) visoms x reikšmėms","f(e · x) = 1 + f(x)","f(0) = 0","f(x − e) = f(x) − 1 visoms x","Jei 0 &lt; x &lt; 1, tai f(x) &lt; 0"],
+ correct:[1,4]},
+
+{type:"open1", pts:1,
+ text:`Išspręskite lygtį: (2x² − 8) / (x + 2) = 0. <em style="font-size:12px;color:#94a3b8">(Atkreipkite dėmesį į apibrėžimo sritį)</em>`,
+ labels:["x ="], answers:["2"]},
+
+{type:"mcq", pts:1,
+ text:"Suprastinkite reiškinį √(x² − 6x + 9), kai x &lt; 3.",
+ opts:["x − 3","3 − x","|x − 3|","x + 3"],
+ correct:1},
+
+{type:"mcq", pts:1,
+ text:"Išspręskite nelygybę log₀,₇₅(x) &gt; log₀,₇₅(3). Pažymėkite teisingą atsakymą.",
+ opts:["x ∈ (0; 3)","x ∈ (3; +∞)","x ∈ [0; 3]","x ∈ (−∞; 0)"],
+ correct:0},
+
+{type:"mcq", pts:1,
+ text:"Funkcijos f(x) = 3 sin(2x) amplitudė ir periodas:",
+ opts:["Amplitudė 3, periodas 2π","Amplitudė 3, periodas π","Amplitudė 2, periodas 3π","Amplitudė 6, periodas π"],
+ correct:1},
+
+{type:"mcq", pts:1,
+ text:"Kuri iš šių lygtybų yra teisinga visoms x reikšmėms?",
+ opts:["(x+1)² = x²+1","(x+y)² = x²+2xy+y²","x²+y²=(x+y)²","(xy)²=x+y"],
+ correct:1},
+
+{type:"open1", pts:1,
+ text:"Iš 50 studentų 30 studijuoja matematiką, 25 — fiziką, o 10 studentų studijuoja abu dalykus. Kiek studentų nestudijuoja nei matematikos, nei fizikos?",
+ labels:["Atsakymas:"], answers:["5"]},
+
+{type:"open2", pts:2,
+ text:"Trijų skaičių suma lygi 33 ir jie sudaro aritmetinę progresiją. Šių trijų skaičių sandauga lygi 935. Raskite mažiausią ir didžiausią iš jų.",
+ labels:["Mažiausias =","Didžiausias ="], answers:["5","17"]}
+
+];
+var MP = 40;
+var ans = QS.map(function(){ return null; });
+var multiSel = {};
+var done = false;
+
+function numAns(qi){
+  return ans[qi] !== null && ans[qi] !== undefined;
+}
+
+function render(){
+  var h = '';
+  for(var qi=0; qi<QS.length; qi++){
+    var q = QS[qi];
+    var t2 = q.pts === 2;
+    h += '<div class="q-card" id="qc'+qi+'">';
+    h += '<div class="q-header"><span class="q-num">'+(qi+1)+' klausimas iš '+QS.length+'</span>';
+    h += '<span class="q-pts'+(t2?' t2':'')+'">'+q.pts+' taška'+(t2?'i':'s')+'</span></div>';
+    h += '<div class="q-text">'+q.text+'</div>';
+
+    if(q.type === 'mcq'){
+      h += '<div class="opts-radio">';
+      for(var oi=0; oi<q.opts.length; oi++){
+        h += '<div class="opt-r" id="r'+qi+'x'+oi+'" onclick="pickMCQ('+qi+','+oi+')">';
+        h += '<div class="radio-icon" id="ri'+qi+'x'+oi+'"></div>';
+        h += '<div class="opt-rt">'+q.opts[oi]+'</div></div>';
+      }
+      h += '</div>';
+
+    } else if(q.type === 'multi'){
+      h += '<div class="multi-hint">☑ Pažymėkite būtent 2 atsakymus</div>';
+      h += '<div class="opts-check">';
+      for(var oi=0; oi<q.opts.length; oi++){
+        h += '<div class="opt-c" id="c'+qi+'x'+oi+'" onclick="pickMulti('+qi+','+oi+')">';
+        h += '<div class="check-icon" id="ci'+qi+'x'+oi+'"></div>';
+        h += '<div class="opt-ct">'+q.opts[oi]+'</div></div>';
+      }
+      h += '</div>';
+
+    } else if(q.type === 'open1'){
+      h += '<div class="open-row">';
+      h += '<span class="open-label">'+q.labels[0]+'</span>';
+      h += '<input class="open-inp" id="i'+qi+'_0" type="text" placeholder="..." oninput="typed('+qi+')">';
+      if(q.sfx && q.sfx[0]) h += '<span class="open-label">'+q.sfx[0]+'</span>';
+      h += '</div>';
+      h += '<div class="fb" id="f'+qi+'"></div>';
+
+    } else if(q.type === 'open2'){
+      h += '<div class="open-row">';
+      h += '<span class="open-label">'+q.labels[0]+'</span>';
+      h += '<input class="open-inp" id="i'+qi+'_0" type="text" placeholder="..." oninput="typed('+qi+')">';
+      if(q.sfx && q.sfx[0]) h += '<span class="open-label">'+q.sfx[0]+'</span>';
+      h += '<span class="open-label" style="margin-left:16px">'+q.labels[1]+'</span>';
+      h += '<input class="open-inp" id="i'+qi+'_1" type="text" placeholder="..." oninput="typed('+qi+')">';
+      if(q.sfx && q.sfx[1]) h += '<span class="open-label">'+q.sfx[1]+'</span>';
+      h += '</div>';
+      h += '<div class="fb" id="f'+qi+'"></div>';
+    }
+    h += '</div>';
+  }
+  document.getElementById('qs').innerHTML = h;
+  upd();
+}
+
+function pickMCQ(qi,oi){
+  if(done) return;
+  ans[qi] = oi;
+  for(var i=0; i<6; i++){
+    var el = document.getElementById('r'+qi+'x'+i);
+    if(el) el.classList.remove('sel');
+  }
+  document.getElementById('r'+qi+'x'+oi).classList.add('sel');
+  upd();
+}
+
+function pickMulti(qi,oi){
+  if(done) return;
+  if(!multiSel[qi]) multiSel[qi] = [];
+  var idx = multiSel[qi].indexOf(oi);
+  var el = document.getElementById('c'+qi+'x'+oi);
+  var ci = document.getElementById('ci'+qi+'x'+oi);
+  if(idx >= 0){
+    multiSel[qi].splice(idx,1);
+    el.classList.remove('sel');
+    ci.textContent = '';
+  } else if(multiSel[qi].length < 2){
+    multiSel[qi].push(oi);
+    el.classList.add('sel');
+    ci.textContent = '✓';
+  }
+  ans[qi] = multiSel[qi].length === 2 ? multiSel[qi].slice().sort(function(a,b){return a-b;}) : null;
+  upd();
+}
+
+function typed(qi){
+  if(done) return;
+  var q = QS[qi];
+  if(q.type === 'open1'){
+    var v = document.getElementById('i'+qi+'_0').value.trim();
+    ans[qi] = v || null;
+  } else {
+    var v0 = document.getElementById('i'+qi+'_0').value.trim();
+    var v1 = document.getElementById('i'+qi+'_1').value.trim();
+    ans[qi] = (v0 || v1) ? [v0, v1] : null;
+  }
+  upd();
+}
+
+function upd(){
+  var n = ans.filter(function(x){ return x !== null; }).length;
+  document.getElementById('pf').style.width = (n/QS.length*100)+'%';
+  document.getElementById('ac').textContent = 'Atsakyta: '+n+' / '+QS.length;
+}
+
+function chkNum(v, a){
+  if(!v && v !== '0') return false;
+  var vv = String(v).trim().replace(',','.').toLowerCase().replace(/\s+/g,'');
+  var aa = String(a).trim().replace(',','.').toLowerCase().replace(/\s+/g,'');
+  if(vv === aa) return true;
+  var nv = parseFloat(vv), na = parseFloat(aa);
+  if(!isNaN(nv) && !isNaN(na) && Math.abs(nv-na) <= 0.01) return true;
+  return false;
+}
+
+function submitExam(){
+  var n = ans.filter(function(x){ return x !== null; }).length;
+  if(n < QS.length && !confirm('Dar neatsakyta '+(QS.length-n)+' klausimų. Pateikti?')) return;
+  done = true;
+  document.getElementById('sb').disabled = true;
+  var pts = 0;
+
+  for(var qi=0; qi<QS.length; qi++){
+    var q = QS[qi];
+    var s = ans[qi];
+
+    if(q.type === 'mcq'){
+      var ok = (s === q.correct);
+      if(ok) pts += 1;
+      for(var oi=0; oi<q.opts.length; oi++){
+        var el = document.getElementById('r'+qi+'x'+oi);
+        if(!el) continue;
+        el.classList.remove('sel');
+        if(oi === q.correct) el.classList.add(ok && oi===s ? 'ok' : 'show');
+        else if(oi === s && !ok) el.classList.add('bad');
+      }
+
+    } else if(q.type === 'multi'){
+      var cor = q.correct.slice().sort(function(a,b){return a-b;});
+      var got = s ? s.slice() : [];
+      var ok2 = (got.length===2 && got[0]===cor[0] && got[1]===cor[1]);
+      if(ok2) pts += 2;
+      for(var oi=0; oi<q.opts.length; oi++){
+        var el = document.getElementById('c'+qi+'x'+oi);
+        var ci = document.getElementById('ci'+qi+'x'+oi);
+        if(!el) continue;
+        el.classList.remove('sel');
+        if(cor.indexOf(oi) >= 0){
+          el.classList.add(ok2 ? 'ok' : 'show');
+          ci.textContent = '✓';
+        } else if(got.indexOf(oi) >= 0){
+          el.classList.add('bad');
+          ci.textContent = '✗';
+        } else {
+          ci.textContent = '';
+        }
+      }
+
+    } else if(q.type === 'open1'){
+      var inp = document.getElementById('i'+qi+'_0');
+      var fb = document.getElementById('f'+qi);
+      var ok3 = chkNum(s, q.answers[0]);
+      if(ok3){ pts += 1; inp.classList.add('ci'); fb.textContent = 'Teisingai ✓'; fb.className = 'fb show ok'; }
+      else { inp.classList.add('wi'); fb.textContent = 'Atsakymas: '+q.answers[0]; fb.className = 'fb show bad'; }
+      inp.disabled = true;
+
+    } else if(q.type === 'open2'){
+      var inp0 = document.getElementById('i'+qi+'_0');
+      var inp1 = document.getElementById('i'+qi+'_1');
+      var fb = document.getElementById('f'+qi);
+      var v0 = s ? s[0] : '';
+      var v1 = s ? s[1] : '';
+      var ok0 = chkNum(v0, q.answers[0]);
+      var ok1 = chkNum(v1, q.answers[1]);
+      var allOk = ok0 && ok1;
+      if(allOk){ pts += 2; fb.textContent = 'Teisingai ✓'; fb.className = 'fb show ok'; }
+      else { fb.textContent = 'Atsakymai: '+q.answers[0]+' ir '+q.answers[1]; fb.className = 'fb show bad'; }
+      inp0.classList.add(ok0 ? 'ci' : 'wi'); inp0.disabled = true;
+      inp1.classList.add(ok1 ? 'ci' : 'wi'); inp1.disabled = true;
+    }
+  }
+
+  var pct = Math.round(pts/MP*100);
+  document.getElementById('mpct').textContent = pct+'%';
+  document.getElementById('mpct').className = 'mp '+(pct>=85?'ex':pct>=50?'good':'poor');
+  document.getElementById('mf').textContent = pct>=90?'Puikiai!':pct>=70?'Gerai!':pct>=50?'Neblogai':'Reikia pasimokyti';
+  document.getElementById('ms').textContent = 'Surinkta: '+pts+' iš '+MP+' taškų';
+  document.getElementById('sc').textContent = pts;
+  document.getElementById('sw').textContent = MP-pts;
+  document.getElementById('sp').textContent = pct+'%';
+  document.getElementById('mbg').classList.add('open');
+}
+
+function closeM(){ document.getElementById('mbg').classList.remove('open'); }
+render();
+</script>
+</body>
+</html>

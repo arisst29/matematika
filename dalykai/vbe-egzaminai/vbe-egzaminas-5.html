@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>VBE egzaminas 5 — Matematika 11</title>
+  <link rel="stylesheet" href="../styles/main.css"/>
+  <style>
+body{margin:0;font-family:'Segoe UI',system-ui,sans-serif}
+.exam-top{border-bottom:3px solid #1d4ed8;padding-bottom:20px;margin-bottom:32px}
+.exam-top h1{font-size:22px;font-weight:700;color:#1a1a2e;margin:0 0 6px}
+.meta{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px}
+.meta span{font-size:12px;color:#555;background:#f1f5f9;padding:3px 10px;border-radius:20px}
+.progress-bar{height:5px;background:#e2e8f0;border-radius:3px;overflow:hidden;margin-bottom:28px}
+.progress-fill{height:100%;background:#1d4ed8;border-radius:3px;transition:width .3s;width:0%}
+.q-card{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:22px;margin-bottom:14px;box-shadow:0 1px 4px rgba(0,0,0,.04)}
+.q-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.q-num{font-size:11px;font-weight:700;color:#64748b;letter-spacing:.06em;text-transform:uppercase}
+.q-pts{font-size:12px;font-weight:700;padding:2px 10px;border-radius:12px;background:#eff6ff;color:#1d4ed8;border:1px solid #bfdbfe}
+.q-pts.t2{background:#f0fdf4;color:#15803d;border-color:#bbf7d0}
+.q-text{font-size:15px;color:#1a1a2e;line-height:1.8;margin-bottom:12px;font-weight:500}
+.opts-radio{display:flex;flex-direction:column;gap:7px;margin-top:10px}
+.opt-r{display:flex;align-items:center;gap:12px;padding:10px 14px;border:1.5px solid #e2e8f0;border-radius:8px;cursor:pointer;transition:all .12s;background:#fff;user-select:none}
+.opt-r:hover{border-color:#1d4ed8;background:#eff6ff}
+.opt-r.sel{border-color:#1d4ed8;background:#eff6ff}
+.opt-r.ok{border-color:#16a34a;background:#f0fdf4}
+.opt-r.bad{border-color:#dc2626;background:#fef2f2}
+.opt-r.show{border-color:#16a34a;background:#f0fdf4}
+.radio-icon{width:20px;height:20px;border-radius:50%;border:2px solid #cbd5e1;background:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.opt-r.sel .radio-icon{border-color:#1d4ed8;background:#1d4ed8}
+.opt-r.ok .radio-icon,.opt-r.show .radio-icon{border-color:#16a34a;background:#16a34a}
+.opt-r.bad .radio-icon{border-color:#dc2626;background:#dc2626}
+.opt-r.sel .radio-icon::after,.opt-r.ok .radio-icon::after,.opt-r.show .radio-icon::after,.opt-r.bad .radio-icon::after{content:'';width:8px;height:8px;border-radius:50%;background:#fff;display:block}
+.opt-rt{font-size:14px;color:#334155;line-height:1.5}
+.multi-hint{font-size:12px;color:#7c3aed;background:#f3e8ff;border:1px solid #c4b5fd;border-radius:6px;padding:4px 10px;display:inline-block;margin-bottom:8px}
+.opts-check{display:flex;flex-direction:column;gap:7px;margin-top:10px}
+.opt-c{display:flex;align-items:center;gap:12px;padding:10px 14px;border:1.5px solid #e2e8f0;border-radius:8px;cursor:pointer;transition:all .12s;background:#fff;user-select:none}
+.opt-c:hover{border-color:#7c3aed;background:#f3e8ff}
+.opt-c.sel{border-color:#7c3aed;background:#f3e8ff}
+.opt-c.ok{border-color:#16a34a;background:#f0fdf4}
+.opt-c.bad{border-color:#dc2626;background:#fef2f2}
+.opt-c.show{border-color:#16a34a;background:#f0fdf4}
+.check-icon{width:20px;height:20px;border-radius:4px;border:2px solid #cbd5e1;background:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:13px;font-weight:700}
+.opt-c.sel .check-icon{border-color:#7c3aed;background:#7c3aed;color:#fff}
+.opt-c.ok .check-icon,.opt-c.show .check-icon{border-color:#16a34a;background:#16a34a;color:#fff}
+.opt-c.bad .check-icon{border-color:#dc2626;background:#dc2626;color:#fff}
+.opt-ct{font-size:14px;color:#334155;line-height:1.5}
+.open-row{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:10px}
+.open-label{font-size:14px;color:#334155;font-style:italic}
+.open-inp{padding:8px 12px;border:1.5px solid #e2e8f0;border-radius:8px;font-size:15px;font-family:inherit;width:100px;outline:none;text-align:center}
+.open-inp:focus{border-color:#1d4ed8}
+.open-inp.ci{border-color:#16a34a;background:#f0fdf4;color:#16a34a;font-weight:700}
+.open-inp.wi{border-color:#dc2626;background:#fef2f2;color:#dc2626}
+.fb{font-size:13px;font-weight:600;margin-top:6px;display:none}
+.fb.show{display:block}.fb.ok{color:#16a34a}.fb.bad{color:#dc2626}
+.fig{margin:12px 0;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:12px;display:inline-block}
+.vec{position:relative;display:inline-block;margin-right:2px}
+.vec::after{content:'\2192';position:absolute;top:-0.52em;left:50%;transform:translateX(-50%);font-size:0.62em;line-height:1}
+.submit-row{margin-top:32px;padding-top:20px;border-top:2px solid #e2e8f0;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.sub-btn{padding:12px 32px;background:#1d4ed8;color:#fff;border:none;border-radius:8px;font-size:15px;font-weight:700;font-family:inherit;cursor:pointer}
+.sub-btn:disabled{background:#94a3b8;cursor:not-allowed}
+.ai{font-size:13px;color:#64748b}
+.modal-bg{display:none;position:fixed;inset:0;background:rgba(15,23,42,.6);z-index:300;align-items:center;justify-content:center}
+.modal-bg.open{display:flex}
+.modal{background:#fff;border-radius:16px;padding:44px 48px;max-width:520px;width:92%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.2)}
+.mp{font-size:72px;font-weight:800;line-height:1;margin-bottom:4px}
+.mp.ex{color:#16a34a}.mp.good{color:#1d4ed8}.mp.poor{color:#dc2626}
+.mf{font-size:20px;font-weight:700;color:#1a1a2e;margin-bottom:4px}
+.ms{font-size:13px;color:#64748b;margin-bottom:20px}
+.mst{display:flex;justify-content:center;gap:28px;padding:16px;background:#f8fafc;border-radius:10px;margin-bottom:20px}
+.msv{font-size:24px;font-weight:700;color:#1a1a2e}
+.msk{font-size:11px;color:#94a3b8;margin-top:2px;text-transform:uppercase}
+.mbtns{display:flex;gap:10px;justify-content:center}
+.btn{padding:10px 20px;border-radius:8px;font-size:14px;font-weight:600;font-family:inherit;cursor:pointer;border:1.5px solid #e2e8f0;background:#fff;color:#334155}
+.btn.p{background:#1d4ed8;color:#fff;border-color:#1d4ed8}
+  </style>
+</head>
+<body>
+<div class="layout">
+  <nav class="sidebar" id="sidebar"></nav>
+  <div class="main">
+    <div class="topbar">
+      <div class="breadcrumb">
+        <a href="../index.html">Matematika 11</a>
+        <span class="sep">›</span><span class="current">VBE egzaminas 5</span>
+      </div>
+    </div>
+    <div class="page">
+      <div class="exam-top">
+        <div class="topic-tag">VBE stiliaus egzaminas · Visos temos</div>
+        <h1>VBE egzaminas 5</h1>
+        <div class="meta">
+          <span>33 klausimai</span><span>40 taškų</span><span>Visos temos</span><span>~90 min</span>
+        </div>
+      </div>
+      <div class="progress-bar"><div class="progress-fill" id="pf"></div></div>
+      <div id="qs"></div>
+      <div class="submit-row">
+        <button class="sub-btn" id="sb" onclick="submitExam()">Pateikti egzaminą</button>
+        <span class="ai" id="ac">Atsakyta: 0 / 33</span>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal-bg" id="mbg">
+  <div class="modal">
+    <div class="mp" id="mpct"></div>
+    <div class="mf" id="mf"></div>
+    <div class="ms" id="ms"></div>
+    <div class="mst">
+      <div><div class="msv" id="sc"></div><div class="msk">Taškai</div></div>
+      <div><div class="msv" id="sw"></div><div class="msk">Prarasta</div></div>
+      <div><div class="msv" id="sp"></div><div class="msk">Rezultatas</div></div>
+    </div>
+    <div class="mbtns">
+      <button class="btn" onclick="closeM()">Peržiūrėti</button>
+      <a href="../index.html" class="btn p" style="text-decoration:none">Pagrindinis →</a>
+    </div>
+  </div>
+</div>
+<script src="../js/main.js"></script>
+<script>
+var QS = [
+
+// REIŠKINIAI — naujos temos: laipsniai, kubas, išskaidymas
+{type:"mcq", pts:1,
+ text:"Apskai\u010diuokite: (0,04)^(\u22123/2).",
+ opts:["125","25","8","1000"],
+ correct:0},
+
+{type:"mcq", pts:1,
+ text:"Kam lygus rei\u0161kinys \u00b3\u221a(x+2)\u00b3 + \u2074\u221a(3\u2212x)\u2074, kai x < 3?",
+ opts:["5","x + 5","2x \u2212 1","|2x \u2212 1|"],
+ correct:0},
+
+{type:"mcq", pts:1,
+ text:"Nustatykite rei\u0161kinio \u221a(x+3) / \u221a(5\u2212x) apibr\u0117\u017eimo srit\u012f.",
+ opts:["[\u22123; 5)","(\u22123; 5]","(\u22123; 5)","[\u22123; 5]"],
+ correct:0},
+
+{type:"open1", pts:1,
+ text:"Apskai\u010diuokite: log\u2083(5) \u00b7 log\u2085(7) \u00b7 log\u2087(9).",
+ labels:["="], answers:["2"]},
+
+// SEKOS
+{type:"open1", pts:1,
+ text:"Aritmetin\u0117s progresijos a\u2081 = 1, d = 2. Apskai\u010diuokite S\u2081\u2080\u2080.",
+ labels:["S\u2081\u2080\u2080 ="], answers:["10000"]},
+
+{type:"mcq", pts:1,
+ text:"Geometrin\u0117s progresijos b\u2081 = 81, q = 1/3. Kiek nari\u0173 reikia sud\u0117ti, kad suma pirm\u0105 kart\u0105 vir\u0161yt\u0173 120?",
+ opts:["3","4","5","6"],
+ correct:2},
+
+// FUNKCIJOS — grandininis logaritmas, atvirkštinė, sudėtinė
+{type:"open2", pts:2,
+ text:"I\u0161spr\u0119skite lygt\u012f: 3^(2x) \u2212 12 \u00b7 3\u02e3 + 27 = 0. Raskite abu sprendinius.",
+ labels:["x\u2081 =","x\u2082 ="], answers:["1","2"]},
+
+{type:"open1", pts:1,
+ text:"Funkcija f(x) = 2x \u2212 1. Apskai\u010diuokite f\u207b\u00b9(3).",
+ labels:["f\u207b\u00b9(3) ="], answers:["2"]},
+
+{type:"mcq", pts:1,
+ text:"Kokio \u017eenklo yra funkcija f(x) = x\u00b2 \u2212 4x + 3 intervale (1; 3)?",
+ opts:["teigiama","neigiama","lygi nuliui","neapibrėžta"],
+ correct:1},
+
+{type:"mcq", pts:1,
+ text:"I\u0161spr\u0119skite nelygyb\u0119: 4^(x+1) &gt; 8\u02e3.",
+ opts:["x &gt; 4","x &lt; 4","x &gt; 2","x &lt; 2"],
+ correct:0},
+
+// TRIGONOMETRIJA — naujos: cos lygtis, arccos, nelygybė
+{type:"open2", pts:2,
+ text:"I\u0161spr\u0119skite lygt\u012f cos x = 1/2 intervale [\u2212180\u00b0; 180\u00b0]. Raskite abu sprendinius laipsniais.",
+ labels:["x\u2081 =","x\u2082 ="], sfx:["\u00b0","\u00b0"], answers:["-60","60"]},
+
+{type:"mcq", pts:1,
+ text:"Apskai\u010diuokite arccos(cos(5\u03c0/3)) laipsniais.",
+ opts:["60\u00b0","120\u00b0","300\u00b0","240\u00b0"],
+ correct:0},
+
+{type:"open1", pts:1,
+ text:"Duota cos\u03b1 = 5/13, \u03b1 \u2208 IV ketv. Apskai\u010diuokite sin\u03b1. \u012era\u0161ykite formatu skaitiklis/vardiklis.",
+ labels:["sin\u03b1 ="], answers:["-12/13"]},
+
+{type:"mcq", pts:1,
+ text:"f(x) = tg x reik\u0161mi\u0173 sritis yra:",
+ opts:["(\u2212\u221e; +\u221e)","[\u22121; 1]","(0; +\u221e)","[\u22121; 0) \u222a (0; 1]"],
+ correct:0},
+
+// VEKTORIAI — statmenumas, kolinearumas, naujos temos
+{type:"mcq", pts:1,
+ text:`Ar vektoriai <span class="vec">a</span> = (\u22121; 3) ir <span class="vec">b</span> = (3; 1) yra statmeni?`,
+ opts:["Taip, nes <span class=\"vec\">a</span> \u00b7 <span class=\"vec\">b</span> = 0","Ne, nes <span class=\"vec\">a</span> \u00b7 <span class=\"vec\">b</span> \u2260 0","Taip, nes jie kolinear\u016bs","Ne, nes |<span class=\"vec\">a</span>| \u2260 |<span class=\"vec\">b</span>|"],
+ correct:0},
+
+{type:"mcq", pts:1,
+ text:"Ta\u0161kai A(1; 1), B(3; 5), C(5; 9). Koks j\u0173 tarpusavio ryšys?",
+ opts:["Jie vienoje tiesėje","Sudaro stačiakamp\u012f trikamp\u012f","Sudaro lygiakrat\u012f trikamp\u012f","Jie nesusiję"],
+ correct:0},
+
+{type:"open1", pts:1,
+ text:`Duota |<span class="vec">a</span> + <span class="vec">b</span>|\u00b2 = 45, |<span class="vec">a</span>| = 4, |<span class="vec">b</span>| = 5. Apskai\u010diuokite <span class="vec">a</span> \u00b7 <span class="vec">b</span>.`,
+ labels:[`<span class="vec">a</span> \u00b7 <span class="vec">b</span> =`], answers:["2"]},
+
+{type:"open2", pts:2,
+ text:`Rombo ABCD kra\u0161tin\u0117 lygi 6 cm, kampas A = 120\u00b0. Apskai\u010diuokite abi \u012fstraiagon\u0117s: ilgesn\u0105j\u0105 d\u2081 ir trumpesni\u0105j\u0105 d\u2082.`,
+ labels:["d\u2081 =","d\u2082 ="], sfx:["cm","cm"], answers:["6","6"]},
+
+// PLANIMETRIJA — naujos: stygos, Talio, R
+{type:"mcq", pts:1,
+ text:`Apskritime dvi stygos AB ir CD kertasi taške E. AE = 4, EB = 9, CE = 6. Apskai\u010diuokite ED.
+<div class="fig"><svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="width:200px;height:auto">
+  <circle cx="100" cy="100" r="80" fill="#f0f6ff" stroke="#1d4ed8" stroke-width="1.5"/>
+  <line x1="30" y1="60" x2="175" y2="145" stroke="#1d4ed8" stroke-width="1.8"/>
+  <line x1="25" y1="150" x2="180" y2="60" stroke="#dc2626" stroke-width="1.8"/>
+  <circle cx="97" cy="98" r="3" fill="#374151"/>
+  <text x="100" y="93" font-size="11" fill="#374151" font-weight="600">E</text>
+  <text x="18" y="58" font-size="11" fill="#1d4ed8" font-weight="700">A</text>
+  <text x="176" y="150" font-size="11" fill="#1d4ed8" font-weight="700">B</text>
+  <text x="18" y="155" font-size="11" fill="#dc2626" font-weight="700">C</text>
+  <text x="181" y="58" font-size="11" fill="#dc2626" font-weight="700">D</text>
+  <text x="52" y="87" font-size="10" fill="#1d4ed8">AE=4</text>
+  <text x="130" y="130" font-size="10" fill="#1d4ed8">EB=9</text>
+  <text x="42" y="130" font-size="10" fill="#dc2626">CE=6</text>
+  <text x="125" y="72" font-size="10" fill="#dc2626">ED=?</text>
+</svg></div>`,
+ opts:["6","4","8","9"],
+ correct:0},
+
+{type:"open1", pts:1,
+ text:"Trikampyje MN \u2225 BC, AM = 4, MB = 6, BC = 25 cm. Apskai\u010diuokite MN.",
+ labels:["MN ="], answers:["10"]},
+
+{type:"mcq", pts:1,
+ text:"Stačiojo trikampio katetai AC = 6 cm ir BC = 8 cm. Apskai\u010diuokite apibr\u0117\u017etojo apskritimo spindul\u012f R.",
+ opts:["5 cm","4 cm","10 cm","6 cm"],
+ correct:0},
+
+{type:"open1", pts:1,
+ text:"Lygiašonio trikampio kraštinės 10, 10 ir 12 cm. Apskaičiuokite trikampio plotą.",
+ labels:["S ="], answers:["48"]},
+
+// LYGTYS — naujos: kartotinis sprendinys, dviguba nelygybė, stačiakampis
+{type:"mcq", pts:1,
+ text:"Su kuriomis k reik\u0161m\u0117mis lygtis x\u00b2 + kx + 9 = 0 turi vien\u0105 kartotini\u012f sprendini?",
+ opts:["k = \u00b16","k = \u00b13","k = \u00b19","k = 0"],
+ correct:0},
+
+{type:"mcq", pts:1,
+ text:"I\u0161spr\u0119skite dvigun\u0105j\u0105 nelygyb\u0119: \u22123 &lt; 5 \u2212 2x \u2264 9.",
+ opts:["x \u2208 [\u22122; 4)","x \u2208 (\u22122; 4]","x \u2208 [\u22124; 2)","x \u2208 (\u22124; 2]"],
+ correct:0},
+
+{type:"open2", pts:2,
+ text:"Sta\u010diakampio perimetras 40 cm, plotas 96 cm\u00b2. Raskite sta\u010diakampio kra\u0161tines.",
+ labels:["Trumpesn\u0117:","Ilgesn\u0117:"], sfx:["cm","cm"], answers:["8","12"]},
+
+{type:"multi", pts:2,
+ text:"Kurie teiginiai yra teisingi? Pa\u017em\u0117kite <strong>du</strong> teisingus atsakymus.",
+ opts:["Jei lygtis ax\u00b2 + bx + c = 0 turi du sprendinius, tai D > 0","Jei f(x) nelygin\u0117, tai f(0) = 0","log\u2090(x \u00b7 y) = log\u2090 x + log\u2090 y","sin\u00b2x + cos\u00b2x = 2","Periodin\u0117s funkcijos apibrėžimo sritis visada yra \u211d"],
+ correct:[0,2]},
+
+{type:"mcq", pts:1,
+ text:"Nelygybės (x + 1)\u00b2(x \u2212 4) \u2265 0 sprendiniai:",
+ opts:["x \u2265 4 arba x = \u22121","x &gt; 4","x \u2208 [\u22121; 4]","x \u2265 \u22121"],
+ correct:0},
+
+{type:"mcq", pts:1,
+ text:"Automobilis nuvažiuoja 150 km per 3 valandas. Kitu maršrutu tą pat\u012f atstu\u0105 nuvažiuoja per 5 valandas. Kiek km/h skiriasi greičiai?",
+ opts:["20","30","40","10"],
+ correct:0},
+
+{type:"mcq", pts:1,
+ text:"Kuriame intervale funkcija f(x) = sin(x) didėja?",
+ opts:["(−π/2; π/2)","(0; π)","(π/2; 3π/2)","(π; 2π)"],
+ correct:0},
+
+{type:"mcq", pts:1,
+ text:"Aritmetinės progresijos d = 4, S₅ = 60. Koks pirmasis narys a₁?",
+ opts:["2","4","6","8"],
+ correct:1},
+
+{type:"open1", pts:1,
+ text:"Apskaičiuokite: √(x+3) / √(5−x) apibrėžimo srities ilgį.",
+ labels:["Ilgis ="], answers:["8"]},
+
+// ── SUNKŪS — PASKUTINIAI ──
+{type:"open2", pts:2,
+ text:"Dvie\u017enklio skai\u010diaus skaitmen\u0173 suma lygi 11. Pradinis skai\u010dius yra 45 didesnis u\u017e skai\u010di\u0173, gautą apvert\u0173s jo skaitmenis tvarką. Raskite pradinius skaitmenis.",
+ labels:["Deimtys:", "Vienetai:"], answers:["8","3"]},
+
+{type:"open2", pts:2,
+ text:"Du b\u0117gikai vienu metu i\u0161b\u0117ga i\u0161 to paties ta\u0161ko priei\u0161ingomis kryptimis. Pirmasis b\u0117ga 8 km/h greiu, antrasis \u2014 12 km/h. Po kiek valand\u0173 atstumas tarp j\u0173 bus 40 km? Koks atstumas tarp j\u0173 bus po 3 valand\u0173?",
+ labels:["Po:","Po 3 val.:"], sfx:["val.","km"], answers:["2","60"]}
+
+];
+
+var MP=40;
+var ans=QS.map(function(){return null;});
+var multiSel={};
+var done=false;
+
+function render(){
+  var h='';
+  for(var qi=0;qi<QS.length;qi++){
+    var q=QS[qi];var t2=q.pts===2;
+    h+='<div class="q-card"><div class="q-header"><span class="q-num">'+(qi+1)+' klausimas iš '+QS.length+'</span>';
+    h+='<span class="q-pts'+(t2?' t2':'')+'">'+q.pts+' taška'+(t2?'i':'s')+'</span></div>';
+    h+='<div class="q-text">'+q.text+'</div>';
+    if(q.type==='mcq'){
+      h+='<div class="opts-radio">';
+      for(var oi=0;oi<q.opts.length;oi++)
+        h+='<div class="opt-r" id="r'+qi+'x'+oi+'" onclick="pickMCQ('+qi+','+oi+')"><div class="radio-icon"></div><div class="opt-rt">'+q.opts[oi]+'</div></div>';
+      h+='</div>';
+    }else if(q.type==='multi'){
+      h+='<div class="multi-hint">\u2611 Pa\u017em\u0117kite b\u016btent 2 atsakymus</div><div class="opts-check">';
+      for(var oi=0;oi<q.opts.length;oi++)
+        h+='<div class="opt-c" id="c'+qi+'x'+oi+'" onclick="pickMulti('+qi+','+oi+')"><div class="check-icon" id="ci'+qi+'x'+oi+'"></div><div class="opt-ct">'+q.opts[oi]+'</div></div>';
+      h+='</div>';
+    }else if(q.type==='open1'){
+      h+='<div class="open-row"><span class="open-label">'+q.labels[0]+'</span>';
+      h+='<input class="open-inp" id="i'+qi+'_0" type="text" placeholder="..." oninput="typed('+qi+')">';
+      if(q.sfx&&q.sfx[0])h+='<span class="open-label">'+q.sfx[0]+'</span>';
+      h+='</div><div class="fb" id="f'+qi+'"></div>';
+    }else{
+      h+='<div class="open-row"><span class="open-label">'+q.labels[0]+'</span>';
+      h+='<input class="open-inp" id="i'+qi+'_0" type="text" placeholder="..." oninput="typed('+qi+')">';
+      if(q.sfx&&q.sfx[0])h+='<span class="open-label">'+q.sfx[0]+'</span>';
+      h+='<span class="open-label" style="margin-left:12px">'+q.labels[1]+'</span>';
+      h+='<input class="open-inp" id="i'+qi+'_1" type="text" placeholder="..." oninput="typed('+qi+')">';
+      if(q.sfx&&q.sfx[1])h+='<span class="open-label">'+q.sfx[1]+'</span>';
+      h+='</div><div class="fb" id="f'+qi+'"></div>';
+    }
+    h+='</div>';
+  }
+  document.getElementById('qs').innerHTML=h;upd();
+}
+
+function pickMCQ(qi,oi){
+  if(done)return;ans[qi]=oi;
+  for(var i=0;i<6;i++){var e=document.getElementById('r'+qi+'x'+i);if(e)e.classList.remove('sel');}
+  document.getElementById('r'+qi+'x'+oi).classList.add('sel');upd();
+}
+
+function pickMulti(qi,oi){
+  if(done)return;if(!multiSel[qi])multiSel[qi]=[];
+  var idx=multiSel[qi].indexOf(oi);
+  var el=document.getElementById('c'+qi+'x'+oi);var ci=document.getElementById('ci'+qi+'x'+oi);
+  if(idx>=0){multiSel[qi].splice(idx,1);el.classList.remove('sel');ci.textContent='';}
+  else if(multiSel[qi].length<2){multiSel[qi].push(oi);el.classList.add('sel');ci.textContent='\u2713';}
+  ans[qi]=multiSel[qi].length===2?multiSel[qi].slice().sort(function(a,b){return a-b;}):null;upd();
+}
+
+function typed(qi){
+  if(done)return;var q=QS[qi];
+  if(q.type==='open1'){ans[qi]=document.getElementById('i'+qi+'_0').value.trim()||null;}
+  else{
+    var v0=document.getElementById('i'+qi+'_0').value.trim();
+    var v1=document.getElementById('i'+qi+'_1').value.trim();
+    ans[qi]=(v0||v1)?[v0,v1]:null;
+  }
+  upd();
+}
+
+function upd(){
+  var n=ans.filter(function(x){return x!==null;}).length;
+  document.getElementById('pf').style.width=(n/QS.length*100)+'%';
+  document.getElementById('ac').textContent='Atsakyta: '+n+' / '+QS.length;
+}
+
+function chk(v,a){
+  if(v===null||v===undefined||v==='')return false;
+  var vv=String(v).trim().replace(',','.').toLowerCase().replace(/\s+/g,'');
+  var aa=String(a).trim().replace(',','.').toLowerCase().replace(/\s+/g,'');
+  if(vv===aa)return true;
+  var nv=parseFloat(vv),na=parseFloat(aa);
+  if(!isNaN(nv)&&!isNaN(na)&&Math.abs(nv-na)<=0.5)return true;
+  return false;
+}
+
+function submitExam(){
+  var n=ans.filter(function(x){return x!==null;}).length;
+  if(n<QS.length&&!confirm('Dar neatsakyta '+(QS.length-n)+' klausimų. Pateikti?'))return;
+  done=true;document.getElementById('sb').disabled=true;var pts=0;
+  for(var qi=0;qi<QS.length;qi++){
+    var q=QS[qi];var s=ans[qi];
+    if(q.type==='mcq'){
+      var ok=(s===q.correct);if(ok)pts+=1;
+      for(var oi=0;oi<q.opts.length;oi++){
+        var el=document.getElementById('r'+qi+'x'+oi);if(!el)continue;
+        el.classList.remove('sel');
+        if(oi===q.correct)el.classList.add(ok&&oi===s?'ok':'show');
+        else if(oi===s&&!ok)el.classList.add('bad');
+      }
+    }else if(q.type==='multi'){
+      var cor=q.correct.slice().sort(function(a,b){return a-b;});var got=s?s.slice():[];
+      var ok2=(got.length===2&&got[0]===cor[0]&&got[1]===cor[1]);if(ok2)pts+=2;
+      for(var oi=0;oi<q.opts.length;oi++){
+        var el=document.getElementById('c'+qi+'x'+oi);var ci=document.getElementById('ci'+qi+'x'+oi);if(!el)continue;
+        el.classList.remove('sel');
+        if(cor.indexOf(oi)>=0){el.classList.add(ok2?'ok':'show');ci.textContent='\u2713';}
+        else if(got.indexOf(oi)>=0){el.classList.add('bad');ci.textContent='\u2717';}
+        else ci.textContent='';
+      }
+    }else if(q.type==='open1'){
+      var inp=document.getElementById('i'+qi+'_0');var fb=document.getElementById('f'+qi);
+      var ok3=chk(s,q.answers[0]);
+      if(ok3){pts+=1;inp.classList.add('ci');fb.textContent='Teisingai \u2713';fb.className='fb show ok';}
+      else{inp.classList.add('wi');fb.textContent='Atsakymas: '+q.answers[0];fb.className='fb show bad';}
+      inp.disabled=true;
+    }else{
+      var inp0=document.getElementById('i'+qi+'_0');var inp1=document.getElementById('i'+qi+'_1');var fb=document.getElementById('f'+qi);
+      var v0=s?s[0]:'';var v1=s?s[1]:'';
+      var ok0=chk(v0,q.answers[0]);var ok1=chk(v1,q.answers[1]);
+      if(ok0&&ok1){pts+=2;fb.textContent='Teisingai \u2713';fb.className='fb show ok';}
+      else{fb.textContent='Atsakymai: '+q.answers[0]+' ir '+q.answers[1];fb.className='fb show bad';}
+      inp0.classList.add(ok0?'ci':'wi');inp0.disabled=true;
+      inp1.classList.add(ok1?'ci':'wi');inp1.disabled=true;
+    }
+  }
+  var pct=Math.round(pts/MP*100);
+  document.getElementById('mpct').textContent=pct+'%';
+  document.getElementById('mpct').className='mp '+(pct>=85?'ex':pct>=50?'good':'poor');
+  document.getElementById('mf').textContent=pct>=90?'Puikiai!':pct>=70?'Gerai!':pct>=50?'Neblogai':'Reikia pasimokyti';
+  document.getElementById('ms').textContent='Surinkta: '+pts+' iš '+MP+' taškų';
+  document.getElementById('sc').textContent=pts;document.getElementById('sw').textContent=MP-pts;document.getElementById('sp').textContent=pct+'%';
+  document.getElementById('mbg').classList.add('open');
+}
+function closeM(){document.getElementById('mbg').classList.remove('open');}
+render();
+</script>
+</body>
+</html>

@@ -66,7 +66,15 @@ const NAV = [
       { id: 't5', name: 'T5. Vektoriaus koordinatės',                  path: 'dalykai/vektoriai/temos/t5-koordinates/teorija.html' },
       { id: 't6', name: 'T6. Veiksmai koordinatėmis',                  path: 'dalykai/vektoriai/temos/t6-veiksmai-koordinatemis/teorija.html' },
       { id: 't7', name: 'T7. Skaliarinė sandauga ir kampas koordinatėmis', path: 'dalykai/vektoriai/temos/t7-kampas-koordinatemis/teorija.html' },
-    ], tests: 'dalykai/vektoriai/skyriaus-testai/index.html', exams: 'dalykai/vektoriai/egzaminai/index.html' },
+    ], tests: 'dalykai/vektoriai/skyriaus-testai/index.html', exams: 'dalykai/vektoriai/egzaminai/index.html' },,
+  {
+    id: 'vbe',
+    num: '',
+    name: 'VBE Egzaminai',
+    topics: [],
+    exams: 'dalykai/vbe-egzaminai/index.html',
+    vbeSection: true
+  }
 ];
 
 // ── KELIO SKAIČIAVIMAS ───────────────────────────────────────────────
@@ -118,6 +126,18 @@ function buildSidebar() {
 }
 
 function buildSubject(subj, root, currentPath) {
+  // Special handling for VBE section (no topics, just a direct link)
+  if (subj.vbeSection) {
+    const isActive = currentPath.includes('vbe-egzaminai');
+    return `
+    <div class="subject">
+      <div class="subject-header ${isActive ? 'active' : ''}">
+        <a href="${root + subj.exams}" style="text-decoration:none;display:flex;align-items:center;gap:8px;width:100%;color:inherit">
+          <span class="subject-name" style="color:var(--accent);font-weight:700">&#127891; ${subj.name}</span>
+        </a>
+      </div>
+    </div>`;
+  }
   const hasTopics = subj.topics.length > 0;
   const isActive = subj.topics.some(t => currentPath.includes(t.path.replace('dalykai/', '').replace('teorija.html', '')));
 
