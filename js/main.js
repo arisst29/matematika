@@ -102,20 +102,19 @@ function buildSidebar() {
   sidebar.innerHTML = `
     <div class="sidebar-logo">
       <a href="${root}index.html" style="text-decoration:none">
-        <div class="brand">Matematika <span>11</span></div>
+        <div class="brand">Mathematikus <span>11</span></div>
         <div class="sub">Mokymosi platforma</div>
       </a>
     </div>
-    <div class="sidebar-section">
+        <div class="sidebar-section">
       <div class="sidebar-section-label">Skyriai</div>
       ${NAV.map(subj => buildSubject(subj, root, currentPath)).join('')}
     </div>
     <div class="sidebar-bottom">
-      <a class="sidebar-action exam" href="${root}egzaminai/index.html">
-        <span>📋</span> Bandomieji egzaminai
-      </a>
-      <a class="sidebar-action" href="${root}index.html">
-        <span>⊞</span> Pradžia
+      <a class="sidebar-action" href="${root}index.html">Pradžia</a>
+      <a href="${root}atsiliepimai.html" style="display:flex;align-items:center;gap:8px;margin-top:6px;padding:10px 12px;background:var(--ink);color:#fff;border-radius:var(--radius);font-size:13px;font-weight:500;text-decoration:none;transition:background 0.15s;" onmouseover="this.style.background='#2a2a2a'" onmouseout="this.style.background='var(--ink)'">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        Palikti atsiliepimą
       </a>
     </div>
   `;
@@ -133,7 +132,7 @@ function buildSubject(subj, root, currentPath) {
     <div class="subject">
       <div class="subject-header ${isActive ? 'active' : ''}">
         <a href="${root + subj.exams}" style="text-decoration:none;display:flex;align-items:center;gap:8px;width:100%;color:inherit">
-          <span class="subject-name" style="color:var(--accent);font-weight:700">&#127891; ${subj.name}</span>
+          <span class="subject-name" style="font-weight:600">${subj.name}</span>
         </a>
       </div>
     </div>`;
@@ -158,7 +157,7 @@ function buildSubject(subj, root, currentPath) {
         </a>` : ''}
       ${subj.exams ? `
         <a class="topic-link" href="${root + subj.exams}" style="color:var(--accent)">
-          <span class="topic-dot" style="background:var(--accent)"></span>🎓 Skyriaus egzaminai
+          <span class="topic-dot" style="background:var(--accent)"></span>Skyriaus egzaminai
         </a>` : ''}
     </div>` : '<div class="topic-list"></div>';
 
@@ -207,5 +206,71 @@ function autoOpen() {
   }
 }
 
+// ── FORMULYNAS BUTTON ─────────────────────────────────────────────────
+function addFormulynas() {
+  const btn = document.createElement('a');
+  btn.href = 'https://www.nsa.smsm.lt/old/wp-content/uploads/2025/02/VBE-formuliu-rinkinys-A.pdf';
+  btn.target = '_blank';
+  btn.rel = 'noopener noreferrer';
+  btn.title = 'Atidaryti VBE formulyną';
+  btn.style.cssText = [
+    'position:fixed',
+    'bottom:24px',
+    'right:24px',
+    'z-index:500',
+    'display:flex',
+    'align-items:center',
+    'gap:8px',
+    'padding:10px 16px',
+    'background:var(--accent)',
+    'color:#fff',
+    'border-radius:50px',
+    'font-family:var(--sans)',
+    'font-size:13px',
+    'font-weight:600',
+    'text-decoration:none',
+    'box-shadow:0 4px 16px rgba(29,78,216,0.35)',
+    'transition:transform 0.15s, box-shadow 0.15s',
+    'user-select:none',
+  ].join(';');
+
+  btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>Formulynas';
+
+  btn.addEventListener('mouseenter', function() {
+    this.style.transform = 'translateY(-2px)';
+    this.style.boxShadow = '0 6px 24px rgba(29,78,216,0.5)';
+  });
+  btn.addEventListener('mouseleave', function() {
+    this.style.transform = 'translateY(0)';
+    this.style.boxShadow = '0 4px 16px rgba(29,78,216,0.35)';
+  });
+
+  document.body.appendChild(btn);
+}
+
 // ── INIT ──────────────────────────────────────────────────────────────
-document.addEventListener('DOMContentLoaded', buildSidebar);
+document.addEventListener('DOMContentLoaded', function() {
+  buildSidebar();
+  addFormulynas();
+  addLegalLink();
+});
+
+function addLegalLink() {
+  var topbar = document.querySelector('.topbar');
+  if (!topbar) return;
+  var path = window.location.pathname;
+  var depth = (path.split('/').length - 2);
+  var r = depth <= 1 ? './' : depth === 2 ? '../' : '../../';
+
+  var link = document.createElement('a');
+  link.href = r + 'legal.html';
+  link.style.cssText = [
+    'display:flex','align-items:center','gap:5px',
+    'font-size:11.5px','color:var(--ink3)','text-decoration:none',
+    'transition:color 0.1s','white-space:nowrap','flex-shrink:0'
+  ].join(';');
+  link.innerHTML = '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>Teisinė informacija';
+  link.onmouseover = function(){ this.style.color = 'var(--ink)'; };
+  link.onmouseout  = function(){ this.style.color = 'var(--ink3)'; };
+  topbar.appendChild(link);
+}

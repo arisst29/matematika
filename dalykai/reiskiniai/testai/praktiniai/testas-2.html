@@ -88,7 +88,108 @@
   </div>
 </div>
 <script src="../../../../../../js/main.js"></script>
-<script>var QUESTIONS=[{"text": "Kam lygi intervalų (−5; 2) ir [−1; 6] sankirta?", "options": ["(−5; 6)", "[−1; 2)", "(−1; 2)", "[−1; 6]"], "correct": 1}, {"text": "Duotos aibės A = {2, 4, 7, 9, 11} ir B = {4, 9, 16}. Raskite A ∩ B.", "options": ["{4, 9}", "{2, 7, 11}", "{16}", "{2, 4, 7, 9, 11, 16}"], "correct": 0}, {"text": "Ar teiginys ℤ ∩ ℚ = ℤ yra teisingas?", "options": ["Ne, nes ℤ ir ℚ neturi bendrų elementų", "Taip, nes visi sveikieji skaičiai yra ir racionaliojo", "Ne, nes ℤ ∩ ℚ = ∅", "Taip, bet tik dalinai"], "correct": 1}, {"text": "Apskaičiuokite ³√(−0,125).", "options": ["0,5", "−0,5", "−5", "Neapibrėžta"], "correct": 1}, {"text": "Šaknį ⁵√(a³) užrašykite laipsnio forma.", "options": ["a^(5/3)", "a^(3/5)", "a^(2/5)", "a^(8/5)"], "correct": 1}, {"text": "Apskaičiuokite 32^(−3/5).", "options": ["1/8", "8", "−8", "1/4"], "correct": 0}, {"text": "Suprastinkite: 2√75 + 3√12 − √48.", "options": ["9√3", "12√3", "10√3", "8√3"], "correct": 1}, {"text": "Apskaičiuokite: (2^(1/4))⁸.", "options": ["2", "4", "16", "8"], "correct": 2}, {"text": "Suprastinkite: ⁹√(a⁶), kai a > 0.", "options": ["a^(2/3)", "³√(a²)", "a^(3/2)", "A ir B yra teisingi"], "correct": 3}, {"text": "Apskaičiuokite: (4^(3/2) · 8^(2/3)) / 2^3.", "options": ["4", "2", "1", "8"], "correct": 0}];
+<script>var QUESTIONS=[
+  {
+    "text": "Kam lygi intervalų (−5; 2) ir [−1; 6] sankirta?",
+    "options": [
+      "(−5; 6)",
+      "[−1; 2)",
+      "(−1; 2)",
+      "[−1; 6]"
+    ],
+    "correct": 1
+  },
+  {
+    "text": "Duotos aibės A = {2, 4, 7, 9, 11} ir B = {4, 9, 16}. Raskite A ∩ B.",
+    "options": [
+      "{4, 9}",
+      "{2, 7, 11}",
+      "{16}",
+      "{2, 4, 7, 9, 11, 16}"
+    ],
+    "correct": 0
+  },
+  {
+    "text": "Ar teiginys ℤ ∩ ℚ = ℤ yra teisingas?",
+    "options": [
+      "Ne, nes ℤ ir ℚ neturi bendrų elementų",
+      "Taip, nes visi sveikieji skaičiai yra ir racionalieji",
+      "Ne, nes ℤ ∩ ℚ = ∅",
+      "Taip, bet tik dalinai"
+    ],
+    "correct": 1
+  },
+  {
+    "text": "Apskaičiuokite ³√(−0,125).",
+    "options": [
+      "0,5",
+      "−0,5",
+      "−5",
+      "Neapibrėžta"
+    ],
+    "correct": 1
+  },
+  {
+    "text": "Šaknį ⁵√(a³) užrašykite laipsnio forma.",
+    "options": [
+      "a^(5/3)",
+      "a^(3/5)",
+      "a^(2/5)",
+      "a^(8/5)"
+    ],
+    "correct": 1
+  },
+  {
+    "text": "Apskaičiuokite 32^(−3/5).",
+    "options": [
+      "1/8",
+      "8",
+      "−8",
+      "1/4"
+    ],
+    "correct": 0
+  },
+  {
+    "text": "Suprastinkite: 2√75 + 3√12 − √48.",
+    "options": [
+      "9√3",
+      "12√3",
+      "10√3",
+      "8√3"
+    ],
+    "correct": 1
+  },
+  {
+    "text": "Apskaičiuokite: (2^(1/4))⁸.",
+    "options": [
+      "2",
+      "4",
+      "16",
+      "8"
+    ],
+    "correct": 1
+  },
+  {
+    "text": "Suprastinkite: ⁹√(a⁶), kai a > 0.",
+    "options": [
+      "a^(2/3)",
+      "³√(a²)",
+      "a^(3/2)",
+      "A ir B yra teisingi"
+    ],
+    "correct": 3
+  },
+  {
+    "text": "Apskaičiuokite: (4^(3/2) · 8^(2/3)) / 2^3.",
+    "options": [
+      "4",
+      "2",
+      "1",
+      "8"
+    ],
+    "correct": 0
+  }
+];
 var answers=new Array(QUESTIONS.length).fill(null);var submitted=false;
 function renderQuestions(){var html='';for(var qi=0;qi<QUESTIONS.length;qi++){var q=QUESTIONS[qi];html+='<div class="question-card"><div class="question-num">Klausimas '+(qi+1)+' iš '+QUESTIONS.length+'</div>';html+='<div class="question-text">'+q.text+'</div>';html+='<div class="options">';var L=['A','B','C','D'];for(var oi=0;oi<q.options.length;oi++){html+='<div class="option" id="opt-'+qi+'-'+oi+'" onclick="sel('+qi+','+oi+')">';html+='<div class="option-letter">'+L[oi]+'</div><div class="option-text">'+q.options[oi]+'</div></div>';}html+='</div></div>';}document.getElementById('questions').innerHTML=html;}
 function sel(qi,oi){if(submitted)return;answers[qi]=oi;for(var i=0;i<4;i++){var e=document.getElementById('opt-'+qi+'-'+i);if(e)e.classList.remove('selected');}document.getElementById('opt-'+qi+'-'+oi).classList.add('selected');var a=answers.filter(function(x){return x!==null;}).length;document.getElementById('progress').style.width=(a/QUESTIONS.length*100)+'%';document.getElementById('answered-count').textContent='Atsakyta: '+a+' / '+QUESTIONS.length;}
