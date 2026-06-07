@@ -112,69 +112,114 @@
 <script>
 const QUESTIONS = [
   {
-    id: 1,
-    text: "Raskite funkcijos f(x) = √(x² − 4x) apibrėžimo sritį.",
-    options: ["[0; 4]", "(−∞; 0] ∪ [4; +∞)", "(0; 4)", "(−∞; 0) ∪ (4; +∞)"],
-    correct: 1
+    "id": 1,
+    "text": "Raskite funkcijos f(x) = √(x² − 4x) apibrėžimo sritį.",
+    "options": [
+      "[0; 4]",
+      "(−∞; 0] ∪ [4; +∞)",
+      "(0; 4)",
+      "(−∞; 0) ∪ (4; +∞)"
+    ],
+    "correct": 1
   },
   {
-    id: 2,
-    text: "Raskite funkcijos f(x) = √(x + 3) / (x − 2) apibrėžimo sritį.",
-    options: ["[−3; +∞)", "[−3; 2) ∪ (2; +∞)", "(−3; 2) ∪ (2; +∞)", "[−3; 2]"],
-    correct: 1
+    "id": 2,
+    "text": "Raskite funkcijos f(x) = √(x + 3) / (x − 2) apibrėžimo sritį.",
+    "options": [
+      "[−3; +∞)",
+      "[−3; 2) ∪ (2; +∞)",
+      "(−3; 2) ∪ (2; +∞)",
+      "[−3; 2]"
+    ],
+    "correct": 1
   },
   {
-    id: 3,
-    text: "Duota f(x) = −x² + 6x − 5. Raskite funkcijos nulius.",
-    options: ["x = 1 ir x = 5", "x = −1 ir x = −5", "x = 2 ir x = 3", "x = 1 ir x = 6"],
-    correct: 0
+    "id": 3,
+    "text": "Duota f(x) = −x² + 6x − 5. Raskite funkcijos nulius.",
+    "options": [
+      "x = 1 ir x = 5",
+      "x = −1 ir x = −5",
+      "x = 2 ir x = 3",
+      "x = 1 ir x = 6"
+    ],
+    "correct": 0
   },
   {
-    id: 4,
-    text: "Funkcija f(x) = −x² + 6x − 5 (nuliai: x = 1 ir x = 5). Kuriame intervale f(x) > 0?",
-    options: ["(−∞; 1) ∪ (5; +∞)", "[1; 5]", "(1; 5)", "(−∞; 1)"],
-    correct: 2
+    "id": 4,
+    "text": "Funkcija f(x) = −x² + 6x − 5 (nuliai: x = 1 ir x = 5). Kuriame intervale f(x) > 0?",
+    "options": [
+      "(−∞; 1) ∪ (5; +∞)",
+      "[1; 5]",
+      "(1; 5)",
+      "(−∞; 1)"
+    ],
+    "correct": 2
   },
   {
-    id: 5,
-    text: "Ar funkcija f(x) = x⁶ − 2x² + 7 yra lyginė, nelyginė ar nei viena?",
-    options: ["Nelyginė", "Nei lyginė, nei nelyginė", "Lyginė, nes f(−x) = f(x)", "Lyginė, nes laipsniai lyginiai"],
-    correct: 2
+    "id": 5,
+    "text": "Ar funkcija f(x) = x⁶ − 2x² + 7 yra lyginė, nelyginė ar nei viena?",
+    "options": [
+      "Nelyginė",
+      "Nei lyginė, nei nelyginė",
+      "Lyginė, nes f(−x) = f(x)",
+      "Lyginė, nes laipsniai lyginiai"
+    ],
+    "correct": 2
   },
   {
-    id: 6,
-    text: "Funkcija f(x) = x³ + x² yra:",
-    options: ["Lyginė", "Nelyginė", "Nei lyginė, nei nelyginė, nes f(−x) ≠ f(x) ir f(−x) ≠ −f(x)", "Lyginė, nes f(0) = 0"],
-    correct: 2
+    "id": 6,
+    "text": "Funkcija f(x) = x³ + x² yra:",
+    "options": [
+      "Lyginė",
+      "Nelyginė",
+      "Nei lyginė, nei nelyginė, nes f(−x) ≠ f(x) ir f(−x) ≠ −f(x)",
+      "Lyginė, nes f(0) = 0"
+    ],
+    "correct": 2
   },
   {
-    id: 7,
-    text: "Duotos f(x) = x² − 3 ir g(x) = 2x + 1. Raskite f(g(x)).",
-    options: ["4x² + 4x − 2", "2x² − 5", "4x² + 4x + 1 − 3 = 4x² + 4x − 2", "2x² + 1"],
-    correct: 0
+    "id": 7,
+    "text": "Duotos f(x) = x² − 3 ir g(x) = 2x + 1. Raskite f(g(x)).",
+    "options": [
+      "4x² + 4x − 2",
+      "2x² − 5",
+      "2x² − 5",
+      "2x² + 1"
+    ],
+    "correct": 0
   },
   {
-    id: 8,
-    text: "Duotos f(x) = x + 5 ir g(x) = x² − 1. Palyginkite f(g(3)) ir g(f(3)).",
-    options: [
+    "id": 8,
+    "text": "Duotos f(x) = x + 5 ir g(x) = x² − 1. Palyginkite f(g(3)) ir g(f(3)).",
+    "options": [
       "f(g(3)) = 13, g(f(3)) = 63 — skirtingi",
       "f(g(3)) = g(f(3)) = 13 — vienodi",
-      "f(g(3)) = 13, g(f(3)) = 63",
+      "f(g(3)) = 13, g(f(3)) = 13 — vienodi",
       "f(g(3)) = 8, g(f(3)) = 13"
     ],
-    correct: 0
+    "correct": 0
   },
   {
-    id: 9,
-    text: "Raskite atvirkštinę funkciją, kai f(x) = x³ + 1.",
-    options: ["f⁻¹(x) = ∛(x − 1)", "f⁻¹(x) = ∛x − 1", "f⁻¹(x) = (x − 1)³", "f⁻¹(x) = ∛(x + 1)"],
-    correct: 0
+    "id": 9,
+    "text": "Raskite atvirkštinę funkciją, kai f(x) = x³ + 1.",
+    "options": [
+      "f⁻¹(x) = ∛(x − 1)",
+      "f⁻¹(x) = ∛x − 1",
+      "f⁻¹(x) = (x − 1)³",
+      "f⁻¹(x) = ∛(x + 1)"
+    ],
+    "correct": 0
   },
   {
-    id: 10,
-    text: "Funkcija f(x) = x² − 4x + 7, kai x ∈ [0; 5]. Raskite didžiausią ir mažiausią reikšmę.",
-    options: ["max = 12, min = 3", "max = 7, min = 3", "max = 12, min = 7", "max = 12, min = 0"],
-    correct: 0
+    "id": 10,
+    "text": "Funkcija f(x) = x² − 4x + 7, kai x ∈ [0; 5]. Raskite didžiausią ir mažiausią reikšmę.",
+    "options": [
+      "max = 12, min = 3",
+      "max = 7, min = 3",
+      "max = 12, min = 7",
+      "max = 12, min = 0"
+    ],
+    "correct": 0
   }
 ];
 

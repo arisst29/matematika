@@ -110,17 +110,113 @@ var SVG_PARABOLA_DOWN = '<svg viewBox="0 0 160 130" xmlns="http://www.w3.org/200
 var SVG_HYPERBOLA = '<svg viewBox="0 0 160 130" xmlns="http://www.w3.org/2000/svg" style="width:160px;height:130px"><line x1="8" y1="65" x2="154" y2="65" stroke="#aaa" stroke-width="1"/><line x1="80" y1="8" x2="80" y2="124" stroke="#aaa" stroke-width="1"/><path d="M148,72 C130,73 112,76 100,82 C92,87 86,96 83,120" fill="none" stroke="#1d4ed8" stroke-width="2.2" stroke-linecap="round"/><path d="M12,58 C30,57 48,54 60,48 C68,43 74,34 77,10" fill="none" stroke="#1d4ed8" stroke-width="2.2" stroke-linecap="round"/></svg>';
 var SVG_PARABOLA_UP = '<svg viewBox="0 0 160 130" xmlns="http://www.w3.org/2000/svg" style="width:160px;height:130px"><line x1="8" y1="100" x2="154" y2="100" stroke="#aaa" stroke-width="1"/><line x1="80" y1="8" x2="80" y2="124" stroke="#aaa" stroke-width="1"/><path d="M15,100 Q80,10 145,100" fill="none" stroke="#1d4ed8" stroke-width="2.5" stroke-linecap="round"/></svg>';
 
+
+// SVG grafikai
+var SVG_PARABOLA_DOWN = '<svg viewBox="0 0 160 130" xmlns="http://www.w3.org/2000/svg" style="width:160px;height:130px"><line x1="8" y1="30" x2="154" y2="30" stroke="#aaa" stroke-width="1"/><line x1="80" y1="8" x2="80" y2="124" stroke="#aaa" stroke-width="1"/><path d="M15,30 Q80,120 145,30" fill="none" stroke="#dc2626" stroke-width="2.5" stroke-linecap="round"/></svg>';
+var SVG_HYPERBOLA = '<svg viewBox="0 0 160 130" xmlns="http://www.w3.org/2000/svg" style="width:160px;height:130px"><line x1="8" y1="65" x2="154" y2="65" stroke="#aaa" stroke-width="1"/><line x1="80" y1="8" x2="80" y2="124" stroke="#aaa" stroke-width="1"/><path d="M148,72 C130,73 112,76 100,82 C92,87 86,96 83,120" fill="none" stroke="#1d4ed8" stroke-width="2.2" stroke-linecap="round"/><path d="M12,58 C30,57 48,54 60,48 C68,43 74,34 77,10" fill="none" stroke="#1d4ed8" stroke-width="2.2" stroke-linecap="round"/></svg>';
+var SVG_PARABOLA_UP = '<svg viewBox="0 0 160 130" xmlns="http://www.w3.org/2000/svg" style="width:160px;height:130px"><line x1="8" y1="100" x2="154" y2="100" stroke="#aaa" stroke-width="1"/><line x1="80" y1="8" x2="80" y2="124" stroke="#aaa" stroke-width="1"/><path d="M15,100 Q80,10 145,100" fill="none" stroke="#1d4ed8" stroke-width="2.5" stroke-linecap="round"/></svg>';
+
 var QUESTIONS = [
-  { text: "Duota D(f) = [−3; 5], E(f) = [−2; 4]. Raskite funkcijos y = f(x) + 2 reikšmių sritį.", options: ["[−2; 4]", "[0; 6]", "[−4; 2]", "[−3; 5]"], correct: 1 },
-  { text: "Duota D(f) = [−3; 5], E(f) = [−2; 4]. Raskite funkcijos y = f(x − 3) apibrėžimo sritį.", options: ["[−6; 2]", "[0; 8]", "[−3; 5]", "[−2; 4]"], correct: 1 },
-  { text: "Duota D(f) = [−2; 4], E(f) = [−1; 3]. Raskite funkcijos y = −f(x) reikšmių sritį.", options: ["[−1; 3]", "[1; −3]", "[−3; 1]", "[1; 3]"], correct: 2 },
-  { text: "Duota D(f) = [−4; 2], E(f) = [−2; 6]. Raskite funkcijos y = f(−x) apibrėžimo sritį.", options: ["[−4; 2]", "[−2; 4]", "[2; −4]", "[−2; 6]"], correct: 1 },
-  { text: "Duota D(f) = [−2; 6], E(f) = [0; 4]. Raskite funkcijos y = 3f(x) reikšmių sritį.", options: ["[0; 4]", "[0; 12]", "[−6; 18]", "[0; 7]"], correct: 1 },
-  { text: "Atpažinkite grafiką. Kokia funkcija vaizduojama?", svg: SVG_HYPERBOLA, options: ["f(x) = √x", "f(x) = k/x", "f(x) = ax² + bx + c", "f(x) = x³"], correct: 1 },
-  { text: "Raskite funkcijos f(x) = √(x + 5) apibrėžimo sritį.", options: ["[5; +∞)", "(−5; +∞)", "[−5; +∞)", "(5; +∞)"], correct: 2 },
-  { text: "Kvadratinė funkcija f(x) = 3x² − 12x + 7. Raskite viršūnės x koordinatę.", options: ["x = −2", "x = 2", "x = 4", "x = −4"], correct: 1 },
-  { text: "Kvadratinė funkcija f(x) = −2x² + 8x − 3. Kokia didžiausia funkcijos reikšmė?", options: ["f(2) = 5", "f(2) = −3", "f(2) = 13", "f(4) = −3"], correct: 0 },
-  { text: "Atpažinkite grafiką. Kokia funkcija vaizduojama (šakos aukštyn)?", svg: SVG_PARABOLA_DOWN, options: ["f(x) = k/x", "f(x) = ax² + bx + c, a < 0", "f(x) = x³", "f(x) = √x"], correct: 1 }
+  {
+    "text": "Duota D(f) = [−3; 5], E(f) = [−2; 4]. Raskite funkcijos y = f(x) + 2 reikšmių sritį.",
+    "options": [
+      "[−2; 4]",
+      "[0; 6]",
+      "[−4; 2]",
+      "[−3; 5]"
+    ],
+    "correct": 1
+  },
+  {
+    "text": "Duota D(f) = [−3; 5], E(f) = [−2; 4]. Raskite funkcijos y = f(x − 3) apibrėžimo sritį.",
+    "options": [
+      "[−6; 2]",
+      "[0; 8]",
+      "[−3; 5]",
+      "[−2; 4]"
+    ],
+    "correct": 1
+  },
+  {
+    "text": "Duota D(f) = [−2; 4], E(f) = [−1; 3]. Raskite funkcijos y = −f(x) reikšmių sritį.",
+    "options": [
+      "[−1; 3]",
+      "[1; −3]",
+      "[−3; 1]",
+      "[1; 3]"
+    ],
+    "correct": 2
+  },
+  {
+    "text": "Duota D(f) = [−4; 2], E(f) = [−2; 6]. Raskite funkcijos y = f(−x) apibrėžimo sritį.",
+    "options": [
+      "[−4; 2]",
+      "[−2; 4]",
+      "[2; −4]",
+      "[−2; 6]"
+    ],
+    "correct": 1
+  },
+  {
+    "text": "Duota D(f) = [−2; 6], E(f) = [0; 4]. Raskite funkcijos y = 3f(x) reikšmių sritį.",
+    "options": [
+      "[0; 4]",
+      "[0; 12]",
+      "[−6; 18]",
+      "[0; 7]"
+    ],
+    "correct": 1
+  },
+  {
+    "text": "Atpažinkite grafiką. Kokia funkcija vaizduojama?", svg: SVG_HYPERBOLA,
+    "options": [
+      "f(x) = √x",
+      "f(x) = k/x",
+      "f(x) = ax² + bx + c",
+      "f(x) = x³"
+    ],
+    "correct": 1
+  },
+  {
+    "text": "Raskite funkcijos f(x) = √(x + 5) apibrėžimo sritį.",
+    "options": [
+      "[5; +∞)",
+      "(−5; +∞)",
+      "[−5; +∞)",
+      "(5; +∞)"
+    ],
+    "correct": 2
+  },
+  {
+    "text": "Kvadratinė funkcija f(x) = 3x² − 12x + 7. Raskite viršūnės x koordinatę.",
+    "options": [
+      "x = −2",
+      "x = 2",
+      "x = 4",
+      "x = −4"
+    ],
+    "correct": 1
+  },
+  {
+    "text": "Kvadratinė funkcija f(x) = −2x² + 8x − 3. Kokia didžiausia funkcijos reikšmė?",
+    "options": [
+      "f(2) = 5",
+      "f(2) = −3",
+      "f(2) = 13",
+      "f(4) = −3"
+    ],
+    "correct": 0
+  },
+  {
+    "text": "Atpažinkite grafiką. Kokia funkcija vaizduojama (šakos aukštyn)?", svg: SVG_PARABOLA_DOWN,
+    "options": [
+      "f(x) = k/x",
+      "f(x) = ax² + bx + c, a > 0",
+      "f(x) = x³",
+      "f(x) = √x"
+    ],
+    "correct": 1
+  }
 ];
 
 var answers = new Array(QUESTIONS.length).fill(null);

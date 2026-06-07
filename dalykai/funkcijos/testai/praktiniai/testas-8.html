@@ -62,16 +62,106 @@
 <script src="../../../../js/main.js"></script>
 <script>
 const QUESTIONS = [
-  { "text": "Duota D(f) = [−2; 6], E(f) = [−3; 5]. Raskite y = 2f(x) reikšmių sritį.", "options": ["[−3; 5]","[−1; 7]","[−6; 10]","[−4; 6]"], "correct": 2 },
-  { "text": "Duota D(f) = [−2; 6], E(f) = [−3; 5]. Raskite y = f(2x) apibrėžimo sritį.", "options": ["[−4; 12]","[−1; 3]","[−2; 6]","[0; 6]"], "correct": 1 },
-  { "text": "Raskite f(2) ir g(−2), kai f(x) = x³ ir g(x) = x⁴.", "options": ["f(2) = 6, g(−2) = −16","f(2) = 8, g(−2) = 16","f(2) = 8, g(−2) = −16","f(2) = 4, g(−2) = 8"], "correct": 1 },
-  { "text": "Kurioje koordinačių pusplokštumėje yra funkcijos f(x) = 3/x grafikas, kai k = 3 > 0?", "options": ["Tik I ir II kvadrantuose","I ir III kvadrantuose","II ir IV kvadrantuose","Tik IV kvadrante"], "correct": 1 },
-  { "text": "Funkcija f(x) = x³ − 8. Raskite jos nulius.", "options": ["x = 8","x = 2","x = −2","x = ±2"], "correct": 1 },
-  { "text": "Raskite f(x) = √(9 − x²) apibrėžimo sritį.", "options": ["[−3; 3]","(−3; 3)","[0; 3]","[−9; 9]"], "correct": 0 },
-  { "text": "Kvadratinė f(x) = x² − 8x + 12. Raskite nulius.", "options": ["x = 2 ir x = 6","x = −2 ir x = −6","x = 4 ir x = 3","x = 4 ± 2"], "correct": 0 },
-  { "text": "Funkcija f(x) = −3(x + 2)² + 12. Raskite didžiausią reikšmę.", "options": ["f(0) = 0","f(−2) = 12","f(2) = −24","f(−2) = −12"], "correct": 1 },
-  { "text": "Parabolė eina per taškus (0; 3) ir (3; 0), o viršūnė ties x = 1,5. Kokia a reikšmė?", "options": ["a = −2/3","a = 2/3","a = 1","a = −1"], "correct": 0 },
-  { "text": "Duota D(f) = [−1; 5], E(f) = [−4; 2]. Raskite y = |f(x)| reikšmių sritį.", "options": ["[−4; 2]","[0; 4]","[0; 2]","[−2; 4]"], "correct": 1 }
+  {
+    "text": "Duota D(f) = [−2; 6], E(f) = [−3; 5]. Raskite y = 2f(x) reikšmių sritį.",
+    "options": [
+      "[−3; 5]",
+      "[−1; 7]",
+      "[−6; 10]",
+      "[−4; 6]"
+    ],
+    "correct": 2
+  },
+  {
+    "text": "Duota D(f) = [−2; 6], E(f) = [−3; 5]. Raskite y = f(2x) apibrėžimo sritį.",
+    "options": [
+      "[−4; 12]",
+      "[−1; 3]",
+      "[−2; 6]",
+      "[0; 6]"
+    ],
+    "correct": 1
+  },
+  {
+    "text": "Raskite f(2) ir g(−2), kai f(x) = x³ ir g(x) = x⁴.",
+    "options": [
+      "f(2) = 6, g(−2) = −16",
+      "f(2) = 8, g(−2) = 16",
+      "f(2) = 8, g(−2) = −16",
+      "f(2) = 4, g(−2) = 8"
+    ],
+    "correct": 1
+  },
+  {
+    "text": "Kurioje koordinačių pusplokštumėje yra funkcijos f(x) = 3/x grafikas, kai k = 3 > 0?",
+    "options": [
+      "Tik I ir II kvadrantuose",
+      "I ir III kvadrantuose",
+      "II ir IV kvadrantuose",
+      "Tik IV kvadrante"
+    ],
+    "correct": 1
+  },
+  {
+    "text": "Funkcija f(x) = x³ − 8. Raskite jos nulius.",
+    "options": [
+      "x = 8",
+      "x = 2",
+      "x = −2",
+      "x = ±2"
+    ],
+    "correct": 1
+  },
+  {
+    "text": "Raskite f(x) = √(9 − x²) apibrėžimo sritį.",
+    "options": [
+      "[−3; 3]",
+      "(−3; 3)",
+      "[0; 3]",
+      "[−9; 9]"
+    ],
+    "correct": 0
+  },
+  {
+    "text": "Kvadratinė f(x) = x² − 8x + 12. Raskite nulius.",
+    "options": [
+      "x = 2 ir x = 6",
+      "x = −2 ir x = −6",
+      "x = 4 ir x = 3",
+      "x = 4 ± 2"
+    ],
+    "correct": 0
+  },
+  {
+    "text": "Funkcija f(x) = −3(x + 2)² + 12. Raskite didžiausią reikšmę.",
+    "options": [
+      "f(0) = 0",
+      "f(−2) = 12",
+      "f(2) = −24",
+      "f(−2) = −12"
+    ],
+    "correct": 1
+  },
+  {
+    "text": "Parabolė eina per taškus (0; 1) ir (2; 1), o viršūnė ties x = 1. Kokia a reikšmė?",
+    "options": [
+      "a = 2",
+      "a = −2",
+      "a = 1",
+      "a = −1"
+    ],
+    "correct": 0
+  },
+  {
+    "text": "Duota D(f) = [−1; 5], E(f) = [−4; 2]. Raskite y = |f(x)| reikšmių sritį.",
+    "options": [
+      "[−4; 2]",
+      "[0; 4]",
+      "[0; 2]",
+      "[−2; 4]"
+    ],
+    "correct": 1
+  }
 ];
 const answers = new Array(QUESTIONS.length).fill(null);
 let submitted = false;

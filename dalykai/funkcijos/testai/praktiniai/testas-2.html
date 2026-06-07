@@ -112,64 +112,114 @@
 <script>
 const QUESTIONS = [
   {
-    id: 1,
-    text: "Raskite funkcijos f(x) = √(10 − 2x) apibrėžimo sritį.",
-    options: ["(−∞; 5]", "[5; +∞)", "(−∞; 5)", "[−5; +∞)"],
-    correct: 0
+    "id": 1,
+    "text": "Raskite funkcijos f(x) = √(10 − 2x) apibrėžimo sritį.",
+    "options": [
+      "(−∞; 5]",
+      "[5; +∞)",
+      "(−∞; 5)",
+      "[−5; +∞)"
+    ],
+    "correct": 0
   },
   {
-    id: 2,
-    text: "Raskite funkcijos f(x) = 5/(2x − 8) apibrėžimo sritį.",
-    options: ["(−∞; 4) ∪ (4; +∞)", "(−∞; 8) ∪ (8; +∞)", "[4; +∞)", "ℝ"],
-    correct: 0
+    "id": 2,
+    "text": "Raskite funkcijos f(x) = 5/(2x − 8) apibrėžimo sritį.",
+    "options": [
+      "(−∞; 4) ∪ (4; +∞)",
+      "(−∞; 8) ∪ (8; +∞)",
+      "[4; +∞)",
+      "ℝ"
+    ],
+    "correct": 0
   },
   {
-    id: 3,
-    text: "Funkcijos grafikas apibrėžtas nuo x = −5 (tuščias taškas) iki x = 2 (užpildytas taškas). Aukščiausia y reikšmė yra 4 (užpildyta), žemiausia −1 (užpildyta). Kokia reikšmių sritis E(f)?",
-    options: ["(−5; 2]", "[−1; 4]", "(−1; 4)", "[−5; 2)"],
-    correct: 1
+    "id": 3,
+    "text": "Funkcijos grafikas apibrėžtas nuo x = −5 (tuščias taškas) iki x = 2 (užpildytas taškas). Aukščiausia y reikšmė yra 4 (užpildyta), žemiausia −1 (užpildyta). Kokia reikšmių sritis E(f)?",
+    "options": [
+      "(−5; 2]",
+      "[−5; 2]",
+      "[−1; 4]",
+      "(−1; 4]"
+    ],
+    "correct": 0
   },
   {
-    id: 4,
-    text: "Funkcijos f(x) = 2x² − 8 nuliai yra:",
-    options: ["x = 4 ir x = −4", "x = 2 ir x = −2", "x = 8", "x = 2"],
-    correct: 1
+    "id": 4,
+    "text": "Funkcijos f(x) = 2x² − 8 nuliai yra:",
+    "options": [
+      "x = 4 ir x = −4",
+      "x = 2 ir x = −2",
+      "x = 8",
+      "x = 2"
+    ],
+    "correct": 1
   },
   {
-    id: 5,
-    text: "Funkcija f(x) = x³ − 4x. Kuriame intervale f(x) > 0, jei nuliai yra x = −2, x = 0, x = 2?",
-    options: ["(−∞; −2) ∪ (0; 2)", "(−2; 0) ∪ (2; +∞)", "(−∞; 0)", "(0; +∞)"],
-    correct: 1
+    "id": 5,
+    "text": "Funkcija f(x) = x³ − 4x. Kuriame intervale f(x) > 0, jei nuliai yra x = −2, x = 0, x = 2?",
+    "options": [
+      "(−∞; −2) ∪ (0; 2)",
+      "(−2; 0) ∪ (2; +∞)",
+      "(−∞; 0)",
+      "(0; +∞)"
+    ],
+    "correct": 1
   },
   {
-    id: 6,
-    text: "Patikrinkite ar f(x) = x² − 5 yra lyginė, nelyginė ar nei viena.",
-    options: ["Nelyginė", "Nei lyginė, nei nelyginė", "Lyginė, nes f(−x) = f(x)", "Lyginė, nes f(0) = −5"],
-    correct: 2
+    "id": 6,
+    "text": "Patikrinkite ar f(x) = x² − 5 yra lyginė, nelyginė ar nei viena.",
+    "options": [
+      "Nelyginė",
+      "Nei lyginė, nei nelyginė",
+      "Lyginė, nes f(−x) = f(x)",
+      "Lyginė, nes f(0) = −5"
+    ],
+    "correct": 2
   },
   {
-    id: 7,
-    text: "Patikrinkite ar h(x) = x³ + 2x + 1 yra lyginė, nelyginė ar nei viena.",
-    options: ["Lyginė", "Nelyginė", "Nei lyginė, nei nelyginė", "Nelyginė, nes h(0) = 1"],
-    correct: 2
+    "id": 7,
+    "text": "Patikrinkite ar h(x) = x³ + 2x + 1 yra lyginė, nelyginė ar nei viena.",
+    "options": [
+      "Lyginė",
+      "Nelyginė",
+      "Nei lyginė, nei nelyginė",
+      "Nelyginė, nes h(0) = 1"
+    ],
+    "correct": 2
   },
   {
-    id: 8,
-    text: "Duotos f(x) = 2x + 1 ir g(x) = x² − 4. Raskite g(f(x)).",
-    options: ["2x² − 7", "4x² + 4x − 3", "4x² + 4x + 1", "2x² + 1"],
-    correct: 1
+    "id": 8,
+    "text": "Duotos f(x) = 2x + 1 ir g(x) = x² − 4. Raskite g(f(x)).",
+    "options": [
+      "2x² − 7",
+      "4x² + 4x − 3",
+      "4x² + 4x + 1",
+      "2x² + 1"
+    ],
+    "correct": 1
   },
   {
-    id: 9,
-    text: "Raskite atvirkštinę funkciją f⁻¹, kai f(x) = (x + 5) / 2.",
-    options: ["f⁻¹(x) = 2x + 5", "f⁻¹(x) = (x − 5) / 2", "f⁻¹(x) = 2x − 5", "f⁻¹(x) = x/2 + 5"],
-    correct: 2
+    "id": 9,
+    "text": "Raskite atvirkštinę funkciją f⁻¹, kai f(x) = (x + 5) / 2.",
+    "options": [
+      "f⁻¹(x) = 2x + 5",
+      "f⁻¹(x) = (x − 5) / 2",
+      "f⁻¹(x) = 2x − 5",
+      "f⁻¹(x) = x/2 + 5"
+    ],
+    "correct": 2
   },
   {
-    id: 10,
-    text: "Funkcija f(x) = x² − 6x + 5, kai x ∈ [1; 5]. Kokia mažiausia reikšmė?",
-    options: ["f(1) = 0", "f(3) = −4", "f(5) = 0", "f(0) = 5"],
-    correct: 1
+    "id": 10,
+    "text": "Funkcija f(x) = x² − 6x + 5, kai x ∈ [1; 5]. Kokia mažiausia reikšmė?",
+    "options": [
+      "f(1) = 0",
+      "f(3) = −4",
+      "f(5) = 0",
+      "f(0) = 5"
+    ],
+    "correct": 1
   }
 ];
 

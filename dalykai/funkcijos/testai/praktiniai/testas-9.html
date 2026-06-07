@@ -62,16 +62,106 @@
 <script src="../../../../js/main.js"></script>
 <script>
 const QUESTIONS = [
-  { "text": "Funkcija f(x) = x⁵. Apskaičiuokite f(−2) + f(2).", "options": ["64","−64","0","32"], "correct": 2 },
-  { "text": "Raskite funkcijos f(x) = √x ir g(x) = x³ santykį: ar g yra f atvirkštinė?", "options": ["Taip, nes √(x³) = x","Ne, f⁻¹(x) = x²","Taip, nes f(g(x)) = x","Ne, f ir g nesusijusios"], "correct": 1 },
-  { "text": "Duota D(f) = [−4; 2], E(f) = [1; 7]. Raskite y = f(x + 3) − 2 apibrėžimo sritį.", "options": ["[−7; −1]","[−1; 5]","[−4; 2]","[−7; 5]"], "correct": 0 },
-  { "text": "Duota D(f) = [−4; 2], E(f) = [1; 7]. Raskite y = f(x + 3) − 2 reikšmių sritį.", "options": ["[1; 7]","[−1; 5]","[3; 9]","[−2; 4]"], "correct": 1 },
-  { "text": "Raskite funkcijos f(x) = 5/(x + 3) apibrėžimo sritį.", "options": ["(−∞; −3) ∪ (−3; +∞)","ℝ","(−∞; 3) ∪ (3; +∞)","[−3; +∞)"], "correct": 0 },
-  { "text": "Raskite funkcijos f(x) = ∛(x − 1) reikšmių sritį.", "options": ["[0; +∞)","(−∞; 0)","ℝ","[1; +∞)"], "correct": 2 },
-  { "text": "Kvadratinė f(x) = 2x² + 8x + 6. Raskite viršūnę.", "options": ["V(2; 6)","V(−2; −2)","V(2; −2)","V(−2; 6)"], "correct": 1 },
-  { "text": "Funkcija f(x) = x² − 4x − 5. Raskite pastovaus ženklo intervalus.", "options": ["f>0 kai x∈(−∞;−1)∪(5;+∞), f<0 kai x∈(−1;5)","f>0 kai x∈(−1;5), f<0 kai x∈(−∞;−1)∪(5;+∞)","f>0 visur","f<0 visur"], "correct": 0 },
-  { "text": "Raskite funkcijos f(x) = √(x − 2) ir g(x) = x + 3 susikirtimo tašką.", "options": ["x = 7","x = 2","x = 6","x = 3"], "correct": 0 },
-  { "text": "Duota f(x) = ax³. Jei f(3) = 54, raskite a.", "options": ["a = 2","a = 6","a = 18","a = 3"], "correct": 0 }
+  {
+    "text": "Funkcija f(x) = x⁵. Apskaičiuokite f(−2) + f(2).",
+    "options": [
+      "64",
+      "−64",
+      "0",
+      "32"
+    ],
+    "correct": 2
+  },
+  {
+    "text": "Raskite funkcijos f(x) = √x ir g(x) = x³ santykį: ar g yra f atvirkštinė?",
+    "options": [
+      "Taip, nes √(x³) = x",
+      "Ne, f⁻¹(x) = x²",
+      "Taip, nes f(g(x)) = x",
+      "Ne, f ir g nesusijusios"
+    ],
+    "correct": 1
+  },
+  {
+    "text": "Duota D(f) = [−4; 2], E(f) = [1; 7]. Raskite y = f(x + 3) − 2 apibrėžimo sritį.",
+    "options": [
+      "[−7; −1]",
+      "[−1; 5]",
+      "[−4; 2]",
+      "[−7; 5]"
+    ],
+    "correct": 0
+  },
+  {
+    "text": "Duota D(f) = [−4; 2], E(f) = [1; 7]. Raskite y = f(x + 3) − 2 reikšmių sritį.",
+    "options": [
+      "[1; 7]",
+      "[−1; 5]",
+      "[3; 9]",
+      "[−2; 4]"
+    ],
+    "correct": 1
+  },
+  {
+    "text": "Raskite funkcijos f(x) = 5/(x + 3) apibrėžimo sritį.",
+    "options": [
+      "(−∞; −3) ∪ (−3; +∞)",
+      "ℝ",
+      "(−∞; 3) ∪ (3; +∞)",
+      "[−3; +∞)"
+    ],
+    "correct": 0
+  },
+  {
+    "text": "Raskite funkcijos f(x) = ∛(x − 1) reikšmių sritį.",
+    "options": [
+      "[0; +∞)",
+      "(−∞; 0)",
+      "ℝ",
+      "[1; +∞)"
+    ],
+    "correct": 2
+  },
+  {
+    "text": "Kvadratinė f(x) = 2x² + 8x + 6. Raskite viršūnę.",
+    "options": [
+      "V(2; 6)",
+      "V(−2; −2)",
+      "V(2; −2)",
+      "V(−2; 6)"
+    ],
+    "correct": 1
+  },
+  {
+    "text": "Funkcija f(x) = x² − 4x − 5. Raskite pastovaus ženklo intervalus.",
+    "options": [
+      "f>0 kai x∈(−∞;−1)∪(5;+∞), f<0 kai x∈(−1;5)",
+      "f>0 kai x∈(−1;5), f<0 kai x∈(−∞;−1)∪(5;+∞)",
+      "f>0 visur",
+      "f<0 visur"
+    ],
+    "correct": 0
+  },
+  {
+    "text": "Raskite funkcijų f(x) = √(x − 2) ir g(x) = x − 4 susikirtimo tašką.",
+    "options": [
+      "x = 6",
+      "x = 2",
+      "x = 3",
+      "x = 4"
+    ],
+    "correct": 0
+  },
+  {
+    "text": "Duota f(x) = ax³. Jei f(3) = 54, raskite a.",
+    "options": [
+      "a = 2",
+      "a = 6",
+      "a = 18",
+      "a = 3"
+    ],
+    "correct": 0
+  }
 ];
 const answers = new Array(QUESTIONS.length).fill(null);
 let submitted = false;

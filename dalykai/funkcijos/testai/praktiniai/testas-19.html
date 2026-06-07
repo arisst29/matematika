@@ -101,7 +101,110 @@
   </div>
 </div>
 <script src="../../../../js/main.js"></script>
-<script>var QUESTIONS=[{text:"Apskaičiuokite: 81^(log₃2−1).",svg:null,options:["<span class=\"frac\"><sup>16</sup><sub>3</sub></span>", "<span class=\"frac\"><sup>16</sup><sub>81</sub></span>", "<span class=\"frac\"><sup>16</sup><sub>3</sub></span>", "81"],correct:0},{text:"Apskaičiuokite: log₂3 · log₃4.",svg:null,options:["2", "1", "6", "4"],correct:0},{text:"Atpažinkite grafiką. Kokia funkcija vaizduojama?",svg:"<svg viewBox=\"0 0 160 130\" xmlns=\"http://www.w3.org/2000/svg\" style=\"width:160px;height:130px\"><line x1=\"8\" y1=\"65\" x2=\"154\" y2=\"65\" stroke=\"#aaa\" stroke-width=\"1\"/><line x1=\"30\" y1=\"122\" x2=\"30\" y2=\"8\" stroke=\"#aaa\" stroke-width=\"1\"/><text x=\"148\" y=\"62\" font-size=\"8\" fill=\"#888\">x</text><text x=\"32\" y=\"10\" font-size=\"8\" fill=\"#888\">y</text><circle cx=\"70\" cy=\"65\" r=\"3\" fill=\"#888\"/><text x=\"72\" y=\"77\" font-size=\"7\" fill=\"#888\">(1;0)</text><path d=\"M32,118 Q45,100 70,65 Q95,30 120,15 Q138,7 150,5\" fill=\"none\" stroke=\"#1d4ed8\" stroke-width=\"2.2\" stroke-linecap=\"round\"/></svg>",options:["f(x) = ln x (didėjanti, kerta (1;0))", "f(x) = eˣ", "f(x) = x^e", "f(x) = <span class=\"frac\"><sup>1</sup><sub>e</sub></span>ˣ"],correct:0},{text:"Suprastinkite: lg(a²−6a+9) − lg(a−3), kai a > 3.",svg:null,options:["lg(a−3)", "lg(a+3)", "lg(a−3)", "0"],correct:0},{text:"Raskite lygties log₅(x²−7x) = 2 sprendinius.",svg:null,options:["x = 7", "x = −4 ir x = 11", "x = 11", "x = 25"],correct:1},{text:"Išspręskite nelygybę log₂x > log₂5.",svg:null,options:["x > 10", "x > 5 ir x > 0 → x > 5", "x < 5", "x > 2"],correct:1},{text:"Atpažinkite grafiką. Kokia funkcija vaizduojama?",svg:"<svg viewBox=\"0 0 160 130\" xmlns=\"http://www.w3.org/2000/svg\" style=\"width:160px;height:130px\"><line x1=\"8\" y1=\"65\" x2=\"154\" y2=\"65\" stroke=\"#aaa\" stroke-width=\"1\"/><line x1=\"30\" y1=\"122\" x2=\"30\" y2=\"8\" stroke=\"#aaa\" stroke-width=\"1\"/><text x=\"148\" y=\"62\" font-size=\"8\" fill=\"#888\">x</text><text x=\"32\" y=\"10\" font-size=\"8\" fill=\"#888\">y</text><circle cx=\"70\" cy=\"65\" r=\"3\" fill=\"#888\"/><text x=\"72\" y=\"77\" font-size=\"7\" fill=\"#888\">(1;0)</text><path d=\"M32,5 Q45,25 70,65 Q95,100 120,115 Q138,123 150,125\" fill=\"none\" stroke=\"#dc2626\" stroke-width=\"2.2\" stroke-linecap=\"round\"/></svg>",options:["f(x) = log<span class=\"frac\"><sup>1</sup><sub>e</sub></span>x = ln(x) su neigiamu ženklu", "f(x) = log<span class=\"frac\"><sup>1</sup><sub>2</sub></span>x (mažėjanti)", "f(x) = 2ˣ", "f(x) = −x"],correct:1},{text:"Raskite lygties log₃(x−1) + log₃(x+1) = 1 sprendinį.",svg:null,options:["x = 2", "x = 1", "x = 3", "x = 0"],correct:0},{text:"Išspręskite nelygybę log<span class=\"frac\"><sup>1</sup><sub>4</sub></span>(x−2) > 3.",svg:null,options:["x > 2 + <span class=\"frac\"><sup>1</sup><sub>64</sub></span>", "2 < x < 2 + <span class=\"frac\"><sup>1</sup><sub>64</sub></span>", "x > 66", "x < 66"],correct:1},{text:"Apskaičiuokite: log₂(log₂(log₂16)).",svg:null,options:["0", "1", "2", "4"],correct:0}];
+<script>var QUESTIONS = [
+  {
+    "text": "Apskaičiuokite: 81^(log₃2−1).",
+    "options": [
+      "16/81",
+      "1/81",
+      "16/27",
+      "81/16"
+    ],
+    "correct": 0
+  },
+  {
+    "text": "Apskaičiuokite: log₂3 · log₃4.",
+    "options": [
+      "2",
+      "1",
+      "6",
+      "4"
+    ],
+    "correct": 0
+  },
+  {
+    "text": "Atpažinkite grafiką. Kokia funkcija vaizduojama?",
+    "svg": "<svg viewBox=\"0 0 160 130\" xmlns=\"http://www.w3.org/2000/svg\" style=\"width:160px;height:130px\"><line x1=\"8\" y1=\"65\" x2=\"154\" y2=\"65\" stroke=\"#aaa\" stroke-width=\"1\"/><line x1=\"30\" y1=\"122\" x2=\"30\" y2=\"8\" stroke=\"#aaa\" stroke-width=\"1\"/><text x=\"148\" y=\"62\" font-size=\"8\" fill=\"#888\">x</text><text x=\"32\" y=\"10\" font-size=\"8\" fill=\"#888\">y</text><circle cx=\"70\" cy=\"65\" r=\"3\" fill=\"#888\"/><text x=\"72\" y=\"77\" font-size=\"7\" fill=\"#888\">(1;0)</text><path d=\"M32,118 Q45,100 70,65 Q95,30 120,15 Q138,7 150,5\" fill=\"none\" stroke=\"#1d4ed8\" stroke-width=\"2.2\" stroke-linecap=\"round\"/></svg>",
+    "options": [
+      "f(x) = ln x (didėjanti, kerta (1;0))",
+      "f(x) = eˣ",
+      "f(x) = x^e",
+      "f(x) = <span class=\"frac\"><sup>1</sup><sub>e</sub></span>ˣ"
+    ],
+    "correct": 0
+  },
+  {
+    "text": "Suprastinkite: lg(a²−6a+9) − lg(a−3), kai a > 3.",
+    "options": [
+      "lg(a−3)",
+      "lg(a+3)",
+      "lg(a−3)",
+      "0"
+    ],
+    "correct": 0
+  },
+  {
+    "text": "Raskite lygties log₅(x²−7x) = 2 sprendinius.",
+    "options": [
+      "x = 7",
+      "x = −4 ir x = 11",
+      "x = 11",
+      "x = 25"
+    ],
+    "correct": 1
+  },
+  {
+    "text": "Išspręskite nelygybę log₂x > log₂5.",
+    "options": [
+      "x > 10",
+      "x > 5 ir x > 0 → x > 5",
+      "x < 5",
+      "x > 2"
+    ],
+    "correct": 1
+  },
+  {
+    "text": "Atpažinkite grafiką. Kokia funkcija vaizduojama?",
+    "svg": "<svg viewBox=\"0 0 160 130\" xmlns=\"http://www.w3.org/2000/svg\" style=\"width:160px;height:130px\"><line x1=\"8\" y1=\"65\" x2=\"154\" y2=\"65\" stroke=\"#aaa\" stroke-width=\"1\"/><line x1=\"30\" y1=\"122\" x2=\"30\" y2=\"8\" stroke=\"#aaa\" stroke-width=\"1\"/><text x=\"148\" y=\"62\" font-size=\"8\" fill=\"#888\">x</text><text x=\"32\" y=\"10\" font-size=\"8\" fill=\"#888\">y</text><circle cx=\"70\" cy=\"65\" r=\"3\" fill=\"#888\"/><text x=\"72\" y=\"77\" font-size=\"7\" fill=\"#888\">(1;0)</text><path d=\"M32,5 Q45,25 70,65 Q95,100 120,115 Q138,123 150,125\" fill=\"none\" stroke=\"#dc2626\" stroke-width=\"2.2\" stroke-linecap=\"round\"/></svg>",
+    "options": [
+      "f(x) = log<span class=\"frac\"><sup>1</sup><sub>e</sub></span>x = ln(x) su neigiamu ženklu",
+      "f(x) = log<span class=\"frac\"><sup>1</sup><sub>2</sub></span>x (mažėjanti)",
+      "f(x) = 2ˣ",
+      "f(x) = −x"
+    ],
+    "correct": 1
+  },
+  {
+    "text": "Raskite lygties log₃(x−1) + log₃(x+1) = 1 sprendinį.",
+    "options": [
+      "x = 2",
+      "x = 1",
+      "x = 3",
+      "x = 0"
+    ],
+    "correct": 0
+  },
+  {
+    "text": "Išspręskite nelygybę log<span class=\"frac\"><sup>1</sup><sub>4</sub></span>(x−2) > 3.",
+    "options": [
+      "x > 2 + <span class=\"frac\"><sup>1</sup><sub>64</sub></span>",
+      "2 < x < 2 + <span class=\"frac\"><sup>1</sup><sub>64</sub></span>",
+      "x > 66",
+      "x < 66"
+    ],
+    "correct": 1
+  },
+  {
+    "text": "Apskaičiuokite: log₂(log₂(log₂16)).",
+    "options": [
+      "0",
+      "1",
+      "2",
+      "4"
+    ],
+    "correct": 0
+  }
+];
 var answers = new Array(QUESTIONS.length).fill(null);
 var submitted = false;
 function renderQuestions() {

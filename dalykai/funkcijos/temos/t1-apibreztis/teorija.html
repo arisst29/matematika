@@ -151,10 +151,7 @@
         <span class="sep">›</span>
         <span class="current">T1. Apibrėžtis ir sritys</span>
       </div>
-      <div class="tab-switcher">
-        <button class="tab-btn active">Teorija</button>
-        <a href="testai/teorinis-1.html" class="tab-btn" style="text-decoration:none">Testai</a>
-      </div>
+      <div class="tab-switcher"><button class="tab-btn active">Teorija</button></div>
     </div>
 
     <div class="page">
@@ -288,7 +285,7 @@
           <div class="row-content">
             <div class="row-label">Taisyklė — kaip rasti D(f)</div>
             <div class="row-text">
-              • <strong>√ šaknis</strong> — poakninis reiškinys turi būti ≥ 0<br>
+              • <strong>√ šaknis</strong> — pošakninis reiškinys turi būti ≥ 0<br>
               • <strong>Trupmena</strong> — vardiklis negali būti lygus 0<br>
               • <strong>Logaritmas</strong> — argumentas turi būti &gt; 0<br>
               • <strong>Visi kiti atvejai</strong> — D(f) = ℝ (visi realieji skaičiai)
@@ -340,24 +337,25 @@
             </div>
           </div>
           <div class="row-graph">
-            <svg viewBox="0 0 180 110" xmlns="http://www.w3.org/2000/svg">
+            <svg viewBox="0 0 200 130" xmlns="http://www.w3.org/2000/svg">
               <defs><marker id="a2" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="4" markerHeight="4" orient="auto"><path d="M1,1 L7,4 L1,7" fill="none" stroke="#777" stroke-width="1.5"/></marker></defs>
-              <line x1="15" y1="80" x2="172" y2="80" stroke="#777" stroke-width="1" marker-end="url(#a2)"/>
-              <line x1="45" y1="100" x2="45" y2="10" stroke="#777" stroke-width="1" marker-end="url(#a2)"/>
-              <text x="174" y="83" font-size="8" fill="#777">x</text>
-              <text x="39" y="9" font-size="8" fill="#777">y</text>
-              <text x="45" y="91" font-size="8" fill="#888" text-anchor="middle">0</text>
-              <text x="90" y="91" font-size="8" fill="#1d4ed8" text-anchor="middle">2</text>
-              <!-- Grafikas nuo x=2 -->
-              <path d="M90,80 C105,65 125,50 145,38 C158,30 168,25 172,22" fill="none" stroke="#374151" stroke-width="2" stroke-linecap="round"/>
-              <!-- D(f) juosta -->
-              <line x1="90" y1="80" x2="168" y2="80" stroke="#1d4ed8" stroke-width="4.5" stroke-linecap="round" opacity="0.85"/>
-              <circle cx="90" cy="80" r="4.5" fill="#1d4ed8"/>
-              <!-- Punktyrinė -->
-              <line x1="90" y1="80" x2="90" y2="92" stroke="#1d4ed8" stroke-width="0.8" stroke-dasharray="2,2"/>
-              <text x="155" y="35" font-size="8" fill="#374151" font-style="italic">y=√(x−2)</text>
-              <!-- D(f) etiketė -->
-              <text x="128" y="72" font-size="8" fill="#1d4ed8" font-weight="bold" text-anchor="middle">D(f)=[2;+∞)</text>
+              <!-- Ašys -->
+              <line x1="15" y1="95" x2="192" y2="95" stroke="#777" stroke-width="1" marker-end="url(#a2)"/>
+              <line x1="45" y1="120" x2="45" y2="8" stroke="#777" stroke-width="1" marker-end="url(#a2)"/>
+              <text x="194" y="98" font-size="8" fill="#777">x</text>
+              <text x="39" y="7" font-size="8" fill="#777">y</text>
+              <text x="45" y="106" font-size="8" fill="#888" text-anchor="middle">0</text>
+              <text x="90" y="106" font-size="8" fill="#1d4ed8" text-anchor="middle">2</text>
+              <!-- Grafikas √(x-2) nuo x=2 iki x→+∞, pilnas -->
+              <path d="M90,95 C100,85 112,74 126,62 C140,50 155,40 170,32 C180,26 188,22 192,19" fill="none" stroke="#374151" stroke-width="2" stroke-linecap="round"/>
+              <!-- D(f) juosta ant x ašies -->
+              <line x1="90" y1="95" x2="188" y2="95" stroke="#1d4ed8" stroke-width="4.5" stroke-linecap="round" opacity="0.85"/>
+              <circle cx="90" cy="95" r="4.5" fill="#1d4ed8"/>
+              <!-- Punktyrinė žemyn -->
+              <line x1="90" y1="95" x2="90" y2="107" stroke="#1d4ed8" stroke-width="0.8" stroke-dasharray="2,2"/>
+              <!-- Etiketės -->
+              <text x="170" y="28" font-size="8" fill="#374151" font-style="italic">y=√(x−2)</text>
+              <text x="138" y="87" font-size="8" fill="#1d4ed8" font-weight="bold" text-anchor="middle">D(f)=[2;+∞)</text>
             </svg>
             <div class="graph-caption">Grafikas prasideda x = 2</div>
           </div>
@@ -388,11 +386,10 @@
               <path d="M12,57 C40,56 68,56 96,56 C106,56 112,62 116,80" fill="none" stroke="#374151" stroke-width="1.8" stroke-linecap="round"/>
               <!-- Kreivė dešinėje -->
               <path d="M120,22 C124,34 128,44 136,52 C148,55 162,55 170,55" fill="none" stroke="#374151" stroke-width="1.8" stroke-linecap="round"/>
-              <!-- D(f) juostos -->
-              <line x1="12" y1="55" x2="111" y2="55" stroke="#1d4ed8" stroke-width="4.5" stroke-linecap="round" opacity="0.85"/>
-              <circle cx="111" cy="55" r="4.5" fill="white" stroke="#1d4ed8" stroke-width="2"/>
-              <line x1="125" y1="55" x2="168" y2="55" stroke="#1d4ed8" stroke-width="4.5" stroke-linecap="round" opacity="0.85"/>
-              <circle cx="125" cy="55" r="4.5" fill="white" stroke="#1d4ed8" stroke-width="2"/>
+              <!-- D(f) juostos — vienas taškas ties x=3 (118px) -->
+              <line x1="12" y1="55" x2="113" y2="55" stroke="#1d4ed8" stroke-width="4.5" stroke-linecap="round" opacity="0.85"/>
+              <line x1="123" y1="55" x2="168" y2="55" stroke="#1d4ed8" stroke-width="4.5" stroke-linecap="round" opacity="0.85"/>
+              <circle cx="118" cy="55" r="4.5" fill="white" stroke="#1d4ed8" stroke-width="2"/>
             </svg>
             <div class="graph-caption">x = 3 neįeina — tuščias taškas</div>
           </div>
@@ -570,12 +567,10 @@
       </div>
 
       <!-- NAV -->
-      <div class="topic-nav">
-        <a class="btn ghost" href="../../../../index.html">← Pradžia</a>
-        <div style="display:flex;gap:8px;">
-          <a class="btn" href="testai/teorinis-1.html">Eiti prie testų</a>
-          <a class="btn primary" href="../t2-savybes/teorija.html">T2. Funkcijos savybės →</a>
-        </div>
+            <div class="topic-nav">
+        <a href="../../skyriaus-testai/index.html" class="nav-btn prev">← Skyriaus testai</a>
+        <a href="../t2-savybes/teorija.html" class="nav-btn next">T2. Funkcijos savybės →</a>
+      </div>
       </div>
 
     </div>
