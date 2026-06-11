@@ -87,7 +87,108 @@
   </div>
 </div>
 <script src="../../../../../../js/main.js"></script>
-<script>var QUESTIONS=[{"text": "Lygties (x² − 16) / (x + 4) = 0 sprendiniai:", "options": ["x = 4 ir x = −4", "x = 4", "x = −4", "Nėra sprendinių"], "correct": 1}, {"text": "Lygties x/(x − 3) + 3/(x − 3) = 2 sprendinys:", "options": ["x = 3", "x = 9", "x = 0", "Sprendinių nėra"], "correct": 1}, {"text": "Kiek realių sprendinių turi lygtis x⁴ − 81 = 0?", "options": ["1", "2", "3", "4"], "correct": 1}, {"text": "Lygties x³ + 3x² − x − 3 = 0 sprendiniai:", "options": ["x = 1, x = −1, x = −3", "x = 1, x = −1, x = 3", "x = 3, x = −3", "x = 1, x = 3"], "correct": 0}, {"text": "Lygties √(5x − 4) = x sprendiniai:", "options": ["x = 1 ir x = 4", "x = 4", "x = 1", "Sprendinių nėra"], "correct": 0}, {"text": "Lygties 3 + √(x − 5) = x − 2 sprendinys:", "options": ["x = 9", "x = 6", "x = 14", "x = 9 ir x = 6"], "correct": 2}, {"text": "Lygties |x² − 5x| = 6 realieji sprendiniai:", "options": ["x = 6 ir x = −1", "x = 6, x = −1, x = 2, x = 3", "x = 6 ir x = 2", "x = 6, x = −1, x = 3"], "correct": 1}, {"text": "Lygties |x − 4| = |2x + 1| sprendiniai:", "options": ["x = 1 ir x = −5/3", "x = 1", "x = −5/3", "x = 5 ir x = −1"], "correct": 0}, {"text": "Lygties x² + px − 12 = 0 vienas sprendinys yra x₁ = 3. Koks kitas sprendinys x₂ ir koeficientas p?", "options": ["x₂ = −4, p = 1", "x₂ = 4, p = −1", "x₂ = −4, p = −1", "x₂ = 4, p = 1"], "correct": 0}, {"text": "Stačiakampio perimetras 40 cm, o plotas 96 cm². Kokios jo kraštinės?", "options": ["8 cm ir 12 cm", "6 cm ir 16 cm", "10 cm ir 10 cm", "4 cm ir 24 cm"], "correct": 0}];
+<script>var QUESTIONS=[
+  {
+    "text": "Lygties (x² − 16) / (x + 4) = 0 sprendiniai:",
+    "options": [
+      "x = 4 ir x = −4",
+      "x = 4",
+      "x = −4",
+      "Nėra sprendinių"
+    ],
+    "correct": 1
+  },
+  {
+    "text": "Lygties x/(x − 3) + 3/(x − 3) = 2 sprendinys:",
+    "options": [
+      "x = 3",
+      "x = 9",
+      "x = 0",
+      "Sprendinių nėra"
+    ],
+    "correct": 1
+  },
+  {
+    "text": "Kiek realių sprendinių turi lygtis x⁴ − 81 = 0?",
+    "options": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "correct": 1
+  },
+  {
+    "text": "Lygties x³ + 3x² − x − 3 = 0 sprendiniai:",
+    "options": [
+      "x = 1, x = −1, x = −3",
+      "x = 1, x = −1, x = 3",
+      "x = 3, x = −3",
+      "x = 1, x = 3"
+    ],
+    "correct": 0
+  },
+  {
+    "text": "Lygties √(5x − 4) = x sprendiniai:",
+    "options": [
+      "x = 1 ir x = 4",
+      "x = 4",
+      "x = 1",
+      "Sprendinių nėra"
+    ],
+    "correct": 0
+  },
+  {
+    "text": "Lygties 3 + √(x − 5) = x − 2 sprendinys:",
+    "options": [
+      "x = 5 ir x = 6",
+      "x = 5",
+      "x = 14",
+      "x = 6"
+    ],
+    "correct": 0
+  },
+  {
+    "text": "Lygties |x² − 5x| = 6 realieji sprendiniai:",
+    "options": [
+      "x = 6 ir x = −1",
+      "x = 6, x = −1, x = 2, x = 3",
+      "x = 6 ir x = 2",
+      "x = 6, x = −1, x = 3"
+    ],
+    "correct": 1
+  },
+  {
+    "text": "Lygties |x − 4| = |2x + 1| sprendiniai:",
+    "options": [
+      "x = 1 ir x = −5/3",
+      "x = 1",
+      "x = −5/3",
+      "x = 5 ir x = −1"
+    ],
+    "correct": 0
+  },
+  {
+    "text": "Lygties x² + px − 12 = 0 vienas sprendinys yra x₁ = 3. Koks kitas sprendinys x₂ ir koeficientas p?",
+    "options": [
+      "x₂ = −4, p = 1",
+      "x₂ = 4, p = −1",
+      "x₂ = −4, p = −1",
+      "x₂ = 4, p = 1"
+    ],
+    "correct": 0
+  },
+  {
+    "text": "Stačiakampio perimetras 40 cm, o plotas 96 cm². Kokios jo kraštinės?",
+    "options": [
+      "8 cm ir 12 cm",
+      "6 cm ir 16 cm",
+      "10 cm ir 10 cm",
+      "4 cm ir 24 cm"
+    ],
+    "correct": 0
+  }
+];
 var answers=new Array(QUESTIONS.length).fill(null);var submitted=false;
 function renderQuestions(){var html='';for(var qi=0;qi<QUESTIONS.length;qi++){var q=QUESTIONS[qi];html+='<div class="question-card"><div class="question-num">Klausimas '+(qi+1)+' iš '+QUESTIONS.length+'</div>';html+='<div class="question-text">'+q.text+'</div>';html+='<div class="options">';var L=['A','B','C','D'];for(var oi=0;oi<q.options.length;oi++){html+='<div class="option" id="opt-'+qi+'-'+oi+'" onclick="sel('+qi+','+oi+')">';html+='<div class="option-letter">'+L[oi]+'</div><div class="option-text">'+q.options[oi]+'</div></div>';}html+='</div></div>';}document.getElementById('questions').innerHTML=html;}
 function sel(qi,oi){if(submitted)return;answers[qi]=oi;for(var i=0;i<4;i++){var e=document.getElementById('opt-'+qi+'-'+i);if(e)e.classList.remove('selected');}document.getElementById('opt-'+qi+'-'+oi).classList.add('selected');var a=answers.filter(function(x){return x!==null;}).length;document.getElementById('progress').style.width=(a/QUESTIONS.length*100)+'%';document.getElementById('answered-count').textContent='Atsakyta: '+a+' / '+QUESTIONS.length;}

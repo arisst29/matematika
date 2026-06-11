@@ -87,7 +87,108 @@
   </div>
 </div>
 <script src="../../../../../../js/main.js"></script>
-<script>var QUESTIONS=[{"text": "Koks yra lygties (3x − 6) / (x + 2) = 0 sprendinys?", "options": ["x = −2", "x = 2", "x = 3", "Lygties sprendinių nėra"], "correct": 1}, {"text": "Kuri x reikšmė yra lygties (x² − 9) / (x − 3) = 0 sprendinys?", "options": ["x = 3", "x = −3", "x = 3 ir x = −3", "Tik x = −3"], "correct": 3}, {"text": "Kiek realių sprendinių turi lygtis x⁴ − 5x² = 0?", "options": ["1", "2", "3", "4"], "correct": 2}, {"text": "Lygtis 3x³ = −24 turi sprendinį:", "options": ["x = 2", "x = −2", "x = ±2", "Sprendinių nėra"], "correct": 1}, {"text": "Lygties √(2x − 4) = x − 2 sprendiniai yra:", "options": ["x = 2 ir x = 3", "x = 2", "x = 3", "x = 2 ir x = 4"], "correct": 0}, {"text": "Sprendžiant lygtį √(x + 3) = −2, atsakymas yra:", "options": ["x = 1", "x = −3", "x = 7", "Lygties sprendinių nėra"], "correct": 3}, {"text": "Lygties |5x + 10| = 15 sprendiniai yra:", "options": ["x = 1 ir x = −5", "x = 5 ir x = −1", "x = 1", "x = −5"], "correct": 0}, {"text": "Lygties |x + 3| = 0 sprendinys yra:", "options": ["x = 3", "x = −3", "x = 0", "Sprendinių nėra"], "correct": 1}, {"text": "Pagal Vjeto formules lygties x² − 8x + 15 = 0 sprendiniai yra:", "options": ["x₁ = 3, x₂ = 5", "x₁ = −3, x₂ = −5", "x₁ = 1, x₂ = 15", "x₁ = −1, x₂ = −15"], "correct": 0}, {"text": "Tėvas yra 30 metų vyresnis už sūnų. Po 6 metų tėvo amžius bus 3 kartus didesnis už sūnaus. Kiek metų dabar sūnui?", "options": ["6", "9", "Nėra teisingo atsakymo", "12"], "correct": 0}];
+<script>var QUESTIONS=[
+  {
+    "text": "Koks yra lygties (3x − 6) / (x + 2) = 0 sprendinys?",
+    "options": [
+      "x = −2",
+      "x = 2",
+      "x = 3",
+      "Lygties sprendinių nėra"
+    ],
+    "correct": 1
+  },
+  {
+    "text": "Kuri x reikšmė yra lygties (x² − 9) / (x − 3) = 0 sprendinys?",
+    "options": [
+      "x = 3",
+      "x = −3",
+      "x = 3 ir x = −3",
+      "Tik x = −3"
+    ],
+    "correct": 3
+  },
+  {
+    "text": "Kiek realių sprendinių turi lygtis x⁴ − 5x² = 0?",
+    "options": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "correct": 2
+  },
+  {
+    "text": "Lygtis 3x³ = −24 turi sprendinį:",
+    "options": [
+      "x = 2",
+      "x = −2",
+      "x = ±2",
+      "Sprendinių nėra"
+    ],
+    "correct": 1
+  },
+  {
+    "text": "Lygties √(2x − 4) = x − 2 sprendiniai yra:",
+    "options": [
+      "x = 2 ir x = 4",
+      "x = 2 ir x = 3",
+      "x = 4",
+      "x = 2"
+    ],
+    "correct": 0
+  },
+  {
+    "text": "Sprendžiant lygtį √(x + 3) = −2, atsakymas yra:",
+    "options": [
+      "x = 1",
+      "x = −3",
+      "x = 7",
+      "Lygties sprendinių nėra"
+    ],
+    "correct": 3
+  },
+  {
+    "text": "Lygties |5x + 10| = 15 sprendiniai yra:",
+    "options": [
+      "x = 1 ir x = −5",
+      "x = 5 ir x = −1",
+      "x = 1",
+      "x = −5"
+    ],
+    "correct": 0
+  },
+  {
+    "text": "Lygties |x + 3| = 0 sprendinys yra:",
+    "options": [
+      "x = 3",
+      "x = −3",
+      "x = 0",
+      "Sprendinių nėra"
+    ],
+    "correct": 1
+  },
+  {
+    "text": "Pagal Vjeto formules lygties x² − 8x + 15 = 0 sprendiniai yra:",
+    "options": [
+      "x₁ = 3, x₂ = 5",
+      "x₁ = −3, x₂ = −5",
+      "x₁ = 1, x₂ = 15",
+      "x₁ = −1, x₂ = −15"
+    ],
+    "correct": 0
+  },
+  {
+    "text": "Tėvas yra 30 metų vyresnis už sūnų. Po 6 metų tėvo amžius bus 3 kartus didesnis už sūnaus. Kiek metų dabar sūnui?",
+    "options": [
+      "6",
+      "9",
+      "Nėra teisingo atsakymo",
+      "12"
+    ],
+    "correct": 1
+  }
+];
 var answers=new Array(QUESTIONS.length).fill(null);var submitted=false;
 function renderQuestions(){var html='';for(var qi=0;qi<QUESTIONS.length;qi++){var q=QUESTIONS[qi];html+='<div class="question-card"><div class="question-num">Klausimas '+(qi+1)+' iš '+QUESTIONS.length+'</div>';html+='<div class="question-text">'+q.text+'</div>';html+='<div class="options">';var L=['A','B','C','D'];for(var oi=0;oi<q.options.length;oi++){html+='<div class="option" id="opt-'+qi+'-'+oi+'" onclick="sel('+qi+','+oi+')">';html+='<div class="option-letter">'+L[oi]+'</div><div class="option-text">'+q.options[oi]+'</div></div>';}html+='</div></div>';}document.getElementById('questions').innerHTML=html;}
 function sel(qi,oi){if(submitted)return;answers[qi]=oi;for(var i=0;i<4;i++){var e=document.getElementById('opt-'+qi+'-'+i);if(e)e.classList.remove('selected');}document.getElementById('opt-'+qi+'-'+oi).classList.add('selected');var a=answers.filter(function(x){return x!==null;}).length;document.getElementById('progress').style.width=(a/QUESTIONS.length*100)+'%';document.getElementById('answered-count').textContent='Atsakyta: '+a+' / '+QUESTIONS.length;}

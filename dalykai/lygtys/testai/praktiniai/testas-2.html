@@ -87,7 +87,108 @@
   </div>
 </div>
 <script src="../../../../../../js/main.js"></script>
-<script>var QUESTIONS=[{"text": "Kiek sprendinių turi lygtis x(x² − 9) / (x − 3) = 0?", "options": ["1 (tik x = 0)", "2 (x = 0 ir x = −3)", "3", "0"], "correct": 1}, {"text": "Lygties 2x/(x − 4) − 8/(x − 4) = 0 sprendinys yra:", "options": ["x = 4", "x = −4", "x = 4 ir x = −4", "Nėra sprendinių tinkamų"], "correct": 3}, {"text": "Lygties (x² − 4x)(x² − 9) = 0 sprendiniai yra:", "options": ["x = 0 ir x = 4", "x = 3 ir x = −3", "x = 0, x = 4, x = 3, x = −3", "x = 4, x = 3, x = −3"], "correct": 2}, {"text": "Lygtis 2x⁶ = 128 turi sprendinius:", "options": ["x = 2", "x = −2", "x = ±2", "Sprendinių nėra"], "correct": 2}, {"text": "Lygties √(3x + 1) = 4 sprendinys:", "options": ["x = 5", "x = 7", "x = 3", "x = 15"], "correct": 0}, {"text": "Sprendžiant lygtį √(x − 1) = x − 3, gauname x = 2 ir x = 5. Kuris yra pašalinis?", "options": ["x = 5", "x = 2", "Abu tinka", "Abu pašaliniai"], "correct": 1}, {"text": "Lygties |3x + 6| = 9 sprendiniai yra:", "options": ["x = 1 ir x = −5", "x = 1", "x = −5", "x = 3 ir x = −5"], "correct": 0}, {"text": "Lygties |2x − 5| = x + 1 sprendiniai:", "options": ["x = 6 ir x = 4/3", "x = 6", "x = 4/3", "Sprendinių nėra"], "correct": 0}, {"text": "Kvadratinės lygties sprendiniai x₁ = −2 ir x₂ = 7. Kuriai lygtiai jie priklauso?", "options": ["x² − 5x − 14 = 0", "x² + 5x − 14 = 0", "x² − 5x + 14 = 0", "x² + 5x + 14 = 0"], "correct": 0}, {"text": "Dviženklį skaičių sudaro du skaitmenys. Jų suma lygi 9, o skaičius yra 4 kartus didesnis už skaitmenų sandaugą plius 3. Koks tai skaičius?", "options": ["36", "63", "45", "54"], "correct": 2}];
+<script>var QUESTIONS=[
+  {
+    "text": "Kiek sprendinių turi lygtis x(x² − 9) / (x − 3) = 0?",
+    "options": [
+      "1 (tik x = 0)",
+      "2 (x = 0 ir x = −3)",
+      "3",
+      "0"
+    ],
+    "correct": 1
+  },
+  {
+    "text": "Lygties 2x/(x − 4) − 8/(x − 4) = 0 sprendinys yra:",
+    "options": [
+      "x = 4",
+      "x = −4",
+      "x = 4 ir x = −4",
+      "Nėra sprendinių tinkamų"
+    ],
+    "correct": 3
+  },
+  {
+    "text": "Lygties (x² − 4x)(x² − 9) = 0 sprendiniai yra:",
+    "options": [
+      "x = 0 ir x = 4",
+      "x = 3 ir x = −3",
+      "x = 0, x = 4, x = 3, x = −3",
+      "x = 4, x = 3, x = −3"
+    ],
+    "correct": 2
+  },
+  {
+    "text": "Lygtis 2x⁶ = 128 turi sprendinius:",
+    "options": [
+      "x = 2",
+      "x = −2",
+      "x = ±2",
+      "Sprendinių nėra"
+    ],
+    "correct": 2
+  },
+  {
+    "text": "Lygties √(3x + 1) = 4 sprendinys:",
+    "options": [
+      "x = 5",
+      "x = 7",
+      "x = 3",
+      "x = 15"
+    ],
+    "correct": 0
+  },
+  {
+    "text": "Sprendžiant lygtį √(x − 1) = x − 3, gauname x = 2 ir x = 5. Kuris yra pašalinis?",
+    "options": [
+      "x = 5",
+      "x = 2",
+      "Abu tinka",
+      "Abu pašaliniai"
+    ],
+    "correct": 1
+  },
+  {
+    "text": "Lygties |3x + 6| = 9 sprendiniai yra:",
+    "options": [
+      "x = 1 ir x = −5",
+      "x = 1",
+      "x = −5",
+      "x = 3 ir x = −5"
+    ],
+    "correct": 0
+  },
+  {
+    "text": "Lygties |2x − 5| = x + 1 sprendiniai:",
+    "options": [
+      "x = 6 ir x = 4/3",
+      "x = 6",
+      "x = 4/3",
+      "Sprendinių nėra"
+    ],
+    "correct": 0
+  },
+  {
+    "text": "Kvadratinės lygties sprendiniai x₁ = −2 ir x₂ = 7. Kuriai lygtiai jie priklauso?",
+    "options": [
+      "x² − 5x − 14 = 0",
+      "x² + 5x − 14 = 0",
+      "x² − 5x + 14 = 0",
+      "x² + 5x + 14 = 0"
+    ],
+    "correct": 0
+  },
+  {
+    "text": "Dviženklį skaičių sudaro du skaitmenys. Jų suma lygi 9, o skaičius yra 4 kartus didesnis už skaitmenų sandaugą plius 3. Koks tai skaičius?",
+    "options": [
+      "36",
+      "63",
+      "45",
+      "54"
+    ],
+    "correct": 1
+  }
+];
 var answers=new Array(QUESTIONS.length).fill(null);var submitted=false;
 function renderQuestions(){var html='';for(var qi=0;qi<QUESTIONS.length;qi++){var q=QUESTIONS[qi];html+='<div class="question-card"><div class="question-num">Klausimas '+(qi+1)+' iš '+QUESTIONS.length+'</div>';html+='<div class="question-text">'+q.text+'</div>';html+='<div class="options">';var L=['A','B','C','D'];for(var oi=0;oi<q.options.length;oi++){html+='<div class="option" id="opt-'+qi+'-'+oi+'" onclick="sel('+qi+','+oi+')">';html+='<div class="option-letter">'+L[oi]+'</div><div class="option-text">'+q.options[oi]+'</div></div>';}html+='</div></div>';}document.getElementById('questions').innerHTML=html;}
 function sel(qi,oi){if(submitted)return;answers[qi]=oi;for(var i=0;i<4;i++){var e=document.getElementById('opt-'+qi+'-'+i);if(e)e.classList.remove('selected');}document.getElementById('opt-'+qi+'-'+oi).classList.add('selected');var a=answers.filter(function(x){return x!==null;}).length;document.getElementById('progress').style.width=(a/QUESTIONS.length*100)+'%';document.getElementById('answered-count').textContent='Atsakyta: '+a+' / '+QUESTIONS.length;}

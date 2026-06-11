@@ -51,7 +51,14 @@
 .msv{font-size:26px;font-weight:700;color:#1a1a2e}.msk{font-size:11px;color:#94a3b8;margin-top:2px;text-transform:uppercase}
 .mbtns{display:flex;gap:10px;justify-content:center}
 .btn{padding:10px 22px;border-radius:8px;font-size:14px;font-weight:600;font-family:inherit;cursor:pointer;border:1.5px solid #e2e8f0;background:#fff;color:#334155}
-.btn.p{background:#1d4ed8;color:#fff;border-color:#1d4ed8}</style>
+.btn.p{background:#1d4ed8;color:#fff;border-color:#1d4ed8}
+    .open-label{display:inline-flex;align-items:center;font-size:15px;color:var(--ink);padding:0 4px;font-weight:500;}
+    .open-sfx{display:inline-flex;align-items:center;font-size:14px;color:var(--ink2);padding:0 4px;}
+    .open-inp{display:inline-block;width:90px;padding:7px 10px;border:1.5px solid var(--border);border-radius:6px;font-size:15px;font-family:var(--mono);background:var(--bg);color:var(--ink);margin:4px 2px;vertical-align:middle;}
+    .open-inp:focus{outline:none;border-color:var(--accent);}
+    .open-inp.ci{border-color:#15803d;background:#f0fdf4;}
+    .open-inp.wi{border-color:#b91c1c;background:#fef2f2;}
+  </style>
 </head>
 <body>
 <div class="layout">
@@ -104,7 +111,293 @@
   </div>
 </div>
 <script src="../../../../js/main.js"></script>
-<script>var QUESTIONS=[{"type": "mcq", "pts": 1, "text": "Lygties (x\u00b2 \u2212 4x) / (x \u2212 4) = 0 sprendinys:", "options": ["x = 0 ir x = 4", "x = 0", "x = 4", "Sprendini\u0173 n\u0117ra"], "correct": 1}, {"type": "open", "pts": 2, "text": "I\u0161spr\u0119skite lygt\u012f: (x + 4)/(x\u00b2 \u2212 4) = 0. <span style=\"font-size:12px;color:#94a3b8;font-style:italic\">(\u012era\u0161ykite sprendini\u0173)</span>", "answer": "-4", "tolerance": 0}, {"type": "mcq", "pts": 1, "text": "Lygties x\u2074 \u2212 29x\u00b2 + 100 = 0 sprendiniai:", "options": ["x = \u00b12 ir x = \u00b15", "x = \u00b14 ir x = \u00b125", "x = \u00b12 ir x = \u00b110", "x = 4 ir x = 25"], "correct": 0}, {"type": "open", "pts": 2, "text": "I\u0161spr\u0119skite lygt\u012f: x\u00b3 \u2212 3x\u00b2 \u2212 4x + 12 = 0. <span style=\"font-size:12px;color:#94a3b8;font-style:italic\">(\u012era\u0161ykite sprendinius atskiriant kableliu)</span>", "answer": "-2, 2, 3", "tolerance": 0}, {"type": "mcq", "pts": 1, "text": "Lygties \u221a(x + 4) = x \u2212 2 sprendiniai:", "options": ["x = 5", "x = 0", "x = 0 ir x = 5", "Sprendini\u0173 n\u0117ra"], "correct": 0}, {"type": "open", "pts": 2, "text": "I\u0161spr\u0119skite lygt\u012f: |x \u2212 3| = 2x \u2212 1. <span style=\"font-size:12px;color:#94a3b8;font-style:italic\">(\u012era\u0161ykite sprendini\u0173 arba sprendinius)</span>", "answer": "4/3", "tolerance": 0}, {"type": "mcq", "pts": 1, "text": "Pagal Vjeto formules lygties x\u00b2 \u2212 6x + 8 = 0 sprendiniai:", "options": ["x\u2081 = 2, x\u2082 = 4", "x\u2081 = \u22122, x\u2082 = \u22124", "x\u2081 = 1, x\u2082 = 8", "x\u2081 = 2, x\u2082 = \u22124"], "correct": 0}, {"type": "open", "pts": 2, "text": "Lygties x\u00b2 + px + 15 = 0 vienas sprendinys x\u2081 = \u22125. Raskite p ir x\u2082. <span style=\"font-size:12px;color:#94a3b8;font-style:italic\">(\u012era\u0161ykite formatu p=..., x\u2082=...)</span>", "answer": "p=8, x\u2082=-3", "tolerance": 0}, {"type": "mcq", "pts": 1, "text": "Nelygyb\u0117s \u2212x\u00b2 + 4x + 5 \u2265 0 sprendiniai:", "options": ["x \u2208 [\u22121; 5]", "x \u2208 (\u2212\u221e; \u22121] \u222a [5; +\u221e)", "x \u2208 (\u22121; 5)", "x \u2208 [\u22125; 1]"], "correct": 0}, {"type": "open", "pts": 2, "text": "I\u0161spr\u0119skite nelygyb\u0119: x(x \u2212 3) / (x + 2) &gt; 0. <span style=\"font-size:12px;color:#94a3b8;font-style:italic\">(\u012era\u0161ykite atsakym\u0105, pvz. x\u2208(-2;0)\u222a(3;+\u221e))</span>", "answer": "x\u2208(\u22122;0)\u222a(3;+\u221e)", "tolerance": 0}, {"type": "mcq", "pts": 1, "text": "Su kuriomis a reik\u0161m\u0117mis lygtis x\u00b2 + 2ax + a + 2 = 0 neturi reali\u0173j\u0173 sprendini\u0173?", "options": ["a \u2208 (\u22121; 2)", "a \u2208 (\u2212\u221e; \u22121) \u222a (2; +\u221e)", "a \u2208 [\u22121; 2]", "a \u2208 (0; 2)"], "correct": 0}, {"type": "open", "pts": 2, "text": "I\u0161spr\u0119skite nelygybi\u0173 sistem\u0105: { x\u00b2 \u2212 4x + 3 \u2264 0; x \u2265 2 }. <span style=\"font-size:12px;color:#94a3b8;font-style:italic\">(\u012era\u0161ykite atsakym\u0105, pvz. x\u2208[2;3])</span>", "answer": "x\u2208[2;3]", "tolerance": 0}, {"type": "mcq", "pts": 1, "text": "Nelygyb\u0117s |2x + 6| &gt; 4 sprendiniai:", "options": ["x \u2208 (\u2212\u221e; \u22125) \u222a (\u22121; +\u221e)", "x \u2208 [\u22125; \u22121]", "x \u2208 (\u22125; \u22121)", "x \u2208 (\u22124; \u22122)"], "correct": 0}, {"type": "open", "pts": 2, "text": "I\u0161spr\u0119skite dvigub\u0105j\u0105 nelygyb\u0119: 2 \u2264 3x \u2212 1 &lt; 8. <span style=\"font-size:12px;color:#94a3b8;font-style:italic\">(\u012era\u0161ykite atsakym\u0105, pvz. x\u2208[1;3))</span>", "answer": "x\u2208[1;3)", "tolerance": 0}, {"type": "mcq", "pts": 1, "text": "Pirmas siurblys rezervuar\u0105 u\u017epildo per 6 valandas, antras \u2014 per 12 valandas. Per kiek valand\u0173 u\u017epildys kartu?", "options": ["3 h", "4 h", "5 h", "6 h"], "correct": 1}, {"type": "open", "pts": 2, "text": "Du darbininkai kartu darb\u0105 atlieka per 4 valandas. Pirmasis vienas \u2014 per 6 valandas. Per kiek valand\u0173 atlikt\u0173 antrasis? <span style=\"font-size:12px;color:#94a3b8;font-style:italic\">(\u012era\u0161ykite skai\u010di\u0173)</span>", "answer": "12", "tolerance": 0}, {"type": "mcq", "pts": 1, "text": "Dvi\u017eenklio skai\u010diaus skaitmen\u0173 suma lygi 10. Apkeit\u0119 skaitmenimis vietomis gauname skai\u010di\u0173, kuri yra 54 ma\u017eesnis. Koks pradinis skai\u010dius?", "options": ["28", "82", "37", "73"], "correct": 0}, {"type": "open", "pts": 2, "text": "Sta\u010diakampio perimetras 34 cm, plotas 72 cm\u00b2. Raskite kra\u0161tines. <span style=\"font-size:12px;color:#94a3b8;font-style:italic\">(\u012era\u0161ykite formatu a cm ir b cm)</span>", "answer": "8 cm ir 9 cm", "tolerance": 0}, {"type": "mcq", "pts": 1, "text": "Nelygyb\u0117 x\u00b2(x + 3) &lt; 0 teisinga:", "options": ["x \u2208 (\u2212\u221e; \u22123)", "x \u2208 (\u22123; 0)", "x \u2208 (\u2212\u221e; \u22123) \u222a (0; +\u221e)", "x \u2208 (\u22123; +\u221e)"], "correct": 0}, {"type": "open", "pts": 2, "text": "Pirmasis darbininkas darb\u0105 atlikt\u0173 per 6 valandas, antrasis \u2014 per 12 valandas. Per kiek valand\u0173 jie atlikt\u0173 darb\u0105 kartu? <span style=\"font-size:12px;color:#94a3b8;font-style:italic\">(\u012era\u0161ykite skai\u010di\u0173)</span>", "answer": "4", "tolerance": 0}];var MAX_PTS=30;
+<script>var QUESTIONS=[
+  {
+    "type": "mcq",
+    "pts": 1,
+    "text": "Lygties (x² − 4x) / (x − 4) = 0 sprendinys:",
+    "options": [
+      "x = 0 ir x = 4",
+      "x = 0",
+      "x = 4",
+      "Sprendinių nėra"
+    ],
+    "correct": 1
+  },
+  {
+    "type": "open1",
+    "pts": 2,
+    "text": "Išspręskite lygtį: (x + 4)/(x² − 4) = 0.",
+    "tolerance": 0,
+    "labels": [
+      "x ="
+    ],
+    "sfx": [
+      ""
+    ],
+    "answers": [
+      "-4"
+    ]
+  },
+  {
+    "type": "mcq",
+    "pts": 1,
+    "text": "Lygties x⁴ − 29x² + 100 = 0 sprendiniai:",
+    "options": [
+      "x = ±2 ir x = ±5",
+      "x = ±4 ir x = ±25",
+      "x = ±2 ir x = ±10",
+      "x = 4 ir x = 25"
+    ],
+    "correct": 0
+  },
+  {
+    "type": "open3",
+    "pts": 2,
+    "text": "Išspręskite lygtį: x³ − 3x² − 4x + 12 = 0.",
+    "tolerance": 0,
+    "labels": [
+      "x₁ =",
+      "x2 =",
+      "x3 ="
+    ],
+    "sfx": [
+      "",
+      "",
+      ""
+    ],
+    "answers": [
+      "-2",
+      "2",
+      "3"
+    ]
+  },
+  {
+    "type": "mcq",
+    "pts": 1,
+    "text": "Lygties √(x + 4) = x − 2 sprendiniai:",
+    "options": [
+      "x = 5",
+      "x = 0",
+      "x = 0 ir x = 5",
+      "Sprendinių nėra"
+    ],
+    "correct": 0
+  },
+  {
+    "type": "open1",
+    "pts": 2,
+    "text": "Išspręskite lygtį: |x − 3| = 2x − 1.",
+    "tolerance": 0,
+    "labels": [
+      "x ="
+    ],
+    "sfx": [
+      ""
+    ],
+    "answers": [
+      "4/3"
+    ]
+  },
+  {
+    "type": "mcq",
+    "pts": 1,
+    "text": "Pagal Vjeto formules lygties x² − 6x + 8 = 0 sprendiniai:",
+    "options": [
+      "x₁ = 2, x₂ = 4",
+      "x₁ = −2, x₂ = −4",
+      "x₁ = 1, x₂ = 8",
+      "x₁ = 2, x₂ = −4"
+    ],
+    "correct": 0
+  },
+  {
+    "type": "open2",
+    "pts": 2,
+    "text": "Lygties x² + px + 15 = 0 vienas sprendinys x₁ = −5. Raskite p ir x₂.",
+    "tolerance": 0,
+    "labels": [
+      "p =",
+      "x₂ ="
+    ],
+    "sfx": [
+      "",
+      ""
+    ],
+    "answers": [
+      "8",
+      "-3"
+    ]
+  },
+  {
+    "type": "mcq",
+    "pts": 1,
+    "text": "Nelygybės −x² + 4x + 5 ≥ 0 sprendiniai:",
+    "options": [
+      "x ∈ [−1; 5]",
+      "x ∈ (−∞; −1] ∪ [5; +∞)",
+      "x ∈ (−1; 5)",
+      "x ∈ [−5; 1]"
+    ],
+    "correct": 0
+  },
+  {
+    "type": "mcq",
+    "pts": 2,
+    "text": "Išspręskite nelygybę: x(x − 3) / (x + 2) &gt; 0.",
+    "options": [
+      "x ∈ (−2; 0) ∪ (3; +∞)",
+      "x ∈ (−∞; −2) ∪ (0; 3)",
+      "x ∈ (0; 3)",
+      "x ∈ (−2; 3)"
+    ],
+    "correct": 0
+  },
+  {
+    "type": "mcq",
+    "pts": 1,
+    "text": "Su kuriomis a reikšmėmis lygtis x² + 2ax + a + 2 = 0 neturi realiųjų sprendinių?",
+    "options": [
+      "a ∈ (−1; 2)",
+      "a ∈ (−∞; −1) ∪ (2; +∞)",
+      "a ∈ [−1; 2]",
+      "a ∈ (0; 2)"
+    ],
+    "correct": 0
+  },
+  {
+    "type": "open2",
+    "pts": 2,
+    "text": "Išspręskite nelygybių sistemą: { x² − 4x + 3 ≤ 0; x ≥ 2 }.",
+    "tolerance": 0,
+    "labels": [
+      "x ∈ [",
+      ";"
+    ],
+    "sfx": [
+      "",
+      "]"
+    ],
+    "answers": [
+      "2",
+      "3"
+    ]
+  },
+  {
+    "type": "mcq",
+    "pts": 1,
+    "text": "Nelygybės |2x + 6| &gt; 4 sprendiniai:",
+    "options": [
+      "x ∈ (−∞; −5) ∪ (−1; +∞)",
+      "x ∈ [−5; −1]",
+      "x ∈ (−5; −1)",
+      "x ∈ (−4; −2)"
+    ],
+    "correct": 0
+  },
+  {
+    "type": "open2",
+    "pts": 2,
+    "text": "Išspręskite dvigubąją nelygybę: 2 ≤ 3x − 1 &lt; 8. <span style=\"font-size:12px;color:#94a3b8;font-style:italic\">(Įrašykite atsakymą, pvz. x∈[1;3))</span>",
+    "tolerance": 0,
+    "labels": [
+      "x ∈ [",
+      ";"
+    ],
+    "sfx": [
+      "",
+      ")"
+    ],
+    "answers": [
+      "1",
+      "3"
+    ]
+  },
+  {
+    "type": "mcq",
+    "pts": 1,
+    "text": "Pirmas siurblys rezervuarą užpildo per 6 valandas, antras — per 12 valandas. Per kiek valandų užpildys kartu?",
+    "options": [
+      "3 h",
+      "4 h",
+      "5 h",
+      "6 h"
+    ],
+    "correct": 1
+  },
+  {
+    "type": "open1",
+    "pts": 2,
+    "text": "Du darbininkai kartu darbą atlieka per 4 valandas. Pirmasis vienas — per 6 valandas. Per kiek valandų atliktų antrasis?",
+    "tolerance": 0,
+    "labels": [
+      "x ="
+    ],
+    "sfx": [
+      ""
+    ],
+    "answers": [
+      "12"
+    ]
+  },
+  {
+    "type": "mcq",
+    "pts": 1,
+    "text": "Dviženklio skaičiaus skaitmenų suma lygi 10. Apkeitę skaitmenimis vietomis gauname skaičių, kuri yra 54 mažesnis. Koks pradinis skaičius?",
+    "options": [
+      "28",
+      "82",
+      "37",
+      "73"
+    ],
+    "correct": 3
+  },
+  {
+    "type": "open2",
+    "pts": 2,
+    "text": "Stačiakampio perimetras 34 cm, plotas 72 cm². Raskite kraštines.",
+    "tolerance": 0,
+    "labels": [
+      "a =",
+      "b ="
+    ],
+    "sfx": [
+      " cm",
+      " cm"
+    ],
+    "answers": [
+      "8",
+      "9"
+    ]
+  },
+  {
+    "type": "mcq",
+    "pts": 1,
+    "text": "Nelygybė x²(x + 3) &lt; 0 teisinga:",
+    "options": [
+      "x ∈ (−∞; −3)",
+      "x ∈ (−3; 0)",
+      "x ∈ (−∞; −3) ∪ (0; +∞)",
+      "x ∈ (−3; +∞)"
+    ],
+    "correct": 0
+  },
+  {
+    "type": "open1",
+    "pts": 2,
+    "text": "Pirmasis darbininkas darbą atliktų per 6 valandas, antrasis — per 12 valandas. Per kiek valandų jie atliktų darbą kartu?",
+    "tolerance": 0,
+    "labels": [
+      "x ="
+    ],
+    "sfx": [
+      ""
+    ],
+    "answers": [
+      "4"
+    ]
+  }
+];var MAX_PTS=30;
 var QS=QUESTIONS;var ans=new Array(QS.length).fill(null);var done=false;var MP=MAX_PTS;
 var SYMS=["√","²","³","⁴","≥","≤","≠","∞","∪","∩","±"];
 var lastInp=null;var symClick=false;
@@ -115,12 +408,12 @@ document.addEventListener('click',function(e){
     if(inp&&!inp.disabled){var p=inp.selectionStart!=null?inp.selectionStart:inp.value.length;inp.value=inp.value.slice(0,p)+sym+inp.value.slice(p);inp.focus({preventScroll:true});inp.selectionStart=inp.selectionEnd=p+sym.length;inp.dispatchEvent(new Event('input',{bubbles:true}));}
     e.target.classList.add('ok');setTimeout(function(){e.target.classList.remove('ok');symClick=false;},500);}});
 document.addEventListener('focusin',function(e){if(e.target.matches('.open-wrap input')&&!symClick)lastInp=e.target;});
-function render(){var L=['A','B','C','D'];var sb='<div class="sym-bar"><span class="sym-label">Kopijuok:&nbsp;</span>';var sl=["√","²","³","⁴","≥","≤","≠","∞","∪","∩","±"];for(var si=0;si<sl.length;si++)sb+='<button class="sym-btn" data-i="'+si+'">'+sl[si]+'</button>';sb+='</div>';var h='';for(var qi=0;qi<QS.length;qi++){var q=QS[qi];var pc=q.pts===2?'two':'';h+='<div class="q-card"><div class="q-header"><span class="q-num">KLAUSIMAS '+(qi+1)+' IŠ '+QS.length+'</span><span class="q-pts '+pc+'">'+q.pts+(q.pts===1?' taškas':' taškai')+'</span></div><div class="q-text">'+q.text+'</div>';if(q.type==='mcq'){h+='<div class="options">';for(var oi=0;oi<q.options.length;oi++){h+='<div class="opt" id="o'+qi+'x'+oi+'" onclick="pick('+qi+','+oi+')"><div class="opt-letter">'+L[oi]+'</div><div class="opt-text">'+q.options[oi]+'</div></div>';}h+='</div>';}else{h+=sb;h+='<div class="open-wrap"><input type="text" id="i'+qi+'" oninput="typed('+qi+')" placeholder="Įrašykite atsakymą"></div><div class="fb" id="f'+qi+'"></div>';}h+='</div>';}document.getElementById('qs').innerHTML=h;document.getElementById('pt').textContent='Atsakyta: 0 / '+QS.length;}
+function render(){var L=['A','B','C','D'];var sb='<div class="sym-bar"><span class="sym-label">Kopijuok:&nbsp;</span>';var sl=["√","²","³","⁴","≥","≤","≠","∞","∪","∩","±"];for(var si=0;si<sl.length;si++)sb+='<button class="sym-btn" data-i="'+si+'">'+sl[si]+'</button>';sb+='</div>';var h='';for(var qi=0;qi<QS.length;qi++){var q=QS[qi];var pc=q.pts===2?'two':'';h+='<div class="q-card"><div class="q-header"><span class="q-num">KLAUSIMAS '+(qi+1)+' IŠ '+QS.length+'</span><span class="q-pts '+pc+'">'+q.pts+(q.pts===1?' taškas':' taškai')+'</span></div><div class="q-text">'+q.text+'</div>';if(q.type==='mcq'){h+='<div class="options">';for(var oi=0;oi<q.options.length;oi++){h+='<div class="opt" id="o'+qi+'x'+oi+'" onclick="pick('+qi+','+oi+')"><div class="opt-letter">'+L[oi]+'</div><div class="opt-text">'+q.options[oi]+'</div></div>';}h+='</div>';}else if(q.labels){h+='<div class="open-wrap">';var nf=q.answers?q.answers.length:1;for(var fi=0;fi<nf;fi++){h+='<span class="open-label">'+q.labels[fi]+'</span>';h+='<input class="open-inp" type="text" id="i'+qi+'_'+fi+'" oninput="typed('+qi+')" placeholder="...">';if(q.sfx&&q.sfx[fi])h+='<span class="open-sfx">'+q.sfx[fi]+'</span>';if(fi<nf-1)h+='&nbsp;&nbsp;&nbsp;';}h+='</div>';h+='<div class="fb" id="f'+qi+'"></div>';}else{h+=sb;h+='<div class="open-wrap"><input type="text" id="i'+qi+'_0" oninput="typed('+qi+')" placeholder="Įrašykite atsakymą"></div>';h+='<div class="fb" id="f'+qi+'"></div>';}h+='</div>';}document.getElementById('qs').innerHTML=h;document.getElementById('pt').textContent='Atsakyta: 0 / '+QS.length;}
 function pick(qi,oi){if(done)return;ans[qi]=oi;for(var i=0;i<4;i++){var e=document.getElementById('o'+qi+'x'+i);if(e)e.classList.remove('selected');}document.getElementById('o'+qi+'x'+oi).classList.add('selected');upd();}
-function typed(qi){if(done)return;var v=document.getElementById('i'+qi).value.trim();ans[qi]=v||null;upd();}
+function typed(qi){if(done)return;var q=QS[qi];if(q.labels&&q.answers&&q.answers.length>1){var parts=[];for(var fi=0;fi<q.answers.length;fi++){var el=document.getElementById('i'+qi+'_'+fi);parts.push(el?el.value.trim():'');}ans[qi]=parts.some(function(p){return p;})?parts:null;}else{var el=document.getElementById('i'+qi+'_0');ans[qi]=el&&el.value.trim()||null;}upd();}
 function upd(){var n=ans.filter(function(x){return x!==null;}).length;document.getElementById('pf').style.width=(n/QS.length*100)+'%';document.getElementById('pt').textContent='Atsakyta: '+n+' / '+QS.length;document.getElementById('ai').textContent='Atsakyta: '+n+' / '+QS.length;}
 function chk(v,a,tol){if(!v)return false;var vv=v.trim().replace(',','.').toLowerCase();var aa=String(a).trim().replace(',','.').toLowerCase();if(vv===aa)return true;var nv=parseFloat(vv),na=parseFloat(aa);if(!isNaN(nv)&&!isNaN(na)&&Math.abs(nv-na)<=(tol||0.01))return true;return false;}
-function submit(){var n=ans.filter(function(x){return x!==null;}).length;if(n<QS.length&&!confirm('Dar neatsakyta '+(QS.length-n)+'. Pateikti?'))return;done=true;document.getElementById('sb').disabled=true;var pts=0;for(var qi=0;qi<QS.length;qi++){var q=QS[qi];var s=ans[qi];if(q.type==='mcq'){var ok=(s===q.correct);if(ok)pts+=q.pts;for(var oi=0;oi<q.options.length;oi++){var el=document.getElementById('o'+qi+'x'+oi);el.classList.remove('selected');if(oi===q.correct)el.classList.add(ok&&oi===s?'correct':'show-correct');if(oi===s&&!ok)el.classList.add('wrong');}}else{var inp=document.getElementById('i'+qi);var fb=document.getElementById('f'+qi);var ok2=chk(s,q.answer,q.tolerance);if(ok2){pts+=q.pts;inp.classList.add('ci');fb.textContent='Teisingai';fb.className='fb show ok';}else{inp.classList.add('wi');fb.textContent='Teisingas atsakymas: '+q.answer;fb.className='fb show bad';}inp.disabled=true;}}var pct=Math.round(pts/MP*100);document.getElementById('mpct').textContent=pct+'%';document.getElementById('mpct').className='mp '+(pct>=80?'ex':pct>=50?'good':'poor');document.getElementById('mf').textContent=pct>=90?'Puikiai!':pct>=70?'Gerai!':pct>=50?'Neblogai':'Reikia pasirengimo';document.getElementById('ms').textContent='Surinkta: '+pts+' iš '+MP+' taškų';document.getElementById('sc').textContent=pts;document.getElementById('sw').textContent=MP-pts;document.getElementById('sp').textContent=pct+'%';document.getElementById('mbg').classList.add('open');}
+function submit(){var n=ans.filter(function(x){return x!==null;}).length;if(n<QS.length&&!confirm('Dar neatsakyta '+(QS.length-n)+'. Pateikti?'))return;done=true;document.getElementById('sb').disabled=true;var pts=0;for(var qi=0;qi<QS.length;qi++){var q=QS[qi];var s=ans[qi];if(q.type==='mcq'){var ok=(s===q.correct);if(ok)pts+=q.pts;for(var oi=0;oi<q.options.length;oi++){var el=document.getElementById('o'+qi+'x'+oi);el.classList.remove('selected');if(oi===q.correct)el.classList.add(ok&&oi===s?'correct':'show-correct');if(oi===s&&!ok)el.classList.add('wrong');}}else{var fb=document.getElementById('f'+qi);if(q.labels&&q.answers&&q.answers.length>1){var ok2=true;for(var fi=0;fi<q.answers.length;fi++){var inpf=document.getElementById('i'+qi+'_'+fi);if(!chk(Array.isArray(s)?s[fi]:'',q.answers[fi],q.tolerance)){ok2=false;}if(inpf)inpf.disabled=true;}if(ok2){pts+=q.pts;fb.textContent='Teisingai';fb.className='fb show ok';}else{fb.textContent='Teisingas atsakymas: '+q.answers.join(', ');fb.className='fb show bad';}}else{var inp=document.getElementById('i'+qi+'_0');var ok2=chk(Array.isArray(s)?s[0]:s,q.answers?q.answers[0]:q.answer,q.tolerance);if(ok2){pts+=q.pts;if(inp)inp.classList.add('ci');fb.textContent='Teisingai';fb.className='fb show ok';}else{if(inp)inp.classList.add('wi');fb.textContent='Teisingas atsakymas: '+(q.answers?q.answers[0]:q.answer);fb.className='fb show bad';}if(inp)inp.disabled=true;}}}var pct=Math.round(pts/MP*100);document.getElementById('mpct').textContent=pct+'%';document.getElementById('mpct').className='mp '+(pct>=80?'ex':pct>=50?'good':'poor');document.getElementById('mf').textContent=pct>=90?'Puikiai!':pct>=70?'Gerai!':pct>=50?'Neblogai':'Reikia pasirengimo';document.getElementById('ms').textContent='Surinkta: '+pts+' iš '+MP+' taškų';document.getElementById('sc').textContent=pts;document.getElementById('sw').textContent=MP-pts;document.getElementById('sp').textContent=pct+'%';document.getElementById('mbg').classList.add('open');}
 function closeM(){document.getElementById('mbg').classList.remove('open');}
 render();</script>
 </body>

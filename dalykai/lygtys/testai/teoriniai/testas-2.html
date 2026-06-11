@@ -54,7 +54,7 @@
     <div class="page">
       <div class="test-header">
         <div class="topic-tag">4 skyrius · Teorinis testas 1</div>
-        <h1>Teorinis testas 1 — T1·T2·T3 mišrus</h1>
+        <h1>Teorinis testas 2 — T1·T2·T3 mišrus</h1>
         <div class="test-meta">
           <div class="test-meta-item">10 klausimų</div>
           <div class="test-meta-item">T1 · T2 · T3</div>
@@ -87,7 +87,108 @@
   </div>
 </div>
 <script src="../../../../../../js/main.js"></script>
-<script>var QUESTIONS=[{"text": "Kaip sprendžiama trupmeninė lygtis A(x)/B(x) = 0?", "options": ["Randame abu sprendinius iš B(x) = 0", "Sprendžiame sistemą: A(x) = 0 ir B(x) ≠ 0", "Dauginame abi puses iš B(x) ir sprendžiame A(x) = 0", "Pirmiausia atskiriame skaitiklį nuo vardiklio"], "correct": 1}, {"text": "Kodėl trupmeninėje lygtyje tikrinama sąlyga B(x) ≠ 0?", "options": ["Kad skaitiklis nebūtų lygus nuliui", "Kad nebūtų dalijama iš nulio — tokios x reikšmės nepriklauso apibrėžimo srčiai", "Kad lygtis turėtų bent vieną sprendinį", "Kad galėtume sutraukti trupmeną"], "correct": 1}, {"text": "Sprendžiant trupmeninę lygtį, vardiklio narius:", "options": ["Visada atskliaučiame ir suprastiname", "Neatsklaičiame — vardiklis reikalingas tikrinimui", "Prilyginame nuliui ir sprendžiame", "Perkeliame į dešiniąją pusę"], "correct": 1}, {"text": "Lygtis xⁿ = b, kai n lyginis ir b < 0:", "options": ["Turi vieną sprendinį", "Turi du sprendinius ±ⁿ√b", "Neturi sprendinių realiųjų skaičių aibėje", "Turi begalę sprendinių"], "correct": 2}, {"text": "Lygtis xⁿ = b, kai n nelyginis:", "options": ["Turi du sprendinius: ±ⁿ√b", "Visada turi vieną sprendinį x = ⁿ√b", "Neturi sprendinių, jei b < 0", "Sprendinių skaičius priklauso nuo b ženklo"], "correct": 1}, {"text": "Kodėl sprendžiant iracionalią lygtį su lyginių laipsnio šaknimi reikia tikrinti sprendinius?", "options": ["Nes gauname per daug sprendinių", "Nes kėlimas lyginiu laipsniu gali įvesti pašalinius sprendinius", "Nes šaknis visada neigiama", "Nes lygtis gali neturėti sprendinių"], "correct": 1}, {"text": "Sprendžiant iracionalią lygtį √(f(x)) = g(x), abi puses keliame:", "options": ["Trečiuoju laipsniu", "Kvadratu", "Pirmojo laipsnio", "Šeštuoju laipsniu"], "correct": 1}, {"text": "Lygtis |f(x)| = a, kai a < 0:", "options": ["Turi vieną sprendinį", "Turi du sprendinius", "Neturi sprendinių", "Turi begalę sprendinių"], "correct": 2}, {"text": "Vjeto formulė sako, kad redukuotos lygties x² + px + q = 0 sprendinių suma lygi:", "options": ["q", "p", "−p", "−q"], "correct": 2}, {"text": "Jei kvadratinės lygties x² + px + q = 0 sprendiniai yra x₁ = 3 ir x₂ = −5, tai q lygus:", "options": ["−15", "15", "2", "−2"], "correct": 0}];
+<script>var QUESTIONS=[
+  {
+    "text": "Sprendžiant kvadratinę nelygybę ax² + bx + c > 0, kai a > 0 ir D > 0, sprendinys yra:",
+    "options": [
+      "Visas x realiųjų skaičių aibė ℝ",
+      "Intervalas tarp šaknų: (x₁; x₂)",
+      "Du intervalai: (−∞; x₁) ∪ (x₂; +∞)",
+      "Tik x₁ ir x₂"
+    ],
+    "correct": 2
+  },
+  {
+    "text": "Intervalų metodas naudojamas:",
+    "options": [
+      "Tik tiesinėms nelygybėms",
+      "Trupmeninėms ir aukštesniojo laipsnio nelygybėms spręsti",
+      "Tik modulio nelygybėms",
+      "Tik sistemos sudarymui"
+    ],
+    "correct": 1
+  },
+  {
+    "text": "Sprendžiant trupmeninę nelygybę f(x)/g(x) > 0, vardiklio nuliai:",
+    "options": [
+      "Visada įeina į sprendinį",
+      "Neįeina į sprendinį (g(x) ≠ 0)",
+      "Priklauso nuo skaitiklio ženklo",
+      "Prilyginami nuliui ir sprendžiami"
+    ],
+    "correct": 1
+  },
+  {
+    "text": "Nelygybė |x − a| < r ekvivalenti:",
+    "options": [
+      "x < a + r",
+      "x > a − r",
+      "a − r < x < a + r",
+      "|x| < r − a"
+    ],
+    "correct": 2
+  },
+  {
+    "text": "Nelygybė |x − a| > r ekvivalenti:",
+    "options": [
+      "x ∈ (a−r; a+r)",
+      "x < a − r arba x > a + r",
+      "x > a + r",
+      "x < a − r"
+    ],
+    "correct": 1
+  },
+  {
+    "text": "Nelygybių sistemos sprendinys yra:",
+    "options": [
+      "Visų nelygybių sprendinių sąjunga",
+      "Visų nelygybių sprendinių sankirta",
+      "Bet kuri vienos nelygybės sprendinys",
+      "Tik sveikieji sprendiniai"
+    ],
+    "correct": 1
+  },
+  {
+    "text": "Kvadratinė nelygybė ax² + bx + c < 0, kai a > 0 ir D < 0, turi sprendinių:",
+    "options": [
+      "x ∈ ℝ",
+      "Tik x = 0",
+      "Nėra — nelygybė neteisinga visiems x",
+      "Tik du sprendiniai"
+    ],
+    "correct": 2
+  },
+  {
+    "text": "Lygčių sistemos sprendimo pakeitimo (substitucijos) metodo esmė:",
+    "options": [
+      "Sudedamos abi lygtys",
+      "Iš vienos lygties išreiškiamas vienas kintamasis ir įstatomas į kitą",
+      "Atimamos abi lygtys",
+      "Abi lygtys dauginamos iš to paties skaičiaus"
+    ],
+    "correct": 1
+  },
+  {
+    "text": "Lygčių sistemos sprendimo sudėties (eliminavimo) metodo esmė:",
+    "options": [
+      "Iš vienos lygties išreiškiamas kintamasis",
+      "Lygtys dauginamos iš tokių koeficientų, kad sudėjus/atėmus vienas kintamasis išnyksta",
+      "Abi lygtys sprendžiamos atskirai",
+      "Lygtys sukeičiamos vietomis"
+    ],
+    "correct": 1
+  },
+  {
+    "text": "Dviguboji nelygybė a < f(x) ≤ b sprendžiama:",
+    "options": [
+      "Kaip viena lygtis f(x) = a",
+      "Kaip sistema: { f(x) > a ir f(x) ≤ b }",
+      "Kaip modulio nelygybė",
+      "Tik grafiškai"
+    ],
+    "correct": 1
+  }
+];
 var answers=new Array(QUESTIONS.length).fill(null);var submitted=false;
 function renderQuestions(){var html='';for(var qi=0;qi<QUESTIONS.length;qi++){var q=QUESTIONS[qi];html+='<div class="question-card"><div class="question-num">Klausimas '+(qi+1)+' iš '+QUESTIONS.length+'</div>';html+='<div class="question-text">'+q.text+'</div>';html+='<div class="options">';var L=['A','B','C','D'];for(var oi=0;oi<q.options.length;oi++){html+='<div class="option" id="opt-'+qi+'-'+oi+'" onclick="sel('+qi+','+oi+')">';html+='<div class="option-letter">'+L[oi]+'</div><div class="option-text">'+q.options[oi]+'</div></div>';}html+='</div></div>';}document.getElementById('questions').innerHTML=html;}
 function sel(qi,oi){if(submitted)return;answers[qi]=oi;for(var i=0;i<4;i++){var e=document.getElementById('opt-'+qi+'-'+i);if(e)e.classList.remove('selected');}document.getElementById('opt-'+qi+'-'+oi).classList.add('selected');var a=answers.filter(function(x){return x!==null;}).length;document.getElementById('progress').style.width=(a/QUESTIONS.length*100)+'%';document.getElementById('answered-count').textContent='Atsakyta: '+a+' / '+QUESTIONS.length;}
