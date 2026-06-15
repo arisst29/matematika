@@ -132,7 +132,300 @@ body{margin:0;font-family:'Segoe UI',system-ui,sans-serif}
 </div>
 <script src="../../../../js/main.js"></script>
 <script>
-var QUESTIONS = [{"num": "1.", "type": "mcq", "pts": 1, "text": "Kiek radianų sudaro 315°?", "options": ["5π/4", "7π/4", "3π/2", "5π/3"], "correct": 1, "hint": "pasirinkite vieną atsakymą"}, {"num": "2.", "type": "open", "pts": 2, "text": "Žinoma: tgα = −3/4, α ∈ IV ketvirtis. Apskaičiuokite sinα. Įrašykite atsakymą (formatu skaitiklis/vardiklis).", "answers": ["-3/5"], "partial": ["3/5", "4/5"], "hint": "tg = sin/cos, cos > 0 IV ketvirčiuje, sin < 0"}, {"num": "3.", "type": "mcq", "pts": 1, "text": "arcsin(sin(5π/6)) lygus:", "options": ["5π/6", "π/6", "−π/6", "4π/6"], "correct": 1, "hint": "pasirinkite vieną atsakymą"}, {"num": "4.", "type": "open", "pts": 2, "text": "Šiame grafike pavaizduota funkcija. Kuri? Įrašykite funkcijos formulę (pvz. sinx, cosx, -sinx, -cosx).", "graph_id": "g_sin", "answers": ["sinx", "sin x", "f(x)=sinx", "f(x)=sin x"], "partial": [], "hint": "kur grafikas kerta y ašį ir kuria kryptimi eina pirmiausiai?"}, {"num": "5.", "type": "mcq", "pts": 1, "text": "Lygties cos x = −1 bendrasis sprendinys:", "options": ["x = 2πk", "x = π + 2πk", "x = πk", "x = π/2 + 2πk"], "correct": 1, "hint": "pasirinkite vieną atsakymą"}, {"num": "6.", "type": "open", "pts": 2, "text": "Surašykite visus lygties tg x = 1 sprendinius intervale [0; 2π]. Įrašykite juos atskirdami kabliataškiu.", "answers": ["pi/4; 5pi/4", "pi/4;5pi/4"], "partial": ["2", "pi/4", "5pi/4"], "hint": "tg x = 1 kai x = π/4 + πk, raskite k=0 ir k=1"}, {"num": "7.", "type": "mcq", "pts": 1, "text": "Kuris teiginys teisingas apie f(x) = tg x?", "options": ["Lyginė funkcija", "Reikšmių sritis [−1; 1]", "Periodas π", "Apiėpta visur"], "correct": 2, "hint": "pasirinkite vieną atsakymą"}, {"num": "8.", "type": "open", "pts": 2, "text": "Surašykite visus lygties sin x = −√2/2 sprendinius intervale [0; 2π]. Įrašykite juos atskirdami kabliataškiu.", "answers": ["5pi/4; 7pi/4", "5pi/4;7pi/4"], "partial": ["2", "5pi/4", "7pi/4"], "hint": "arcsin(−√2/2) = −π/4, sprendiniai [0;2π]: π+π/4 ir 2π−π/4"}, {"num": "9.", "type": "mcq", "pts": 1, "text": "f(x) = cos x reikšmių sritis:", "options": ["ℝ", "(−1; 1)", "[−1; 1]", "[0; 1]"], "correct": 2, "hint": "pasirinkite vieną atsakymą"}, {"num": "10.", "type": "open", "pts": 2, "text": "Šiame grafike pavaizduota funkcija. Kuri? Įrašykite funkcijos formulę (pvz. sinx, cosx, -sinx, -cosx).", "graph_id": "g_ncos", "answers": ["-cosx", "-cos x", "f(x)=-cosx", "f(x)=-cos x"], "partial": ["cosx"], "hint": "kur grafikas kerta y ašį ir kuria kryptimi nukreiptas ties x=0?"}, {"num": "11.", "type": "mcq", "pts": 1, "text": "f(x) = arccos x reikšmių sritis:", "options": ["[−π/2; π/2]", "[0; π]", "[−1; 1]", "ℝ"], "correct": 1, "hint": "pasirinkite vieną atsakymą"}, {"num": "12.", "type": "open", "pts": 2, "text": "Raskite funkcijų f(x) = sin x ir g(x) = cos x sankirtos taškų x koordinates intervale [0; 2π). Įrašykite juos atskirdami kabliataškiu.", "answers": ["pi/4; 5pi/4", "pi/4;5pi/4"], "partial": ["pi/4", "5pi/4"], "hint": "sin x = cos x ⇒ tg x = 1 ⇒ x = π/4 + πk"}, {"num": "13.", "type": "mcq", "pts": 1, "text": "sin(−α) lygus:", "options": ["sinα", "−sinα", "cosα", "−cosα"], "correct": 1, "hint": "pasirinkite vieną atsakymą"}, {"num": "14.", "type": "open", "pts": 2, "text": "Kiek sprendinių turi lygtis sin x = √2/2 intervale [0; 3π]? Įrašykite skaičių.", "answers": ["3"], "partial": ["2"], "hint": "sin x = √2/2 intervaluose: π/4, 3π/4, 2π+π/4 = 9π/4"}, {"num": "15.", "type": "mcq", "pts": 1, "text": "f(x) = tg x neegzistuoja, kai:", "options": ["x = πk", "x = π/2 + 2πk", "x = π/2 + πk", "x = 2πk"], "correct": 2, "hint": "pasirinkite vieną atsakymą"}, {"num": "16.", "type": "open", "pts": 2, "text": "Išspreskite nelygybę cos x ≤ 1/2 intervale [0; 2π]. Įrašykite atsakymą kaip intervalą.", "answers": ["[pi/3; 5pi/3]", "pi/3 <= x <= 5pi/3", "[pi/3;5pi/3]"], "partial": ["pi/3", "5pi/3"], "hint": "arccos(1/2) = π/3, cos x ≤ 1/2 kai π/3 ≤ x ≤ 5π/3"}, {"num": "17.", "type": "mcq", "pts": 1, "text": "Kuriuose ketvirčiuose cosα < 0?", "options": ["I ir II", "II ir III", "III ir IV", "I ir IV"], "correct": 1, "hint": "pasirinkite vieną atsakymą"}, {"num": "18.", "type": "open", "pts": 2, "text": "Apskaičiuokite arcsin(sin(7π/6)). Įrašykite atsakymą (pvz. -pi/6).", "answers": ["-pi/6", "−π/6"], "partial": ["pi/6", "7pi/6"], "hint": "sin(7π/6) = −1/2, arcsin(−1/2) = −π/6"}, {"num": "19.", "type": "mcq", "pts": 1, "text": "f(x) = cos x mažėja intervale:", "options": ["(−π+2πk; 2πk)", "(2πk; π+2πk)", "(0; π/2)", "(π; 2π)"], "correct": 1, "hint": "pasirinkite vieną atsakymą"}, {"num": "20.", "type": "open", "pts": 2, "text": "Nustatykite f(x) = arccos(1 − x) apibrėžimo sritį. Įrašykite kaip intervalą.", "answers": ["[0; 2]", "[0;2]"], "partial": ["0", "2"], "hint": "−1 ≤ 1−x ≤ 1 ⇒ 0 ≤ x ≤ 2"}];
+var QUESTIONS = [
+  {
+    "num": "1.",
+    "type": "mcq",
+    "pts": 1,
+    "text": "Kiek radianų sudaro 315°?",
+    "options": [
+      "5π/4",
+      "7π/4",
+      "3π/2",
+      "5π/3"
+    ],
+    "correct": 1,
+    "hint": ""
+  },
+  {
+    "num": "2.",
+    "type": "open",
+    "pts": 2,
+    "text": "Žinoma: tgα = −3/4, α ∈ IV ketvirtis. Apskaičiuokite sinα. Įrašykite atsakymą (formatu skaitiklis/vardiklis).",
+    "answers": [
+      "-3/5"
+    ],
+    "partial": [
+      "3/5",
+      "4/5"
+    ],
+    "hint": "įrašykite formatu skaitiklis/vardiklis, pvz. 5/12"
+  },
+  {
+    "num": "3.",
+    "type": "mcq",
+    "pts": 1,
+    "text": "arcsin(sin(5π/6)) lygus:",
+    "options": [
+      "5π/6",
+      "π/6",
+      "−π/6",
+      "4π/6"
+    ],
+    "correct": 1,
+    "hint": ""
+  },
+  {
+    "num": "4.",
+    "type": "open",
+    "pts": 2,
+    "text": "Šiame grafike pavaizduota funkcija. Kuri? Įrašykite funkcijos formulę (pvz. sinx, cosx, -sinx, -cosx).",
+    "graph_id": "g_sin",
+    "answers": [
+      "sinx",
+      "sin x",
+      "f(x)=sinx",
+      "f(x)=sin x"
+    ],
+    "partial": [],
+    "hint": "įrašykite pvz. sinx arba -cosx"
+  },
+  {
+    "num": "5.",
+    "type": "mcq",
+    "pts": 1,
+    "text": "Lygties cos x = −1 bendrasis sprendinys:",
+    "options": [
+      "x = 2πk",
+      "x = π + 2πk",
+      "x = πk",
+      "x = π/2 + 2πk"
+    ],
+    "correct": 1,
+    "hint": ""
+  },
+  {
+    "num": "6.",
+    "type": "open",
+    "pts": 2,
+    "text": "Surašykite visus lygties tg x = 1 sprendinius intervale [0; 2π]. Įrašykite juos atskirdami kabliataškiu.",
+    "answers": [
+      "pi/4; 5pi/4",
+      "pi/4;5pi/4"
+    ],
+    "partial": [
+      "2",
+      "pi/4",
+      "5pi/4"
+    ],
+    "hint": "įrašykite formatu pvz. pi/6; 5pi/6"
+  },
+  {
+    "num": "7.",
+    "type": "mcq",
+    "pts": 1,
+    "text": "Kuris teiginys teisingas apie f(x) = tg x?",
+    "options": [
+      "Lyginė funkcija",
+      "Reikšmių sritis [−1; 1]",
+      "Periodas π",
+      "Apiėpta visur"
+    ],
+    "correct": 2,
+    "hint": ""
+  },
+  {
+    "num": "8.",
+    "type": "open",
+    "pts": 2,
+    "text": "Surašykite visus lygties sin x = −√2/2 sprendinius intervale [0; 2π]. Įrašykite juos atskirdami kabliataškiu.",
+    "answers": [
+      "5pi/4; 7pi/4",
+      "5pi/4;7pi/4"
+    ],
+    "partial": [
+      "2",
+      "5pi/4",
+      "7pi/4"
+    ],
+    "hint": "įrašykite formatu pvz. pi/6; 5pi/6"
+  },
+  {
+    "num": "9.",
+    "type": "mcq",
+    "pts": 1,
+    "text": "f(x) = cos x reikšmių sritis:",
+    "options": [
+      "ℝ",
+      "(−1; 1)",
+      "[−1; 1]",
+      "[0; 1]"
+    ],
+    "correct": 2,
+    "hint": ""
+  },
+  {
+    "num": "10.",
+    "type": "open",
+    "pts": 2,
+    "text": "Šiame grafike pavaizduota funkcija. Kuri? Įrašykite funkcijos formulę (pvz. sinx, cosx, -sinx, -cosx).",
+    "graph_id": "g_ncos",
+    "answers": [
+      "-cosx",
+      "-cos x",
+      "f(x)=-cosx",
+      "f(x)=-cos x"
+    ],
+    "partial": [
+      "cosx"
+    ],
+    "hint": "įrašykite pvz. sinx arba -cosx"
+  },
+  {
+    "num": "11.",
+    "type": "mcq",
+    "pts": 1,
+    "text": "f(x) = arccos x reikšmių sritis:",
+    "options": [
+      "[−π/2; π/2]",
+      "[0; π]",
+      "[−1; 1]",
+      "ℝ"
+    ],
+    "correct": 1,
+    "hint": ""
+  },
+  {
+    "num": "12.",
+    "type": "open",
+    "pts": 2,
+    "text": "Raskite funkcijų f(x) = sin x ir g(x) = cos x sankirtos taškų x koordinates intervale [0; 2π). Įrašykite juos atskirdami kabliataškiu.",
+    "answers": [
+      "pi/4; 5pi/4",
+      "pi/4;5pi/4"
+    ],
+    "partial": [
+      "pi/4",
+      "5pi/4"
+    ],
+    "hint": "įrašykite formatu pvz. pi/4; 5pi/4"
+  },
+  {
+    "num": "13.",
+    "type": "mcq",
+    "pts": 1,
+    "text": "sin(−α) lygus:",
+    "options": [
+      "sinα",
+      "−sinα",
+      "cosα",
+      "−cosα"
+    ],
+    "correct": 1,
+    "hint": ""
+  },
+  {
+    "num": "14.",
+    "type": "open",
+    "pts": 2,
+    "text": "Kiek sprendinių turi lygtis sin x = √2/2 intervale [0; 3π]? Įrašykite skaičių.",
+    "answers": [
+      "3"
+    ],
+    "partial": [
+      "2"
+    ],
+    "hint": "įrašykite skaičių"
+  },
+  {
+    "num": "15.",
+    "type": "mcq",
+    "pts": 1,
+    "text": "f(x) = tg x neegzistuoja, kai:",
+    "options": [
+      "x = πk",
+      "x = π/2 + 2πk",
+      "x = π/2 + πk",
+      "x = 2πk"
+    ],
+    "correct": 2,
+    "hint": ""
+  },
+  {
+    "num": "16.",
+    "type": "open",
+    "pts": 2,
+    "text": "Išspreskite nelygybę cos x ≤ 1/2 intervale [0; 2π]. Įrašykite atsakymą kaip intervalą.",
+    "answers": [
+      "[pi/3; 5pi/3]",
+      "pi/3 <= x <= 5pi/3",
+      "[pi/3;5pi/3]"
+    ],
+    "partial": [
+      "pi/3",
+      "5pi/3"
+    ],
+    "hint": "įrašykite intervalą formatu pvz. (pi/6; 5pi/6)"
+  },
+  {
+    "num": "17.",
+    "type": "mcq",
+    "pts": 1,
+    "text": "Kuriuose ketvirčiuose cosα < 0?",
+    "options": [
+      "I ir II",
+      "II ir III",
+      "III ir IV",
+      "I ir IV"
+    ],
+    "correct": 1,
+    "hint": ""
+  },
+  {
+    "num": "18.",
+    "type": "open",
+    "pts": 2,
+    "text": "Apskaičiuokite arcsin(sin(7π/6)). Įrašykite atsakymą (pvz. -pi/6).",
+    "answers": [
+      "-pi/6",
+      "−π/6"
+    ],
+    "partial": [
+      "pi/6",
+      "7pi/6"
+    ],
+    "hint": "įrašykite formatu pvz. pi/6 arba -pi/4"
+  },
+  {
+    "num": "19.",
+    "type": "mcq",
+    "pts": 1,
+    "text": "f(x) = cos x mažėja intervale:",
+    "options": [
+      "(−π+2πk; 2πk)",
+      "(2πk; π+2πk)",
+      "(0; π/2)",
+      "(π; 2π)"
+    ],
+    "correct": 1,
+    "hint": ""
+  },
+  {
+    "num": "20.",
+    "type": "open",
+    "pts": 2,
+    "text": "Nustatykite f(x) = arccos(1 − x) apibrėžimo sritį. Įrašykite kaip intervalą.",
+    "answers": [
+      "[0; 2]",
+      "[0;2]"
+    ],
+    "partial": [
+      "0",
+      "2"
+    ],
+    "hint": "įrašykite intervalą formatu pvz. [0; 1]"
+  }
+];
 
 var totalPts = 0, earnedPts = 0, submitted = false, answers = {};
 

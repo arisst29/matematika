@@ -128,104 +128,313 @@ body{margin:0;font-family:'Segoe UI',system-ui,sans-serif}
 <script src="../../../../js/main.js"></script>
 <script>
 var QUESTIONS = [
-  {num:"1.", type:"open", pts:2,
-   text:"Aritmetinės progresijos pirmųjų n narių sumos formulė Sₙ = 3n² + 2n. Raskite skirtumą d ir pirmąjį narį a₁.",
-   answers:["d=6,a1=5","d=6;a1=5"], partial:["5","6"], hint:"įrašykite, pvz. d=6,a1=5"},
-
-  {num:"2.", type:"mcq", pts:1,
-   text:"Geometrinės progresijos b₃ = −36, b₆ = 972. Koks vardiklis q?",
-   options:["−3","3","−2","2"],
-   correct:0, hint:"pasirinkite vieną atsakymą"},
-
-  {num:"3.", type:"open", pts:2,
-   text:"Salėje 22 eilės. Pirmoje — 30 vietų, kiekvienoje kitoje — 2 vietomis daugiau. Kiek iš viso vietų salėje?",
-   answers:["1122"], partial:["30"], hint:"įrašykite skaičių"},
-
-  {num:"4.", type:"mcq", pts:1,
-   text:"Sekos pirmųjų n narių suma Sₙ = 2n² − 5n. Koks a₈?",
-   options:["21","23","25","19"],
-   correct:1, hint:"pasirinkite vieną atsakymą"},
-
-  {num:"5.", type:"open", pts:2,
-   text:"Geometrinė progresija: b₁ = 12, S∞ = 20. Koks vardiklis q?",
-   answers:["2/5","0.4","0,4"], partial:["12"], hint:"rašykite formatu skaitiklis/vardiklis, pvz. 2/5"},
-
-  {num:"6.", type:"mcq", pts:1,
-   text:"Aritmetinės progresijos a₁ = −5, d = 3. Kuris narys lygus 40?",
-   options:["n = 15","n = 16","n = 14","n = 17"],
-   correct:1, hint:"pasirinkite vieną atsakymą"},
-
-  {num:"7.", type:"open", pts:2,
-   text:"Gabrielė nusipirko automobilį už 18 000 €. Jo vertė kasmet mažėja 10 %. Kokia automobilio vertė po 3 metų? Atsakymą pateikite euro tikslumu.",
-   answers:["13122"], partial:["18000"], hint:"įrašykite sumą eurais"},
-
-  {num:"8.", type:"mcq", pts:1,
-   text:"Begalinės geometrinės progresijos b₁ = 15, q = 0,4. Kokia suma S?",
-   options:["20","25","30","15"],
-   correct:1, hint:"pasirinkite vieną atsakymą"},
-
-  {num:"9.", type:"open", pts:2,
-   text:"Aritmetinės progresijos a₁ + a₄ + a₇ + a₁₀ = 44. Koks a₄ + a₇?",
-   answers:["22"], partial:["11"], hint:"įrašykite skaičių"},
-
-  {num:"10.", type:"mcq", pts:1,
-   text:"Tarp skaičių −4 ir 20 įterpti 3 aritmetinės progresijos nariai. Koks skirtumas d?",
-   options:["4","5","6","8"],
-   correct:2, hint:"pasirinkite vieną atsakymą"},
-
-  {num:"11.", type:"open", pts:2,
-   text:"Apskaičiuokite: 896 + 448 + 224 + ... + 14. Įrašykite sumą.",
-   answers:["1778"], partial:["896"], hint:"įrašykite skaičių"},
-
-  {num:"12.", type:"mcq", pts:1,
-   text:"Geometrinės progresijos b₁ = 3, b₄ = 24. Koks b₇?",
-   options:["192","384","96","576"],
-   correct:0, hint:"pasirinkite vieną atsakymą"},
-
-  {num:"13.", type:"open", pts:2,
-   text:"Stačiojo trikampio kraštinių ilgiai sudaro aritmetinę progresiją. Ilgesniojo statinio ilgis lygus 12. Raskite trikampio perimetrą.",
-   answers:["60"], partial:["12"], hint:"įrašykite skaičių"},
-
-  {num:"14.", type:"mcq", pts:1,
-   text:"Nykstamosios geometrinės progresijos suma S = 16, vardiklis q = <span class='frac'><sup>1</sup><sub>4</sub></span>. Koks b₁?",
-   options:["10","12","14","16"],
-   correct:1, hint:"pasirinkite vieną atsakymą"},
-
-  {num:"15.", type:"open", pts:2,
-   text:"Tomas investavo 3000 € į banką su 2,5 % sudėtinėmis metinėmis palūkanomis. Kiek turės po 4 metų? Atsakymą pateikite euro tikslumu.",
-   answers:["3315","3314"], partial:["3000"], hint:"įrašykite sumą eurais"},
-
-  {num:"16.", type:"mcq", pts:1,
-   text:"Aritmetinės progresijos pirmųjų 15 narių suma lygi 300. Koks vidurinis (8-asis) narys?",
-   options:["15","20","18","25"],
-   correct:1, hint:"pasirinkite vieną atsakymą"},
-
-  {num:"17.", type:"open", pts:2,
-   text:"Sūpuoklės pirmą kartą pakyla į 180 cm aukštį. Kiekvieną kartą pakyla iki 80 % ankstesnio aukščio. Koks bendras visų pakylimų aukštis (cm)?",
-   answers:["900"], partial:["180"], hint:"įrašykite skaičių cm"},
-
-  {num:"18.", type:"mcq", pts:1,
-   text:"Trys skaičiai 4, x, 36 sudaro geometrinę progresiją. Koks x (teigiamas)?",
-   options:["10","12","16","18"],
-   correct:1, hint:"pasirinkite vieną atsakymą"},
-
-  {num:"19.", type:"open", pts:2,
-   text:"Periodinė trupmena 0,(27) = 0,272727... Užrašykite ją kaip paprastąją trupmeną.",
-   answers:["3/11","0.2727","0,2727"], partial:["27/99"], hint:"rašykite formatu skaitiklis/vardiklis, pvz. 3/11"},
-
-  {num:"20.", type:"mcq", pts:1,
-   text:"Aritmetinės progresijos a₂ = 7, a₃ = 10. Koks pirmųjų 20 narių suma?",
-   options:["650","680","710","620"],
-   correct:0, hint:"pasirinkite vieną atsakymą"},
-
-  {num:"21.", type:"open", pts:2,
-   text:"Geometrinės progresijos b₁ = 250, q = <span class='frac'><sup>6</sup><sub>5</sub></span>, n = 4. Apskaičiuokite S₄.",
-   answers:["1ilo","1258.4","1258,4","1258"], partial:["250"], hint:"įrašykite skaičių"},
-
-  {num:"22.", type:"mcq", pts:1,
-   text:"Aritmetinės progresijos nariai a₁ = 100, d = −7. Koks pirmasis neigiamas narys?",
-   options:["a₁₄","a₁₅","a₁₆","a₁₃"],
-   correct:1, hint:"pasirinkite vieną atsakymą"}
+  {
+    "num": "1.",
+    "type": "open",
+    "pts": 2,
+    "text": "Aritmetinės progresijos pirmųjų n narių sumos formulė Sₙ = 3n² + 2n. Raskite skirtumą d ir pirmąjį narį a₁.",
+    "answers": [
+      "d=6,a1=5",
+      "d=6;a1=5"
+    ],
+    "partial": [
+      "5",
+      "6"
+    ],
+    "hint": "įrašykite, pvz. d=6,a1=5"
+  },
+  {
+    "num": "2.",
+    "type": "mcq",
+    "pts": 1,
+    "text": "Geometrinės progresijos b₃ = −36, b₆ = 972. Koks vardiklis q?",
+    "options": [
+      "−3",
+      "3",
+      "−2",
+      "2"
+    ],
+    "correct": 0,
+    "hint": "pasirinkite vieną atsakymą"
+  },
+  {
+    "num": "3.",
+    "type": "open",
+    "pts": 2,
+    "text": "Salėje 22 eilės. Pirmoje — 30 vietų, kiekvienoje kitoje — 2 vietomis daugiau. Kiek iš viso vietų salėje?",
+    "answers": [
+      "1122"
+    ],
+    "partial": [
+      "30"
+    ],
+    "hint": "įrašykite skaičių"
+  },
+  {
+    "num": "4.",
+    "type": "mcq",
+    "pts": 1,
+    "text": "Sekos pirmųjų n narių suma Sₙ = 2n² − 5n. Koks a₈?",
+    "options": [
+      "21",
+      "23",
+      "25",
+      "19"
+    ],
+    "correct": 2,
+    "hint": "pasirinkite vieną atsakymą"
+  },
+  {
+    "num": "5.",
+    "type": "open",
+    "pts": 2,
+    "text": "Geometrinė progresija: b₁ = 12, S∞ = 20. Koks vardiklis q?",
+    "answers": [
+      "2/5",
+      "0.4",
+      "0,4"
+    ],
+    "partial": [
+      "12"
+    ],
+    "hint": "rašykite formatu skaitiklis/vardiklis, pvz. 2/5"
+  },
+  {
+    "num": "6.",
+    "type": "mcq",
+    "pts": 1,
+    "text": "Aritmetinės progresijos a₁ = −5, d = 3. Kuris narys lygus 40?",
+    "options": [
+      "n = 15",
+      "n = 16",
+      "n = 14",
+      "n = 17"
+    ],
+    "correct": 1,
+    "hint": "pasirinkite vieną atsakymą"
+  },
+  {
+    "num": "7.",
+    "type": "open",
+    "pts": 2,
+    "text": "Gabrielė nusipirko automobilį už 18 000 €. Jo vertė kasmet mažėja 10 %. Kokia automobilio vertė po 3 metų? Atsakymą pateikite euro tikslumu.",
+    "answers": [
+      "13122"
+    ],
+    "partial": [
+      "18000"
+    ],
+    "hint": "įrašykite sumą eurais"
+  },
+  {
+    "num": "8.",
+    "type": "mcq",
+    "pts": 1,
+    "text": "Begalinės geometrinės progresijos b₁ = 15, q = 0,4. Kokia suma S?",
+    "options": [
+      "20",
+      "25",
+      "30",
+      "15"
+    ],
+    "correct": 1,
+    "hint": "pasirinkite vieną atsakymą"
+  },
+  {
+    "num": "9.",
+    "type": "open",
+    "pts": 2,
+    "text": "Aritmetinės progresijos a₁ + a₄ + a₇ + a₁₀ = 44. Koks a₄ + a₇?",
+    "answers": [
+      "22"
+    ],
+    "partial": [
+      "11"
+    ],
+    "hint": "įrašykite skaičių"
+  },
+  {
+    "num": "10.",
+    "type": "mcq",
+    "pts": 1,
+    "text": "Tarp skaičių −4 ir 20 įterpti 3 aritmetinės progresijos nariai. Koks skirtumas d?",
+    "options": [
+      "4",
+      "5",
+      "6",
+      "8"
+    ],
+    "correct": 2,
+    "hint": "pasirinkite vieną atsakymą"
+  },
+  {
+    "num": "11.",
+    "type": "open",
+    "pts": 2,
+    "text": "Apskaičiuokite: 896 + 448 + 224 + ... + 14. Įrašykite sumą.",
+    "answers": [
+      "1778"
+    ],
+    "partial": [
+      "896"
+    ],
+    "hint": "įrašykite skaičių"
+  },
+  {
+    "num": "12.",
+    "type": "mcq",
+    "pts": 1,
+    "text": "Geometrinės progresijos b₁ = 3, b₄ = 24. Koks b₇?",
+    "options": [
+      "192",
+      "384",
+      "96",
+      "576"
+    ],
+    "correct": 0,
+    "hint": "pasirinkite vieną atsakymą"
+  },
+  {
+    "num": "13.",
+    "type": "open",
+    "pts": 2,
+    "text": "Stačiojo trikampio kraštinių ilgiai sudaro aritmetinę progresiją. Ilgesniojo statinio ilgis lygus 12. Raskite trikampio perimetrą.",
+    "answers": [
+      "60"
+    ],
+    "partial": [
+      "12"
+    ],
+    "hint": "įrašykite skaičių"
+  },
+  {
+    "num": "14.",
+    "type": "mcq",
+    "pts": 1,
+    "text": "Nykstamosios geometrinės progresijos suma S = 16, vardiklis q = <span class='frac'><sup>1</sup><sub>4</sub></span>. Koks b₁?",
+    "options": [
+      "10",
+      "12",
+      "14",
+      "16"
+    ],
+    "correct": 1,
+    "hint": "pasirinkite vieną atsakymą"
+  },
+  {
+    "num": "15.",
+    "type": "open",
+    "pts": 2,
+    "text": "Tomas investavo 3000 € į banką su 2,5 % sudėtinėmis metinėmis palūkanomis. Kiek turės po 4 metų? Atsakymą pateikite euro tikslumu.",
+    "answers": [
+      "3315",
+      "3314"
+    ],
+    "partial": [
+      "3000"
+    ],
+    "hint": "įrašykite sumą eurais"
+  },
+  {
+    "num": "16.",
+    "type": "mcq",
+    "pts": 1,
+    "text": "Aritmetinės progresijos pirmųjų 15 narių suma lygi 300. Koks vidurinis (8-asis) narys?",
+    "options": [
+      "15",
+      "20",
+      "18",
+      "25"
+    ],
+    "correct": 1,
+    "hint": "pasirinkite vieną atsakymą"
+  },
+  {
+    "num": "17.",
+    "type": "open",
+    "pts": 2,
+    "text": "Sūpuoklės pirmą kartą pakyla į 180 cm aukštį. Kiekvieną kartą pakyla iki 80 % ankstesnio aukščio. Koks bendras visų pakylimų aukštis (cm)?",
+    "answers": [
+      "900"
+    ],
+    "partial": [
+      "180"
+    ],
+    "hint": "įrašykite skaičių cm"
+  },
+  {
+    "num": "18.",
+    "type": "mcq",
+    "pts": 1,
+    "text": "Trys skaičiai 4, x, 36 sudaro geometrinę progresiją. Koks x (teigiamas)?",
+    "options": [
+      "10",
+      "12",
+      "16",
+      "18"
+    ],
+    "correct": 1,
+    "hint": "pasirinkite vieną atsakymą"
+  },
+  {
+    "num": "19.",
+    "type": "open",
+    "pts": 2,
+    "text": "Periodinė trupmena 0,(27) = 0,272727... Užrašykite ją kaip paprastąją trupmeną.",
+    "answers": [
+      "3/11",
+      "0.2727",
+      "0,2727"
+    ],
+    "partial": [
+      "27/99"
+    ],
+    "hint": "rašykite formatu skaitiklis/vardiklis, pvz. 3/11"
+  },
+  {
+    "num": "20.",
+    "type": "mcq",
+    "pts": 1,
+    "text": "Aritmetinės progresijos a₂ = 7, a₃ = 10. Koks pirmųjų 20 narių suma?",
+    "options": [
+      "650",
+      "680",
+      "710",
+      "620"
+    ],
+    "correct": 0,
+    "hint": "pasirinkite vieną atsakymą"
+  },
+  {
+    "num": "21.",
+    "type": "open",
+    "pts": 2,
+    "text": "Geometrinės progresijos b₁ = 250, q = <span class='frac'><sup>6</sup><sub>5</sub></span>, n = 4. Apskaičiuokite S₄.",
+    "answers": [
+      "1ilo",
+      "1258.4",
+      "1258,4",
+      "1258"
+    ],
+    "partial": [
+      "250"
+    ],
+    "hint": "įrašykite skaičių"
+  },
+  {
+    "num": "22.",
+    "type": "mcq",
+    "pts": 1,
+    "text": "Aritmetinės progresijos nariai a₁ = 100, d = −7. Koks pirmasis neigiamas narys?",
+    "options": [
+      "a₁₄",
+      "a₁₅",
+      "a₁₆",
+      "a₁₃"
+    ],
+    "correct": 2,
+    "hint": "pasirinkite vieną atsakymą"
+  }
 ];
 
 var totalPts=0, earnedPts=0, submitted=false, answers={};

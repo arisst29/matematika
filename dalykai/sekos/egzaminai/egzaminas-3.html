@@ -60,98 +60,306 @@
 <script src="../../../../js/main.js"></script>
 <script>
 var QUESTIONS = [
-  // ── T1 ARITMETINĖ SEKA (1–10) ──
-  {text:"Sekos pirmųjų n narių suma Sₙ = 2n² − 5n. Koks 8-asis narys?",svg:null,
-   options:["21","23","25","19"],correct:1},
-
-  {text:"Aritmetinės progresijos a₂ = <span class='frac'><sup>9</sup><sub>2</sub></span>, S₃ − S₂ = <span class='frac'><sup>9</sup><sub>2</sub></span>. Koks skirtumas d?",svg:null,
-   options:["<span class='frac'><sup>1</sup><sub>2</sub></span>","1","<span class='frac'><sup>3</sup><sub>2</sub></span>","2"],correct:1},
-
-  {text:"Aritmetinės progresijos a₁ + a₄ + a₇ = 33 ir a₂ · a₆ = 56. Raskite a₁ ir d (d > 0).",svg:null,
-   options:["a₁ = 3, d = 4","a₁ = 5, d = 2","a₁ = 1, d = 5","a₁ = 7, d = 2"],correct:1},
-
-  {text:"Apskaičiuokite: <span class='frac'><sup>1</sup><sub>2</sub></span> + <span class='frac'><sup>3</sup><sub>2</sub></span> + <span class='frac'><sup>5</sup><sub>2</sub></span> + ... + <span class='frac'><sup>29</sup><sub>2</sub></span>.",svg:null,
-   options:["<span class='frac'><sup>225</sup><sub>2</sub></span>","<span class='frac'><sup>215</sup><sub>2</sub></span>","110","<span class='frac'><sup>235</sup><sub>2</sub></span>"],correct:0},
-
-  {text:"Aritmetinės progresijos a₇ = 17 ir a₁₃ = 5. Koks pirmasis neigiamas narys?",svg:null,
-   options:["a₁₆","a₁₇","a₁₈","a₁₅"],correct:1},
-
-  {text:"Skaičių 1, 2, 3, ..., n suma lygi 2016. Koks n?",svg:null,
-   options:["62","63","64","61"],correct:1},
-
-  {text:"Aritmetinės progresijos a₁₆ + a₁₈ = <span class='frac'><sup>1</sup><sub>2</sub></span> ir a₁₆ · a₁₈ = <span class='frac'><sup>1</sup><sub>16</sub></span>. Koks a₁₇?",svg:null,
-   options:["<span class='frac'><sup>1</sup><sub>4</sub></span>","<span class='frac'><sup>1</sup><sub>8</sub></span>","<span class='frac'><sup>1</sup><sub>2</sub></span>","<span class='frac'><sup>1</sup><sub>16</sub></span>"],correct:0},
-
-  {text:"Tarp skaičių √3 ir 4√3 įterpkite du aritmetinės progresijos narius. Koks antrasis iš jų?",svg:null,
-   options:["2√3","<span class='frac'><sup>7√3</sup><sub>4</sub></span>","3√3","<span class='frac'><sup>5√3</sup><sub>4</sub></span>"],correct:2},
-
-  {text:"Aritmetinės progresijos pirmųjų 17 narių suma lygi 85. Koks a₉?",svg:null,
-   options:["4","5","6","7"],correct:1},
-
-  {text:"Aritmetinės progresijos a₂ = 3, a₃ = −2. Kelintas sekos narys yra skaičius −332?",svg:null,
-   options:["68-asis","69-asis","70-asis","67-asis"],correct:1},
-
-  // ── T2 GEOMETRINĖ SEKA (11–20) ──
-  {text:"Geometrinės progresijos b₄ · b₁₀ = −24 · b₁₁. Koks b₇, jei b₁ > 0?",svg:null,
-   options:["−24","24","−12","12"],correct:0},
-
-  {text:"Geometrinės progresijos b₁ = 250, b₈ = 432, n = 4. Koks S₄?",svg:null,
-   options:["780","840","900","720"],correct:0},
-
-  {text:"Nykstamosios geometrinės progresijos pirmųjų 5 narių suma yra 1,024 % didesnė už visos progresijos sumą. Koks vardiklis q?",svg:null,
-   options:["0,4","0,2","0,5","0,8"],correct:1},
-
-  {text:"Geometrinės progresijos b₁ = 2 + √3, q = −<span class='frac'><sup>√3</sup><sub>2</sub></span>. Koks b₁ + b₂ + b₃?",svg:null,
-   options:["2","<span class='frac'><sup>√3</sup><sub>2</sub></span>","1","2 − √3"],correct:0},
-
-  {text:"Apskaičiuokite sumą: log₃512 + log₃8 + log₃2 + ...",svg:null,
-   options:["log₃1024","<span class='frac'><sup>9log₃2</sup><sub>1</sub></span>","<span class='frac'><sup>27</sup><sub>4</sub></span>log₃2","3log₃2"],correct:2},
-
-  {text:"Geometrinės progresijos pirmųjų 7 narių sandauga lygi 128. Koks vidurinis (4-asis) narys?",svg:null,
-   options:["2","4","8","<span class='frac'><sup>128</sup><sub>7</sub></span>"],correct:0},
-
-  {text:"Nykstamoji geometrinė progresija: b₁ = −2, q = <span class='frac'><sup>1</sup><sub>3</sub></span>. Kokia suma S?",svg:null,
-   options:["−3","−<span class='frac'><sup>3</sup><sub>2</sub></span>","−<span class='frac'><sup>2</sup><sub>3</sub></span>","3"],correct:1},
-
-  {text:"Išspręskite lygtį: x² = 5x + 12 + 8 + <span class='frac'><sup>16</sup><sub>3</sub></span> + <span class='frac'><sup>32</sup><sub>9</sub></span> + ...",svg:null,
-   options:["x = −3; x = 8","x = 3; x = −8","x = 6; x = −4","x = −6; x = 4"],correct:0},
-
-  {text:"Geometrinė progresija yra nykstamoji. b₁ = 8, b₂ = −12. Raskite S.",svg:null,
-   options:["<span class='frac'><sup>16</sup><sub>5</sub></span>","<span class='frac'><sup>8</sup><sub>5</sub></span>","<span class='frac'><sup>32</sup><sub>5</sub></span>","nėra baigtinės sumos"],correct:3},
-
-  {text:"Geometrinės progresijos b₂ = 6, b₃ = −18. Kelintas narys lygus −4374?",svg:null,
-   options:["7-asis","8-asis","6-asis","9-asis"],correct:0},
-
-  // ── T3 TAIKYMAI (21–30) ──
-  {text:"Žygimantas skaito 480 puslapių romaną. Pirmą dieną perskaitė 24 puslapius, kiekvieną kitą — 2 puslapiais daugiau. Per kiek dienų perskaitys visą knygą?",svg:null,
-   options:["15","16","17","18"],correct:1},
-
-  {text:"Konkursas: prizų fondas 2800 €, 5 prizai. Pirmos vietos laimėtojas gauna 1000 €, kiekviena žemesnė vieta — ta pačia suma mažesnį prizą. Koks ketvirtos vietos prizas?",svg:null,
-   options:["400 €","350 €","300 €","450 €"],correct:0},
-
-  {text:"Kamuolys metamas iš 16 m aukščio. Kiekvieną kartą atsitrenkęs pakyla iki 75 % buvusio aukščio. Koks bendras nukeliaujamas kelias iki sustojimo?",svg:null,
-   options:["112 m","116 m","120 m","108 m"],correct:0},
-
-  {text:"Aleksandras įsidarbino įmonėje, kuri kasmet algą didina 6 %. Pradinė alga 1200 €. Kokia jo alga po 4 metų? (Apvalinti iki euro.)",svg:null,
-   options:["1 514 €","1 525 €","1 500 €","1 498 €"],correct:0},
-
-  {text:"Nykstamosios geometrinės progresijos vardiklis q = <span class='frac'><sup>1</sup><sub>5</sub></span>, suma S = 25. Koks b₁?",svg:null,
-   options:["16","20","24","18"],correct:1},
-
-  {text:"Aritmetinės progresijos pirmųjų 30 narių suma lygi 15. Koks 16-asis narys?",svg:null,
-   options:["<span class='frac'><sup>1</sup><sub>2</sub></span>","1","<span class='frac'><sup>3</sup><sub>2</sub></span>","2"],correct:0},
-
-  {text:"Beatričė įsidarbino bendrovėje, kuri kasmet algą didina 8 %. Pradinė alga 900 €. Kokia bus jos alga po 5 metų? (Apvalinti iki euro.)",svg:null,
-   options:["1 322 €","1 310 €","1 286 €","1 350 €"],correct:0},
-
-  {text:"Iš vielos lenkiami lygiakraščiai trikampiai ir dedami vienas šalia kito. Didžiausio kraštinė 9 cm, kiekvieno kito — trečdaliu mažesnė. Koks begalinės figūros perimetras?",svg:null,
-   options:["<span class='frac'><sup>81</sup><sub>2</sub></span> cm","27 cm","<span class='frac'><sup>27</sup><sub>2</sub></span> cm","54 cm"],correct:0},
-
-  {text:"Trys skaičiai a, 40, c sudaro didėjančią aritmetinę progresiją. Skaičiai c, 24, a sudaro mažėjančią geometrinę progresiją. Raskite a.",svg:null,
-   options:["10","20","30","15"],correct:1},
-
-  {text:"Naujo automobilio vertė kasmet sumažėja 18 %. Po kelerių metų jo vertė bus mažesnė nei 40 % pirkimo kainos?",svg:null,
-   options:["Po 4 metų","Po 5 metų","Po 6 metų","Po 7 metų"],correct:1}
+  {
+    "text": "Sekos pirmųjų n narių suma Sₙ = 2n² − 5n. Koks 8-asis narys?",
+    "options": [
+      "21",
+      "23",
+      "25",
+      "19"
+    ],
+    "correct": 2
+  },
+  {
+    "text": "Aritmetinės progresijos a₂ = <span class='frac'><sup>9</sup><sub>2</sub></span>, S₃ − S₂ = <span class='frac'><sup>9</sup><sub>2</sub></span>. Koks skirtumas d?",
+    "options": [
+      "<span class='frac'><sup>1</sup><sub>2</sub></span>",
+      "1",
+      "<span class='frac'><sup>3</sup><sub>2</sub></span>",
+      "2"
+    ],
+    "correct": 1
+  },
+  {
+    "text": "Aritmetinės progresijos a₁ + a₄ + a₇ = 33 ir a₂ + a₆ = 22. Raskite a₁ ir d (d > 0).",
+    "options": [
+      "a₁ = 3, d = 4",
+      "a₁ = 5, d = 2",
+      "a₁ = 1, d = 5",
+      "a₁ = 7, d = 2"
+    ],
+    "correct": 1
+  },
+  {
+    "text": "Apskaičiuokite: <span class='frac'><sup>1</sup><sub>2</sub></span> + <span class='frac'><sup>3</sup><sub>2</sub></span> + <span class='frac'><sup>5</sup><sub>2</sub></span> + ... + <span class='frac'><sup>29</sup><sub>2</sub></span>.",
+    "options": [
+      "<span class='frac'><sup>225</sup><sub>2</sub></span>",
+      "<span class='frac'><sup>215</sup><sub>2</sub></span>",
+      "110",
+      "<span class='frac'><sup>235</sup><sub>2</sub></span>"
+    ],
+    "correct": 0
+  },
+  {
+    "text": "Aritmetinės progresijos a₇ = 17 ir a₁₃ = 5. Koks pirmasis neigiamas narys?",
+    "options": [
+      "a₁₆",
+      "a₁₇",
+      "a₁₈",
+      "a₁₅"
+    ],
+    "correct": 0
+  },
+  {
+    "text": "Skaičių 1, 2, 3, ..., n suma lygi 2016. Koks n?",
+    "options": [
+      "62",
+      "63",
+      "64",
+      "61"
+    ],
+    "correct": 1
+  },
+  {
+    "text": "Aritmetinės progresijos a₁₆ + a₁₈ = 12 ir a₁₆ · a₁₈ = 35. Koks a₁₇?",
+    "options": [
+      "5",
+      "6",
+      "7",
+      "14"
+    ],
+    "correct": 1
+  },
+  {
+    "text": "Tarp skaičių √3 ir 4√3 įterpkite du aritmetinės progresijos narius. Koks antrasis iš jų?",
+    "options": [
+      "2√3",
+      "<span class='frac'><sup>7√3</sup><sub>4</sub></span>",
+      "3√3",
+      "<span class='frac'><sup>5√3</sup><sub>4</sub></span>"
+    ],
+    "correct": 2
+  },
+  {
+    "text": "Aritmetinės progresijos pirmųjų 17 narių suma lygi 85. Koks a₉?",
+    "options": [
+      "4",
+      "5",
+      "6",
+      "7"
+    ],
+    "correct": 1
+  },
+  {
+    "text": "Aritmetinės progresijos a₂ = 3, a₃ = −2. Kelintas sekos narys yra skaičius −332?",
+    "options": [
+      "68-asis",
+      "69-asis",
+      "70-asis",
+      "67-asis"
+    ],
+    "correct": 1
+  },
+  {
+    "text": "Geometrinės progresijos b₄ · b₁₀ = −24 · b₁₁. Koks b₇, jei b₁ > 0?",
+    "options": [
+      "−24",
+      "24",
+      "−12",
+      "12"
+    ],
+    "correct": 0
+  },
+  {
+    "text": "Geometrinės progresijos b₁ = 250, b₈ = 432, n = 4. Koks S₄?",
+    "options": [
+      "780",
+      "840",
+      "900",
+      "720"
+    ],
+    "correct": 0
+  },
+  {
+    "text": "Nykstamosios geometrinės progresijos pirmųjų 5 narių suma yra 1,024 % didesnė už visos progresijos sumą. Koks vardiklis q?",
+    "options": [
+      "0,4",
+      "0,2",
+      "0,5",
+      "0,8"
+    ],
+    "correct": 1
+  },
+  {
+    "text": "Geometrinės progresijos b₁ = 2 + √3, q = −<span class='frac'><sup>√3</sup><sub>2</sub></span>. Koks b₁ + b₂ + b₃?",
+    "options": [
+      "2",
+      "<span class='frac'><sup>√3</sup><sub>2</sub></span>",
+      "1",
+      "2 − √3"
+    ],
+    "correct": 0
+  },
+  {
+    "text": "Apskaičiuokite sumą: log₃512 + log₃8 + log₃2 + ...",
+    "options": [
+      "27/2 · log₃2",
+      "27/4 · log₃2",
+      "9 · log₃2",
+      "27 · log₃2"
+    ],
+    "correct": 0
+  },
+  {
+    "text": "Geometrinės progresijos pirmųjų 7 narių sandauga lygi 128. Koks vidurinis (4-asis) narys?",
+    "options": [
+      "2",
+      "4",
+      "8",
+      "<span class='frac'><sup>128</sup><sub>7</sub></span>"
+    ],
+    "correct": 0
+  },
+  {
+    "text": "Nykstamoji geometrinė progresija: b₁ = −2, q = <span class='frac'><sup>1</sup><sub>3</sub></span>. Kokia suma S?",
+    "options": [
+      "-3",
+      "-4",
+      "-2",
+      "-6"
+    ],
+    "correct": 0
+  },
+  {
+    "text": "Išspręskite lygtį: x² = 5x + 12 + 8 + <span class='frac'><sup>16</sup><sub>3</sub></span> + <span class='frac'><sup>32</sup><sub>9</sub></span> + ...",
+    "options": [
+      "x = 9; x = −4",
+      "x = −3; x = 8",
+      "x = 4; x = −9",
+      "x = 8; x = 3"
+    ],
+    "correct": 0
+  },
+  {
+    "text": "Geometrinė progresija yra nykstamoji. b₁ = 8, b₂ = −12. Raskite S.",
+    "options": [
+      "<span class='frac'><sup>16</sup><sub>5</sub></span>",
+      "<span class='frac'><sup>8</sup><sub>5</sub></span>",
+      "<span class='frac'><sup>32</sup><sub>5</sub></span>",
+      "nėra baigtinės sumos"
+    ],
+    "correct": 3
+  },
+  {
+    "text": "Geometrinės progresijos b₂ = 6, b₃ = −18. Kelintas narys lygus −4374?",
+    "options": [
+      "4-asis",
+      "5-asis",
+      "7-asis",
+      "6-asis"
+    ],
+    "correct": 0
+  },
+  {
+    "text": "Žygimantas skaito 480 puslapių romaną. Pirmą dieną perskaitė 24 puslapius, kiekvieną kitą — 2 puslapiais daugiau. Per kiek dienų perskaitys visą knygą?",
+    "options": [
+      "15",
+      "16",
+      "17",
+      "18"
+    ],
+    "correct": 1
+  },
+  {
+    "text": "Konkursas: prizų fondas 2800 €, 5 prizai. Pirmos vietos laimėtojas gauna 1000 €, kiekviena žemesnė vieta — ta pačia suma mažesnį prizą. Koks ketvirtos vietos prizas?",
+    "options": [
+      "400 €",
+      "350 €",
+      "300 €",
+      "450 €"
+    ],
+    "correct": 0
+  },
+  {
+    "text": "Kamuolys metamas iš 16 m aukščio. Kiekvieną kartą atsitrenkęs pakyla iki 75 % buvusio aukščio. Koks bendras nukeliaujamas kelias iki sustojimo?",
+    "options": [
+      "112 m",
+      "116 m",
+      "120 m",
+      "108 m"
+    ],
+    "correct": 0
+  },
+  {
+    "text": "Aleksandras įsidarbino įmonėje, kuri kasmet algą didina 6 %. Pradinė alga 1200 €. Kokia jo alga po 4 metų? (Apvalinti iki euro.)",
+    "options": [
+      "1 514 €",
+      "1 525 €",
+      "1 500 €",
+      "1 498 €"
+    ],
+    "correct": 0
+  },
+  {
+    "text": "Nykstamosios geometrinės progresijos vardiklis q = <span class='frac'><sup>1</sup><sub>5</sub></span>, suma S = 25. Koks b₁?",
+    "options": [
+      "16",
+      "20",
+      "24",
+      "18"
+    ],
+    "correct": 1
+  },
+  {
+    "text": "Aritmetinės progresijos pirmųjų 30 narių suma lygi 15. Koks 16-asis narys?",
+    "options": [
+      "<span class='frac'><sup>1</sup><sub>2</sub></span>",
+      "1",
+      "<span class='frac'><sup>3</sup><sub>2</sub></span>",
+      "2"
+    ],
+    "correct": 0
+  },
+  {
+    "text": "Beatričė įsidarbino bendrovėje, kuri kasmet algą didina 8 %. Pradinė alga 900 €. Kokia bus jos alga po 5 metų? (Apvalinti iki euro.)",
+    "options": [
+      "1 322 €",
+      "1 310 €",
+      "1 286 €",
+      "1 350 €"
+    ],
+    "correct": 0
+  },
+  {
+    "text": "Iš vielos lenkiami lygiakraščiai trikampiai ir dedami vienas šalia kito. Didžiausio kraštinė 9 cm, kiekvieno kito — trečdaliu mažesnė. Koks begalinės figūros perimetras?",
+    "options": [
+      "<span class='frac'><sup>81</sup><sub>2</sub></span> cm",
+      "27 cm",
+      "<span class='frac'><sup>27</sup><sub>2</sub></span> cm",
+      "54 cm"
+    ],
+    "correct": 0
+  },
+  {
+    "text": "Trys skaičiai a, 40, c sudaro didėjančią aritmetinę progresiją. Skaičiai c, 24, a sudaro mažėjančią geometrinę progresiją. Raskite a.",
+    "options": [
+      "10",
+      "20",
+      "30",
+      "15"
+    ],
+    "correct": 1
+  },
+  {
+    "text": "Naujo automobilio vertė kasmet sumažėja 18 %. Po kelerių metų jo vertė bus mažesnė nei 40 % pirkimo kainos?",
+    "options": [
+      "Po 4 metų",
+      "Po 5 metų",
+      "Po 6 metų",
+      "Po 7 metų"
+    ],
+    "correct": 1
+  }
 ];
 
 var answers = new Array(QUESTIONS.length).fill(null);
@@ -209,4 +417,3 @@ renderQuestions();
 </script>
 </body>
 </html>
-

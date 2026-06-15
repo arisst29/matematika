@@ -132,104 +132,310 @@ body{margin:0;font-family:'Segoe UI',system-ui,sans-serif}
 <script src="../../../../js/main.js"></script>
 <script>
 var QUESTIONS = [
-  {num:"1.", type:"mcq", pts:1,
-   text:"Sekos 3, 9, 15, 21, ... n-tojo nario formulė yra:",
-   options:["aₙ = 6n − 3","aₙ = 3n + 3","aₙ = 6n + 3","aₙ = 3n − 3"],
-   correct:0, hint:"pasirinkite vieną atsakymą"},
-
-  {num:"2.", type:"open", pts:2,
-   text:"Aritmetinės progresijos a₂ = 3, a₃ = −2. Kelintas sekos narys yra skaičius −332? Įrašykite eilės numerį.",
-   answers:["69"], partial:["68"], hint:"įrašykite sveikąjį skaičių"},
-
-  {num:"3.", type:"mcq", pts:1,
-   text:"Geometrinės progresijos b₁ = 6, q = −<span class='frac'><sup>1</sup><sub>2</sub></span>. Koks b₅?",
-   options:["<span class='frac'><sup>3</sup><sub>8</sub></span>","−<span class='frac'><sup>3</sup><sub>8</sub></span>","<span class='frac'><sup>3</sup><sub>16</sub></span>","−<span class='frac'><sup>3</sup><sub>16</sub></span>"],
-   correct:0, hint:"pasirinkite vieną atsakymą"},
-
-  {num:"4.", type:"open", pts:2,
-   text:"Aritmetinės progresijos a₃ = 7, a₅ = 13. Apskaičiuokite pirmųjų 10 narių sumą S₁₀.",
-   answers:["130"], partial:["3"], hint:"įrašykite skaičių"},
-
-  {num:"5.", type:"mcq", pts:1,
-   text:"Begalinės geometrinės progresijos b₁ = 18, q = <span class='frac'><sup>1</sup><sub>3</sub></span>. Kokia suma S?",
-   options:["24","27","30","21"],
-   correct:1, hint:"pasirinkite vieną atsakymą"},
-
-  {num:"6.", type:"open", pts:2,
-   text:"Jonas susitaupė 1500 €, padėjo į banką su 1,2 % sudėtinėmis metinėmis palūkanomis. Kiek turės po 5 metų? Atsakymą pateikite šimtųjų tikslumu.",
-   answers:["1591,38","1591.38"], partial:["1591"], hint:"įrašykite sumą eurais"},
-
-  {num:"7.", type:"mcq", pts:1,
-   text:"Sekos pirmųjų n narių suma Sₙ = n³ − n². Koks a₄?",
-   options:["38","42","46","34"],
-   correct:0, hint:"pasirinkite vieną atsakymą"},
-
-  {num:"8.", type:"open", pts:2,
-   text:"Iš popieriaus karpomi kvadratai, dedami vienas šalia kito. Didžiausio kraštinė 7 cm, kiekvieno kito — perpus mažesnė. Koks begalinės figūros plotas (cm²)?",
-   answers:["196/3","65.33","65,33"], partial:["49"], hint:"rašykite formatu skaitiklis/vardiklis, pvz. 196/3"},
-
-  {num:"9.", type:"mcq", pts:1,
-   text:"Aritmetinės progresijos a₇ = 17 ir a₁₃ = 5. Koks pirmasis neigiamas narys?",
-   options:["a₁₆","a₁₇","a₁₈","a₁₅"],
-   correct:1, hint:"pasirinkite vieną atsakymą"},
-
-  {num:"10.", type:"open", pts:2,
-   text:"Geometrinės progresijos b₂ = 6, b₅ = 48. Apskaičiuokite pirmųjų 6 narių sumą S₆.",
-   answers:["189"], partial:["2"], hint:"įrašykite skaičių"},
-
-  {num:"11.", type:"mcq", pts:1,
-   text:"Trys skaičiai x − 2, x + 2, 3x − 2 sudaro geometrinę progresiją. Koks x (x > 0)?",
-   options:["4","6","8","3"],
-   correct:1, hint:"pasirinkite vieną atsakymą"},
-
-  {num:"12.", type:"open", pts:2,
-   text:"Kamuolys metamas iš 12 m aukščio, kiekvieną kartą atsitrenkęs pakyla iki 75 % buvusio aukščio. Koks bendras nukeliaujamas kelias iki sustojimo (m)?",
-   answers:["84"], partial:["12"], hint:"įrašykite skaičių metrais"},
-
-  {num:"13.", type:"mcq", pts:1,
-   text:"Aritmetinės progresijos pirmųjų 41 narių suma lygi 123. Koks a₂₁?",
-   options:["2","3","4","5"],
-   correct:1, hint:"pasirinkite vieną atsakymą"},
-
-  {num:"14.", type:"open", pts:2,
-   text:"Trys skaičiai a, 18, b sudaro didėjančią aritmetinę progresiją. Skaičiai a, 12, b sudaro geometrinę progresiją. Raskite a.",
-   answers:["0"], partial:["6"], hint:"įrašykite skaičių"},
-
-  {num:"15.", type:"mcq", pts:1,
-   text:"Nykstamosios geometrinės progresijos suma S = 24, pirmasis narys b₁ = 8. Koks vardiklis q?",
-   options:["<span class='frac'><sup>1</sup><sub>2</sub></span>","<span class='frac'><sup>1</sup><sub>3</sub></span>","<span class='frac'><sup>2</sup><sub>3</sub></span>","<span class='frac'><sup>1</sup><sub>4</sub></span>"],
-   correct:2, hint:"pasirinkite vieną atsakymą"},
-
-  {num:"16.", type:"open", pts:2,
-   text:"Aritmetinės progresijos a₁ + a₄ + a₇ = 33 ir a₂ · a₆ = 56. Raskite skirtumą d (d > 0).",
-   answers:["2"], partial:["5"], hint:"įrašykite skaičių"},
-
-  {num:"17.", type:"mcq", pts:1,
-   text:"Apskaičiuokite: <span class='frac'><sup>1</sup><sub>5</sub></span> + <span class='frac'><sup>1</sup><sub>25</sub></span> + <span class='frac'><sup>1</sup><sub>125</sub></span> + ...",
-   options:["<span class='frac'><sup>1</sup><sub>4</sub></span>","<span class='frac'><sup>1</sup><sub>5</sub></span>","<span class='frac'><sup>5</sup><sub>24</sub></span>","<span class='frac'><sup>1</sup><sub>6</sub></span>"],
-   correct:0, hint:"pasirinkite vieną atsakymą"},
-
-  {num:"18.", type:"open", pts:2,
-   text:"Beatričė įsidarbino įmonėje su pradine 900 € alga. Kasmet alga didėja 8 %. Kokia bus jos alga po 5 metų? Atsakymą pateikite euro tikslumu.",
-   answers:["1322","1323"], partial:["900"], hint:"įrašykite sumą eurais"},
-
-  {num:"19.", type:"mcq", pts:1,
-   text:"Skaičių 1 + 2 + 3 + ... + n = 2016. Koks n?",
-   options:["62","63","64","61"],
-   correct:1, hint:"pasirinkite vieną atsakymą"},
-
-  {num:"20.", type:"open", pts:2,
-   text:"Periodinė trupmena 0,(6) = 0,6666... Užrašykite ją kaip paprastąją trupmeną (pvz. 2/3).",
-   answers:["2/3","0.667","0.6667","0,6667"], partial:["6/9"], hint:"rašykite formatu skaitiklis/vardiklis, pvz. 2/3"},
-
-  {num:"21.", type:"mcq", pts:1,
-   text:"Geometrinės progresijos pirmųjų 3 narių sandauga lygi 512. Koks vidurinis narys?",
-   options:["6","8","10","4"],
-   correct:1, hint:"pasirinkite vieną atsakymą"},
-
-  {num:"22.", type:"open", pts:2,
-   text:"Geometrinės progresijos pirmųjų 4 narių suma S₄ = 15, pirmųjų 8 narių suma S₈ = 255. Koks vardiklis q?",
-   answers:["2"], partial:["15"], hint:"įrašykite skaičių"}
+  {
+    "num": "1.",
+    "type": "mcq",
+    "pts": 1,
+    "text": "Sekos 3, 9, 15, 21, ... n-tojo nario formulė yra:",
+    "options": [
+      "aₙ = 6n − 3",
+      "aₙ = 3n + 3",
+      "aₙ = 6n + 3",
+      "aₙ = 3n − 3"
+    ],
+    "correct": 0,
+    "hint": "pasirinkite vieną atsakymą"
+  },
+  {
+    "num": "2.",
+    "type": "open",
+    "pts": 2,
+    "text": "Aritmetinės progresijos a₂ = 3, a₃ = −2. Kelintas sekos narys yra skaičius −332? Įrašykite eilės numerį.",
+    "answers": [
+      "69"
+    ],
+    "partial": [
+      "68"
+    ],
+    "hint": "įrašykite sveikąjį skaičių"
+  },
+  {
+    "num": "3.",
+    "type": "mcq",
+    "pts": 1,
+    "text": "Geometrinės progresijos b₁ = 6, q = −<span class='frac'><sup>1</sup><sub>2</sub></span>. Koks b₅?",
+    "options": [
+      "<span class='frac'><sup>3</sup><sub>8</sub></span>",
+      "−<span class='frac'><sup>3</sup><sub>8</sub></span>",
+      "<span class='frac'><sup>3</sup><sub>16</sub></span>",
+      "−<span class='frac'><sup>3</sup><sub>16</sub></span>"
+    ],
+    "correct": 0,
+    "hint": "pasirinkite vieną atsakymą"
+  },
+  {
+    "num": "4.",
+    "type": "open",
+    "pts": 2,
+    "text": "Aritmetinės progresijos a₃ = 7, a₅ = 13. Apskaičiuokite pirmųjų 10 narių sumą S₁₀.",
+    "answers": [
+      "130"
+    ],
+    "partial": [
+      "3"
+    ],
+    "hint": "įrašykite skaičių"
+  },
+  {
+    "num": "5.",
+    "type": "mcq",
+    "pts": 1,
+    "text": "Begalinės geometrinės progresijos b₁ = 18, q = <span class='frac'><sup>1</sup><sub>3</sub></span>. Kokia suma S?",
+    "options": [
+      "24",
+      "27",
+      "30",
+      "21"
+    ],
+    "correct": 1,
+    "hint": "pasirinkite vieną atsakymą"
+  },
+  {
+    "num": "6.",
+    "type": "open",
+    "pts": 2,
+    "text": "Jonas susitaupė 1500 €, padėjo į banką su 1,2 % sudėtinėmis metinėmis palūkanomis. Kiek turės po 5 metų? Atsakymą pateikite šimtųjų tikslumu.",
+    "answers": [
+      "1591,38",
+      "1591.38"
+    ],
+    "partial": [
+      "1591"
+    ],
+    "hint": "įrašykite sumą eurais"
+  },
+  {
+    "num": "7.",
+    "type": "mcq",
+    "pts": 1,
+    "text": "Sekos pirmųjų n narių suma Sₙ = n³ − n². Koks a₄?",
+    "options": [
+      "30",
+      "38",
+      "42",
+      "34"
+    ],
+    "correct": 0,
+    "hint": "pasirinkite vieną atsakymą"
+  },
+  {
+    "num": "8.",
+    "type": "open",
+    "pts": 2,
+    "text": "Iš popieriaus karpomi kvadratai, dedami vienas šalia kito. Didžiausio kraštinė 7 cm, kiekvieno kito — perpus mažesnė. Koks begalinės figūros plotas (cm²)?",
+    "answers": [
+      "196/3",
+      "65.33",
+      "65,33"
+    ],
+    "partial": [
+      "49"
+    ],
+    "hint": "rašykite formatu skaitiklis/vardiklis, pvz. 196/3"
+  },
+  {
+    "num": "9.",
+    "type": "mcq",
+    "pts": 1,
+    "text": "Aritmetinės progresijos a₇ = 17 ir a₁₃ = 5. Koks pirmasis neigiamas narys?",
+    "options": [
+      "a₁₆",
+      "a₁₇",
+      "a₁₈",
+      "a₁₅"
+    ],
+    "correct": 0,
+    "hint": "pasirinkite vieną atsakymą"
+  },
+  {
+    "num": "10.",
+    "type": "open",
+    "pts": 2,
+    "text": "Geometrinės progresijos b₂ = 6, b₅ = 48. Apskaičiuokite pirmųjų 6 narių sumą S₆.",
+    "answers": [
+      "189"
+    ],
+    "partial": [
+      "2"
+    ],
+    "hint": "įrašykite skaičių"
+  },
+  {
+    "num": "11.",
+    "type": "mcq",
+    "pts": 1,
+    "text": "Trys skaičiai x − 2, x + 2, 3x − 2 sudaro geometrinę progresiją. Koks x (x > 0)?",
+    "options": [
+      "4",
+      "6",
+      "8",
+      "3"
+    ],
+    "correct": 1,
+    "hint": "pasirinkite vieną atsakymą"
+  },
+  {
+    "num": "12.",
+    "type": "open",
+    "pts": 2,
+    "text": "Kamuolys metamas iš 12 m aukščio, kiekvieną kartą atsitrenkęs pakyla iki 75 % buvusio aukščio. Koks bendras nukeliaujamas kelias iki sustojimo (m)?",
+    "answers": [
+      "84"
+    ],
+    "partial": [
+      "12"
+    ],
+    "hint": "įrašykite skaičių metrais"
+  },
+  {
+    "num": "13.",
+    "type": "mcq",
+    "pts": 1,
+    "text": "Aritmetinės progresijos pirmųjų 41 narių suma lygi 123. Koks a₂₁?",
+    "options": [
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "correct": 1,
+    "hint": "pasirinkite vieną atsakymą"
+  },
+  {
+    "num": "14.",
+    "type": "open",
+    "pts": 2,
+    "text": "Trys skaičiai a, 18, b sudaro didėjančią aritmetinę progresiją. Skaičiai a, 12, b sudaro geometrinę progresiją. Raskite a.",
+    "answers": [
+      "0"
+    ],
+    "partial": [
+      "6"
+    ],
+    "hint": "įrašykite skaičių"
+  },
+  {
+    "num": "15.",
+    "type": "mcq",
+    "pts": 1,
+    "text": "Nykstamosios geometrinės progresijos suma S = 24, pirmasis narys b₁ = 8. Koks vardiklis q?",
+    "options": [
+      "<span class='frac'><sup>1</sup><sub>2</sub></span>",
+      "<span class='frac'><sup>1</sup><sub>3</sub></span>",
+      "<span class='frac'><sup>2</sup><sub>3</sub></span>",
+      "<span class='frac'><sup>1</sup><sub>4</sub></span>"
+    ],
+    "correct": 2,
+    "hint": "pasirinkite vieną atsakymą"
+  },
+  {
+    "num": "16.",
+    "type": "open",
+    "pts": 2,
+    "text": "Aritmetinės progresijos a₁ + a₄ + a₇ = 33 ir a₂ · a₆ = 56. Raskite skirtumą d (d > 0).",
+    "answers": [
+      "2"
+    ],
+    "partial": [
+      "5"
+    ],
+    "hint": "įrašykite skaičių"
+  },
+  {
+    "num": "17.",
+    "type": "mcq",
+    "pts": 1,
+    "text": "Apskaičiuokite: <span class='frac'><sup>1</sup><sub>5</sub></span> + <span class='frac'><sup>1</sup><sub>25</sub></span> + <span class='frac'><sup>1</sup><sub>125</sub></span> + ...",
+    "options": [
+      "<span class='frac'><sup>1</sup><sub>4</sub></span>",
+      "<span class='frac'><sup>1</sup><sub>5</sub></span>",
+      "<span class='frac'><sup>5</sup><sub>24</sub></span>",
+      "<span class='frac'><sup>1</sup><sub>6</sub></span>"
+    ],
+    "correct": 0,
+    "hint": "pasirinkite vieną atsakymą"
+  },
+  {
+    "num": "18.",
+    "type": "open",
+    "pts": 2,
+    "text": "Beatričė įsidarbino įmonėje su pradine 900 € alga. Kasmet alga didėja 8 %. Kokia bus jos alga po 5 metų? Atsakymą pateikite euro tikslumu.",
+    "answers": [
+      "1322",
+      "1323"
+    ],
+    "partial": [
+      "900"
+    ],
+    "hint": "įrašykite sumą eurais"
+  },
+  {
+    "num": "19.",
+    "type": "mcq",
+    "pts": 1,
+    "text": "Skaičių 1 + 2 + 3 + ... + n = 2016. Koks n?",
+    "options": [
+      "62",
+      "63",
+      "64",
+      "61"
+    ],
+    "correct": 1,
+    "hint": "pasirinkite vieną atsakymą"
+  },
+  {
+    "num": "20.",
+    "type": "open",
+    "pts": 2,
+    "text": "Periodinė trupmena 0,(6) = 0,6666... Užrašykite ją kaip paprastąją trupmeną (pvz. 2/3).",
+    "answers": [
+      "2/3",
+      "0.667",
+      "0.6667",
+      "0,6667"
+    ],
+    "partial": [
+      "6/9"
+    ],
+    "hint": "rašykite formatu skaitiklis/vardiklis, pvz. 2/3"
+  },
+  {
+    "num": "21.",
+    "type": "mcq",
+    "pts": 1,
+    "text": "Geometrinės progresijos pirmųjų 3 narių sandauga lygi 512. Koks vidurinis narys?",
+    "options": [
+      "6",
+      "8",
+      "10",
+      "4"
+    ],
+    "correct": 1,
+    "hint": "pasirinkite vieną atsakymą"
+  },
+  {
+    "num": "22.",
+    "type": "open",
+    "pts": 2,
+    "text": "Geometrinės progresijos pirmųjų 4 narių suma S₄ = 15, pirmųjų 8 narių suma S₈ = 255. Koks vardiklis q?",
+    "answers": [
+      "2"
+    ],
+    "partial": [
+      "15"
+    ],
+    "hint": "įrašykite skaičių"
+  }
 ];
 
 var totalPts = 0;

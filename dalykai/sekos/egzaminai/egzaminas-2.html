@@ -60,98 +60,306 @@
 <script src="../../../../js/main.js"></script>
 <script>
 var QUESTIONS = [
-  // ── T1 ARITMETINĖ SEKA (1–10) ──
-  {text:"Sekos 7, 11, 15, 19, ... n-tojo nario formulė yra:",svg:null,
-   options:["aₙ = 4n + 3","aₙ = 4n − 1","aₙ = 3n + 4","aₙ = 4n + 7"],correct:0},
-
-  {text:"Aritmetinės progresijos a₁ = 5, d = −3. Koks a₁₀?",svg:null,
-   options:["−22","−21","−19","−25"],correct:0},
-
-  {text:"Aritmetinės progresijos a₄ = 13 ir a₉ = 28. Koks skirtumas d?",svg:null,
-   options:["2","3","4","5"],correct:1},
-
-  {text:"Apskaičiuokite sumą 2 + 6 + 10 + ... + 82.",svg:null,
-   options:["882","864","900","840"],correct:0},
-
-  {text:"Sekos pirmųjų n narių suma Sₙ = 3n² + 2n. Koks yra a₅?",svg:null,
-   options:["29","27","31","25"],correct:0},
-
-  {text:"Aritmetinės progresijos nariai a₁ = −5, d = 3. Kuris narys lygus 40?",svg:null,
-   options:["n = 15","n = 16","n = 14","n = 17"],correct:1},
-
-  {text:"Tarp skaičių −4 ir 20 įterpti 3 aritmetinės progresijos nariai. Koks jų skirtumas d?",svg:null,
-   options:["4","5","6","8"],correct:2},
-
-  {text:"Aritmetinės progresijos pirmųjų 15 narių suma lygi 300. Koks vidurinis (8-asis) narys?",svg:null,
-   options:["15","20","18","25"],correct:1},
-
-  {text:"Penkiakampio kampų dydžiai sudaro aritmetinę progresiją. Įrodyk, kad bent vienas kampas lygus 108°. Koks mažiausio kampo dydis, jei skirtumas d = 12°?",svg:null,
-   options:["60°","72°","84°","96°"],correct:1},
-
-  {text:"Aritmetinės progresijos a₂ = 7, a₃ = 10. Koks pirmųjų 20 narių suma?",svg:null,
-   options:["650","680","710","620"],correct:0},
-
-  // ── T2 GEOMETRINĖ SEKA (11–20) ──
-  {text:"Geometrinės progresijos b₁ = 5, q = −2. Koks b₆?",svg:null,
-   options:["−160","160","−320","320"],correct:0},
-
-  {text:"Geometrinės progresijos b₃ = 12 ir b₆ = 96. Koks vardiklis q?",svg:null,
-   options:["2","3","4","<span class='frac'><sup>1</sup><sub>2</sub></span>"],correct:0},
-
-  {text:"Apskaičiuokite: 896 + 448 + 224 + ... + 14.",svg:null,
-   options:["1778","1786","1792","1764"],correct:1},
-
-  {text:"Geometrinės progresijos b₁ = 54, q = <span class='frac'><sup>1</sup><sub>3</sub></span>. Koks pirmųjų 4 narių suma?",svg:null,
-   options:["80","<span class='frac'><sup>80</sup><sub>1</sub></span>","<span class='frac'><sup>242</sup><sub>3</sub></span>","<span class='frac'><sup>260</sup><sub>3</sub></span>"],correct:0},
-
-  {text:"Begalinės geometrinės progresijos b₁ = 15, q = 0,4. Kokia suma S?",svg:null,
-   options:["20","25","30","15"],correct:1},
-
-  {text:"Geometrinės progresijos b₁ = 3, b₄ = 24. Koks b₇?",svg:null,
-   options:["192","384","96","576"],correct:0},
-
-  {text:"Nykstamosios geometrinės progresijos suma S = 16, vardiklis q = <span class='frac'><sup>1</sup><sub>4</sub></span>. Koks b₁?",svg:null,
-   options:["10","12","14","16"],correct:1},
-
-  {text:"Trys skaičiai 4, x, 36 sudaro geometrinę progresiją. Koks x (teigiamas)?",svg:null,
-   options:["10","12","16","18"],correct:1},
-
-  {text:"Geometrinės progresijos pirmųjų 3 narių sandauga lygi 512. Koks vidurinis narys?",svg:null,
-   options:["6","8","10","12"],correct:1},
-
-  {text:"Apskaičiuokite begalinę sumą: <span class='frac'><sup>1</sup><sub>5</sub></span> + <span class='frac'><sup>1</sup><sub>25</sub></span> + <span class='frac'><sup>1</sup><sub>125</sub></span> + ...",svg:null,
-   options:["<span class='frac'><sup>1</sup><sub>4</sub></span>","<span class='frac'><sup>1</sup><sub>5</sub></span>","<span class='frac'><sup>5</sup><sub>24</sub></span>","<span class='frac'><sup>1</sup><sub>6</sub></span>"],correct:0},
-
-  // ── T3 TAIKYMAI (21–30) ──
-  {text:"Baseinas talpina 10 000 litrų. Nauja siurblys pirmą minutę pripila 60 l, kiekvieną kitą — 4 l daugiau. Po kiek minučių baseinas bus pilnas?",svg:null,
-   options:["50 min","55 min","60 min","45 min"],correct:1},
-
-  {text:"Gabrielė nusipirko automobilį už 18 000 €. Jo vertė kasmet mažėja 10 %. Kokia automobilio vertė po 3 metų?",svg:null,
-   options:["13 122 €","13 500 €","14 580 €","12 960 €"],correct:0},
-
-  {text:"Henrikas taupė. Pirmą mėnesį įdėjo 150 €, kiekvieną kitą — 25 € daugiau. Kiek sutaupys per 10 mėnesių?",svg:null,
-   options:["2 625 €","2 750 €","2 500 €","2 875 €"],correct:0},
-
-  {text:"Sūpuoklės pirmą kartą pakyla į 180 cm aukštį. Kiekvieną kartą pakyla iki 80 % ankstesnio aukščio. Koks bendras visų pakylimų aukštis?",svg:null,
-   options:["720 cm","800 cm","900 cm","850 cm"],correct:2},
-
-  {text:"Bankas moka 2,5 % sudėtinių metinių palūkanų. Tomas įdėjo 3 000 €. Kiek turės po 4 metų? (Apvalinti iki euro.)",svg:null,
-   options:["3 306 €","3 315 €","3 300 €","3 280 €"],correct:1},
-
-  {text:"Lygiakraščiai trikampiai dedami vienas šalia kito. Didžiausio kraštinė 9 cm, kiekvieno kito — trečdaliu mažesnė. Koks begalinės figūros perimetras?",svg:null,
-   options:["36 cm","<span class='frac'><sup>81</sup><sub>2</sub></span> cm","<span class='frac'><sup>27</sup><sub>2</sub></span> cm","27 cm"],correct:1},
-
-  {text:"Aritmetinės progresijos pirmųjų 33 narių suma lygi 11. Koks devynioliktasis narys?",svg:null,
-   options:["<span class='frac'><sup>1</sup><sub>3</sub></span>","<span class='frac'><sup>2</sup><sub>3</sub></span>","1","<span class='frac'><sup>1</sup><sub>2</sub></span>"],correct:0},
-
-  {text:"Varžybų prizinį fondą sudaro 6 200 €, skiriami 6 prizai. Kiekvienas ankstesnis prizas 1,5 karto didesnis už vėlesnį. Koks mažiausias prizas? (Apvalinti iki euro.)",svg:null,
-   options:["247 €","312 €","285 €","198 €"],correct:1},
-
-  {text:"Geometrinės progresijos b₂ = 384, b₃ = −192. Kelintas sekos narys yra skaičius −0,75?",svg:null,
-   options:["8-asis","9-asis","10-asis","7-asis"],correct:0},
-
-  {text:"Trys skaičiai p, 30, r sudaro didėjančią aritmetinę progresiją. Skaičiai p, 18, r sudaro geometrinę progresiją. Raskite p ir r.",svg:null,
-   options:["p = 6, r = 54","p = 12, r = 48","p = 3, r = 57","p = 9, r = 51"],correct:0}
+  {
+    "text": "Sekos 7, 11, 15, 19, ... n-tojo nario formulė yra:",
+    "options": [
+      "aₙ = 4n + 3",
+      "aₙ = 4n − 1",
+      "aₙ = 3n + 4",
+      "aₙ = 4n + 7"
+    ],
+    "correct": 0
+  },
+  {
+    "text": "Aritmetinės progresijos a₁ = 5, d = −3. Koks a₁₀?",
+    "options": [
+      "−22",
+      "−21",
+      "−19",
+      "−25"
+    ],
+    "correct": 0
+  },
+  {
+    "text": "Aritmetinės progresijos a₄ = 13 ir a₉ = 28. Koks skirtumas d?",
+    "options": [
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "correct": 1
+  },
+  {
+    "text": "Apskaičiuokite sumą 2 + 6 + 10 + ... + 82.",
+    "options": [
+      "882",
+      "864",
+      "900",
+      "840"
+    ],
+    "correct": 0
+  },
+  {
+    "text": "Sekos pirmųjų n narių suma Sₙ = 3n² + 2n. Koks yra a₅?",
+    "options": [
+      "29",
+      "27",
+      "31",
+      "25"
+    ],
+    "correct": 0
+  },
+  {
+    "text": "Aritmetinės progresijos nariai a₁ = −5, d = 3. Kuris narys lygus 40?",
+    "options": [
+      "n = 15",
+      "n = 16",
+      "n = 14",
+      "n = 17"
+    ],
+    "correct": 1
+  },
+  {
+    "text": "Tarp skaičių −4 ir 20 įterpti 3 aritmetinės progresijos nariai. Koks jų skirtumas d?",
+    "options": [
+      "4",
+      "5",
+      "6",
+      "8"
+    ],
+    "correct": 2
+  },
+  {
+    "text": "Aritmetinės progresijos pirmųjų 15 narių suma lygi 300. Koks vidurinis (8-asis) narys?",
+    "options": [
+      "15",
+      "20",
+      "18",
+      "25"
+    ],
+    "correct": 1
+  },
+  {
+    "text": "Penkiakampio kampų dydžiai sudaro aritmetinę progresiją. Įrodyk, kad bent vienas kampas lygus 108°. Koks mažiausio kampo dydis, jei skirtumas d = 12°?",
+    "options": [
+      "60°",
+      "72°",
+      "84°",
+      "96°"
+    ],
+    "correct": 2
+  },
+  {
+    "text": "Aritmetinės progresijos a₂ = 7, a₃ = 10. Koks pirmųjų 20 narių suma?",
+    "options": [
+      "650",
+      "680",
+      "710",
+      "620"
+    ],
+    "correct": 0
+  },
+  {
+    "text": "Geometrinės progresijos b₁ = 5, q = −2. Koks b₆?",
+    "options": [
+      "−160",
+      "160",
+      "−320",
+      "320"
+    ],
+    "correct": 0
+  },
+  {
+    "text": "Geometrinės progresijos b₃ = 12 ir b₆ = 96. Koks vardiklis q?",
+    "options": [
+      "2",
+      "3",
+      "4",
+      "<span class='frac'><sup>1</sup><sub>2</sub></span>"
+    ],
+    "correct": 0
+  },
+  {
+    "text": "Apskaičiuokite: 896 + 448 + 224 + ... + 14.",
+    "options": [
+      "1778",
+      "1786",
+      "1792",
+      "1764"
+    ],
+    "correct": 0
+  },
+  {
+    "text": "Geometrinės progresijos b₁ = 54, q = <span class='frac'><sup>1</sup><sub>3</sub></span>. Koks pirmųjų 4 narių suma?",
+    "options": [
+      "80",
+      "<span class='frac'><sup>80</sup><sub>1</sub></span>",
+      "<span class='frac'><sup>242</sup><sub>3</sub></span>",
+      "<span class='frac'><sup>260</sup><sub>3</sub></span>"
+    ],
+    "correct": 0
+  },
+  {
+    "text": "Begalinės geometrinės progresijos b₁ = 15, q = 0,4. Kokia suma S?",
+    "options": [
+      "20",
+      "25",
+      "30",
+      "15"
+    ],
+    "correct": 1
+  },
+  {
+    "text": "Geometrinės progresijos b₁ = 3, b₄ = 24. Koks b₇?",
+    "options": [
+      "192",
+      "384",
+      "96",
+      "576"
+    ],
+    "correct": 0
+  },
+  {
+    "text": "Nykstamosios geometrinės progresijos suma S = 16, vardiklis q = <span class='frac'><sup>1</sup><sub>4</sub></span>. Koks b₁?",
+    "options": [
+      "10",
+      "12",
+      "14",
+      "16"
+    ],
+    "correct": 1
+  },
+  {
+    "text": "Trys skaičiai 4, x, 36 sudaro geometrinę progresiją. Koks x (teigiamas)?",
+    "options": [
+      "10",
+      "12",
+      "16",
+      "18"
+    ],
+    "correct": 1
+  },
+  {
+    "text": "Geometrinės progresijos pirmųjų 3 narių sandauga lygi 512. Koks vidurinis narys?",
+    "options": [
+      "6",
+      "8",
+      "10",
+      "12"
+    ],
+    "correct": 1
+  },
+  {
+    "text": "Apskaičiuokite begalinę sumą: <span class='frac'><sup>1</sup><sub>5</sub></span> + <span class='frac'><sup>1</sup><sub>25</sub></span> + <span class='frac'><sup>1</sup><sub>125</sub></span> + ...",
+    "options": [
+      "<span class='frac'><sup>1</sup><sub>4</sub></span>",
+      "<span class='frac'><sup>1</sup><sub>5</sub></span>",
+      "<span class='frac'><sup>5</sup><sub>24</sub></span>",
+      "<span class='frac'><sup>1</sup><sub>6</sub></span>"
+    ],
+    "correct": 0
+  },
+  {
+    "text": "Baseinas talpina 10 000 litrų. Nauja siurblys pirmą minutę pripila 60 l, kiekvieną kitą — 4 l daugiau. Po kiek minučių baseinas bus pilnas?",
+    "options": [
+      "50 min",
+      "55 min",
+      "60 min",
+      "45 min"
+    ],
+    "correct": 1
+  },
+  {
+    "text": "Gabrielė nusipirko automobilį už 18 000 €. Jo vertė kasmet mažėja 10 %. Kokia automobilio vertė po 3 metų?",
+    "options": [
+      "13 122 €",
+      "13 500 €",
+      "14 580 €",
+      "12 960 €"
+    ],
+    "correct": 0
+  },
+  {
+    "text": "Henrikas taupė. Pirmą mėnesį įdėjo 150 €, kiekvieną kitą — 25 € daugiau. Kiek sutaupys per 10 mėnesių?",
+    "options": [
+      "2 625 €",
+      "2 750 €",
+      "2 500 €",
+      "2 875 €"
+    ],
+    "correct": 0
+  },
+  {
+    "text": "Sūpuoklės pirmą kartą pakyla į 180 cm aukštį. Kiekvieną kartą pakyla iki 80 % ankstesnio aukščio. Koks bendras visų pakylimų aukštis?",
+    "options": [
+      "720 cm",
+      "800 cm",
+      "900 cm",
+      "850 cm"
+    ],
+    "correct": 2
+  },
+  {
+    "text": "Bankas moka 2,5 % sudėtinių metinių palūkanų. Tomas įdėjo 3 000 €. Kiek turės po 4 metų? (Apvalinti iki euro.)",
+    "options": [
+      "3 306 €",
+      "3 315 €",
+      "3 300 €",
+      "3 280 €"
+    ],
+    "correct": 1
+  },
+  {
+    "text": "Lygiakraščiai trikampiai dedami vienas šalia kito. Didžiausio kraštinė 9 cm, kiekvieno kito — trečdaliu mažesnė. Koks begalinės figūros perimetras?",
+    "options": [
+      "36 cm",
+      "<span class='frac'><sup>81</sup><sub>2</sub></span> cm",
+      "<span class='frac'><sup>27</sup><sub>2</sub></span> cm",
+      "27 cm"
+    ],
+    "correct": 1
+  },
+  {
+    "text": "Aritmetinės progresijos pirmųjų 33 narių suma lygi 11. Koks devynioliktasis narys?",
+    "options": [
+      "<span class='frac'><sup>1</sup><sub>3</sub></span>",
+      "<span class='frac'><sup>2</sup><sub>3</sub></span>",
+      "1",
+      "<span class='frac'><sup>1</sup><sub>2</sub></span>"
+    ],
+    "correct": 0
+  },
+  {
+    "text": "Varžybų prizinį fondą sudaro 6 200 €, skiriami 6 prizai. Kiekvienas ankstesnis prizas 1,5 karto didesnis už vėlesnį. Koks mažiausias prizas? (Apvalinti iki euro.)",
+    "options": [
+      "247 €",
+      "312 €",
+      "285 €",
+      "198 €"
+    ],
+    "correct": 1
+  },
+  {
+    "text": "Geometrinės progresijos b₂ = 384, b₃ = −192. Kelintas sekos narys yra skaičius −0,75?",
+    "options": [
+      "8-asis",
+      "9-asis",
+      "10-asis",
+      "7-asis"
+    ],
+    "correct": 0
+  },
+  {
+    "text": "Trys skaičiai p, 30, r sudaro didėjančią aritmetinę progresiją. Skaičiai p, 18, r sudaro geometrinę progresiją. Raskite p ir r.",
+    "options": [
+      "p = 6, r = 54",
+      "p = 12, r = 48",
+      "p = 3, r = 57",
+      "p = 9, r = 51"
+    ],
+    "correct": 0
+  }
 ];
 
 var answers = new Array(QUESTIONS.length).fill(null);

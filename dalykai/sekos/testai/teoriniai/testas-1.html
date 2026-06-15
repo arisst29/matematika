@@ -58,7 +58,108 @@
   </div>
 </div>
 <script src="../../../../js/main.js"></script>
-<script>var QUESTIONS=[{"text": "Kas yra aritmetinė progresija?", "options": ["Seka, kurioje nariai dauginami iš pastovaus skaičiaus", "Seka, kurioje kiekvienas narys gaunamas prie ankstesnio pridėjus pastovų skaičių d", "Seka, kurioje visi nariai vienodi", "Seka, kurioje nariai mažėja"], "correct": 1}, {"text": "Ką žymi simbolis d aritmetinėje progresijoje?", "options": ["Pirmąjį narį", "Narių skaičių", "Skirtumą — kiek kiekvienas narys skiriasi nuo ankstesnio", "Paskutinįjį narį"], "correct": 2}, {"text": "Kokia yra aritmetinės progresijos n-tojo nario formulė?", "options": ["aₙ = a₁ · dⁿ⁻¹", "aₙ = a₁ + d · n", "aₙ = a₁ + d · (n − 1)", "aₙ = a₁ · (n − 1)"], "correct": 2}, {"text": "Aritmetinė progresija: 3, 7, 11, 15, ... Koks jos skirtumas d?", "options": ["d = 3", "d = 7", "d = 4", "d = 2"], "correct": 2}, {"text": "Aritmetinė progresija: 2, 5, 8, 11, ... Koks 10-asis narys?", "options": ["a₁₀ = 28", "a₁₀ = 29", "a₁₀ = 30", "a₁₀ = 32"], "correct": 1}, {"text": "Kokia yra pirmųjų n narių sumos formulė?", "options": ["Sₙ = a₁ · n", "Sₙ = <span class=\"frac\"><sup>a₁ + aₙ</sup><sub>2</sub></span> · n", "Sₙ = <span class=\"frac\"><sup>a₁ · aₙ</sup><sub>2</sub></span>", "Sₙ = <span class=\"frac\"><sup>a₁ + d</sup><sub>2</sub></span> · n"], "correct": 1}, {"text": "Aritmetinė progresija yra didėjanti, kai:", "options": ["d < 0", "d = 0", "d > 0", "d ≥ 1"], "correct": 2}, {"text": "Koks yra vidurio savybės teiginys aritmetinėje progresijoje?", "options": ["aₙ = aₙ₋₁ · aₙ₊₁", "aₙ = aₙ₋₁ + aₙ₊₁", "aₙ = <span class=\"frac\"><sup>aₙ₋₁ + aₙ₊₁</sup><sub>2</sub></span>", "aₙ² = <span class=\"frac\"><sup>aₙ₋₁ + aₙ₊₁</sup><sub>2</sub></span>"], "correct": 2}, {"text": "Seka: 20, 17, 14, 11, ... Koks jos skirtumas d?", "options": ["d = 3", "d = −3", "d = 17", "d = −7"], "correct": 1}, {"text": "Aritmetinė progresija: a₁ = 1, d = 2. Apskaičiuokite S₅ (pirmųjų 5 narių sumą).", "options": ["S₅ = 20", "S₅ = 25", "S₅ = 15", "S₅ = 30"], "correct": 1}];
+<script>var QUESTIONS=[
+  {
+    "text": "Kas yra aritmetinė progresija?",
+    "options": [
+      "Seka, kurioje nariai dauginami iš pastovaus skaičiaus",
+      "Seka, kurioje kiekvienas narys gaunamas prie ankstesnio pridėjus pastovų skaičių d",
+      "Seka, kurioje visi nariai vienodi",
+      "Seka, kurioje nariai mažėja"
+    ],
+    "correct": 1
+  },
+  {
+    "text": "Ką žymi simbolis d aritmetinėje progresijoje?",
+    "options": [
+      "Pirmąjį narį",
+      "Narių skaičių",
+      "Skirtumą — kiek kiekvienas narys skiriasi nuo ankstesnio",
+      "Paskutinįjį narį"
+    ],
+    "correct": 2
+  },
+  {
+    "text": "Kokia yra aritmetinės progresijos n-tojo nario formulė?",
+    "options": [
+      "aₙ = a₁ · dⁿ⁻¹",
+      "aₙ = a₁ + d · n",
+      "aₙ = a₁ + d · (n − 1)",
+      "aₙ = a₁ · (n − 1)"
+    ],
+    "correct": 2
+  },
+  {
+    "text": "Aritmetinė progresija: 3, 7, 11, 15, ... Koks jos skirtumas d?",
+    "options": [
+      "d = 3",
+      "d = 7",
+      "d = 4",
+      "d = 2"
+    ],
+    "correct": 2
+  },
+  {
+    "text": "Aritmetinė progresija: 2, 5, 8, 11, ... Koks 10-asis narys?",
+    "options": [
+      "a₁₀ = 28",
+      "a₁₀ = 29",
+      "a₁₀ = 30",
+      "a₁₀ = 32"
+    ],
+    "correct": 1
+  },
+  {
+    "text": "Kokia yra pirmųjų n narių sumos formulė?",
+    "options": [
+      "Sₙ = (a₁ + aₙ) / 2 · n",
+      "Sₙ = a₁ · n + d",
+      "Sₙ = a₁ · aₙ · n",
+      "Sₙ = (a₁ − aₙ) / 2 · n"
+    ],
+    "correct": 0
+  },
+  {
+    "text": "Aritmetinė progresija yra didėjanti, kai:",
+    "options": [
+      "d < 0",
+      "d = 0",
+      "d > 0",
+      "d ≥ 1"
+    ],
+    "correct": 2
+  },
+  {
+    "text": "Koks yra vidurio savybės teiginys aritmetinėje progresijoje?",
+    "options": [
+      "aₙ = (aₙ₋₁ + aₙ₊₁) / 2",
+      "aₙ = aₙ₋₁ · aₙ₊₁",
+      "aₙ = aₙ₋₁ + aₙ₊₁",
+      "aₙ = (aₙ₋₁ − aₙ₊₁) / 2"
+    ],
+    "correct": 0
+  },
+  {
+    "text": "Seka: 20, 17, 14, 11, ... Koks jos skirtumas d?",
+    "options": [
+      "d = 3",
+      "d = −3",
+      "d = 17",
+      "d = −7"
+    ],
+    "correct": 1
+  },
+  {
+    "text": "Aritmetinė progresija: a₁ = 1, d = 2. Apskaičiuokite S₅ (pirmųjų 5 narių sumą).",
+    "options": [
+      "S₅ = 20",
+      "S₅ = 25",
+      "S₅ = 15",
+      "S₅ = 30"
+    ],
+    "correct": 1
+  }
+];
 var answers = new Array(QUESTIONS.length).fill(null);
 var submitted = false;
 function renderQuestions() {

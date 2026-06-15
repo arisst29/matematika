@@ -3,22 +3,8 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Trigonometrijos egzaminai — Matematika 11</title>
+  <title>Skyriaus testai — Trigonometrija</title>
   <link rel="stylesheet" href="../../../../styles/main.css"/>
-  <style>
-    .exam-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:16px}
-    .exam-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px;cursor:pointer;transition:all 0.15s;text-decoration:none;display:block}
-    .exam-card:hover{border-color:var(--accent);box-shadow:0 4px 16px rgba(0,0,0,0.08);transform:translateY(-1px)}
-    .exam-num{font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:8px}
-    .exam-title{font-size:17px;font-weight:600;color:var(--ink);margin-bottom:6px}
-    .exam-variant{display:inline-block;padding:2px 10px;border-radius:12px;font-size:11px;font-weight:700;letter-spacing:0.08em;margin-bottom:10px}
-    .vA{background:#dbeafe;color:#1d4ed8}.vB{background:#dcfce7;color:#15803d}.vC{background:#fef3c7;color:#b45309}
-    .exam-meta{display:flex;gap:12px;flex-wrap:wrap}
-    .exam-meta span{font-size:12px;color:var(--ink3)}
-    .info-box{background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);padding:16px 20px;margin-bottom:24px;display:flex;gap:20px;flex-wrap:wrap}
-    .info-item{font-size:13px;color:var(--ink2)}
-    .info-item strong{color:var(--ink)}
-  </style>
 </head>
 <body>
 <div class="layout">
@@ -28,72 +14,103 @@
       <div class="breadcrumb">
         <a href="../../../../index.html">Matematika 11</a>
         <span class="sep">›</span><span>Trigonometrija</span>
-        <span class="sep">›</span><span class="current">Skyriaus egzaminai</span>
+        <span class="sep">›</span><span class="current">Skyriaus testai</span>
       </div>
     </div>
     <div class="page">
       <div class="topic-header">
-        <div class="topic-tag">9 skyrius</div>
-        <h1 class="topic-title">Trigonometrijos skyriaus egzaminai</h1>
-        <p class="topic-intro">Baigiamieji egzaminai visoms temoms: T1–T5. Kiekvienas egzaminas — 30 klausimų, tikras T1–T5 mišinys.</p>
+        <div class="topic-tag">8 skyrius</div>
+        <h1 class="topic-title">Skyriaus testai</h1>
+        <p class="topic-intro">Teoriniai ir praktiniai testai visoms planimetrijos skyriaus temoms — T1 ir T2 mišrus.</p>
       </div>
 
-      <div class="info-box">
-        <div class="info-item">⏱ <strong>Trukmė:</strong> ~45 minutės</div>
-        <div class="info-item">📝 <strong>Klausimai:</strong> 30 per egzaminą</div>
-        <div class="info-item">📚 <strong>Temos:</strong> T1 + T2 + T3 + T4 + T5</div>
-        <div class="info-item">🎯 <strong>Variantai:</strong> A, B, C + VBE</div>
-      </div>
-
-      <div class="exam-grid">
-        <a href="egzaminas-1.html" class="exam-card">
-          <div class="exam-num">Egzaminas 1</div>
-          <div class="exam-title">Trigonometrijos egzaminas 1</div>
-          <div class="exam-variant vA">A variantas</div>
-          <div class="exam-meta">
-            <span>⏱ ~45 min</span><span>📝 30 klausimų</span><span>📚 T1–T5</span>
+      <div class="section-title" style="margin-bottom:10px">Teoriniai testai — T1 · T2 — Radianai ir apibrėžtys</div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:24px;">
+        <a href="../testai/teoriniai/testas-1.html" style="text-decoration:none">
+          <div class="theory-block" style="cursor:pointer" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">
+            <div style="font-size:13px;font-weight:600;color:var(--ink);margin-bottom:4px">Teorinis testas 1</div>
+            <div style="font-size:12px;color:var(--ink3)">10 klausimų · T1+T2 mišrus</div>
           </div>
         </a>
-        <a href="egzaminas-2.html" class="exam-card">
-          <div class="exam-num">Egzaminas 2</div>
-          <div class="exam-title">Trigonometrijos egzaminas 2</div>
-          <div class="exam-variant vB">B variantas</div>
-          <div class="exam-meta">
-            <span>⏱ ~45 min</span><span>📝 30 klausimų</span><span>📚 T1–T5</span>
+        <a href="../testai/teoriniai/testas-2.html" style="text-decoration:none">
+          <div class="theory-block" style="cursor:pointer" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">
+            <div style="font-size:13px;font-weight:600;color:var(--ink);margin-bottom:4px">Teorinis testas 2</div>
+            <div style="font-size:12px;color:var(--ink3)">10 klausimų · T1+T2 mišrus</div>
           </div>
         </a>
-        <a href="egzaminas-3.html" class="exam-card">
-          <div class="exam-num">Egzaminas 3</div>
-          <div class="exam-title">Trigonometrijos egzaminas 3</div>
-          <div class="exam-variant vC">C variantas (sudėtingesnis)</div>
-          <div class="exam-meta">
-            <span>⏱ ~45 min</span><span>📝 30 klausimų</span><span>📚 T1–T5</span>
+        <a href="../testai/teoriniai/testas-3.html" style="text-decoration:none">
+          <div class="theory-block" style="cursor:pointer" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">
+            <div style="font-size:13px;font-weight:600;color:var(--ink);margin-bottom:4px">Teorinis testas 3</div>
+            <div style="font-size:12px;color:var(--ink3)">10 klausimų · T1+T2 mišrus</div>
           </div>
         </a>
       </div>
 
-      <div style="margin-top:32px;padding-top:24px;border-top:2px solid var(--border)">
-        <div class="section-title" style="margin-bottom:12px">VBE stiliaus variantai (⏱ ~45min · Sunkus)</div>
-        <div class="exam-grid">
-          <a href="variantas-1.html" class="exam-card" style="border-color:#b91c1c">
-            <div class="exam-num">Variantas 1</div>
-            <div class="exam-title">VBE stiliaus variantas 1</div>
-            <div class="exam-variant" style="background:#fef2f2;color:#b91c1c;border:1px solid #fca5a5">⚠ SUNKUS</div>
-            <div class="exam-meta"><span>⏱ ~45min</span><span>📝 30 taškų</span><span>📚 T1–T5</span></div>
-          </a>
-          <a href="variantas-2.html" class="exam-card" style="border-color:#b91c1c">
-            <div class="exam-num">Variantas 2</div>
-            <div class="exam-title">VBE stiliaus variantas 2</div>
-            <div class="exam-variant" style="background:#fef2f2;color:#b91c1c;border:1px solid #fca5a5">⚠ SUNKUS</div>
-            <div class="exam-meta"><span>⏱ ~45min</span><span>📝 30 taškų</span><span>📚 T1–T5</span></div>
-          </a>
-          <a href="variantas-3.html" class="exam-card" style="border-color:#b91c1c">
-            <div class="exam-num">Variantas 3</div>
-            <div class="exam-title">VBE stiliaus variantas 3</div>
-            <div class="exam-variant" style="background:#fef2f2;color:#b91c1c;border:1px solid #fca5a5">⚠ SUNKUS</div>
-            <div class="exam-meta"><span>⏱ ~45min</span><span>📝 30 taškų</span><span>📚 T1–T5</span></div>
-          </a>
-        </div>
+      <div class="section-title" style="margin-bottom:10px">Praktiniai testai — T1 · T2 — Radianai ir apibrėžtys</div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;">
+        <a href="../testai/praktiniai/testas-1.html" style="text-decoration:none">
+          <div class="theory-block" style="cursor:pointer" onmouseover="this.style.borderColor='var(--green)'" onmouseout="this.style.borderColor='var(--border)'">
+            <div style="font-size:13px;font-weight:600;color:var(--ink);margin-bottom:4px">Praktinis testas 1</div>
+            <div style="font-size:12px;color:var(--ink3)">10 uždavinių · T1+T2 mišrus</div>
+          </div>
+        </a>
+        <a href="../testai/praktiniai/testas-2.html" style="text-decoration:none">
+          <div class="theory-block" style="cursor:pointer" onmouseover="this.style.borderColor='var(--green)'" onmouseout="this.style.borderColor='var(--border)'">
+            <div style="font-size:13px;font-weight:600;color:var(--ink);margin-bottom:4px">Praktinis testas 2</div>
+            <div style="font-size:12px;color:var(--ink3)">10 uždavinių · T1+T2 mišrus</div>
+          </div>
+        </a>
+        <a href="../testai/praktiniai/testas-3.html" style="text-decoration:none">
+          <div class="theory-block" style="cursor:pointer" onmouseover="this.style.borderColor='var(--green)'" onmouseout="this.style.borderColor='var(--border)'">
+            <div style="font-size:13px;font-weight:600;color:var(--ink);margin-bottom:4px">Praktinis testas 3</div>
+            <div style="font-size:12px;color:var(--ink3)">10 uždavinių · T1+T2 mišrus</div>
+          </div>
+        </a>
+      </div>
+
+
+      <div class="section-title" style="margin-bottom:10px;margin-top:24px">Teoriniai testai — T3 · T4 · T5 mišrus</div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:24px;">
+        <a href="../testai/teoriniai/testas-4.html" style="text-decoration:none">
+          <div class="theory-block" style="cursor:pointer" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">
+            <div style="font-size:13px;font-weight:600;color:var(--ink);margin-bottom:4px">Teorinis testas 4</div>
+            <div style="font-size:12px;color:var(--ink3)">10 klausimų · T3+T4+T5 mišrus</div>
+          </div>
+        </a>
+        <a href="../testai/teoriniai/testas-5.html" style="text-decoration:none">
+          <div class="theory-block" style="cursor:pointer" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">
+            <div style="font-size:13px;font-weight:600;color:var(--ink);margin-bottom:4px">Teorinis testas 5</div>
+            <div style="font-size:12px;color:var(--ink3)">10 klausimų · T3+T4+T5 mišrus</div>
+          </div>
+        </a>
+        <a href="../testai/teoriniai/testas-6.html" style="text-decoration:none">
+          <div class="theory-block" style="cursor:pointer" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">
+            <div style="font-size:13px;font-weight:600;color:var(--ink);margin-bottom:4px">Teorinis testas 6</div>
+            <div style="font-size:12px;color:var(--ink3)">10 klausimų · T3+T4+T5 mišrus</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="section-title" style="margin-bottom:10px">Praktiniai testai — T3 · T4 · T5 mišrus</div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;">
+        <a href="../testai/praktiniai/testas-4.html" style="text-decoration:none">
+          <div class="theory-block" style="cursor:pointer" onmouseover="this.style.borderColor='var(--green)'" onmouseout="this.style.borderColor='var(--border)'">
+            <div style="font-size:13px;font-weight:600;color:var(--ink);margin-bottom:4px">Praktinis testas 4</div>
+            <div style="font-size:12px;color:var(--ink3)">10 uždavinių · T3+T4+T5 mišrus</div>
+          </div>
+        </a>
+        <a href="../testai/praktiniai/testas-5.html" style="text-decoration:none">
+          <div class="theory-block" style="cursor:pointer" onmouseover="this.style.borderColor='var(--green)'" onmouseout="this.style.borderColor='var(--border)'">
+            <div style="font-size:13px;font-weight:600;color:var(--ink);margin-bottom:4px">Praktinis testas 5</div>
+            <div style="font-size:12px;color:var(--ink3)">10 uždavinių · T3+T4+T5 mišrus</div>
+          </div>
+        </a>
+        <a href="../testai/praktiniai/testas-6.html" style="text-decoration:none">
+          <div class="theory-block" style="cursor:pointer" onmouseover="this.style.borderColor='var(--green)'" onmouseout="this.style.borderColor='var(--border)'">
+            <div style="font-size:13px;font-weight:600;color:var(--ink);margin-bottom:4px">Praktinis testas 6</div>
+            <div style="font-size:12px;color:var(--ink3)">10 uždavinių · T3+T4+T5 mišrus</div>
+          </div>
+        </a>
       </div>
 
     </div>
@@ -102,4 +119,3 @@
 <script src="../../../../js/main.js"></script>
 </body>
 </html>
-
