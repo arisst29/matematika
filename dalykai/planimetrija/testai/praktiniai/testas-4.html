@@ -91,7 +91,113 @@
   </div>
 </div>
 <script src="../../../../../../js/main.js"></script>
-<script>var QUESTIONS=[{"text": "Apskaičiuokite trikampio ABC plotą, jei ∠A = 45°, AB = 3√2, BC = 2√3.", "graph_id": "g_p1", "options": ["3√6", "3", "6", "3√3"], "correct": 0}, {"text": "Apskaičiuokite lygiagretainio plotą, jei kraštinės 8 ir 5, kampas 30°.", "graph_id": "g_p2", "options": ["10", "20", "40", "80"], "correct": 1}, {"text": "Trikampis ABC: ∠A = 45°, ∠B = 60°, BC = 8. Raskite AC naudodami sinusų teoremą.", "graph_id": "g_s1", "options": ["4√6", "8√2", "4√2", "8√6"], "correct": 0}, {"text": "Trikampio kraštinės a = 5, b = 6, c = 7 (p = 9). Heronas: S = √(9·4·3·2). Koks S?", "graph_id": "g_h1", "options": ["6√6", "12", "18", "6√3"], "correct": 0}, {"text": "Trikampyje ABC: MN ∥ BC, AM = 4, MB = 6, AN = 5. Koks NC?", "graph_id": "g_t1", "options": ["6,5", "7", "7,5", "8"], "correct": 2}, {"text": "Trikampio ∠B = 30°, kraštinės AB = 10, BC = 6. Koks plotas?", "options": ["15", "30", "10", "60"], "correct": 0}, {"text": "Trikampio kraštinės a = 3, b = 4, c = 5. Koks plotas pagal Heroną? (p = 6)", "options": ["6", "8", "10", "12"], "correct": 0}, {"text": "Sinusų teorema: trikampio ∠A = 30°, BC = 5. Koks apibrėžto apskritimo spindulys R?", "options": ["2,5", "5", "10", "√5"], "correct": 1}, {"text": "Lygiagretainis su kraštinėmis 6 ir 10, kampas 150°. Koks plotas?", "options": ["30", "60", "30√3", "60√3"], "correct": 0}, {"text": "Trikampio pusiaukampinė AD: AB = 6, AC = 9, BC = 10. Koks BD?", "options": ["3", "4", "5", "6"], "correct": 1}];
+<script>var QUESTIONS=[
+  {
+    "text": "Apskaičiuokite trikampio ABC plotą, jei ∠A = 45°, AB = 3√2, AC = 2√6.",
+    "graph_id": "g_p1",
+    "options": [
+      "3√6",
+      "3",
+      "6",
+      "3√3"
+    ],
+    "correct": 0
+  },
+  {
+    "text": "Apskaičiuokite lygiagretainio plotą, jei kraštinės 8 ir 5, kampas 30°.",
+    "graph_id": "g_p2",
+    "options": [
+      "10",
+      "20",
+      "40",
+      "80"
+    ],
+    "correct": 1
+  },
+  {
+    "text": "Trikampis ABC: ∠A = 45°, ∠B = 60°, BC = 8. Raskite AC naudodami sinusų teoremą.",
+    "graph_id": "g_s1",
+    "options": [
+      "4√6",
+      "8√2",
+      "4√2",
+      "8√6"
+    ],
+    "correct": 0
+  },
+  {
+    "text": "Trikampio kraštinės a = 5, b = 6, c = 7. Koks S?",
+    "graph_id": "g_h1",
+    "options": [
+      "6√6",
+      "12",
+      "18",
+      "6√3"
+    ],
+    "correct": 0
+  },
+  {
+    "text": "Trikampyje ABC: MN ∥ BC, AM = 4, MB = 6, AN = 5. Koks NC?",
+    "graph_id": "g_t1",
+    "options": [
+      "6,5",
+      "7",
+      "7,5",
+      "8"
+    ],
+    "correct": 2
+  },
+  {
+    "text": "Trikampio ∠B = 30°, kraštinės AB = 10, BC = 6. Koks plotas?",
+    "options": [
+      "15",
+      "30",
+      "10",
+      "60"
+    ],
+    "correct": 0
+  },
+  {
+    "text": "Trikampio kraštinės a = 3, b = 4, c = 5. Koks trikampio plotas?",
+    "options": [
+      "6",
+      "8",
+      "10",
+      "12"
+    ],
+    "correct": 0
+  },
+  {
+    "text": "Sinusų teorema: trikampio ∠A = 30°, BC = 5. Koks apibrėžto apskritimo spindulys R?",
+    "options": [
+      "2,5",
+      "5",
+      "10",
+      "√5"
+    ],
+    "correct": 1
+  },
+  {
+    "text": "Lygiagretainis su kraštinėmis 6 ir 10, kampas 150°. Koks plotas?",
+    "options": [
+      "30",
+      "60",
+      "30√3",
+      "60√3"
+    ],
+    "correct": 0
+  },
+  {
+    "text": "Trikampio pusiaukampinė AD: AB = 6, AC = 9, BC = 10. Koks BD?",
+    "options": [
+      "3",
+      "4",
+      "5",
+      "6"
+    ],
+    "correct": 1
+  }
+];
 var answers=new Array(QUESTIONS.length).fill(null);var submitted=false;
 function renderQuestions(){var html='';for(var qi=0;qi<QUESTIONS.length;qi++){var q=QUESTIONS[qi];html+='<div class="question-card"><div class="question-num">Klausimas '+(qi+1)+' i\u0161 '+QUESTIONS.length+'</div>';html+='<div class="question-text">'+q.text+'</div>';if(q.graph_id){var g=document.getElementById(q.graph_id);if(g)html+=g.innerHTML;}html+='<div class="options">';var L=['A','B','C','D'];for(var oi=0;oi<q.options.length;oi++){html+='<div class="option" id="opt-'+qi+'-'+oi+'" onclick="sel('+qi+','+oi+')">';html+='<div class="option-letter">'+L[oi]+'</div><div class="option-text">'+q.options[oi]+'</div></div>';}html+='</div></div>';}document.getElementById('questions').innerHTML=html;}
 function sel(qi,oi){if(submitted)return;answers[qi]=oi;for(var i=0;i<4;i++){var e=document.getElementById('opt-'+qi+'-'+i);if(e)e.classList.remove('selected');}document.getElementById('opt-'+qi+'-'+oi).classList.add('selected');var a=answers.filter(function(x){return x!==null;}).length;document.getElementById('progress').style.width=(a/QUESTIONS.length*100)+'%';document.getElementById('answered-count').textContent='Atsakyta: '+a+' / '+QUESTIONS.length;}

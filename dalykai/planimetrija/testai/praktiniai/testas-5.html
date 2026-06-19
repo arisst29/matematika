@@ -91,7 +91,112 @@
   </div>
 </div>
 <script src="../../../../../../js/main.js"></script>
-<script>var QUESTIONS=[{"text": "Trikampis ABC: ∠A = 45°, ∠B = 60°, BC = 8. Raskite ∠C ir kraštinę AB.", "graph_id": "g_s1", "options": ["∠C=75°, AB=10", "∠C=75°, AB≈7,6", "∠C=75°, AB=8sin75°/sin45°", "∠C=55°, AB=8sin75°/sin45°"], "correct": 1}, {"text": "Trikampio ∠A = 30°, AB = 10, BC = 8. Raskite ∠B.", "graph_id": "g_s2", "options": ["∠B = 38,7°", "∠B = 30°", "∠B = 60°", "∠B = 45°"], "correct": 0}, {"text": "Trikampio kraštinės a = 9, b = 10, c = 7. Raskite kampą α.", "graph_id": "g_k1", "options": ["cos α = 68/142", "cos α = 1/2, α = 60°", "cos α = 17/38°", "α ≈ 61°"], "correct": 3}, {"text": "Trikampio ABC pusiaukampinė AD: AB = 6, AC = 9, BC = 10. Koks DC?", "graph_id": "g_pa1", "options": ["4", "5", "6", "7"], "correct": 2}, {"text": "Trikampyje ABC: MN ∥ BC, AM/AB = 2/5, AN = 4. Koks AC?", "options": ["8", "10", "12", "16"], "correct": 1}, {"text": "Trikampio kraštinės 13, 14, 15. p = 21. Koks plotas?", "options": ["82", "84", "86", "88"], "correct": 1}, {"text": "Trikampio ∠B = 45°, AB = 4√2, BC = 6. Koks plotas?", "options": ["12", "24", "6√2", "12√2"], "correct": 0}, {"text": "Sinusų teorema: ∠A = 60°, a = 6√3. Koks R?", "options": ["3", "6", "9", "12"], "correct": 1}, {"text": "Lygiagretainio kraštinės 8 ir 2√2, kampas 135°. Koks plotas?", "options": ["8", "16", "8√2", "16√2"], "correct": 0}, {"text": "Kosinusų teorema: a = 5, b = 7, c = 8. Koks cos γ (prieš c)?", "options": ["1/9", "1/10", "cos γ =81,8", " γ ≈ 81,8°"], "correct": 3}];
+<script>var QUESTIONS=[
+  {
+    "text": "Trikampis ABC: ∠A = 45°, ∠B = 60°, BC = 8. Raskite ∠C ir kraštinę AB.",
+    "graph_id": "g_s1",
+    "options": [
+      "∠C=75°, AB=10",
+      "∠C=75°, AB≈7,6",
+      "∠C=75°, AB=8sin75°/sin45°",
+      "∠C=55°, AB=8sin75°/sin45°"
+    ],
+    "correct": 1
+  },
+  {
+    "text": "Trikampio ∠A = 30°, AB = 10, BC = 8. Raskite ∠B.",
+    "graph_id": "g_s2",
+    "options": [
+      "∠B = 38,7°",
+      "∠B = 30°",
+      "∠B = 60°",
+      "∠B = 45°"
+    ],
+    "correct": 0
+  },
+  {
+    "text": "Trikampio kraštinės a = 9, b = 10, c = 7. Raskite kampą α.",
+    "graph_id": "g_k1",
+    "options": [
+      "cos α = 68/142",
+      "cos α = 1/2, α = 60°",
+      "cos α = 17/38°",
+      "α ≈ 61°"
+    ],
+    "correct": 3
+  },
+  {
+    "text": "Trikampio ABC pusiaukampinė AD: AB = 6, AC = 9, BC = 10. Koks DC?",
+    "graph_id": "g_pa1",
+    "options": [
+      "4",
+      "5",
+      "6",
+      "7"
+    ],
+    "correct": 2
+  },
+  {
+    "text": "Trikampyje ABC: MN ∥ BC, AM/AB = 2/5, AN = 4. Koks AC?",
+    "options": [
+      "8",
+      "10",
+      "12",
+      "16"
+    ],
+    "correct": 1
+  },
+  {
+    "text": "Trikampio kraštinės 13, 14, 15. p = 21. Koks plotas?",
+    "options": [
+      "82",
+      "84",
+      "86",
+      "88"
+    ],
+    "correct": 1
+  },
+  {
+    "text": "Trikampio ∠B = 45°, AB = 4√2, BC = 6. Koks plotas?",
+    "options": [
+      "12",
+      "24",
+      "6√2",
+      "12√2"
+    ],
+    "correct": 0
+  },
+  {
+    "text": "Sinusų teorema: ∠A = 60°, a = 6√3. Koks R?",
+    "options": [
+      "3",
+      "6",
+      "9",
+      "12"
+    ],
+    "correct": 1
+  },
+  {
+    "text": "Lygiagretainio kraštinės 8 ir 2√2, kampas 135°. Koks plotas?",
+    "options": [
+      "8",
+      "16",
+      "8√2",
+      "16√2"
+    ],
+    "correct": 1
+  },
+  {
+    "text": "Kosinusų teorema: a = 5, b = 7, c = 8. Koks cos γ (prieš c)?",
+    "options": [
+      "1/9",
+      "1/10",
+      "cos γ =81,8",
+      " γ ≈ 81,8°"
+    ],
+    "correct": 3
+  }
+];
 var answers=new Array(QUESTIONS.length).fill(null);var submitted=false;
 function renderQuestions(){var html='';for(var qi=0;qi<QUESTIONS.length;qi++){var q=QUESTIONS[qi];html+='<div class="question-card"><div class="question-num">Klausimas '+(qi+1)+' i\u0161 '+QUESTIONS.length+'</div>';html+='<div class="question-text">'+q.text+'</div>';if(q.graph_id){var g=document.getElementById(q.graph_id);if(g)html+=g.innerHTML;}html+='<div class="options">';var L=['A','B','C','D'];for(var oi=0;oi<q.options.length;oi++){html+='<div class="option" id="opt-'+qi+'-'+oi+'" onclick="sel('+qi+','+oi+')">';html+='<div class="option-letter">'+L[oi]+'</div><div class="option-text">'+q.options[oi]+'</div></div>';}html+='</div></div>';}document.getElementById('questions').innerHTML=html;}
 function sel(qi,oi){if(submitted)return;answers[qi]=oi;for(var i=0;i<4;i++){var e=document.getElementById('opt-'+qi+'-'+i);if(e)e.classList.remove('selected');}document.getElementById('opt-'+qi+'-'+oi).classList.add('selected');var a=answers.filter(function(x){return x!==null;}).length;document.getElementById('progress').style.width=(a/QUESTIONS.length*100)+'%';document.getElementById('answered-count').textContent='Atsakyta: '+a+' / '+QUESTIONS.length;}
