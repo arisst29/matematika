@@ -58,7 +58,108 @@
   </div>
 </div>
 <script src="../../../../js/main.js"></script>
-<script>var QUESTIONS=[{"text": "Seka: 5, 8, 11, 14, ... Kokio tipo ši seka?", "options": ["Geometrinė progresija", "Aritmetinė progresija, d = 3", "Nei AP, nei GP", "Geometrinė, q = 3"], "correct": 1}, {"text": "Seka: 3, 6, 12, 24, ... Kokio tipo ši seka?", "options": ["Aritmetinė progresija, d = 3", "Geometrinė progresija, q = 2", "Nei AP, nei GP", "Aritmetinė, d = 6"], "correct": 1}, {"text": "Aritmetinė progresija: a₁ = −2, d = 5. Koks 100-asis narys?", "options": ["a₁₀₀ = 493", "a₁₀₀ = 498", "a₁₀₀ = 495", "a₁₀₀ = 490"], "correct": 0}, {"text": "Geometrinė progresija: b₁ = 48, q = <span class=\"frac\"><sup>1</sup><sub>2</sub></span>. Koks 5-asis narys?", "options": ["b₅ = 6", "b₅ = 3", "b₅ = 12", "b₅ = 4"], "correct": 1}, {"text": "Kuo skiriasi AP skirtumas d nuo GP vardiklio q?", "options": ["Jie yra tas pats dalykas", "AP — sudedame, GP — dauginame", "AP — dauginame, GP — sudedame", "Nėra skirtumo"], "correct": 1}, {"text": "Begalinė GP: b₁ = 9, q = <span class=\"frac\"><sup>1</sup><sub>3</sub></span>. Kokia jos suma S?", "options": ["S = 12", "S = 13", "S = 27", "S = <span class=\"frac\"><sup>27</sup><sub>2</sub></span>"], "correct": 1}, {"text": "Bėgikas pirmą dieną nubėga 2 km, kiekvieną kitą dieną — 0,5 km daugiau. Kiek nubėgs per 10 dienų?", "options": ["32,5 km", "42,5 km", "52,5 km", "22,5 km"], "correct": 0}, {"text": "Kas yra nykstamoji geometrinė progresija?", "options": ["GP, kurios nariai artėja prie nulio (|q| < 1)", "GP, kurios nariai didėja", "GP su neigiamu vardikliu", "GP, kurios suma lygi nuliui"], "correct": 0}, {"text": "Aritmetinė progresija: a₃ = 7, a₅ = 13. Koks skirtumas d?", "options": ["d = 2", "d = 3", "d = 4", "d = 6"], "correct": 1}, {"text": "Periodinė trupmena 0,(3) = 0,333... yra begalinės GP suma. Koks yra q?", "options": ["q = 0,3", "q = 0,1", "q = 3", "q = 0,33"], "correct": 1}];
+<script>var QUESTIONS=[
+  {
+    "text": "Seka: 5, 8, 11, 14, ... Kokio tipo ši seka?",
+    "options": [
+      "Geometrinė progresija",
+      "Aritmetinė progresija, d = 3",
+      "Nei AP, nei GP",
+      "Geometrinė, q = 3"
+    ],
+    "correct": 1
+  },
+  {
+    "text": "Seka: 3, 6, 12, 24, ... Kokio tipo ši seka?",
+    "options": [
+      "Aritmetinė progresija, d = 3",
+      "Geometrinė progresija, q = 2",
+      "Nei AP, nei GP",
+      "Aritmetinė, d = 6"
+    ],
+    "correct": 1
+  },
+  {
+    "text": "Aritmetinė progresija: a₁ = −2, d = 5. Koks 100-asis narys?",
+    "options": [
+      "a₁₀₀ = 493",
+      "a₁₀₀ = 498",
+      "a₁₀₀ = 495",
+      "a₁₀₀ = 490"
+    ],
+    "correct": 0
+  },
+  {
+    "text": "Geometrinė progresija: b₁ = 48, q = <span class=\"frac\"><sup>1</sup><sub>2</sub></span>. Koks 5-asis narys?",
+    "options": [
+      "b₅ = 6",
+      "b₅ = 3",
+      "b₅ = 12",
+      "b₅ = 4"
+    ],
+    "correct": 1
+  },
+  {
+    "text": "Kuo skiriasi AP skirtumas d nuo GP vardiklio q?",
+    "options": [
+      "Jie yra tas pats dalykas",
+      "AP — sudedame, GP — dauginame",
+      "AP — dauginame, GP — sudedame",
+      "Nėra skirtumo"
+    ],
+    "correct": 1
+  },
+  {
+    "text": "Begalinė GP: b₁ = 9, q = <span class=\"frac\"><sup>1</sup><sub>3</sub></span>. Kokia jos suma S?",
+    "options": [
+      "S = 12",
+      "S = 13",
+      "S = 27",
+      "S = <span class=\"frac\"><sup>27</sup><sub>2</sub></span>"
+    ],
+    "correct": 1
+  },
+  {
+    "text": "Sandėlyje pirmą dieną iškrauta 18 dėžių, kiekvieną kitą dieną — 4 dėžėmis daugiau. Kiek dėžių iškrauta per 7 dienas?",
+    "options": [
+      "210",
+      "126",
+      "42",
+      "168"
+    ],
+    "correct": 0
+  },
+  {
+    "text": "Kas yra nykstamoji geometrinė progresija?",
+    "options": [
+      "GP, kurios nariai artėja prie nulio (|q| < 1)",
+      "GP, kurios nariai didėja",
+      "GP su neigiamu vardikliu",
+      "GP, kurios suma lygi nuliui"
+    ],
+    "correct": 0
+  },
+  {
+    "text": "Aritmetinė progresija: a₃ = 7, a₅ = 13. Koks skirtumas d?",
+    "options": [
+      "d = 2",
+      "d = 3",
+      "d = 4",
+      "d = 6"
+    ],
+    "correct": 1
+  },
+  {
+    "text": "Periodinė trupmena 0,(3) = 0,333... yra begalinės GP suma. Koks yra q?",
+    "options": [
+      "q = 0,3",
+      "q = 0,1",
+      "q = 3",
+      "q = 0,33"
+    ],
+    "correct": 1
+  }
+];
 var answers = new Array(QUESTIONS.length).fill(null);
 var submitted = false;
 function renderQuestions() {
