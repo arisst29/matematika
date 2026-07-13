@@ -4,7 +4,7 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Testas 4 — Planimetrija</title>
-  <link rel="stylesheet" href="../../../../../../styles/main.css"/>
+  <link rel="stylesheet" href="../../../../styles/main.css"/>
   <style>
 .test-header{margin-bottom:28px}.test-header h1{font-size:24px;font-weight:600;color:var(--ink);margin-bottom:6px}
 .test-meta{display:flex;gap:16px;margin-top:10px;flex-wrap:wrap}.test-meta-item{font-size:12px;color:var(--ink3)}
@@ -49,7 +49,7 @@
   <div class="main">
     <div class="topbar">
       <div class="breadcrumb">
-        <a href="../../../../../../index.html">Matematika 11</a>
+        <a href="../../../../index.html">Matematika 11</a>
         <span class="sep">›</span><span>Planimetrija</span>
         <span class="sep">›</span><span class="current">Testas 4</span>
       </div>
@@ -90,7 +90,7 @@
     </div>
   </div>
 </div>
-<script src="../../../../../../js/main.js"></script>
+<script src="../../../../js/main.js"></script>
 <script>var QUESTIONS=[{"text": "Trikampio ploto formulė per dvi kraštines a, b ir kampą γ tarp jų:", "options": ["S = a·b·sin γ", "S = ½·a·b·sin γ", "S = ½·a·b·cos γ", "S = a²·sin γ"], "correct": 1}, {"text": "Sinusų teorema: a/sin α = b/sin β = c/sin γ = ?", "options": ["R", "2R", "R/2", "4R"], "correct": 1}, {"text": "Herono formulėje p = (a+b+c)/2 yra:", "options": ["Perimetras", "Pusperimetras", "Plotas", "Aukštinė"], "correct": 1}, {"text": "Kosinusų teorema: a² = b² + c² − 2bc·cos α. Jei α = 90°, ji virsta:", "options": ["a² = b² + c²", "a² = b² − c²", "a² = 2bc", "a² = b·c"], "correct": 0}, {"text": "Lygiagretainio ploto formulė per dvi kraštines a, b ir kampą α:", "options": ["S = ½·a·b·sin α", "S = a·b·cos α", "S = a·b·sin α", "S = 2·a·b·sin α"], "correct": 2}, {"text": "Talio teorema: jei MN ∥ BC trikampyje ABC, tai:", "options": ["AM = AN", "AM/AB = AN/AC", "AM·AB = AN·AC", "AM + MB = AN + NC"], "correct": 1}, {"text": "Kampo formulė iš kosinusų teoremos: cos α = ?", "options": ["(a²+b²−c²)/2ab", "(b²+c²−a²)/2bc", "(a²−b²+c²)/2ac", "(a²+c²+b²)/2bc"], "correct": 1}, {"text": "Trikampio plotas S = ½·a·b·sin γ. Čia γ yra:", "options": ["Kampas prieš kraštinę a", "Kampas prieš kraštinę b", "Kampas tarp kraštinių a ir b", "Bet kuris kampas"], "correct": 2}, {"text": "Trikampio pusiaukampinė iš viršūnės A į kraštinę BC taške D. Tada:", "options": ["BD = DC", "BD/DC = AB/AC", "BD·DC = AB·AC", "BD + DC = AB + AC"], "correct": 1}, {"text": "Sinusų teorema taikoma, kai žinoma:", "options": ["Tik trys kraštinės", "Du kampai ir kraštinė arba dvi kraštinės ir kampas", "Tik vienas kampas", "Tik aukštinė"], "correct": 1}];
 var answers=new Array(QUESTIONS.length).fill(null);var submitted=false;
 function renderQuestions(){var html='';for(var qi=0;qi<QUESTIONS.length;qi++){var q=QUESTIONS[qi];html+='<div class="question-card"><div class="question-num">Klausimas '+(qi+1)+' i\u0161 '+QUESTIONS.length+'</div>';html+='<div class="question-text">'+q.text+'</div>';if(q.graph_id){var g=document.getElementById(q.graph_id);if(g)html+=g.innerHTML;}html+='<div class="options">';var L=['A','B','C','D'];for(var oi=0;oi<q.options.length;oi++){html+='<div class="option" id="opt-'+qi+'-'+oi+'" onclick="sel('+qi+','+oi+')">';html+='<div class="option-letter">'+L[oi]+'</div><div class="option-text">'+q.options[oi]+'</div></div>';}html+='</div></div>';}document.getElementById('questions').innerHTML=html;}

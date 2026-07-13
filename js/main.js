@@ -31,7 +31,7 @@ const NAV = [
       { id: 't6', name: 'T6. Kvadratinė funkcija',          path: 'dalykai/funkcijos/temos/t6-kvadratine/teorija.html' },
       { id: 't7', name: 'T7. Rodiklinė funkcija',           path: 'dalykai/funkcijos/temos/t7-rodikline/teorija.html' },
       { id: 't8', name: 'T8. Rodiklinės lygtys',            path: 'dalykai/funkcijos/temos/t8-rodiklineslygtys/teorija.html' },
-      { id: 't9', name: 'T9. Rodiklinės nelygybės',         path: 'dalykai/funkcijos/temos/t9-rodiklinesnelygybės/teorija.html' },
+      { id: 't9', name: 'T9. Rodiklinės nelygybės',         path: 'dalykai/funkcijos/temos/t9-rodiklinesnelygybes/teorija.html' },
       { id: 't10', name: 'T10. Logaritminė funkcija',        path: 'dalykai/funkcijos/temos/t10-logaritmine/teorija.html' },
       { id: 't11', name: 'T11. Logaritminės lygtys',         path: 'dalykai/funkcijos/temos/t11-logaritmineslygtys/teorija.html' },
       { id: 't12', name: 'T12. Logaritminės nelygybės',      path: 'dalykai/funkcijos/temos/t12-logaritminesnelygybes/teorija.html' },
@@ -80,14 +80,11 @@ const NAV = [
 // ── KELIO SKAIČIAVIMAS ───────────────────────────────────────────────
 // Apskaičiuoja kiek lygių aukštyn reikia eiti nuo dabartinio puslapio
 function getRoot() {
-  const path = window.location.pathname;
-  // Suskaičiuojame kiek '/' yra po /matematika/ arba projekto šaknies
-  const parts = path.split('/').filter(p => p && p !== '');
-  // Randame 'matematika' arba pirmo lygio aplanką
-  const rootIdx = parts.findIndex(p =>
-    p === 'matematika' || p === 'MATEMATIKA' || p.toLowerCase().includes('matematika')
-  );
-  const depth = rootIdx >= 0 ? parts.length - rootIdx - 1 : parts.length - 1;
+  // Kelias skaičiuojamas nuo 'dalykai' aplanko — veikia ir domeno šaknyje,
+  // ir bet kaip pavadintame poaplankyje (pvz. GitHub Pages poaplankis).
+  const parts = window.location.pathname.split('/').filter(p => p);
+  const i = parts.indexOf('dalykai');
+  const depth = i >= 0 ? parts.length - 1 - i : 0;
   return depth > 0 ? '../'.repeat(depth) : './';
 }
 
@@ -258,9 +255,10 @@ document.addEventListener('DOMContentLoaded', function() {
 function addLegalLink() {
   var topbar = document.querySelector('.topbar');
   if (!topbar) return;
-  var path = window.location.pathname;
-  var depth = (path.split('/').length - 2);
-  var r = depth <= 1 ? './' : depth === 2 ? '../' : '../../';
+  var parts = window.location.pathname.split('/').filter(function(p){ return p; });
+  var i = parts.indexOf('dalykai');
+  var depth = i >= 0 ? parts.length - 1 - i : 0;
+  var r = depth > 0 ? '../'.repeat(depth) : './';
 
   var link = document.createElement('a');
   link.href = r + 'legal.html';

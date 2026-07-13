@@ -4,7 +4,7 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Testas 2 — Planimetrija</title>
-  <link rel="stylesheet" href="../../../../../../styles/main.css"/>
+  <link rel="stylesheet" href="../../../../styles/main.css"/>
   <style>
 .test-header{margin-bottom:28px}.test-header h1{font-size:24px;font-weight:600;color:var(--ink);margin-bottom:6px}
 .test-meta{display:flex;gap:16px;margin-top:10px;flex-wrap:wrap}.test-meta-item{font-size:12px;color:var(--ink3)}
@@ -49,7 +49,7 @@
   <div class="main">
     <div class="topbar">
       <div class="breadcrumb">
-        <a href="../../../../../../index.html">Matematika 11</a>
+        <a href="../../../../index.html">Matematika 11</a>
         <span class="sep">›</span><span>Planimetrija</span>
         <span class="sep">›</span><span class="current">Testas 2</span>
       </div>
@@ -90,7 +90,7 @@
     </div>
   </div>
 </div>
-<script src="../../../../../../js/main.js"></script>
+<script src="../../../../js/main.js"></script>
 <script>var QUESTIONS=[{"text": "Centrinis kampas ir įbrėžtinis kampas remiasi į tą patį lanką. Koks jų santykis?", "options": ["Įbrėžtinis = centriniam", "Centrinis = 2 × įbrėžtiniam", "Įbrėžtinis = 2 × centriniam", "Jie lygūs"], "correct": 1}, {"text": "Apskritimo stygos kerta viena kitą viduje. Atkarpų sandaugos:", "options": ["Lygios", "Skiriasi per 2", "Santykis 1:2", "Visada lygios 1"], "correct": 0}, {"text": "Apskritimo liestinė yra statmena:", "options": ["Kiekvienai stygai", "Skersmeniui", "Spinduliui į liestimosi tašką", "Kitai liestinei"], "correct": 2}, {"text": "Bukojo trikampio apibrėžto apskritimo centras yra:", "options": ["Trikampio viduje", "Ant vidurinės kraštinės", "Trikampio išorėje", "Ant įžambinės"], "correct": 2}, {"text": "Įbrėžto apskritimo į apskritimą centras yra:", "options": ["Vidurio statmenų sankirta", "Pusiaukampinių sankirta", "Aukštinių sankirta", "Kraštinių sankirta"], "correct": 1}, {"text": "Trikampio plotas S = r·p, kur p yra:", "options": ["Perimetras", "Pusperimetras", "Įbrėžto apskritimo plotas", "Apibrėžto apskritimo spindulys"], "correct": 1}, {"text": "Trikampio plotas S = abc/4R, kur R yra:", "options": ["Įbrėžto apskritimo spindulys", "Apibrėžto apskritimo spindulys", "Trikampio aukštinė", "Kraštinių ilgis"], "correct": 1}, {"text": "Stačiajam trikampiui galioja: įžambinė lygus:", "options": ["R", "2R", "R/2", "4R"], "correct": 1}, {"text": "Smailaus trikampio apibrėžto apskritimo centras yra:", "options": ["Trikampio išorėje", "Ant kraštinės", "Trikampio viduje", "Ant aukštinės"], "correct": 2}, {"text": "Jei įbrėžtinio keturkampio priešingų kampų suma lygi 180°, tai apie jį galima:", "options": ["Įbrėžti apskritimą", "Apibrėžti apskritimą", "Nei viena", "Abu variantai"], "correct": 1}];
 var answers=new Array(QUESTIONS.length).fill(null);var submitted=false;
 function renderQuestions(){var html='';for(var qi=0;qi<QUESTIONS.length;qi++){var q=QUESTIONS[qi];html+='<div class="question-card"><div class="question-num">Klausimas '+(qi+1)+' i\u0161 '+QUESTIONS.length+'</div>';html+='<div class="question-text">'+q.text+'</div>';if(q.graph_id){var g=document.getElementById(q.graph_id);if(g)html+=g.innerHTML;}html+='<div class="options">';var L=['A','B','C','D'];for(var oi=0;oi<q.options.length;oi++){html+='<div class="option" id="opt-'+qi+'-'+oi+'" onclick="sel('+qi+','+oi+')">';html+='<div class="option-letter">'+L[oi]+'</div><div class="option-text">'+q.options[oi]+'</div></div>';}html+='</div></div>';}document.getElementById('questions').innerHTML=html;}

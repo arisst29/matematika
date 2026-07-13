@@ -4,7 +4,7 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Teorinis testas 3 — Reiškiniai</title>
-  <link rel="stylesheet" href="../../../../../../styles/main.css"/>
+  <link rel="stylesheet" href="../../../../styles/main.css"/>
   <style>.test-header{margin-bottom:28px}.test-header h1{font-size:24px;font-weight:600;color:var(--ink);margin-bottom:6px}
 .test-meta{display:flex;gap:16px;margin-top:10px;flex-wrap:wrap}.test-meta-item{font-size:12px;color:var(--ink3)}
 .progress-bar{height:4px;background:var(--border);border-radius:2px;margin-bottom:28px;overflow:hidden}
@@ -46,7 +46,7 @@
   <div class="main">
     <div class="topbar">
       <div class="breadcrumb">
-        <a href="../../../../../../index.html">Matematika 11</a>
+        <a href="../../../../index.html">Matematika 11</a>
         <span class="sep">›</span><span>Reiškiniai</span>
         <span class="sep">›</span><span class="current">Teorinis testas 3</span>
       </div>
@@ -87,7 +87,7 @@
     </div>
   </div>
 </div>
-<script src="../../../../../../js/main.js"></script>
+<script src="../../../../js/main.js"></script>
 <script>var QUESTIONS=[{"text": "Kurie skaičiai priklauso iracionaliųjų skaičių aibei 𝕀?", "options": ["Visi teigiami skaičiai", "Skaičiai, išreiškiami begalinėmis neperiodinėmis dešimtainėmis trupmenomis", "Visi sveikieji skaičiai", "Skaičiai, kuriuos galima išreikšti trupmena"], "correct": 1}, {"text": "Koks yra santykis tarp ℚ ir 𝕀?", "options": ["ℚ ⊂ 𝕀", "𝕀 ⊂ ℚ", "ℚ ∩ 𝕀 = ∅ ir ℚ ∪ 𝕀 = ℝ", "Jos yra vienodos"], "correct": 2}, {"text": "Kuris intervalas žymi sąlygą −2 < x ≤ 7?", "options": ["[−2; 7]", "(−2; 7)", "(−2; 7]", "[−2; 7)"], "correct": 2}, {"text": "Duotos aibės A = [−3; 5) ir B = [1; 8]. Kas yra A ∩ B?", "options": ["[−3; 8]", "[1; 5)", "[−3; 5)", "[1; 8]"], "correct": 1}, {"text": "Kuri iš šių tvirtinimų apie aibių veiksmus yra teisinga?", "options": ["A \\ B = B \\ A visada", "Tuščioji aibė yra bet kurios aibės poaibis", "A ∪ B visada lygu A ∩ B", "A ∩ B visada lygu A"], "correct": 1}, {"text": "Kuris teiginys apie n-tojo laipsnio šaknį yra KLAIDINGAS?", "options": ["Nelyginės šaknies rodiklio šaknis gali būti neigiama", "Lyginės šaknies rodiklio šaknis visada neneigiama", "ⁿ√a · ⁿ√b = ⁿ√(ab)", "⁴√(−16) = −2"], "correct": 3}, {"text": "Kuo lygus 8^(2/3)?", "options": ["4", "2", "³√64 = 4", "A ir C yra teisingi"], "correct": 3}, {"text": "Kaip supaprastinti a^(−1/2)?", "options": ["−√a", "1/√a", "√(−a)", "a^2"], "correct": 1}, {"text": "Kokia taisyklė leidžia supaprastinti ⁶√(a²)?", "options": ["(ⁿ√a)ᵏ = ⁿ√(aᵏ)", "ⁿᵏ√(aⁿ) = ᵏ√a — rodikliai trumpinami", "ⁿ√a · ⁿ√b = ⁿ√(ab)", "ⁿ√(ⁿ√a) = ²ⁿ√a"], "correct": 1}, {"text": "Kodėl sudėdami šaknis reikia vienodinti pošakninius?", "options": ["Nes šaknys yra trupmeniniai skaičiai", "Nes tik vienodų pošakninių šaknis yra panašūs nariai, kuriuos galima sudėti", "Nes kitaip gauname nulį", "Nes skirtingų pošakninių šaknų negalima palyginti"], "correct": 1}];
 var answers=new Array(QUESTIONS.length).fill(null);var submitted=false;
 function renderQuestions(){var html='';for(var qi=0;qi<QUESTIONS.length;qi++){var q=QUESTIONS[qi];html+='<div class="question-card"><div class="question-num">Klausimas '+(qi+1)+' iš '+QUESTIONS.length+'</div>';html+='<div class="question-text">'+q.text+'</div>';html+='<div class="options">';var L=['A','B','C','D'];for(var oi=0;oi<q.options.length;oi++){html+='<div class="option" id="opt-'+qi+'-'+oi+'" onclick="sel('+qi+','+oi+')">';html+='<div class="option-letter">'+L[oi]+'</div><div class="option-text">'+q.options[oi]+'</div></div>';}html+='</div></div>';}document.getElementById('questions').innerHTML=html;}

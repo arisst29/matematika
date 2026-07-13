@@ -4,7 +4,7 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Testas 1 — Planimetrija</title>
-  <link rel="stylesheet" href="../../../../../../styles/main.css"/>
+  <link rel="stylesheet" href="../../../../styles/main.css"/>
   <style>
 .test-header{margin-bottom:28px}.test-header h1{font-size:24px;font-weight:600;color:var(--ink);margin-bottom:6px}
 .test-meta{display:flex;gap:16px;margin-top:10px;flex-wrap:wrap}.test-meta-item{font-size:12px;color:var(--ink3)}
@@ -49,7 +49,7 @@
   <div class="main">
     <div class="topbar">
       <div class="breadcrumb">
-        <a href="../../../../../../index.html">Matematika 11</a>
+        <a href="../../../../index.html">Matematika 11</a>
         <span class="sep">›</span><span>Planimetrija</span>
         <span class="sep">›</span><span class="current">Testas 1</span>
       </div>
@@ -90,7 +90,7 @@
     </div>
   </div>
 </div>
-<script src="../../../../../../js/main.js"></script>
+<script src="../../../../js/main.js"></script>
 <script>var QUESTIONS=[{"text": "Centrinis kampas AOB = 70°. Koks įbrėžtinis kampas ACB, remiasi į tą patį lanką AB?", "graph_id": "ga", "options": ["140°", "70°", "35°", "17,5°"], "correct": 2}, {"text": "Dvi apskritimo stygos AC ir DB kertasi taške E: AE = 3, EC = 6, DE = 4. Koks EB?", "graph_id": "gb", "options": ["4,5", "5", "6", "7"], "correct": 0}, {"text": "Trikampis ACB įbrėžtas į apskritimą, AB yra apskritimo skersmuo. Koks kampas C?", "graph_id": "gc", "options": ["45°", "60°", "90°", "180°"], "correct": 2}, {"text": "Iš išorinio taško A nubrėžtos dvi apskritimo liestinės, liečiančios apskritimą taškuose B ir C. AB = 9 cm. Koks AC?", "graph_id": "gd", "options": ["4,5 cm", "9 cm", "18 cm", "Negalima žinoti"], "correct": 1}, {"text": "Keturkampis ABCD įbrėžtas į apskritimą: ∠A = 65°, ∠B = 80°. Koks ∠C?", "graph_id": "ge", "options": ["65°", "80°", "115°", "100°"], "correct": 2}, {"text": "Trikampio, įbrėžto į apskritimą, kraštinės a = 6, b = 8, c = 10. Tai statusis trikampis. Koks įbrėžto apskritimo spindulys r = (a+b−c)/2?", "options": ["1", "2", "3", "4"], "correct": 1}, {"text": "Statusis trikampis įbrėžtas į apskritimą. Jo statiniai 6 ir 8. Įžambinė lygi apskritimo skersmeniui. Koks R?", "options": ["3", "4", "5", "10"], "correct": 2}, {"text": "Trikampis ACB įbrėžtas į apskritimą, kampas ACB = 30°. Koks kampas ADB, jei D irgi yra ant apskritimo ir remiasi į tą patį lanką AB?", "options": ["15°", "30°", "60°", "120°"], "correct": 1}, {"text": "Keturkampis ABCD apibrėžtas apie apskritimą (apskritimas įbrėžtas į keturkampį): AB = 7, CD = 5, BC = 8. Koks AD?", "options": ["3", "4", "5", "6"], "correct": 1}, {"text": "Trikampis su įbrėžtu apskritimu. Plotas S = 60, pusperimetras p = 15. Koks įbrėžto apskritimo spindulys r?", "options": ["2", "4", "6", "8"], "correct": 1}];
 var answers=new Array(QUESTIONS.length).fill(null);var submitted=false;
 function renderQuestions(){var html='';for(var qi=0;qi<QUESTIONS.length;qi++){var q=QUESTIONS[qi];html+='<div class="question-card"><div class="question-num">Klausimas '+(qi+1)+' i\u0161 '+QUESTIONS.length+'</div>';html+='<div class="question-text">'+q.text+'</div>';if(q.graph_id){var g=document.getElementById(q.graph_id);if(g)html+=g.innerHTML;}html+='<div class="options">';var L=['A','B','C','D'];for(var oi=0;oi<q.options.length;oi++){html+='<div class="option" id="opt-'+qi+'-'+oi+'" onclick="sel('+qi+','+oi+')">';html+='<div class="option-letter">'+L[oi]+'</div><div class="option-text">'+q.options[oi]+'</div></div>';}html+='</div></div>';}document.getElementById('questions').innerHTML=html;}

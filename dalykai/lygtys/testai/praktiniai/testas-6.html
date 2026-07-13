@@ -4,7 +4,7 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Praktinis testas 6 — Lygtys</title>
-  <link rel="stylesheet" href="../../../../../../styles/main.css"/>
+  <link rel="stylesheet" href="../../../../styles/main.css"/>
   <style>.test-header{margin-bottom:28px}.test-header h1{font-size:24px;font-weight:600;color:var(--ink);margin-bottom:6px}
 .test-meta{display:flex;gap:16px;margin-top:10px;flex-wrap:wrap}.test-meta-item{font-size:12px;color:var(--ink3)}
 .progress-bar{height:4px;background:var(--border);border-radius:2px;margin-bottom:28px;overflow:hidden}
@@ -46,7 +46,7 @@
   <div class="main">
     <div class="topbar">
       <div class="breadcrumb">
-        <a href="../../../../../../index.html">Matematika 11</a>
+        <a href="../../../../index.html">Matematika 11</a>
         <span class="sep">›</span><span>Lygtys</span>
         <span class="sep">›</span><span class="current">Praktinis testas 6</span>
       </div>
@@ -86,7 +86,7 @@
     </div>
   </div>
 </div>
-<script src="../../../../../../js/main.js"></script>
+<script src="../../../../js/main.js"></script>
 <script>var QUESTIONS=[{"text": "Nelygybės x(3 − x) &gt; 0 sprendiniai:", "options": ["x ∈ (−∞; 0) ∪ (3; +∞)", "x ∈ (0; 3)", "x ∈ [0; 3]", "x ∈ (−3; 0)"], "correct": 1}, {"text": "Nelygybės x³ &lt; 9x sprendiniai:", "options": ["x ∈ (−3; 0) ∪ (3; +∞)", "x ∈ (−∞; −3) ∪ (0; 3)", "x ∈ (−3; 3)", "x ∈ (0; 3)"], "correct": 1}, {"text": "Nelygybės (x² − 4) / (x − 1) ≥ 0 sprendiniai:", "options": ["x ∈ [−2; 1) ∪ [2; +∞)", "x ∈ (−∞; −2] ∪ (1; 2]", "x ∈ (1; 2)", "x ∈ [−2; 2]"], "correct": 0}, {"text": "Kuri iš šių nelygybių teisinga visoms x reikšmėms?", "options": ["x² − 4x + 4 &gt; 0", "x² − 6x + 10 &gt; 0", "x² − 2x − 3 &gt; 0", "x² + 4x − 5 &gt; 0"], "correct": 1}, {"text": "Nelygybių sistemos { x² − 4x − 5 ≤ 0;  2x − 3 &gt; 0 } sprendiniai:", "options": ["x ∈ [−1; 5]", "x ∈ (3/2; 5]", "x ∈ (−1; 3/2)", "x ∈ [3/2; 5]"], "correct": 1}, {"text": "Nelygybės |2x − 1| &lt; 5 sprendiniai:", "options": ["x ∈ (−2; 3)", "x ∈ (−∞; −2) ∪ (3; +∞)", "x ∈ [−2; 3]", "x ∈ (−3; 2)"], "correct": 0}, {"text": "Sporto klubas A ima 25 eurų mėnesinį mokestį ir 4 eurus už apsilankymą. Klubas B — 10 eurų ir 8 eurus už apsilankymą. Nuo kelių apsilankymų klubas A tampa pigesnis?", "options": ["Nuo 3", "Nuo 4", "Nuo 5", "Nuo 6"], "correct": 1}, {"text": "Tėtis ir sūnus vienu metu išvažiavo ta pačia kryptimi. Po 2 valandų tėtis buvo 30 km priekyje ir jau buvo nuvažiavęs 90 km. Kokiu greičiu važiavo sūnus?", "options": ["25 km/h", "30 km/h", "35 km/h", "40 km/h"], "correct": 1}, {"text": "Trys darbininkai kartu darbą atlieka per 3 valandas. Pirmasis šį darbą atliktų per 6 valandas, antrasis — per 12 valandų. Per kiek valandų darbą atliktų trečiasis vienas?", "options": ["4 h", "8 h", "12 h", "6 h"], "correct": 2}, {"text": "Dviejų skaičių suma lygi 35. Vienas skaičius yra 4 mažesnis nei dvigubas kitas. Raskite abu skaičius.", "options": ["22 ir 13", "20 ir 15", "24 ir 11", "18 ir 17"], "correct": 0}];
 var answers=new Array(QUESTIONS.length).fill(null);var submitted=false;
 function renderQuestions(){var html='';for(var qi=0;qi<QUESTIONS.length;qi++){var q=QUESTIONS[qi];html+='<div class="question-card"><div class="question-num">Klausimas '+(qi+1)+' iš '+QUESTIONS.length+'</div>';html+='<div class="question-text">'+q.text+'</div>';html+='<div class="options">';var L=['A','B','C','D'];for(var oi=0;oi<q.options.length;oi++){html+='<div class="option" id="opt-'+qi+'-'+oi+'" onclick="sel('+qi+','+oi+')">';html+='<div class="option-letter">'+L[oi]+'</div><div class="option-text">'+q.options[oi]+'</div></div>';}html+='</div></div>';}document.getElementById('questions').innerHTML=html;}
