@@ -277,28 +277,40 @@ function authGate() {
 }
 
 function updateSidebarUser() {
-  var el = document.getElementById('sidebar-user');
-  if (!el) return;
+  // Sidebar — paslėpti tuščią div
+  var sidebarEl = document.getElementById('sidebar-user');
+  if (sidebarEl) sidebarEl.style.display = 'none';
+
+  // Topbar — prisijungimo mygtukas dešinėje viršuje
+  var topbar = document.querySelector('.topbar');
+  if (!topbar) return;
   var root = getRoot();
+
+  // Pašalinti seną jei yra
+  var old = document.getElementById('topbar-user');
+  if (old) old.remove();
+
+  var el = document.createElement('div');
+  el.id = 'topbar-user';
 
   if (typeof Auth !== 'undefined' && Auth.isLoggedIn()) {
     var user = Auth.getUser();
     if (!user) return;
     el.innerHTML =
-      '<a href="' + root + 'prisijungimas.html" style="display:flex;align-items:center;gap:10px;padding:10px 12px;background:var(--green-bg);border:1px solid var(--green-lt);border-radius:var(--radius);text-decoration:none;margin-bottom:6px;transition:all 0.12s">' +
-        '<div style="width:30px;height:30px;border-radius:50%;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;flex-shrink:0">' + user.username.charAt(0).toUpperCase() + '</div>' +
-        '<div style="overflow:hidden">' +
-          '<div style="font-size:13px;font-weight:500;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">' + user.username + '</div>' +
-          '<div style="font-size:11px;color:var(--ink3)">Lygis ' + (user.level || 1) + ' · ' + (user.xp || 0) + ' XP</div>' +
-        '</div>' +
+      '<a href="' + root + 'prisijungimas.html" style="display:flex;align-items:center;gap:8px;padding:5px 12px 5px 5px;background:var(--green-bg);border:1px solid var(--green-lt);border-radius:20px;text-decoration:none;transition:all 0.12s;flex-shrink:0">' +
+        '<div style="width:28px;height:28px;border-radius:50%;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600">' + user.username.charAt(0).toUpperCase() + '</div>' +
+        '<span style="font-size:12px;font-weight:500;color:var(--ink);white-space:nowrap">' + user.username + '</span>' +
+        '<span style="font-size:11px;color:var(--ink3);white-space:nowrap">Lv.' + (user.level || 1) + '</span>' +
       '</a>';
   } else {
     el.innerHTML =
-      '<a href="' + root + 'prisijungimas.html" style="display:flex;align-items:center;gap:8px;margin-bottom:6px;padding:10px 12px;background:var(--bg3);border-radius:var(--radius);font-size:13px;font-weight:500;color:var(--ink2);text-decoration:none;transition:all 0.12s" onmouseover="this.style.background=\'var(--border)\'" onmouseout="this.style.background=\'var(--bg3)\'">' +
+      '<a href="' + root + 'prisijungimas.html" style="display:flex;align-items:center;gap:6px;padding:6px 14px;background:var(--ink);color:#fff;border-radius:var(--radius);font-size:13px;font-weight:500;text-decoration:none;transition:all 0.12s;flex-shrink:0;white-space:nowrap" onmouseover="this.style.background=\'#2a2a2a\'" onmouseout="this.style.background=\'var(--ink)\'">' +
         '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>' +
         'Prisijungti' +
       '</a>';
   }
+
+  topbar.appendChild(el);
 }
 
 function addLegalLink() {
