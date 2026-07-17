@@ -246,70 +246,45 @@ function addFormulynas() {
   document.body.appendChild(btn);
 }
 
-// ── INIT ──────────────────────────────────────────────────────────────
+// ── INIT ───────────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', function() {
   buildSidebar();
   addFormulynas();
   addLegalLink();
-  // Dinamiškai užkrauname auth.js, tada atnaujiname sidebar vartotoją
+  addTopbarUser();
   var script = document.createElement('script');
   script.src = getRoot() + 'js/auth.js';
-  script.onload = function() {
-    updateSidebarUser();
-    authGate();
-  };
-  script.onerror = function() { updateSidebarUser(); };
+  script.onload = function() { addTopbarUser(); authGate(); };
   document.head.appendChild(script);
 });
 
-// ── Auth vartai: turinio puslapiai tik prisijungusiems ──
 function authGate() {
   if (typeof Auth === 'undefined') return;
-  // Laisvi puslapiai — nereikia prisijungti
   var path = window.location.pathname;
   var free = ['index.html', 'prisijungimas.html', 'legal.html', 'atsiliepimai.html'];
   var isFree = free.some(function(p) { return path.endsWith(p) || path.endsWith('/'); });
   if (isFree) return;
-  // Jei puslapyje yra 'dalykai' — reikia prisijungti
   if (path.indexOf('dalykai') !== -1 && !Auth.isLoggedIn()) {
     window.location.href = getRoot() + 'prisijungimas.html';
   }
 }
 
-function updateSidebarUser() {
-  // Sidebar — paslėpti tuščią div
-  var sidebarEl = document.getElementById('sidebar-user');
-  if (sidebarEl) sidebarEl.style.display = 'none';
-
-  // Topbar — prisijungimo mygtukas dešinėje viršuje
+function addTopbarUser() {
   var topbar = document.querySelector('.topbar');
   if (!topbar) return;
   var root = getRoot();
-
-  // Pašalinti seną jei yra
   var old = document.getElementById('topbar-user');
   if (old) old.remove();
-
   var el = document.createElement('div');
   el.id = 'topbar-user';
-
-  if (typeof Auth !== 'undefined' && Auth.isLoggedIn()) {
-    var user = Auth.getUser();
-    if (!user) return;
-    el.innerHTML =
-      '<a href="' + root + 'prisijungimas.html" style="display:flex;align-items:center;gap:8px;padding:5px 12px 5px 5px;background:var(--green-bg);border:1px solid var(--green-lt);border-radius:20px;text-decoration:none;transition:all 0.12s;flex-shrink:0">' +
-        '<div style="width:28px;height:28px;border-radius:50%;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600">' + user.username.charAt(0).toUpperCase() + '</div>' +
-        '<span style="font-size:12px;font-weight:500;color:var(--ink);white-space:nowrap">' + user.username + '</span>' +
-        '<span style="font-size:11px;color:var(--ink3);white-space:nowrap">Lv.' + (user.level || 1) + '</span>' +
-      '</a>';
+  el.style.flexShrink = '0';
+  var loggedIn = (typeof Auth !== 'undefined') && Auth.isLoggedIn();
+  if (loggedIn) {
+    var user = Auth.getUser() || {};
+    el.innerHTML = '<a href="' + root + 'prisijungimas.html" style="display:flex;align-items:center;gap:8px;padding:5px 12px 5px 5px;background:var(--green-bg);border:1px solid var(--green-lt);border-radius:20px;text-decoration:none;transition:all 0.12s"><div style="width:28px;height:28px;border-radius:50%;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600">' + (user.username || '?').charAt(0).toUpperCase() + '</div><span style="font-size:12px;font-weight:500;color:var(--ink);white-space:nowrap">' + (user.username || '') + '</span><span style="font-size:11px;color:var(--ink3);white-space:nowrap">Lv.' + (user.level || 1) + '</span></a>';
   } else {
-    el.innerHTML =
-      '<a href="' + root + 'prisijungimas.html" style="display:flex;align-items:center;gap:6px;padding:6px 14px;background:var(--ink);color:#fff;border-radius:var(--radius);font-size:13px;font-weight:500;text-decoration:none;transition:all 0.12s;flex-shrink:0;white-space:nowrap" onmouseover="this.style.background=\'#2a2a2a\'" onmouseout="this.style.background=\'var(--ink)\'">' +
-        '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>' +
-        'Prisijungti' +
-      '</a>';
+    el.innerHTML = '<a href="' + root + 'prisijungimas.html" style="display:inline-flex;align-items:center;gap:6px;padding:6px 14px;background:var(--ink);color:#fff;border-radius:var(--radius);font-size:13px;font-weight:500;text-decoration:none;transition:all 0.12s;white-space:nowrap"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Prisijungti</a>';
   }
-
   topbar.appendChild(el);
 }
 
