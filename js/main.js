@@ -108,6 +108,7 @@ function buildSidebar() {
       ${NAV.map(subj => buildSubject(subj, root, currentPath)).join('')}
     </div>
     <div class="sidebar-bottom">
+      <div id="sidebar-user"></div>
       <a class="sidebar-action" href="${root}index.html">Pradžia</a>
       <a href="${root}atsiliepimai.html" style="display:flex;align-items:center;gap:8px;margin-top:6px;padding:10px 12px;background:var(--ink);color:#fff;border-radius:var(--radius);font-size:13px;font-weight:500;text-decoration:none;transition:background 0.15s;" onmouseover="this.style.background='#2a2a2a'" onmouseout="this.style.background='var(--ink)'">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
@@ -250,7 +251,55 @@ document.addEventListener('DOMContentLoaded', function() {
   buildSidebar();
   addFormulynas();
   addLegalLink();
+  // Dinamiškai užkrauname auth.js, tada atnaujiname sidebar vartotoją
+  var script = document.createElement('script');
+  script.src = getRoot() + 'js/auth.js';
+  script.onload = function() {
+    updateSidebarUser();
+    authGate();
+  };
+  script.onerror = function() { updateSidebarUser(); };
+  document.head.appendChild(script);
 });
+
+// ── Auth vartai: turinio puslapiai tik prisijungusiems ──
+function authGate() {
+  if (typeof Auth === 'undefined') return;
+  // Laisvi puslapiai — nereikia prisijungti
+  var path = window.location.pathname;
+  var free = ['index.html', 'prisijungimas.html', 'legal.html', 'atsiliepimai.html'];
+  var isFree = free.some(function(p) { return path.endsWith(p) || path.endsWith('/'); });
+  if (isFree) return;
+  // Jei puslapyje yra 'dalykai' — reikia prisijungti
+  if (path.indexOf('dalykai') !== -1 && !Auth.isLoggedIn()) {
+    window.location.href = getRoot() + 'prisijungimas.html';
+  }
+}
+
+function updateSidebarUser() {
+  var el = document.getElementById('sidebar-user');
+  if (!el) return;
+  var root = getRoot();
+
+  if (typeof Auth !== 'undefined' && Auth.isLoggedIn()) {
+    var user = Auth.getUser();
+    if (!user) return;
+    el.innerHTML =
+      '<a href="' + root + 'prisijungimas.html" style="display:flex;align-items:center;gap:10px;padding:10px 12px;background:var(--green-bg);border:1px solid var(--green-lt);border-radius:var(--radius);text-decoration:none;margin-bottom:6px;transition:all 0.12s">' +
+        '<div style="width:30px;height:30px;border-radius:50%;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;flex-shrink:0">' + user.username.charAt(0).toUpperCase() + '</div>' +
+        '<div style="overflow:hidden">' +
+          '<div style="font-size:13px;font-weight:500;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">' + user.username + '</div>' +
+          '<div style="font-size:11px;color:var(--ink3)">Lygis ' + (user.level || 1) + ' · ' + (user.xp || 0) + ' XP</div>' +
+        '</div>' +
+      '</a>';
+  } else {
+    el.innerHTML =
+      '<a href="' + root + 'prisijungimas.html" style="display:flex;align-items:center;gap:8px;margin-bottom:6px;padding:10px 12px;background:var(--bg3);border-radius:var(--radius);font-size:13px;font-weight:500;color:var(--ink2);text-decoration:none;transition:all 0.12s" onmouseover="this.style.background=\'var(--border)\'" onmouseout="this.style.background=\'var(--bg3)\'">' +
+        '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>' +
+        'Prisijungti' +
+      '</a>';
+  }
+}
 
 function addLegalLink() {
   var topbar = document.querySelector('.topbar');
