@@ -54,10 +54,10 @@ const Auth = {
   },
 
   // ── Registracija ──
-  async register(username, password) {
+  async register(username, password, turnstileToken) {
     const data = await this.request('/api/register', {
       method: 'POST',
-      body: JSON.stringify({ username, password }),
+      body: JSON.stringify({ username, password, turnstile_token: turnstileToken }),
     });
     this.setToken(data.token);
     this.setUser(data.user);
@@ -65,10 +65,10 @@ const Auth = {
   },
 
   // ── Prisijungimas ──
-  async login(username, password) {
+  async login(username, password, turnstileToken) {
     const data = await this.request('/api/login', {
       method: 'POST',
-      body: JSON.stringify({ username, password }),
+      body: JSON.stringify({ username, password, turnstile_token: turnstileToken }),
     });
     this.setToken(data.token);
     this.setUser(data.user);

@@ -255,6 +255,7 @@
   margin-top: 24px;
 }
   </style>
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
 <div class="layout">
@@ -300,7 +301,8 @@
                 <button type="button" onclick="togglePassword('login-password', this)">rodyti</button>
               </div>
             </div>
-            <button class="auth-btn" onclick="doLogin()" id="login-btn">Prisijungti</button>
+            <div class="cf-turnstile" data-sitekey="0x4AAAAAAD5Lh7DvglcrSUdb" data-callback="onTurnstileLogin" data-theme="auto" id="turnstile-login" style="margin-bottom:12px"></div>
+            <button class="auth-btn" onclick="doLogin()" id="login-btn" disabled>Prisijungti</button>
           </div>
 
           <!-- Registracijos forma -->
@@ -324,7 +326,8 @@
                 <button type="button" onclick="togglePassword('reg-password2', this)">rodyti</button>
               </div>
             </div>
-            <button class="auth-btn" onclick="doRegister()" id="reg-btn">Sukurti paskyrą</button>
+            <div class="cf-turnstile" data-sitekey="0x4AAAAAAD5Lh7DvglcrSUdb" data-callback="onTurnstileRegister" data-theme="auto" id="turnstile-register" style="margin-bottom:12px"></div>
+            <button class="auth-btn" onclick="doRegister()" id="reg-btn" disabled>Sukurti paskyrą</button>
             <div class="auth-footer">
               Registruodamiesi sutinkate su <a href="legal.html">naudojimo sąlygomis</a>.
             </div>
@@ -365,8 +368,27 @@
 <script src="js/auth.js"></script>
 <script src="js/main.js"></script>
 <script>
+
+// ── Turnstile callbacks ──
+var turnstileLoginToken = '';
+var turnstileRegisterToken = '';
+
+function onTurnstileLogin(token) {
+  turnstileLoginToken = token;
+  document.getElementById('login-btn').disabled = false;
+}
+
+function onTurnstileRegister(token) {
+  turnstileRegisterToken = token;
+  document.getElementById('reg-btn').disabled = false;
+}
+
 // ── Tab perjungimas ──
 function showTab(tab) {
+    if (typeof turnstile !== 'undefined') { turnstile.reset(); }
+    turnstileLoginToken = ''; turnstileRegisterToken = '';
+    document.getElementById('login-btn').disabled = true;
+    document.getElementById('reg-btn').disabled = true;
   document.getElementById('login-form').style.display = tab === 'login' ? 'block' : 'none';
   document.getElementById('register-form').style.display = tab === 'register' ? 'block' : 'none';
   document.querySelectorAll('.auth-tab').forEach(function(t, i) {
@@ -418,13 +440,14 @@ async function doLogin() {
   btn.textContent = 'Jungiamasi...';
 
   try {
-    await Auth.login(username, password);
+    await Auth.login(username, password, turnstileLoginToken);
     showProfileView();
   } catch (err) {
     showError(err.message);
   } finally {
     btn.disabled = false;
     btn.textContent = 'Prisijungti';
+    if (typeof turnstile !== 'undefined') { turnstile.reset('#turnstile-login'); turnstileLoginToken = ''; btn.disabled = true; }
   }
 }
 
@@ -444,13 +467,14 @@ async function doRegister() {
   btn.textContent = 'Kuriama...';
 
   try {
-    await Auth.register(username, password);
+    await Auth.register(username, password, turnstileRegisterToken);
     showProfileView();
   } catch (err) {
     showError(err.message);
   } finally {
     btn.disabled = false;
     btn.textContent = 'Sukurti paskyrą';
+    if (typeof turnstile !== 'undefined') { turnstile.reset('#turnstile-register'); turnstileRegisterToken = ''; btn.disabled = true; }
   }
 }
 
