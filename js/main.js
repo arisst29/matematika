@@ -98,8 +98,8 @@ function buildSidebar() {
 
   sidebar.innerHTML = `
     <div class="sidebar-logo">
-      <a href="${root}index.html" style="text-decoration:none">
-        <div class="brand">Mathematikus <span>11</span></div>
+      <a href="${root}index.html" style="text-decoration:none;display:block">
+        <img src="${root}logo.svg" alt="31415.lt" style="height:36px;width:auto">
         <div class="sub">Mokymosi platforma</div>
       </a>
     </div>
@@ -248,6 +248,10 @@ function addFormulynas() {
 
 // ── INIT ───────────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', function() {
+  // Favicon
+  var fi = document.createElement('link');
+  fi.rel = 'icon'; fi.type = 'image/svg+xml'; fi.href = getRoot() + 'favicon.svg';
+  document.head.appendChild(fi);
   buildSidebar();
   addFormulynas();
   addLegalLink();
@@ -262,6 +266,9 @@ document.addEventListener('DOMContentLoaded', function() {
     gs.src = getRoot() + 'js/gamification.js';
     document.head.appendChild(gs);
   };
+    var fb = document.createElement("script");
+    fb.src = getRoot() + "js/feedback.js";
+    document.head.appendChild(fb);
   document.head.appendChild(script);
 });
 

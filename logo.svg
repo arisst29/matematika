@@ -1,0 +1,19 @@
+<svg width="680" height="260" viewBox="0 0 680 260" xmlns="http://www.w3.org/2000/svg" role="img">
+<title>31415.lt logotipas</title>
+<desc>Juodas kvadratas su balta linijine π raide kairėje, dešinėje užrašas 31415 storu šriftu su tuščiaviduriu tašku tarp 3 ir 1, ir .lt lengvesniu žalios spalvos šriftu</desc>
+
+<rect x="60" y="50" width="160" height="160" rx="28" fill="#111111"/>
+
+<g fill="none" stroke="#FFFFFF" stroke-width="10" stroke-linecap="round">
+<line x1="100" y1="105" x2="180" y2="105"/>
+<line x1="122" y1="105" x2="122" y2="170"/>
+<line x1="158" y1="105" x2="158" y2="150"/>
+</g>
+<circle cx="158" cy="170" r="7" fill="#1D9E75"/>
+
+<text x="248" y="168" font-size="96" font-weight="500" letter-spacing="-2" fill="#111111" font-family="Arial, Helvetica, sans-serif">3</text>
+<circle cx="322" cy="150" r="6" fill="none" stroke="#1D9E75" stroke-width="1.5" opacity="0.35"/>
+<text x="336" y="168" font-size="96" font-weight="500" letter-spacing="-2" fill="#111111" font-family="Arial, Helvetica, sans-serif">1415</text>
+<text x="565" y="168" font-size="60" font-weight="400" fill="#1D9E75" font-family="Arial, Helvetica, sans-serif">.lt</text>
+
+</svg>
