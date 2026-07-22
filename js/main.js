@@ -254,14 +254,21 @@ document.addEventListener('DOMContentLoaded', function() {
   addTopbarUser();
   var script = document.createElement('script');
   script.src = getRoot() + 'js/auth.js';
-  script.onload = function() { addTopbarUser(); authGate(); };
+  script.onload = function() {
+    addTopbarUser();
+    authGate();
+    // Gamification modulis
+    var gs = document.createElement('script');
+    gs.src = getRoot() + 'js/gamification.js';
+    document.head.appendChild(gs);
+  };
   document.head.appendChild(script);
 });
 
 function authGate() {
   if (typeof Auth === 'undefined') return;
   var path = window.location.pathname;
-  var free = ['index.html', 'prisijungimas.html', 'legal.html', 'atsiliepimai.html'];
+  var free = ['index.html', 'prisijungimas.html', 'legal.html', 'atsiliepimai.html', 'lyderiai.html'];
   var isFree = free.some(function(p) { return path.endsWith(p) || path.endsWith('/'); });
   if (isFree) return;
   if (path.indexOf('dalykai') !== -1 && !Auth.isLoggedIn()) {
