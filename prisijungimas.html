@@ -5,257 +5,85 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Prisijungimas — Mathematikus 11</title>
   <link rel="stylesheet" href="styles/main.css"/>
-  <style>
-.auth-container {
-  max-width: 400px;
-  margin: 40px auto;
-}
-
-.auth-card {
-  background: var(--bg2);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 32px;
-  box-shadow: var(--shadow);
-}
-
-.auth-title {
-  font-size: 22px;
-  font-weight: 600;
-  color: var(--ink);
-  margin-bottom: 4px;
-}
-
-.auth-subtitle {
-  font-size: 14px;
-  color: var(--ink3);
-  margin-bottom: 24px;
-}
-
-.auth-tabs {
-  display: flex;
-  gap: 4px;
-  background: var(--bg3);
-  border-radius: var(--radius);
-  padding: 3px;
-  margin-bottom: 24px;
-}
-
-.auth-tab {
-  flex: 1;
-  padding: 8px;
-  text-align: center;
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--ink3);
-  border: none;
-  background: transparent;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: all 0.15s;
-  font-family: var(--sans);
-}
-
-.auth-tab.active {
-  background: var(--bg2);
-  color: var(--ink);
-  box-shadow: var(--shadow-sm);
-}
-
-.form-group {
-  margin-bottom: 16px;
-}
-
-.form-label {
-  display: block;
-  font-size: 12px;
-  font-weight: 500;
-  color: var(--ink2);
-  margin-bottom: 6px;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.form-input {
-  width: 100%;
-  padding: 10px 14px;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  font-size: 15px;
-  font-family: var(--sans);
-  color: var(--ink);
-  background: var(--bg);
-  transition: border-color 0.15s, box-shadow 0.15s;
-  box-sizing: border-box;
-}
-
-.form-input:focus {
-  outline: none;
-  border-color: var(--ink);
-  box-shadow: 0 0 0 3px rgba(20, 20, 20, 0.08);
-}
-
-.form-input::placeholder {
-  color: var(--ink3);
-}
-
-.form-hint {
-  font-size: 12px;
-  color: var(--ink3);
-  margin-top: 4px;
-}
-
-.auth-btn {
-  width: 100%;
-  padding: 12px;
-  background: var(--ink);
-  color: #fff;
-  border: none;
-  border-radius: var(--radius);
-  font-size: 14px;
-  font-weight: 500;
-  font-family: var(--sans);
-  cursor: pointer;
-  transition: all 0.15s;
-  margin-top: 8px;
-}
-
-.auth-btn:hover {
-  background: #2a2a2a;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 14px rgba(0,0,0,0.18);
-}
-
-.auth-btn:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-  transform: none;
-  box-shadow: none;
-}
-
-.auth-error {
-  background: var(--red-bg);
-  color: var(--red);
-  padding: 10px 14px;
-  border-radius: var(--radius);
-  font-size: 13px;
-  margin-bottom: 16px;
-  display: none;
-  border: 1px solid var(--red-lt);
-}
-
-.auth-success {
-  background: var(--green-bg);
-  color: var(--green);
-  padding: 10px 14px;
-  border-radius: var(--radius);
-  font-size: 13px;
-  margin-bottom: 16px;
-  display: none;
-  border: 1px solid var(--green-lt);
-}
-
-.auth-footer {
-  text-align: center;
-  margin-top: 20px;
-  font-size: 13px;
-  color: var(--ink3);
-}
-
-.auth-footer a {
-  color: var(--ink);
-  font-weight: 500;
-  text-decoration: none;
-}
-
-.auth-footer a:hover {
-  text-decoration: underline;
-}
-
-.password-toggle {
-  position: relative;
-}
-
-.password-toggle .form-input {
-  padding-right: 44px;
-}
-
-.password-toggle button {
-  position: absolute;
-  right: 8px;
-  top: 50%;
-  transform: translateY(-50%);
-  background: none;
-  border: none;
-  color: var(--ink3);
-  cursor: pointer;
-  padding: 4px 8px;
-  font-size: 12px;
-  font-family: var(--sans);
-}
-
-.password-toggle button:hover {
-  color: var(--ink);
-}
-
-.profile-card {
-  text-align: center;
-  padding: 20px 0;
-}
-
-.profile-avatar {
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  background: var(--ink);
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 24px;
-  font-weight: 600;
-  margin: 0 auto 16px;
-}
-
-.profile-name {
-  font-size: 20px;
-  font-weight: 600;
-  color: var(--ink);
-  margin-bottom: 4px;
-}
-
-.profile-stats {
-  display: flex;
-  justify-content: center;
-  gap: 24px;
-  margin: 20px 0;
-}
-
-.profile-stat {
-  text-align: center;
-}
-
-.profile-stat-value {
-  font-size: 22px;
-  font-weight: 600;
-  color: var(--ink);
-}
-
-.profile-stat-label {
-  font-size: 11px;
-  color: var(--ink3);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.profile-actions {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  margin-top: 24px;
-}
-  </style>
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+  <style>
+.auth-container { max-width: 440px; margin: 40px auto; }
+.auth-card { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 32px; box-shadow: var(--shadow); }
+.auth-tabs { display: flex; gap: 4px; background: var(--bg3); border-radius: var(--radius); padding: 3px; margin-bottom: 24px; }
+.auth-tab { flex: 1; padding: 8px; text-align: center; font-size: 13px; font-weight: 500; color: var(--ink3); border: none; background: transparent; border-radius: 6px; cursor: pointer; transition: all 0.15s; font-family: var(--sans); }
+.auth-tab.active { background: var(--bg2); color: var(--ink); box-shadow: var(--shadow-sm); }
+.form-group { margin-bottom: 16px; }
+.form-label { display: block; font-size: 12px; font-weight: 500; color: var(--ink2); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.05em; }
+.form-input { width: 100%; padding: 10px 14px; border: 1px solid var(--border); border-radius: var(--radius); font-size: 15px; font-family: var(--sans); color: var(--ink); background: var(--bg); transition: border-color 0.15s, box-shadow 0.15s; box-sizing: border-box; }
+.form-input:focus { outline: none; border-color: var(--ink); box-shadow: 0 0 0 3px rgba(20,20,20,0.08); }
+.form-input::placeholder { color: var(--ink3); }
+.form-hint { font-size: 12px; color: var(--ink3); margin-top: 4px; }
+.auth-btn { width: 100%; padding: 12px; background: var(--ink); color: #fff; border: none; border-radius: var(--radius); font-size: 14px; font-weight: 500; font-family: var(--sans); cursor: pointer; transition: all 0.15s; margin-top: 8px; }
+.auth-btn:hover { background: #2a2a2a; transform: translateY(-1px); box-shadow: 0 4px 14px rgba(0,0,0,0.18); }
+.auth-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; box-shadow: none; }
+.auth-error { background: var(--red-bg); color: var(--red); padding: 10px 14px; border-radius: var(--radius); font-size: 13px; margin-bottom: 16px; display: none; border: 1px solid var(--red-lt); }
+.auth-success { background: var(--green-bg); color: var(--green); padding: 10px 14px; border-radius: var(--radius); font-size: 13px; margin-bottom: 16px; display: none; border: 1px solid var(--green-lt); }
+.auth-footer { text-align: center; margin-top: 20px; font-size: 13px; color: var(--ink3); }
+.auth-footer a { color: var(--ink); font-weight: 500; text-decoration: none; }
+.auth-footer a:hover { text-decoration: underline; }
+.password-toggle { position: relative; }
+.password-toggle .form-input { padding-right: 44px; }
+.password-toggle button { position: absolute; right: 8px; top: 50%; transform: translateY(-50%); background: none; border: none; color: var(--ink3); cursor: pointer; padding: 4px 8px; font-size: 12px; font-family: var(--sans); }
+.password-toggle button:hover { color: var(--ink); }
+.note-banner { background: var(--amber-bg); border: 1px solid var(--amber-lt); border-radius: var(--radius-lg); padding: 18px 22px; margin-bottom: 20px; font-size: 13.5px; color: var(--ink2); line-height: 1.6; }
+.note-banner-label { font-size: 11px; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; color: var(--amber); margin-bottom: 8px; }
+
+/* ── Profilio kortelė ── */
+.pf-card { background: linear-gradient(160deg, #1a1a2e 0%, #16213e 55%, #0f3460 100%); border-radius: 20px; padding: 32px 28px; color: #fff; position: relative; overflow: hidden; }
+.pf-card::before { content: ''; position: absolute; top: -60px; right: -60px; width: 200px; height: 200px; background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%); border-radius: 50%; }
+.pf-top { display: flex; align-items: center; gap: 16px; position: relative; z-index: 1; }
+.pf-avatar-wrap { position: relative; cursor: pointer; }
+.pf-avatar { width: 68px; height: 68px; border-radius: 50%; background: rgba(255,255,255,0.12); border: 2px solid rgba(255,255,255,0.25); display: flex; align-items: center; justify-content: center; font-size: 32px; transition: transform 0.15s; }
+.pf-avatar-wrap:hover .pf-avatar { transform: scale(1.06); }
+.pf-avatar-edit { position: absolute; bottom: -2px; right: -2px; width: 22px; height: 22px; border-radius: 50%; background: #fff; color: #1a1a2e; display: flex; align-items: center; justify-content: center; font-size: 11px; border: 2px solid #16213e; }
+.pf-name { font-size: 20px; font-weight: 700; }
+.pf-rank { font-size: 12.5px; color: rgba(255,255,255,0.6); margin-top: 2px; }
+
+.pf-level-row { margin-top: 22px; position: relative; z-index: 1; }
+.pf-level-label { display: flex; justify-content: space-between; font-size: 12px; color: rgba(255,255,255,0.7); margin-bottom: 6px; }
+.pf-level-label strong { color: #fff; font-weight: 600; }
+.pf-progress-track { height: 10px; background: rgba(255,255,255,0.12); border-radius: 6px; overflow: hidden; }
+.pf-progress-fill { height: 100%; background: linear-gradient(90deg, #34d399, #10b981); border-radius: 6px; transition: width 0.6s ease; }
+.pf-level-sub { font-size: 11.5px; color: rgba(255,255,255,0.5); margin-top: 6px; }
+
+.pf-stats { display: flex; gap: 12px; margin-top: 22px; position: relative; z-index: 1; }
+.pf-stat-box { flex: 1; background: rgba(255,255,255,0.07); border-radius: 14px; padding: 14px 10px; text-align: center; }
+.pf-stat-value { font-size: 26px; font-weight: 800; line-height: 1.1; }
+.pf-stat-label { font-size: 10.5px; color: rgba(255,255,255,0.55); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 4px; }
+.pf-streak-flame { font-size: 22px; vertical-align: middle; }
+
+.pf-multiplier-note { margin-top: 16px; background: rgba(255,255,255,0.06); border-radius: 10px; padding: 10px 14px; font-size: 12px; color: rgba(255,255,255,0.7); line-height: 1.5; position: relative; z-index: 1; }
+.pf-multiplier-note strong { color: #34d399; }
+
+.pf-achievements { margin-top: 18px; position: relative; z-index: 1; }
+.pf-achievements-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: rgba(255,255,255,0.55); margin-bottom: 10px; }
+.pf-ach-grid { display: flex; gap: 8px; flex-wrap: wrap; }
+.pf-ach-item { width: 40px; height: 40px; border-radius: 10px; background: rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; font-size: 19px; }
+.pf-ach-item.locked { opacity: 0.22; filter: grayscale(1); }
+
+.pf-recent { margin-top: 18px; position: relative; z-index: 1; }
+.pf-recent-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: rgba(255,255,255,0.55); margin-bottom: 8px; }
+.pf-recent-row { display: flex; justify-content: space-between; align-items: center; padding: 7px 0; border-bottom: 1px solid rgba(255,255,255,0.08); font-size: 13px; }
+.pf-recent-row:last-child { border-bottom: none; }
+.pf-recent-name { color: rgba(255,255,255,0.75); }
+.pf-recent-pct { font-weight: 700; }
+
+.pf-actions { display: flex; gap: 10px; margin-top: 22px; position: relative; z-index: 1; }
+.pf-btn { flex: 1; text-align: center; padding: 11px; border-radius: 10px; font-size: 13.5px; font-weight: 600; text-decoration: none; cursor: pointer; border: none; font-family: inherit; }
+.pf-btn.primary { background: #fff; color: #16213e; }
+.pf-btn.ghost { background: rgba(255,255,255,0.1); color: #fff; }
+
+/* Avatar picker */
+.avatar-popover { position: absolute; top: 78px; left: 0; background: var(--bg2); border: 1px solid var(--border); border-radius: 14px; padding: 14px; box-shadow: 0 12px 32px rgba(0,0,0,0.25); display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; z-index: 50; width: 220px; }
+.avatar-popover-item { width: 44px; height: 44px; border-radius: 10px; background: var(--bg3); display: flex; align-items: center; justify-content: center; font-size: 22px; cursor: pointer; border: 2px solid transparent; transition: all 0.1s; }
+.avatar-popover-item:hover { background: var(--accent-lt); transform: scale(1.08); }
+.avatar-popover-item.selected { border-color: var(--green); }
+  </style>
 </head>
 <body>
 <div class="layout">
@@ -272,9 +100,9 @@
     <div class="page">
       <div class="auth-container">
 
-        <!-- Informacinė pastaba -->
-        <div style="background:var(--amber-bg);border:1px solid var(--amber-lt);border-radius:var(--radius-lg);padding:18px 22px;margin-bottom:20px;font-size:13.5px;color:var(--ink2);line-height:1.6">
-          <div style="font-size:11px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:var(--amber);margin-bottom:8px">Pastaba</div>
+        <!-- Informacinė pastaba (tik prieš prisijungimą) -->
+        <div id="note-banner" class="note-banner">
+          <div class="note-banner-label">Pastaba</div>
           Tai yra preliminari puslapio versija, tačiau, kad pilnai išbandyti visas jos funkcijas bei galimybes, prašome jūsų prisijungti. Pastebėkite, jog neprašome jokių asmeninių detalių (vardų, pavardžių, el. paštų) — tik slapyvardį ir slaptažodį. Tačiau <strong>pamiršus slaptažodį, jo negalėsite atkurti</strong>, todėl slaptažodį kurkitės su mintimi arba jį kažkur užsirašykite.
         </div>
 
@@ -288,7 +116,6 @@
           <div id="auth-error" class="auth-error"></div>
           <div id="auth-success" class="auth-success"></div>
 
-          <!-- Prisijungimo forma -->
           <div id="login-form">
             <div class="form-group">
               <label class="form-label" for="login-username">Slapyvardis</label>
@@ -305,7 +132,6 @@
             <button class="auth-btn" onclick="doLogin()" id="login-btn" disabled>Prisijungti</button>
           </div>
 
-          <!-- Registracijos forma -->
           <div id="register-form" style="display:none">
             <div class="form-group">
               <label class="form-label" for="reg-username">Slapyvardis</label>
@@ -328,34 +154,62 @@
             </div>
             <div class="cf-turnstile" data-sitekey="0x4AAAAAAD5Lh7DvglcrSUdb" data-callback="onTurnstileRegister" data-theme="auto" id="turnstile-register" style="margin-bottom:12px"></div>
             <button class="auth-btn" onclick="doRegister()" id="reg-btn" disabled>Sukurti paskyrą</button>
-            <div class="auth-footer">
-              Registruodamiesi sutinkate su <a href="legal.html">naudojimo sąlygomis</a>.
-            </div>
+            <div class="auth-footer">Registruodamiesi sutinkate su <a href="legal.html">naudojimo sąlygomis</a>.</div>
           </div>
         </div>
 
         <!-- Profilio rodinys (kai prisijungęs) -->
-        <div id="profile-view" class="auth-card" style="display:none">
-          <div class="profile-card">
-            <div class="profile-avatar" id="profile-avatar">?</div>
-            <div class="profile-name" id="profile-name">—</div>
-            <div class="profile-stats">
-              <div class="profile-stat">
-                <div class="profile-stat-value" id="profile-xp">0</div>
-                <div class="profile-stat-label">XP</div>
+        <div id="profile-view" style="display:none">
+          <div class="pf-card">
+            <div class="pf-top">
+              <div class="pf-avatar-wrap" id="avatar-trigger" onclick="toggleAvatarPicker(event)">
+                <div class="pf-avatar" id="pf-avatar">🦁</div>
+                <div class="pf-avatar-edit">✎</div>
+                <div id="avatar-popover" class="avatar-popover" style="display:none"></div>
               </div>
-              <div class="profile-stat">
-                <div class="profile-stat-value" id="profile-level">1</div>
-                <div class="profile-stat-label">Lygis</div>
-              </div>
-              <div class="profile-stat">
-                <div class="profile-stat-value" id="profile-streak">0</div>
-                <div class="profile-stat-label">Streak</div>
+              <div>
+                <div class="pf-name" id="pf-name">—</div>
+                <div class="pf-rank" id="pf-rank">Vieta: —</div>
               </div>
             </div>
-            <div class="profile-actions">
-              <a href="index.html" class="btn primary" style="justify-content:center">Mokytis →</a>
-              <button class="btn" onclick="doLogout()" style="justify-content:center;width:100%">Atsijungti</button>
+
+            <div class="pf-level-row">
+              <div class="pf-level-label"><span>Lygis <strong id="pf-level">1</strong></span><span id="pf-xp-remaining">— XP iki kito lygio</span></div>
+              <div class="pf-progress-track"><div class="pf-progress-fill" id="pf-progress-fill" style="width:0%"></div></div>
+              <div class="pf-level-sub" id="pf-xp-total">0 XP iš viso</div>
+            </div>
+
+            <div class="pf-stats">
+              <div class="pf-stat-box">
+                <div class="pf-stat-value" id="pf-xp">0</div>
+                <div class="pf-stat-label">XP</div>
+              </div>
+              <div class="pf-stat-box">
+                <div class="pf-stat-value"><span class="pf-streak-flame">🔥</span> <span id="pf-streak">0</span></div>
+                <div class="pf-stat-label">Dienų iš eilės</div>
+              </div>
+              <div class="pf-stat-box">
+                <div class="pf-stat-value" id="pf-ach-count">0/11</div>
+                <div class="pf-stat-label">Pasiekimai</div>
+              </div>
+            </div>
+
+            <div class="pf-multiplier-note" id="pf-multiplier-note"></div>
+
+            <div class="pf-achievements">
+              <div class="pf-achievements-label">Pasiekimai</div>
+              <div class="pf-ach-grid" id="pf-ach-grid"></div>
+            </div>
+
+            <div class="pf-recent" id="pf-recent-section" style="display:none">
+              <div class="pf-recent-label">Paskutiniai testai</div>
+              <div id="pf-recent-list"></div>
+            </div>
+
+            <div class="pf-actions">
+              <a href="index.html" class="pf-btn primary">Mokytis →</a>
+              <a href="lyderiai.html" class="pf-btn ghost">🏆 Lyderiai</a>
+              <button class="pf-btn ghost" onclick="doLogout()">Atsijungti</button>
             </div>
           </div>
         </div>
@@ -368,163 +222,206 @@
 <script src="js/auth.js"></script>
 <script src="js/main.js"></script>
 <script>
+var AVATAR_LIST = ["🦁","🐯","🐼","🦊","🐨","🐸","🐙","🦉","🦄","🐢","🐳","🦋","🐝","🐬","🦖","🐺"];
 
-// ── Turnstile callbacks ──
-var turnstileLoginToken = '';
-var turnstileRegisterToken = '';
-
-function onTurnstileLogin(token) {
-  turnstileLoginToken = token;
-  document.getElementById('login-btn').disabled = false;
-}
-
-function onTurnstileRegister(token) {
-  turnstileRegisterToken = token;
-  document.getElementById('reg-btn').disabled = false;
-}
-
-// ── Tab perjungimas ──
 function showTab(tab) {
-    if (typeof turnstile !== 'undefined') { turnstile.reset(); }
-    turnstileLoginToken = ''; turnstileRegisterToken = '';
-    document.getElementById('login-btn').disabled = true;
-    document.getElementById('reg-btn').disabled = true;
   document.getElementById('login-form').style.display = tab === 'login' ? 'block' : 'none';
   document.getElementById('register-form').style.display = tab === 'register' ? 'block' : 'none';
   document.querySelectorAll('.auth-tab').forEach(function(t, i) {
     t.classList.toggle('active', (tab === 'login' && i === 0) || (tab === 'register' && i === 1));
   });
   hideMessages();
+  if (typeof turnstile !== 'undefined') { turnstile.reset(); }
+  turnstileLoginToken = ''; turnstileRegisterToken = '';
+  document.getElementById('login-btn').disabled = true;
+  document.getElementById('reg-btn').disabled = true;
 }
 
-// ── Slaptažodžio rodymas ──
+var turnstileLoginToken = '';
+var turnstileRegisterToken = '';
+function onTurnstileLogin(token) { turnstileLoginToken = token; document.getElementById('login-btn').disabled = false; }
+function onTurnstileRegister(token) { turnstileRegisterToken = token; document.getElementById('reg-btn').disabled = false; }
+
 function togglePassword(id, btn) {
   var input = document.getElementById(id);
-  if (input.type === 'password') {
-    input.type = 'text';
-    btn.textContent = 'slėpti';
-  } else {
-    input.type = 'password';
-    btn.textContent = 'rodyti';
-  }
+  if (input.type === 'password') { input.type = 'text'; btn.textContent = 'slėpti'; }
+  else { input.type = 'password'; btn.textContent = 'rodyti'; }
 }
 
-// ── Pranešimai ──
 function showError(msg) {
   var el = document.getElementById('auth-error');
-  el.textContent = msg;
-  el.style.display = 'block';
+  el.textContent = msg; el.style.display = 'block';
   document.getElementById('auth-success').style.display = 'none';
 }
-
 function showSuccess(msg) {
   var el = document.getElementById('auth-success');
-  el.textContent = msg;
-  el.style.display = 'block';
+  el.textContent = msg; el.style.display = 'block';
   document.getElementById('auth-error').style.display = 'none';
 }
-
 function hideMessages() {
   document.getElementById('auth-error').style.display = 'none';
   document.getElementById('auth-success').style.display = 'none';
 }
 
-// ── Prisijungimas ──
 async function doLogin() {
   var username = document.getElementById('login-username').value.trim();
   var password = document.getElementById('login-password').value;
   if (!username || !password) return showError('Įvesk slapyvardį ir slaptažodį');
-
   var btn = document.getElementById('login-btn');
-  btn.disabled = true;
-  btn.textContent = 'Jungiamasi...';
-
+  btn.disabled = true; btn.textContent = 'Jungiamasi...';
   try {
     await Auth.login(username, password, turnstileLoginToken);
     showProfileView();
   } catch (err) {
     showError(err.message);
+    if (typeof turnstile !== 'undefined') { turnstile.reset('#turnstile-login'); }
+    turnstileLoginToken = '';
   } finally {
-    btn.disabled = false;
-    btn.textContent = 'Prisijungti';
-    if (typeof turnstile !== 'undefined') { turnstile.reset('#turnstile-login'); turnstileLoginToken = ''; btn.disabled = true; }
+    btn.disabled = !turnstileLoginToken; btn.textContent = 'Prisijungti';
   }
 }
 
-// ── Registracija ──
 async function doRegister() {
   var username = document.getElementById('reg-username').value.trim();
   var password = document.getElementById('reg-password').value;
   var password2 = document.getElementById('reg-password2').value;
-
   if (!username || !password) return showError('Užpildyk visus laukus');
   if (password !== password2) return showError('Slaptažodžiai nesutampa');
   if (password.length < 6) return showError('Slaptažodis turi būti bent 6 simbolių');
   if (username.length < 3) return showError('Slapyvardis turi būti bent 3 simbolių');
-
   var btn = document.getElementById('reg-btn');
-  btn.disabled = true;
-  btn.textContent = 'Kuriama...';
-
+  btn.disabled = true; btn.textContent = 'Kuriama...';
   try {
     await Auth.register(username, password, turnstileRegisterToken);
     showProfileView();
   } catch (err) {
     showError(err.message);
+    if (typeof turnstile !== 'undefined') { turnstile.reset('#turnstile-register'); }
+    turnstileRegisterToken = '';
   } finally {
-    btn.disabled = false;
-    btn.textContent = 'Sukurti paskyrą';
-    if (typeof turnstile !== 'undefined') { turnstile.reset('#turnstile-register'); turnstileRegisterToken = ''; btn.disabled = true; }
+    btn.disabled = !turnstileRegisterToken; btn.textContent = 'Sukurti paskyrą';
   }
 }
 
-// ── Atsijungimas ──
-function doLogout() {
-  Auth.logout();
-}
+function doLogout() { Auth.logout(); }
 
-// ── Profilio rodymas ──
+var ACH_META = {
+  first_test:{icon:'🎯'}, ten_tests:{icon:'🔥'}, fifty_tests:{icon:'💪'}, perfect:{icon:'💎'},
+  all_chapters:{icon:'🌟'}, streak_3:{icon:'🔥'}, streak_7:{icon:'⚡'}, streak_30:{icon:'🏆'},
+  xp_500:{icon:'⭐'}, xp_2000:{icon:'🌠'}, vbe_complete:{icon:'🎓'}
+};
+
 function showProfileView() {
   var user = Auth.getUser();
   if (!user) return;
 
+  document.getElementById('note-banner').style.display = 'none';
   document.getElementById('auth-forms').style.display = 'none';
   document.getElementById('profile-view').style.display = 'block';
   document.getElementById('page-title').textContent = 'Profilis';
 
-  document.getElementById('profile-avatar').textContent = user.username.charAt(0).toUpperCase();
-  document.getElementById('profile-name').textContent = user.username;
-  document.getElementById('profile-xp').textContent = user.xp || 0;
-  document.getElementById('profile-level').textContent = user.level || 1;
-  document.getElementById('profile-streak').textContent = user.streak_days || 0;
+  document.getElementById('pf-avatar').textContent = user.avatar || '🦁';
+  document.getElementById('pf-name').textContent = user.username;
 
-  // Gauti šviežius duomenis iš API
-  Auth.getProfile().then(function(profile) {
-    document.getElementById('profile-xp').textContent = profile.xp || 0;
-    document.getElementById('profile-level').textContent = profile.level || 1;
-    document.getElementById('profile-streak').textContent = profile.streak_days || 0;
+  Auth.request('/api/profile').then(function(p) {
+    Auth.setUser(Object.assign(user, { xp: p.xp, streak_days: p.streak_days, avatar: p.avatar }));
+
+    document.getElementById('pf-avatar').textContent = p.avatar || '🦁';
+    document.getElementById('pf-rank').textContent = 'Vieta: #' + p.rank;
+    document.getElementById('pf-xp').textContent = p.xp;
+    document.getElementById('pf-streak').textContent = p.streak_days;
+    document.getElementById('pf-level').textContent = p.level;
+    document.getElementById('pf-xp-total').textContent = p.xp + ' XP iš viso';
+    document.getElementById('pf-progress-fill').style.width = p.progress_pct + '%';
+    document.getElementById('pf-xp-remaining').textContent = p.next_level_xp !== null
+      ? (p.next_level_xp - p.xp) + ' XP iki kito lygio'
+      : 'Maksimalus lygis!';
+
+    var bonus = Math.floor(p.streak_days / 3) * 5;
+    var noteEl = document.getElementById('pf-multiplier-note');
+    if (bonus > 0) {
+      noteEl.innerHTML = '🔥 Dabartinis streak bonusas: <strong>+' + bonus + '% XP</strong>. Kas 3 dienas iš eilės bonusas auga dar +5% (3d → +5%, 6d → +10%, 9d → +15%...).';
+    } else {
+      noteEl.innerHTML = 'Mokykis 3 dienas iš eilės ir gauk <strong>+5% XP</strong> bonusą! Kas kitas 3 dienas bonusas auga dar +5%.';
+    }
+
+    document.getElementById('pf-ach-count').textContent = p.achievements.length + '/11';
+    var achGrid = document.getElementById('pf-ach-grid');
+    var unlockedIds = {};
+    p.achievements.forEach(function(a) { unlockedIds[a.achievement] = true; });
+    achGrid.innerHTML = '';
+    Object.keys(ACH_META).forEach(function(id) {
+      var unlocked = !!unlockedIds[id];
+      var div = document.createElement('div');
+      div.className = 'pf-ach-item' + (unlocked ? '' : ' locked');
+      div.textContent = ACH_META[id].icon;
+      div.title = id;
+      achGrid.appendChild(div);
+    });
+
+    if (p.recent && p.recent.length > 0) {
+      document.getElementById('pf-recent-section').style.display = 'block';
+      var list = document.getElementById('pf-recent-list');
+      list.innerHTML = '';
+      p.recent.slice(0, 5).forEach(function(r) {
+        var pct = Math.round(r.score / r.max_score * 100);
+        var color = pct >= 80 ? '#34d399' : pct >= 50 ? '#fbbf24' : '#f87171';
+        var row = document.createElement('div');
+        row.className = 'pf-recent-row';
+        row.innerHTML = '<span class="pf-recent-name">' + r.chapter + ' / ' + r.test_id + '</span><span class="pf-recent-pct" style="color:' + color + '">' + pct + '%' + (r.xp_earned > 0 ? ' +' + r.xp_earned + 'XP' : '') + '</span>';
+        list.appendChild(row);
+      });
+    }
   }).catch(function() {
-    // Token pasibaigęs — išloginti
     Auth.removeToken();
     window.location.reload();
   });
 }
 
-// ── Enter klavišo palaikymas ──
-document.getElementById('login-password').addEventListener('keydown', function(e) {
-  if (e.key === 'Enter') doLogin();
-});
-document.getElementById('login-username').addEventListener('keydown', function(e) {
-  if (e.key === 'Enter') doLogin();
-});
-document.getElementById('reg-password2').addEventListener('keydown', function(e) {
-  if (e.key === 'Enter') doRegister();
+function toggleAvatarPicker(e) {
+  e.stopPropagation();
+  var pop = document.getElementById('avatar-popover');
+  if (pop.style.display === 'grid') { pop.style.display = 'none'; return; }
+
+  var current = (Auth.getUser() || {}).avatar || '';
+  pop.innerHTML = '';
+  AVATAR_LIST.forEach(function(emoji) {
+    var item = document.createElement('div');
+    item.className = 'avatar-popover-item' + (emoji === current ? ' selected' : '');
+    item.textContent = emoji;
+    item.onclick = function(ev) {
+      ev.stopPropagation();
+      selectAvatar(emoji);
+    };
+    pop.appendChild(item);
+  });
+  pop.style.display = 'grid';
+}
+
+document.addEventListener('click', function(e) {
+  var pop = document.getElementById('avatar-popover');
+  var trigger = document.getElementById('avatar-trigger');
+  if (pop && pop.style.display === 'grid' && !trigger.contains(e.target)) {
+    pop.style.display = 'none';
+  }
 });
 
-// ── Patikrinti ar jau prisijungęs ──
-if (Auth.isLoggedIn()) {
-  showProfileView();
+async function selectAvatar(emoji) {
+  document.getElementById('pf-avatar').textContent = emoji;
+  document.getElementById('avatar-popover').style.display = 'none';
+  try {
+    await Auth.request('/api/avatar', { method: 'PATCH', body: JSON.stringify({ avatar: emoji }) });
+    var user = Auth.getUser() || {};
+    user.avatar = emoji;
+    Auth.setUser(user);
+  } catch (err) { console.error('Avatar update failed:', err); }
 }
+
+document.getElementById('login-password').addEventListener('keydown', function(e) { if (e.key === 'Enter') doLogin(); });
+document.getElementById('login-username').addEventListener('keydown', function(e) { if (e.key === 'Enter') doLogin(); });
+document.getElementById('reg-password2').addEventListener('keydown', function(e) { if (e.key === 'Enter') doRegister(); });
+
+if (Auth.isLoggedIn()) { showProfileView(); }
 </script>
 </body>
 </html>

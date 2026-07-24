@@ -6,22 +6,32 @@
   <title>Lyderių lentelė — Mathematikus 11</title>
   <link rel="stylesheet" href="styles/main.css"/>
   <style>
-.lb-container { max-width: 640px; margin: 0 auto; }
-.lb-title { font-size: 24px; font-weight: 600; color: var(--ink); margin-bottom: 4px; }
-.lb-subtitle { font-size: 14px; color: var(--ink3); margin-bottom: 24px; }
-.lb-table { width: 100%; border-collapse: separate; border-spacing: 0; }
-.lb-row { display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-bottom: 1px solid var(--border); transition: background 0.1s; }
+.lb-container { max-width: 680px; margin: 0 auto; }
+.lb-hero { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 55%, #0f3460 100%); border-radius: 20px; padding: 28px 30px; color: #fff; margin-bottom: 20px; position: relative; overflow: hidden; }
+.lb-hero::before { content: '🏆'; position: absolute; font-size: 140px; opacity: 0.08; right: -20px; top: -30px; }
+.lb-hero-title { font-size: 24px; font-weight: 800; position: relative; z-index: 1; }
+.lb-hero-sub { font-size: 13.5px; color: rgba(255,255,255,0.7); margin-top: 4px; position: relative; z-index: 1; }
+.lb-prize { margin-top: 16px; background: rgba(255,255,255,0.09); border-radius: 12px; padding: 14px 18px; font-size: 13.5px; line-height: 1.6; position: relative; z-index: 1; }
+.lb-prize strong { color: #fbbf24; }
+
+.lb-table { background: var(--bg2); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; }
+.lb-row { display: flex; align-items: center; gap: 12px; padding: 12px 18px; border-bottom: 1px solid var(--border); transition: background 0.1s; }
+.lb-row:last-child { border-bottom: none; }
 .lb-row:hover { background: var(--bg3); }
-.lb-row.top3 { background: var(--amber-bg); border-color: var(--amber-lt); }
-.lb-row.me { background: var(--green-bg); border: 2px solid var(--green-lt); border-radius: var(--radius); margin-top: 8px; }
-.lb-rank { width: 32px; font-size: 15px; font-weight: 600; color: var(--ink3); text-align: center; flex-shrink: 0; }
-.lb-row.top3 .lb-rank { color: var(--amber); font-size: 18px; }
-.lb-avatar { width: 34px; height: 34px; border-radius: 50%; background: var(--ink); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600; flex-shrink: 0; }
-.lb-name { font-size: 14px; font-weight: 500; color: var(--ink); flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.lb-xp { font-size: 14px; font-weight: 600; color: var(--ink); white-space: nowrap; }
-.lb-streak { font-size: 12px; color: var(--ink3); white-space: nowrap; }
+.lb-row.top1 { background: linear-gradient(90deg, #fef9c3, transparent); }
+.lb-row.top2 { background: linear-gradient(90deg, #f1f5f9, transparent); }
+.lb-row.top3 { background: linear-gradient(90deg, #fef3e2, transparent); }
+.lb-row.prize-zone { border-left: 3px solid #34d399; }
+.lb-row.me { background: var(--green-bg) !important; border: 2px solid var(--green-lt); border-radius: 12px; margin: 8px; }
+.lb-rank { width: 30px; font-size: 14px; font-weight: 700; color: var(--ink3); text-align: center; flex-shrink: 0; }
+.lb-row.top1 .lb-rank, .lb-row.top2 .lb-rank, .lb-row.top3 .lb-rank { font-size: 20px; }
+.lb-avatar { width: 36px; height: 36px; border-radius: 50%; background: var(--bg3); display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+.lb-name { font-size: 14px; font-weight: 600; color: var(--ink); flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.lb-badges { display: flex; gap: 4px; align-items: center; }
+.lb-xp { font-size: 14.5px; font-weight: 700; color: var(--ink); white-space: nowrap; min-width: 70px; text-align: right; }
+.lb-streak { font-size: 12px; color: var(--amber); white-space: nowrap; }
 .lb-loading { text-align: center; padding: 40px; color: var(--ink3); font-size: 14px; }
-.lb-separator { padding: 8px 16px; text-align: center; font-size: 13px; color: var(--ink3); }
+.lb-separator { padding: 6px 16px; text-align: center; font-size: 16px; color: var(--ink3); letter-spacing: 4px; }
   </style>
 </head>
 <body>
@@ -37,11 +47,17 @@
     </div>
     <div class="page">
       <div class="lb-container">
-        <div class="lb-title">🏆 Lyderių lentelė</div>
-        <div class="lb-subtitle">Top 50 pagal XP taškus</div>
-        <div id="lb-content">
+
+        <div class="lb-hero">
+          <div class="lb-hero-title">🏆 Lyderių lentelė</div>
+          <div class="lb-hero-sub">Top 50 mokinių pagal surinktus XP taškus</div>
+          <div class="lb-prize" id="lb-prize-text"></div>
+        </div>
+
+        <div id="lb-content" class="lb-table">
           <div class="lb-loading">Kraunama...</div>
         </div>
+
       </div>
     </div>
   </div>
@@ -49,34 +65,43 @@
 <script src="js/auth.js"></script>
 <script src="js/main.js"></script>
 <script>
+var MONTHS_GEN = ['sausio','vasario','kovo','balandžio','gegužės','birželio','liepos','rugpjūčio','rugsėjo','spalio','lapkričio','gruodžio'];
+
+function setPrizeText() {
+  var monthName = MONTHS_GEN[new Date().getMonth()];
+  document.getElementById('lb-prize-text').innerHTML =
+    '🎁 <strong>' + monthName.charAt(0).toUpperCase() + monthName.slice(1) + ' mėnesio prizas:</strong> Top 15 mokinių šio mėnesio pabaigoje gauna <strong>2 mėnesius Mathematikus artimiausiu metu nemokamai!</strong>';
+}
+
 async function loadLeaderboard() {
   var container = document.getElementById('lb-content');
   try {
     var data = await Auth.getLeaderboard();
     var html = '';
+    var medals = ['🥇','🥈','🥉'];
 
     data.top.forEach(function(user, i) {
       var rank = i + 1;
-      var isTop3 = rank <= 3;
-      var medals = ['🥇','🥈','🥉'];
+      var rowClass = rank === 1 ? 'top1' : rank === 2 ? 'top2' : rank === 3 ? 'top3' : '';
+      var isPrizeZone = rank <= 15;
       var isMe = Auth.isLoggedIn() && Auth.getUser() && Auth.getUser().username === user.username;
 
-      html += '<div class="lb-row' + (isTop3 ? ' top3' : '') + (isMe ? ' me' : '') + '">';
-      html += '<div class="lb-rank">' + (isTop3 ? medals[rank-1] : rank) + '</div>';
-      html += '<div class="lb-avatar">' + user.username.charAt(0).toUpperCase() + '</div>';
+      html += '<div class="lb-row' + (rowClass ? ' ' + rowClass : '') + (isPrizeZone ? ' prize-zone' : '') + (isMe ? ' me' : '') + '">';
+      html += '<div class="lb-rank">' + (rank <= 3 ? medals[rank-1] : rank) + '</div>';
+      html += '<div class="lb-avatar">' + (user.avatar || '🦁') + '</div>';
       html += '<div class="lb-name">' + user.username + (isMe ? ' (tu)' : '') + '</div>';
-      html += '<div class="lb-streak">' + (user.streak_days > 0 ? '🔥' + user.streak_days + 'd' : '') + '</div>';
+      html += '<div class="lb-badges">' + (user.streak_days > 0 ? '<span class="lb-streak">🔥' + user.streak_days + 'd</span>' : '') + '</div>';
       html += '<div class="lb-xp">' + user.xp + ' XP</div>';
       html += '</div>';
     });
 
     if (data.user) {
-      html += '<div class="lb-separator">· · ·</div>';
+      html += '<div class="lb-separator">⋯</div>';
       html += '<div class="lb-row me">';
       html += '<div class="lb-rank">' + data.user.rank + '</div>';
-      html += '<div class="lb-avatar">' + data.user.username.charAt(0).toUpperCase() + '</div>';
+      html += '<div class="lb-avatar">' + (data.user.avatar || '🦁') + '</div>';
       html += '<div class="lb-name">' + data.user.username + ' (tu)</div>';
-      html += '<div class="lb-streak">' + (data.user.streak_days > 0 ? '🔥' + data.user.streak_days + 'd' : '') + '</div>';
+      html += '<div class="lb-badges">' + (data.user.streak_days > 0 ? '<span class="lb-streak">🔥' + data.user.streak_days + 'd</span>' : '') + '</div>';
       html += '<div class="lb-xp">' + data.user.xp + ' XP</div>';
       html += '</div>';
     }
@@ -87,6 +112,7 @@ async function loadLeaderboard() {
   }
 }
 
+setPrizeText();
 loadLeaderboard();
 </script>
 </body>

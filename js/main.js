@@ -289,13 +289,22 @@ function addTopbarUser() {
   var root = getRoot();
   var old = document.getElementById('topbar-user');
   if (old) old.remove();
+  var oldLb = document.getElementById('topbar-leaderboard');
+  if (oldLb) oldLb.remove();
+  var lb = document.createElement('a');
+  lb.id = 'topbar-leaderboard';
+  lb.href = root + 'lyderiai.html';
+  lb.style.cssText = 'display:inline-flex;align-items:center;gap:5px;padding:6px 12px;background:var(--amber-bg);border:1px solid var(--amber-lt);color:var(--amber);border-radius:var(--radius);font-size:12.5px;font-weight:600;text-decoration:none;white-space:nowrap;flex-shrink:0;margin-right:8px';
+  lb.innerHTML = '🏆 Lyderiai';
+  topbar.appendChild(lb);
   var el = document.createElement('div');
   el.id = 'topbar-user';
   el.style.flexShrink = '0';
   var loggedIn = (typeof Auth !== 'undefined') && Auth.isLoggedIn();
   if (loggedIn) {
     var user = Auth.getUser() || {};
-    el.innerHTML = '<a href="' + root + 'prisijungimas.html" style="display:flex;align-items:center;gap:8px;padding:5px 12px 5px 5px;background:var(--green-bg);border:1px solid var(--green-lt);border-radius:20px;text-decoration:none;transition:all 0.12s"><div style="width:28px;height:28px;border-radius:50%;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600">' + (user.username || '?').charAt(0).toUpperCase() + '</div><span style="font-size:12px;font-weight:500;color:var(--ink);white-space:nowrap">' + (user.username || '') + '</span><span style="font-size:11px;color:var(--ink3);white-space:nowrap">Lv.' + (user.level || 1) + '</span></a>';
+    var avatar = user.avatar || '🦁';
+    el.innerHTML = '<a href="' + root + 'prisijungimas.html" style="display:flex;align-items:center;gap:8px;padding:5px 12px 5px 5px;background:var(--green-bg);border:1px solid var(--green-lt);border-radius:20px;text-decoration:none;transition:all 0.12s"><div style="width:28px;height:28px;border-radius:50%;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;font-size:15px">' + avatar + '</div><span style="font-size:12px;font-weight:500;color:var(--ink);white-space:nowrap">' + (user.username || '') + '</span></a>';
   } else {
     el.innerHTML = '<a href="' + root + 'prisijungimas.html" style="display:inline-flex;align-items:center;gap:6px;padding:6px 14px;background:var(--ink);color:#fff;border-radius:var(--radius);font-size:13px;font-weight:500;text-decoration:none;transition:all 0.12s;white-space:nowrap"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Prisijungti</a>';
   }
