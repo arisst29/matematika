@@ -275,7 +275,7 @@ document.addEventListener('DOMContentLoaded', function() {
 function authGate() {
   if (typeof Auth === 'undefined') return;
   var path = window.location.pathname;
-  var free = ['index.html', 'prisijungimas.html', 'legal.html', 'atsiliepimai.html'];
+  var free = ['index.html', 'prisijungimas.html', 'legal.html', 'atsiliepimai.html', 'lyderiai.html'];
   var isFree = free.some(function(p) { return path.endsWith(p) || path.endsWith('/'); });
   if (isFree) return;
   if (!Auth.isLoggedIn()) {

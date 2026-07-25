@@ -8,7 +8,7 @@
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
   <style>
 .auth-container { max-width: 440px; margin: 40px auto; transition: max-width 0.2s; }
-.auth-container.wide { max-width: 640px; }
+.auth-container.wide { max-width: 760px; }
 .auth-card { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 32px; box-shadow: var(--shadow); }
 .auth-tabs { display: flex; gap: 4px; background: var(--bg3); border-radius: var(--radius); padding: 3px; margin-bottom: 24px; }
 .auth-tab { flex: 1; padding: 8px; text-align: center; font-size: 13px; font-weight: 500; color: var(--ink3); border: none; background: transparent; border-radius: 6px; cursor: pointer; transition: all 0.15s; font-family: var(--sans); }
@@ -35,47 +35,48 @@
 .note-banner-label { font-size: 11px; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; color: var(--amber); margin-bottom: 8px; }
 
 /* ── Profilio kortelė ── */
-.pf-card { background: linear-gradient(160deg, #1a1a2e 0%, #16213e 55%, #0f3460 100%); border-radius: 22px; padding: 40px 44px; color: #fff; position: relative; overflow: hidden; }
-.pf-card::before { content: ''; position: absolute; top: -80px; right: -80px; width: 260px; height: 260px; background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%); border-radius: 50%; }
-.pf-top { display: flex; align-items: center; gap: 20px; position: relative; z-index: 1; }
+.pf-card { background: linear-gradient(160deg, #1a1a2e 0%, #16213e 55%, #0f3460 100%); border-radius: 24px; padding: 48px 52px; color: #fff; position: relative; overflow: hidden; }
+.pf-card::before { content: ''; position: absolute; top: -90px; right: -90px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%); border-radius: 50%; }
+.pf-top { display: flex; align-items: center; gap: 22px; position: relative; z-index: 1; }
 .pf-avatar-wrap { position: relative; cursor: pointer; }
-.pf-avatar { width: 82px; height: 82px; border-radius: 50%; background: rgba(255,255,255,0.12); border: 2px solid rgba(255,255,255,0.25); display: flex; align-items: center; justify-content: center; font-size: 38px; transition: transform 0.15s; }
+.pf-avatar { width: 92px; height: 92px; border-radius: 50%; background: rgba(255,255,255,0.12); border: 2px solid rgba(255,255,255,0.25); display: flex; align-items: center; justify-content: center; font-size: 44px; transition: transform 0.15s; }
 .pf-avatar-wrap:hover .pf-avatar { transform: scale(1.06); }
-.pf-avatar-edit { position: absolute; bottom: -2px; right: -2px; width: 26px; height: 26px; border-radius: 50%; background: #fff; color: #1a1a2e; display: flex; align-items: center; justify-content: center; font-size: 13px; border: 2px solid #16213e; }
-.pf-name { font-size: 24px; font-weight: 700; }
-.pf-rank { font-size: 13.5px; color: rgba(255,255,255,0.6); margin-top: 3px; }
+.pf-avatar-edit { position: absolute; bottom: -2px; right: -2px; width: 28px; height: 28px; border-radius: 50%; background: #fff; color: #1a1a2e; display: flex; align-items: center; justify-content: center; font-size: 14px; border: 2px solid #16213e; }
+.pf-name { font-size: 27px; font-weight: 700; }
+.pf-rank { font-size: 14.5px; color: rgba(255,255,255,0.6); margin-top: 4px; }
 
-.pf-level-row { margin-top: 28px; position: relative; z-index: 1; }
-.pf-level-label { display: flex; justify-content: space-between; font-size: 13px; color: rgba(255,255,255,0.7); margin-bottom: 7px; }
+.pf-level-row { margin-top: 32px; position: relative; z-index: 1; }
+.pf-level-label { display: flex; justify-content: space-between; font-size: 14px; color: rgba(255,255,255,0.7); margin-bottom: 8px; }
 .pf-level-label strong { color: #fff; font-weight: 600; }
-.pf-progress-track { height: 12px; background: rgba(255,255,255,0.12); border-radius: 7px; overflow: hidden; }
+.pf-progress-track { height: 13px; background: rgba(255,255,255,0.12); border-radius: 7px; overflow: hidden; }
 .pf-progress-fill { height: 100%; background: linear-gradient(90deg, #34d399, #10b981); border-radius: 7px; transition: width 0.6s ease; }
-.pf-level-sub { font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 7px; }
+.pf-level-sub { font-size: 12.5px; color: rgba(255,255,255,0.5); margin-top: 8px; }
 
-.pf-stats { display: flex; gap: 14px; margin-top: 28px; position: relative; z-index: 1; }
-.pf-stat-box { flex: 1; background: rgba(255,255,255,0.07); border-radius: 16px; padding: 20px 14px; text-align: center; }
-.pf-stat-value { font-size: 32px; font-weight: 800; line-height: 1.1; }
-.pf-stat-label { font-size: 11.5px; color: rgba(255,255,255,0.55); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 6px; }
-.pf-streak-flame { font-size: 26px; vertical-align: middle; }
+.pf-stats { display: flex; gap: 16px; margin-top: 32px; position: relative; z-index: 1; }
+.pf-stat-box { flex: 1; background: rgba(255,255,255,0.07); border-radius: 18px; padding: 24px 16px; text-align: center; }
+.pf-stat-value { font-size: 36px; font-weight: 800; line-height: 1.1; }
+.pf-stat-label { font-size: 12px; color: rgba(255,255,255,0.55); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 7px; }
+.pf-streak-flame { font-size: 29px; vertical-align: middle; }
 
-.pf-multiplier-note { margin-top: 20px; background: rgba(255,255,255,0.06); border-radius: 12px; padding: 14px 18px; font-size: 13px; color: rgba(255,255,255,0.7); line-height: 1.6; position: relative; z-index: 1; }
+.pf-multiplier-note { margin-top: 22px; background: rgba(255,255,255,0.06); border-radius: 14px; padding: 16px 20px; font-size: 13.5px; color: rgba(255,255,255,0.7); line-height: 1.6; position: relative; z-index: 1; }
 .pf-multiplier-note strong { color: #34d399; }
 
-.pf-achievements { margin-top: 22px; position: relative; z-index: 1; }
-.pf-achievements-label { font-size: 11.5px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: rgba(255,255,255,0.55); margin-bottom: 12px; }
-.pf-ach-grid { display: flex; gap: 10px; flex-wrap: wrap; }
-.pf-ach-item { width: 48px; height: 48px; border-radius: 12px; background: rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; font-size: 23px; }
+.pf-achievements { margin-top: 26px; position: relative; z-index: 1; }
+.pf-achievements-label { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: rgba(255,255,255,0.55); margin-bottom: 14px; }
+.pf-ach-grid { display: flex; gap: 12px; flex-wrap: wrap; }
+.pf-ach-item { width: 54px; height: 54px; border-radius: 14px; background: rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; font-size: 26px; cursor: help; transition: background 0.12s; }
+.pf-ach-item:hover { background: rgba(255,255,255,0.16); }
 .pf-ach-item.locked { opacity: 0.22; filter: grayscale(1); }
 
-.pf-recent { margin-top: 22px; position: relative; z-index: 1; }
-.pf-recent-label { font-size: 11.5px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: rgba(255,255,255,0.55); margin-bottom: 10px; }
-.pf-recent-row { display: flex; justify-content: space-between; align-items: center; padding: 9px 0; border-bottom: 1px solid rgba(255,255,255,0.08); font-size: 14px; }
+.pf-recent { margin-top: 26px; position: relative; z-index: 1; }
+.pf-recent-label { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: rgba(255,255,255,0.55); margin-bottom: 11px; }
+.pf-recent-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.08); font-size: 14.5px; }
 .pf-recent-row:last-child { border-bottom: none; }
 .pf-recent-name { color: rgba(255,255,255,0.75); }
 .pf-recent-pct { font-weight: 700; }
 
-.pf-actions { display: flex; gap: 12px; margin-top: 28px; position: relative; z-index: 1; }
-.pf-btn { flex: 1; text-align: center; padding: 13px; border-radius: 12px; font-size: 14.5px; font-weight: 600; text-decoration: none; cursor: pointer; border: none; font-family: inherit; }
+.pf-actions { display: flex; gap: 14px; margin-top: 32px; position: relative; z-index: 1; }
+.pf-btn { flex: 1; text-align: center; padding: 15px; border-radius: 13px; font-size: 15px; font-weight: 600; text-decoration: none; cursor: pointer; border: none; font-family: inherit; }
 .pf-btn.primary { background: #fff; color: #16213e; }
 .pf-btn.ghost { background: rgba(255,255,255,0.1); color: #fff; }
 
@@ -307,9 +308,17 @@ async function doRegister() {
 function doLogout() { Auth.logout(); }
 
 var ACH_META = {
-  first_test:{icon:'🎯'}, ten_tests:{icon:'🔥'}, fifty_tests:{icon:'💪'}, perfect:{icon:'💎'},
-  all_chapters:{icon:'🌟'}, streak_3:{icon:'🔥'}, streak_7:{icon:'⚡'}, streak_30:{icon:'🏆'},
-  xp_500:{icon:'⭐'}, xp_2000:{icon:'🌠'}, vbe_complete:{icon:'🎓'}
+  first_test:{icon:'🎯',name:'Pirmas žingsnis',desc:'Atlik savo pirmą testą'},
+  ten_tests:{icon:'🔥',name:'Dešimtukas',desc:'Atlik 10 testų (nesvarbu, kokiu rezultatu)'},
+  fifty_tests:{icon:'💪',name:'Penkiasdešimtukas',desc:'Atlik 50 testų'},
+  perfect:{icon:'💎',name:'Tobulumas',desc:'Gauk 100% bet kuriame teste'},
+  all_chapters:{icon:'🌟',name:'Visų sričių žinovas',desc:'Išlaikyk (≥80%) bent po vieną testą iš visų 7 skyrių'},
+  streak_3:{icon:'🔥',name:'Trys iš eilės',desc:'Atlik testą 3 dienas iš eilės'},
+  streak_7:{icon:'⚡',name:'Savaitė be pertraukos',desc:'Atlik testą 7 dienas iš eilės'},
+  streak_30:{icon:'🏆',name:'Mėnesio maratonas',desc:'Atlik testą 30 dienų iš eilės'},
+  xp_500:{icon:'⭐',name:'500 XP',desc:'Surink 500 XP taškų iš viso'},
+  xp_2000:{icon:'🌠',name:'2000 XP',desc:'Surink 2000 XP taškų iš viso'},
+  vbe_complete:{icon:'🎓',name:'VBE Karys',desc:'Išlaikyk (≥80%) bent vieną VBE egzaminą'}
 };
 
 function showProfileView() {
@@ -357,7 +366,7 @@ function showProfileView() {
       var div = document.createElement('div');
       div.className = 'pf-ach-item' + (unlocked ? '' : ' locked');
       div.textContent = ACH_META[id].icon;
-      div.title = id;
+      div.title = ACH_META[id].name + ' — ' + ACH_META[id].desc + (unlocked ? '' : ' (dar neatrakinta)');
       achGrid.appendChild(div);
     });
 
