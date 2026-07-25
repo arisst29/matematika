@@ -275,17 +275,30 @@ document.addEventListener('DOMContentLoaded', function() {
 function authGate() {
   if (typeof Auth === 'undefined') return;
   var path = window.location.pathname;
-  var free = ['index.html', 'prisijungimas.html', 'legal.html', 'atsiliepimai.html', 'lyderiai.html'];
+  var free = ['index.html', 'prisijungimas.html', 'legal.html', 'atsiliepimai.html'];
   var isFree = free.some(function(p) { return path.endsWith(p) || path.endsWith('/'); });
   if (isFree) return;
-  if (path.indexOf('dalykai') !== -1 && !Auth.isLoggedIn()) {
+  if (!Auth.isLoggedIn()) {
     window.location.href = getRoot() + 'prisijungimas.html';
   }
 }
 
-function addTopbarUser() {
+function getTopbarRight() {
   var topbar = document.querySelector('.topbar');
-  if (!topbar) return;
+  if (!topbar) return null;
+  var right = document.getElementById('topbar-right');
+  if (!right) {
+    right = document.createElement('div');
+    right.id = 'topbar-right';
+    right.style.cssText = 'display:flex;align-items:center;gap:14px;flex-shrink:0;margin-left:auto';
+    topbar.appendChild(right);
+  }
+  return right;
+}
+
+function addTopbarUser() {
+  var right = getTopbarRight();
+  if (!right) return;
   var root = getRoot();
   var old = document.getElementById('topbar-user');
   if (old) old.remove();
@@ -294,9 +307,9 @@ function addTopbarUser() {
   var lb = document.createElement('a');
   lb.id = 'topbar-leaderboard';
   lb.href = root + 'lyderiai.html';
-  lb.style.cssText = 'display:inline-flex;align-items:center;gap:5px;padding:6px 12px;background:var(--amber-bg);border:1px solid var(--amber-lt);color:var(--amber);border-radius:var(--radius);font-size:12.5px;font-weight:600;text-decoration:none;white-space:nowrap;flex-shrink:0;margin-right:8px';
-  lb.innerHTML = '🏆 Lyderiai';
-  topbar.appendChild(lb);
+  lb.style.cssText = 'display:inline-flex;align-items:center;padding:6px 12px;background:var(--amber-bg);border:1px solid var(--amber-lt);color:var(--amber);border-radius:var(--radius);font-size:12.5px;font-weight:600;text-decoration:none;white-space:nowrap;flex-shrink:0';
+  lb.innerHTML = 'Lyderiai';
+  right.appendChild(lb);
   var el = document.createElement('div');
   el.id = 'topbar-user';
   el.style.flexShrink = '0';
@@ -308,18 +321,21 @@ function addTopbarUser() {
   } else {
     el.innerHTML = '<a href="' + root + 'prisijungimas.html" style="display:inline-flex;align-items:center;gap:6px;padding:6px 14px;background:var(--ink);color:#fff;border-radius:var(--radius);font-size:13px;font-weight:500;text-decoration:none;transition:all 0.12s;white-space:nowrap"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Prisijungti</a>';
   }
-  topbar.appendChild(el);
+  right.appendChild(el);
 }
 
 function addLegalLink() {
-  var topbar = document.querySelector('.topbar');
-  if (!topbar) return;
+  var right = getTopbarRight();
+  if (!right) return;
+  var old = document.getElementById('topbar-legal');
+  if (old) old.remove();
   var parts = window.location.pathname.split('/').filter(function(p){ return p; });
   var i = parts.indexOf('dalykai');
   var depth = i >= 0 ? parts.length - 1 - i : 0;
   var r = depth > 0 ? '../'.repeat(depth) : './';
 
   var link = document.createElement('a');
+  link.id = 'topbar-legal';
   link.href = r + 'legal.html';
   link.style.cssText = [
     'display:flex','align-items:center','gap:5px',
@@ -329,5 +345,5 @@ function addLegalLink() {
   link.innerHTML = '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>Teisinė informacija';
   link.onmouseover = function(){ this.style.color = 'var(--ink)'; };
   link.onmouseout  = function(){ this.style.color = 'var(--ink3)'; };
-  topbar.appendChild(link);
+  right.insertBefore(link, right.firstChild);
 }
