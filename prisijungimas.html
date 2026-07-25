@@ -188,7 +188,7 @@
               </div>
               <div class="pf-stat-box">
                 <div class="pf-stat-value"><span class="pf-streak-flame">🔥</span> <span id="pf-streak">0</span></div>
-                <div class="pf-stat-label">Dienų iš eilės</div>
+                <div class="pf-stat-label">Dienų su testais</div>
               </div>
               <div class="pf-stat-box">
                 <div class="pf-stat-value" id="pf-ach-count">0/11</div>
@@ -313,9 +313,9 @@ var ACH_META = {
   fifty_tests:{icon:'💪',name:'Penkiasdešimtukas',desc:'Atlik 50 testų'},
   perfect:{icon:'💎',name:'Tobulumas',desc:'Gauk 100% bet kuriame teste'},
   all_chapters:{icon:'🌟',name:'Visų sričių žinovas',desc:'Išlaikyk (≥80%) bent po vieną testą iš visų 7 skyrių'},
-  streak_3:{icon:'🔥',name:'Trys iš eilės',desc:'Atlik testą 3 dienas iš eilės'},
-  streak_7:{icon:'⚡',name:'Savaitė be pertraukos',desc:'Atlik testą 7 dienas iš eilės'},
-  streak_30:{icon:'🏆',name:'Mėnesio maratonas',desc:'Atlik testą 30 dienų iš eilės'},
+  streak_3:{icon:'🔥',name:'Trejetukas',desc:'Mokykis 3 skirtingas dienas'},
+  streak_7:{icon:'⚡',name:'Savaitės aktyvumas',desc:'Mokykis 7 skirtingas dienas'},
+  streak_30:{icon:'🏆',name:'Mėnesio maratonas',desc:'Mokykis 30 skirtingų dienų'},
   xp_500:{icon:'⭐',name:'500 XP',desc:'Surink 500 XP taškų iš viso'},
   xp_2000:{icon:'🌠',name:'2000 XP',desc:'Surink 2000 XP taškų iš viso'},
   vbe_complete:{icon:'🎓',name:'VBE Karys',desc:'Išlaikyk (≥80%) bent vieną VBE egzaminą'}
@@ -351,9 +351,9 @@ function showProfileView() {
     var bonus = Math.floor(p.streak_days / 3) * 5;
     var noteEl = document.getElementById('pf-multiplier-note');
     if (bonus > 0) {
-      noteEl.innerHTML = '🔥 Dabartinis streak bonusas: <strong>+' + bonus + '% XP</strong>. Kas 3 dienas iš eilės bonusas auga dar +5% (3d → +5%, 6d → +10%, 9d → +15%...).';
+      noteEl.innerHTML = '🔥 Dabartinis bonusas už aktyvumą: <strong>+' + bonus + '% XP</strong>. Kas 3 skirtingas dienas, kai išsprendi bent po testą, bonusas auga dar +5% (3d → +5%, 6d → +10%, 9d → +15%...).';
     } else {
-      noteEl.innerHTML = 'Mokykis 3 dienas iš eilės ir gauk <strong>+5% XP</strong> bonusą! Kas kitas 3 dienas bonusas auga dar +5%.';
+      noteEl.innerHTML = 'Mokykis 3 skirtingas dienas ir gauk <strong>+5% XP</strong> bonusą! Kas kitas 3 dienas bonusas auga dar +5%.';
     }
 
     document.getElementById('pf-ach-count').textContent = p.achievements.length + '/11';
