@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /dalykai/
+
+Sitemap: https://31415.lt/sitemap.xml
