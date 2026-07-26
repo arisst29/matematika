@@ -67,11 +67,11 @@
   function addFeedbackBtn(container, questionIndex) {
     var btn = document.createElement('button');
     btn.className = 'feedback-btn';
-    btn.innerHTML = '🚩';
+    btn.innerHTML = '🚩 <span style="font-size:11px;font-weight:500">Apie problemą pranešti čia</span>';
     btn.title = 'Pranešti apie klaidą';
-    btn.style.cssText = 'position:absolute;top:8px;right:8px;background:none;border:none;cursor:pointer;font-size:16px;opacity:0.3;transition:opacity 0.15s;padding:4px;z-index:10';
-    btn.onmouseover = function() { this.style.opacity = '1'; };
-    btn.onmouseout = function() { this.style.opacity = '0.3'; };
+    btn.style.cssText = 'position:absolute;top:8px;right:8px;display:flex;align-items:center;gap:5px;background:var(--bg2,#fff);border:1px solid var(--border,#e5e3dc);border-radius:20px;cursor:pointer;font-size:14px;opacity:0.55;transition:opacity 0.15s,box-shadow 0.15s;padding:5px 10px;z-index:10;color:var(--ink2,#555);box-shadow:0 1px 3px rgba(0,0,0,0.06)';
+    btn.onmouseover = function() { this.style.opacity = '1'; this.style.boxShadow = '0 2px 8px rgba(0,0,0,0.12)'; };
+    btn.onmouseout = function() { this.style.opacity = '0.55'; this.style.boxShadow = '0 1px 3px rgba(0,0,0,0.06)'; };
     btn.onclick = function(e) {
       e.stopPropagation();
       openFeedbackForm(questionIndex);
