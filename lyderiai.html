@@ -71,7 +71,7 @@ var MONTHS_GEN = ['sausio','vasario','kovo','balandžio','gegužės','birželio'
 function setPrizeText() {
   var monthName = MONTHS_GEN[new Date().getMonth()];
   document.getElementById('lb-prize-text').innerHTML =
-    '🎁 <strong>' + monthName.charAt(0).toUpperCase() + monthName.slice(1) + ' mėnesio prizas:</strong> Top 15 mokinių šio mėnesio pabaigoje gauna <strong>2 mėnesius Mathematikus artimiausiu metu nemokamai!</strong>';
+    '🎁 <strong>' + monthName.charAt(0).toUpperCase() + monthName.slice(1) + ' mėnesio prizas:</strong> Top 15 mokinių šio mėnesio pabaigoje gauna <strong>2 mėnesius Mathematikus artimiausiu metu nemokamai!</strong><br><span style="font-size:12px;opacity:0.75">Kiekvieno mėnesio pradžioje XP ir dienų skaičius atsinaujina nuo nulio — visi pradeda vienodomis sąlygomis.</span>';
 }
 
 async function loadLeaderboard() {
