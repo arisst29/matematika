@@ -495,4 +495,19 @@ body {
   #topbar-leaderboard { font-size: 11.5px !important; padding: 5px 9px !important; }
   #topbar-user a span { display: none; }
   #topbar-legal { display: none; }
+
+  /* Priverstinai — teorijos grafikų blokai visada telpa į ekraną mobiliuose */
+  .theory-row.has-graph { grid-template-columns: 1fr !important; }
+  .row-graph {
+    width: 100% !important;
+    max-width: 100% !important;
+    border-left: none !important;
+    border-top: 1px solid rgba(0,0,0,0.06) !important;
+    box-sizing: border-box !important;
+  }
+  .row-graph svg, .row-graph img {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+  }
 }
