@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html lang="lt">
 <head>
+  <script>
+  (function(){
+    if (localStorage.getItem('math_token')) return;
+    var parts = location.pathname.split('/').filter(Boolean);
+    var i = parts.indexOf('dalykai');
+    var depth = i >= 0 ? parts.length - 1 - i : 0;
+    var root = depth > 0 ? '../'.repeat(depth) : './';
+    location.replace(root + 'prisijungimas.html');
+  })();
+  </script>
   <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Praktinis testas 11 — Funkcijos</title>
   <link rel="stylesheet" href="../../../../styles/main.css"/>
