@@ -113,7 +113,7 @@ function buildSidebar() {
       <a class="sidebar-action" href="${root}apie.html">Apie mus</a>
       <a class="sidebar-action" href="${root}konsultacijos.html">Konsultacijos</a>
       <a class="sidebar-action" href="${root}partnerystes.html">Partnerystės</a>
-      <a href="${root}atsiliepimai.html" style="display:flex;align-items:center;gap:8px;margin-top:6px;padding:10px 12px;background:var(--ink);color:#fff;border-radius:var(--radius);font-size:13px;font-weight:500;text-decoration:none;transition:background 0.15s;" onmouseover="this.style.background='#2a2a2a'" onmouseout="this.style.background='var(--ink)'">
+      <a href="${root}atsiliepimai.html" style="display:flex;align-items:center;gap:8px;margin-top:6px;padding:10px 12px;background:var(--ink);color:var(--bg);border-radius:var(--radius);font-size:13px;font-weight:500;text-decoration:none;transition:background 0.15s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
         Palikti atsiliepimą
       </a>
@@ -224,7 +224,7 @@ function addFormulynas() {
     'gap:8px',
     'padding:10px 16px',
     'background:var(--accent)',
-    'color:#fff',
+    'color:var(--bg)',
     'border-radius:50px',
     'font-family:var(--sans)',
     'font-size:13px',
@@ -413,7 +413,7 @@ function addTopbarUser() {
     var avatar = user.avatar || '🦁';
     el.innerHTML = '<a href="' + root + 'prisijungimas.html" style="display:flex;align-items:center;gap:8px;padding:5px 12px 5px 5px;background:var(--green-bg);border:1px solid var(--green-lt);border-radius:20px;text-decoration:none;transition:all 0.12s"><div style="width:28px;height:28px;border-radius:50%;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;font-size:15px">' + avatar + '</div><span style="font-size:12px;font-weight:500;color:var(--ink);white-space:nowrap">' + (user.username || '') + '</span></a>';
   } else {
-    el.innerHTML = '<a href="' + root + 'prisijungimas.html" style="display:inline-flex;align-items:center;gap:6px;padding:6px 14px;background:var(--ink);color:#fff;border-radius:var(--radius);font-size:13px;font-weight:500;text-decoration:none;transition:all 0.12s;white-space:nowrap"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Prisijungti</a>';
+    el.innerHTML = '<a href="' + root + 'prisijungimas.html" style="display:inline-flex;align-items:center;gap:6px;padding:6px 14px;background:var(--ink);color:var(--bg);border-radius:var(--radius);font-size:13px;font-weight:500;text-decoration:none;transition:all 0.12s;white-space:nowrap"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Prisijungti</a>';
   }
   right.appendChild(el);
 }

@@ -126,19 +126,19 @@
         streakText +
         '<div style="font-size:14px;color:var(--ink3,#999);margin-top:12px">Iš viso: ' + data.total_xp + ' XP</div>' +
         achievementsHtml +
-        '<button onclick="this.closest(\'#xp-popup\').remove()" style="margin-top:20px;padding:10px 28px;background:var(--ink,#141414);color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer;font-family:inherit">Tęsti</button>';
+        '<button onclick="this.closest(\'#xp-popup\').remove()" style="margin-top:20px;padding:10px 28px;background:var(--ink,#141414);color:var(--bg,#f7f6f2);border:none;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer;font-family:inherit">Tęsti</button>';
     } else if (data.passed) {
       card.innerHTML =
         '<div style="font-size:48px;margin-bottom:8px">✅</div>' +
         '<div style="font-size:18px;font-weight:600;color:var(--ink,#141414)">Testas jau išlaikytas</div>' +
         '<div style="font-size:14px;color:var(--ink3,#999);margin-top:8px">XP jau gauti už šį testą</div>' +
-        '<button onclick="this.closest(\'#xp-popup\').remove()" style="margin-top:20px;padding:10px 28px;background:var(--ink,#141414);color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer;font-family:inherit">Tęsti</button>';
+        '<button onclick="this.closest(\'#xp-popup\').remove()" style="margin-top:20px;padding:10px 28px;background:var(--ink,#141414);color:var(--bg,#f7f6f2);border:none;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer;font-family:inherit">Tęsti</button>';
     } else {
       card.innerHTML =
         '<div style="font-size:48px;margin-bottom:8px">📚</div>' +
         '<div style="font-size:18px;font-weight:600;color:var(--ink,#141414)">Dar reikia pasimokyti</div>' +
         '<div style="font-size:14px;color:var(--ink3,#999);margin-top:8px">XP gaunami tik pasiekus ≥80%</div>' +
-        '<button onclick="this.closest(\'#xp-popup\').remove()" style="margin-top:20px;padding:10px 28px;background:var(--ink,#141414);color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer;font-family:inherit">Tęsti</button>';
+        '<button onclick="this.closest(\'#xp-popup\').remove()" style="margin-top:20px;padding:10px 28px;background:var(--ink,#141414);color:var(--bg,#f7f6f2);border:none;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer;font-family:inherit">Tęsti</button>';
     }
 
     overlay.appendChild(card);
