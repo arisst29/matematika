@@ -99,7 +99,7 @@ function buildSidebar() {
   sidebar.innerHTML = `
     <div class="sidebar-logo">
       <a href="${root}index.html" style="text-decoration:none;display:block">
-        <img src="${root}logo.svg" alt="31415.lt" style="height:36px;width:auto">
+        <img id="sidebar-logo-img" src="${root}${document.documentElement.getAttribute('data-theme') === 'dark' ? 'logo-dark.svg' : 'logo.svg'}" alt="31415.lt" style="height:36px;width:auto">
         <div class="sub">Mokymosi platforma</div>
       </a>
     </div>
@@ -253,6 +253,10 @@ function addThemeToggle() {
   function applyTheme(theme) {
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('math_theme', theme);
+    var logoImg = document.getElementById('sidebar-logo-img');
+    if (logoImg) {
+      logoImg.src = logoImg.src.replace(/logo(-dark)?\.svg/, theme === 'dark' ? 'logo-dark.svg' : 'logo.svg');
+    }
   }
 
   var btn = document.createElement('button');

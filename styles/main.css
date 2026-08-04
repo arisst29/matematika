@@ -232,8 +232,8 @@ body {
 
 .subject-header:hover { background: var(--bg3); }
 .subject-header.active { background: var(--ink); }
-.subject-header.active .subject-name { color: #fff; font-weight: 500; }
-.subject-header.active .subject-chevron { color: rgba(255,255,255,0.4); }
+.subject-header.active .subject-name { color: var(--bg); font-weight: 500; }
+.subject-header.active .subject-chevron { color: var(--bg); opacity: 0.5; }
 
 .subject-num { font-size: 11px; color: var(--ink3); width: 16px; flex-shrink: 0; font-weight: 500; }
 .subject-name { font-size: 13px; color: var(--ink2); flex: 1; line-height: 1.3; }
@@ -380,7 +380,7 @@ body {
   width: 26px; height: 26px;
   border-radius: 8px;
   background: var(--ink);
-  color: #fff;
+  color: var(--bg);
   font-size: 12px;
   font-weight: 600;
   display: flex;
@@ -495,11 +495,11 @@ body {
 
 .btn.primary {
   background: var(--ink);
-  color: #fff;
+  color: var(--bg);
   border-color: var(--ink);
   box-shadow: 0 2px 8px rgba(0,0,0,0.18);
 }
-.btn.primary:hover { background: #2a2a2a; box-shadow: 0 4px 14px rgba(0,0,0,0.24); transform: translateY(-1px); }
+.btn.primary:hover { opacity: 0.85; box-shadow: 0 4px 14px rgba(0,0,0,0.24); transform: translateY(-1px); }
 
 .btn.ghost { border-color: transparent; background: transparent; color: var(--ink3); box-shadow: none; }
 .btn.ghost:hover { background: var(--bg3); color: var(--ink); border-color: transparent; }
