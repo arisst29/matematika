@@ -112,6 +112,7 @@ function buildSidebar() {
       <a class="sidebar-action" href="${root}index.html">Pradžia</a>
       <a class="sidebar-action" href="${root}apie.html">Apie mus</a>
       <a class="sidebar-action" href="${root}konsultacijos.html">Konsultacijos</a>
+      <a class="sidebar-action" href="${root}partnerystes.html">Partnerystės</a>
       <a href="${root}atsiliepimai.html" style="display:flex;align-items:center;gap:8px;margin-top:6px;padding:10px 12px;background:var(--ink);color:#fff;border-radius:var(--radius);font-size:13px;font-weight:500;text-decoration:none;transition:background 0.15s;" onmouseover="this.style.background='#2a2a2a'" onmouseout="this.style.background='var(--ink)'">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
         Palikti atsiliepimą
@@ -368,7 +369,7 @@ document.addEventListener('DOMContentLoaded', function() {
 function authGate() {
   if (typeof Auth === 'undefined') return;
   var path = window.location.pathname;
-  var free = ['index.html', 'prisijungimas.html', 'legal.html', 'atsiliepimai.html', 'lyderiai.html', 'apie.html', 'konsultacijos.html'];
+  var free = ['index.html', 'prisijungimas.html', 'legal.html', 'atsiliepimai.html', 'lyderiai.html', 'apie.html', 'konsultacijos.html', 'partnerystes.html'];
   var isFree = free.some(function(p) { return path.endsWith(p) || path.endsWith('/'); });
   if (isFree) return;
   if (!Auth.isLoggedIn()) {

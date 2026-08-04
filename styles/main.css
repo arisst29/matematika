@@ -83,6 +83,54 @@
   background: rgba(22,22,26,0.88);
 }
 
+/* Per-puslapinės teorijos dėžutės (Apibrėžimas, Žymėjimas, Pavyzdys ir kt.) turi
+   fiksuotas šviesias spalvas kiekviename faile — tamsioje temoje jas perrašome. */
+:root[data-theme="dark"] .row-apibreztis {
+  background: #2a2a30 !important;
+  border-left-color: #7a7a76 !important;
+}
+:root[data-theme="dark"] .row-apibreztis .row-label {
+  color: #c9c7bf !important;
+  background: #3a3a40 !important;
+  border-color: #4a4a50 !important;
+}
+:root[data-theme="dark"] .row-zymime {
+  background: #3a2c0d !important;
+  border-left-color: #d97706 !important;
+}
+:root[data-theme="dark"] .row-zymime .row-label {
+  color: #fbbf24 !important;
+  background: #4d3b12 !important;
+  border-color: #664e18 !important;
+}
+:root[data-theme="dark"] .row-svarbu {
+  background: #3a1616 !important;
+  border-left-color: #ef4444 !important;
+}
+:root[data-theme="dark"] .row-svarbu .row-label {
+  color: #f87171 !important;
+  background: #4d1e1e !important;
+  border-color: #632727 !important;
+}
+:root[data-theme="dark"] .row-taisykle {
+  background: #241b3f !important;
+  border-left-color: #8b5cf6 !important;
+}
+:root[data-theme="dark"] .row-taisykle .row-label {
+  color: #c4b5fd !important;
+  background: #33254f !important;
+  border-color: #453267 !important;
+}
+:root[data-theme="dark"] .row-pavyzdys {
+  background: #16311f !important;
+  border-left-color: #22c55e !important;
+}
+:root[data-theme="dark"] .row-pavyzdys .row-label {
+  color: #86efac !important;
+  background: #1f4a2c !important;
+  border-color: #2b5f3a !important;
+}
+
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html, body { max-width: 100%; overflow-x: hidden; }
 
