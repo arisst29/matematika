@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+  <script>(function(){var t=localStorage.getItem('math_theme')||((window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light');if(t==='dark')document.documentElement.setAttribute('data-theme','dark');})();</script>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Konsultacijos — Mathematikus 11</title>
+  <meta name="description" content="Privačios matematikos pamokos 11-12 klasių mokiniams ir bendradarbiavimo galimybės mokykloms su Mathematikus 11."/>
+  <link rel="stylesheet" href="styles/main.css"/>
+  <style>
+.konsult-container { max-width: 780px; margin: 0 auto; }
+.konsult-intro { font-size: 15px; color: var(--ink2); line-height: 1.7; margin-bottom: 28px; }
+.konsult-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+@media (max-width: 640px) { .konsult-grid { grid-template-columns: 1fr; } }
+
+.konsult-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px 26px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+}
+.konsult-icon {
+  width: 44px; height: 44px;
+  border-radius: 12px;
+  background: var(--accent-bg);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 16px;
+  color: var(--ink);
+}
+.konsult-title { font-size: 17px; font-weight: 700; color: var(--ink); margin-bottom: 8px; }
+.konsult-desc { font-size: 13.5px; line-height: 1.65; color: var(--ink2); margin-bottom: 20px; flex: 1; }
+.konsult-desc strong { color: var(--ink); }
+.konsult-actions { display: flex; flex-direction: column; gap: 8px; }
+.konsult-btn {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 11px; border-radius: var(--radius);
+  font-size: 13.5px; font-weight: 600;
+  text-decoration: none;
+  transition: all 0.15s;
+}
+.konsult-btn.primary { background: var(--ink); color: var(--bg2); }
+.konsult-btn.primary:hover { opacity: 0.85; }
+.konsult-btn.ghost { background: var(--bg3); color: var(--ink); border: 1px solid var(--border); }
+.konsult-btn.ghost:hover { background: var(--accent-lt); }
+
+.konsult-phone-note { text-align: center; margin-top: 24px; font-size: 12.5px; color: var(--ink3); }
+  </style>
+</head>
+<body>
+<div class="layout">
+  <nav class="sidebar" id="sidebar"></nav>
+  <div class="main">
+    <div class="topbar">
+      <div class="breadcrumb">
+        <a href="index.html">Mathematikus 11</a>
+        <span class="sep">›</span>
+        <span class="current">Konsultacijos</span>
+      </div>
+    </div>
+
+    <div class="page">
+      <div class="konsult-container">
+
+        <div class="konsult-intro">
+          Ieškote papildomos pagalbos pasiruošti matematikos egzaminui, arba atstovaujate mokyklai ir norite sužinoti apie bendradarbiavimo galimybes? Susisiekite — mielai padėsiu.
+        </div>
+
+        <div class="konsult-grid">
+
+          <div class="konsult-card">
+            <div class="konsult-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <div class="konsult-title">Privačios pamokos</div>
+            <div class="konsult-desc">
+              Individualios matematikos konsultacijos 11–12 klasių mokiniams, pasiruošimui VBE egzaminui. <strong>100 balų</strong> matematikos VBE įvertinimas, dvejų metų korepetitoriaus patirtis.
+            </div>
+            <div class="konsult-actions">
+              <a class="konsult-btn primary" href="tel:+37061822988">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                Skambinti: +370 618 22988
+              </a>
+              <a class="konsult-btn ghost" href="sms:+37061822988">Rašyti SMS</a>
+            </div>
+          </div>
+
+          <div class="konsult-card">
+            <div class="konsult-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/><path d="M9 9v.01"/><path d="M9 12v.01"/><path d="M9 15v.01"/><path d="M9 18v.01"/></svg>
+            </div>
+            <div class="konsult-title">Mokykloms — partnerystė</div>
+            <div class="konsult-desc">
+              Atstovaujate mokyklai ir norite integruoti <strong>Mathematikus 11</strong> platformą į matematikos pamokas ar pasiruošimą VBE? Aptarkime bendradarbiavimo galimybes.
+            </div>
+            <div class="konsult-actions">
+              <a class="konsult-btn primary" href="mailto:arisstankevicius@gmail.com?subject=Partneryst%C4%97%20-%20Mathematikus%2011">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                Rašyti el. paštu
+              </a>
+              <a class="konsult-btn ghost" href="tel:+37061822988">Skambinti: +370 618 22988</a>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="konsult-phone-note">Atsakau paprastai per 1–2 darbo dienas.</div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<script src="js/main.js"></script>
+</body>
+</html>

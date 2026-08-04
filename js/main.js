@@ -110,6 +110,8 @@ function buildSidebar() {
     <div class="sidebar-bottom">
       <div id="sidebar-user"></div>
       <a class="sidebar-action" href="${root}index.html">Pradžia</a>
+      <a class="sidebar-action" href="${root}apie.html">Apie mus</a>
+      <a class="sidebar-action" href="${root}konsultacijos.html">Konsultacijos</a>
       <a href="${root}atsiliepimai.html" style="display:flex;align-items:center;gap:8px;margin-top:6px;padding:10px 12px;background:var(--ink);color:#fff;border-radius:var(--radius);font-size:13px;font-weight:500;text-decoration:none;transition:background 0.15s;" onmouseover="this.style.background='#2a2a2a'" onmouseout="this.style.background='var(--ink)'">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
         Palikti atsiliepimą
@@ -246,6 +248,54 @@ function addFormulynas() {
   document.body.appendChild(btn);
 }
 
+function addThemeToggle() {
+  function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('math_theme', theme);
+  }
+
+  var btn = document.createElement('button');
+  btn.id = 'theme-toggle-btn';
+  btn.title = 'Perjungti šviesią / tamsią temą';
+  btn.style.cssText = [
+    'position:fixed',
+    'bottom:82px',
+    'right:24px',
+    'z-index:500',
+    'width:44px',
+    'height:44px',
+    'border-radius:50%',
+    'border:1px solid var(--border)',
+    'background:var(--bg2)',
+    'color:var(--ink)',
+    'display:flex',
+    'align-items:center',
+    'justify-content:center',
+    'cursor:pointer',
+    'box-shadow:var(--shadow)',
+    'transition:transform 0.15s, box-shadow 0.15s',
+  ].join(';');
+
+  var sunIcon = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>';
+  var moonIcon = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+
+  function render() {
+    var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    btn.innerHTML = isDark ? sunIcon : moonIcon;
+  }
+  render();
+
+  btn.addEventListener('click', function() {
+    var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    applyTheme(next);
+    render();
+  });
+  btn.addEventListener('mouseenter', function() { this.style.transform = 'scale(1.08)'; });
+  btn.addEventListener('mouseleave', function() { this.style.transform = 'scale(1)'; });
+
+  document.body.appendChild(btn);
+}
+
 function addMobileNavToggle() {
   var topbar = document.querySelector('.topbar');
   var sidebar = document.getElementById('sidebar');
@@ -296,6 +346,7 @@ document.addEventListener('DOMContentLoaded', function() {
   buildSidebar();
   addMobileNavToggle();
   addFormulynas();
+  addThemeToggle();
   addLegalLink();
   addTopbarUser();
   var script = document.createElement('script');
@@ -317,7 +368,7 @@ document.addEventListener('DOMContentLoaded', function() {
 function authGate() {
   if (typeof Auth === 'undefined') return;
   var path = window.location.pathname;
-  var free = ['index.html', 'prisijungimas.html', 'legal.html', 'atsiliepimai.html', 'lyderiai.html'];
+  var free = ['index.html', 'prisijungimas.html', 'legal.html', 'atsiliepimai.html', 'lyderiai.html', 'apie.html', 'konsultacijos.html'];
   var isFree = free.some(function(p) { return path.endsWith(p) || path.endsWith('/'); });
   if (isFree) return;
   if (!Auth.isLoggedIn()) {

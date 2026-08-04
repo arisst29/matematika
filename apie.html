@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+  <script>(function(){var t=localStorage.getItem('math_theme')||((window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light');if(t==='dark')document.documentElement.setAttribute('data-theme','dark');})();</script>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Apie mus — Mathematikus 11</title>
+  <link rel="stylesheet" href="styles/main.css"/>
+  <style>
+.about-container { max-width: 720px; margin: 0 auto; }
+.about-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 40px 44px;
+  box-shadow: var(--shadow-sm);
+}
+.about-header {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+}
+.about-photo {
+  width: 108px;
+  height: 108px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--border);
+  flex-shrink: 0;
+}
+.about-name { font-size: 24px; font-weight: 700; color: var(--ink); }
+.about-role { font-size: 14px; color: var(--ink3); margin-top: 4px; }
+.about-badges { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+.about-badge {
+  font-size: 12px;
+  font-weight: 500;
+  padding: 4px 10px;
+  border-radius: 20px;
+  background: var(--accent-bg);
+  color: var(--ink2);
+  border: 1px solid var(--border);
+}
+.about-text {
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--ink2);
+}
+.about-text p { margin-bottom: 16px; }
+.about-text p:last-child { margin-bottom: 0; }
+.about-text strong { color: var(--ink); }
+  </style>
+</head>
+<body>
+<div class="layout">
+  <nav class="sidebar" id="sidebar"></nav>
+  <div class="main">
+    <div class="topbar">
+      <div class="breadcrumb">
+        <a href="index.html">Mathematikus 11</a>
+        <span class="sep">›</span>
+        <span class="current">Apie mus</span>
+      </div>
+    </div>
+
+    <div class="page">
+      <div class="about-container">
+        <div class="about-card">
+
+          <div class="about-header">
+            <img src="img/aris.jpg" alt="Aris Stankevičius" class="about-photo">
+            <div>
+              <div class="about-name">Aris Stankevičius</div>
+              <div class="about-role">Mathematikus 11 įkūrėjas</div>
+              <div class="about-badges">
+                <span class="about-badge">100 balų iš matematikos VBE</span>
+                <span class="about-badge">Vilniaus licėjus</span>
+                <span class="about-badge">Data Science, Miunchenas</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-text">
+            <p>
+              Sveiki! Esu Aris — <strong>Mathematikus 11</strong> kūrėjas. Vilniaus licėjuje baigiau vidurinį mokslą ir matematikos valstybinį brandos egzaminą išlaikiau <strong>100 balų</strong> įvertinimu.
+            </p>
+            <p>
+              Jau dvejus metus dirbu korepetitoriumi, padedantis 11–12 klasių mokiniams ruoštis matematikos egzaminams. Šiuo metu studijuoju <strong>Data Science</strong> Miunchene ir esu trečio kurso studentas.
+            </p>
+            <p>
+              Mėgstu dirbti su dirbtiniu intelektu ir kurti kažką naujo bei naudingo — būtent todėl sukūriau šią platformą: norėjau, kad Lietuvos vienuoliktokai turėtų nemokamą, šiuolaikišką ir egzamino formatą atitinkančią vietą matematikai mokytis.
+            </p>
+            <p>
+              Laisvalaikiu mėgstu užsiimti įvairiomis sporto šakomis.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="js/main.js"></script>
+</body>
+</html>
