@@ -7,6 +7,9 @@
   <title>Partnerystės — Mathematikus 11</title>
   <meta name="description" content="Bendradarbiavimo galimybės mokykloms su Mathematikus 11 matematikos mokymosi platforma."/>
   <link rel="stylesheet" href="styles/main.css"/>
+  <link rel="icon" href="favicon.ico" sizes="any"/>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+  <link rel="apple-touch-icon" href="apple-touch-icon.png"/>
   <style>
 .konsult-container { max-width: 480px; margin: 0 auto; }
 .konsult-intro { font-size: 15px; color: var(--ink2); line-height: 1.7; margin-bottom: 28px; }
@@ -28,15 +31,17 @@
 .konsult-title { font-size: 19px; font-weight: 700; color: var(--ink); margin-bottom: 10px; }
 .konsult-desc { font-size: 14px; line-height: 1.7; color: var(--ink2); margin-bottom: 24px; }
 .konsult-desc strong { color: var(--ink); }
-.konsult-btn {
-  display: flex; align-items: center; justify-content: center; gap: 8px;
-  padding: 12px; border-radius: var(--radius);
-  font-size: 14px; font-weight: 600;
-  text-decoration: none;
-  background: var(--ink); color: var(--bg2);
-  transition: opacity 0.15s;
+.konsult-email {
+  text-align: center;
+  padding: 14px;
+  border-radius: var(--radius);
+  font-size: 15px; font-weight: 600;
+  background: var(--bg3);
+  color: var(--ink);
+  border: 1px solid var(--border);
+  letter-spacing: 0.01em;
+  user-select: all;
 }
-.konsult-btn:hover { opacity: 0.85; }
   </style>
 </head>
 <body>
@@ -66,10 +71,7 @@
           <div class="konsult-desc">
             Norite integruoti <strong>Mathematikus 11</strong> platformą į matematikos pamokas ar pasiruošimą VBE egzaminui? Aptarkime bendradarbiavimo galimybes.
           </div>
-          <a class="konsult-btn" href="mailto:kontaktai@31415.lt?subject=Partneryst%C4%97%20-%20Mathematikus%2011">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            Rašyti el. paštu
-          </a>
+          <div class="konsult-email">kontaktai@31415.lt</div>
         </div>
 
       </div>
