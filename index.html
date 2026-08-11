@@ -379,6 +379,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function loadProfileDashboard() {
   if (typeof Auth === 'undefined' || !Auth.isLoggedIn()) return;
+
+  // Skyriaus progresas nepriklauso nuo profilio krovimo sėkmės — kviečiamas atskirai,
+  // kad viena API klaida neužblokuotų kitos funkcijos.
+  loadChapterProgress();
+
   var dash = document.getElementById('profile-dashboard');
   if (!dash) return;
 
@@ -433,8 +438,6 @@ function loadProfileDashboard() {
         (recentHtml ? '<div style="font-size:12px;font-weight:500;color:var(--ink3);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:8px">Paskutiniai testai</div>' + recentHtml : '') +
       '</div>';
 
-    // Skyriaus progresas kortelėse
-    loadChapterProgress();
   }).catch(function(e) { console.error('Profile load error:', e); });
 }
 
