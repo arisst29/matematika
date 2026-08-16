@@ -97,6 +97,11 @@
   background: #3b82f6 !important;
   color: #fff !important;
 }
+:root[data-theme="dark"] .step-num,
+:root[data-theme="dark"] .seq-box {
+  background: #3b82f6 !important;
+  color: #fff !important;
+}
 
 /* Per-puslapinės teorijos dėžutės (Apibrėžimas, Žymėjimas, Pavyzdys ir kt.) turi
    fiksuotas šviesias spalvas kiekviename faile — tamsioje temoje jas perrašome. */
