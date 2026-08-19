@@ -373,7 +373,7 @@ document.addEventListener('DOMContentLoaded', function() {
 function authGate() {
   if (typeof Auth === 'undefined') return;
   var path = window.location.pathname;
-  var free = ['index.html', 'prisijungimas.html', 'legal.html', 'atsiliepimai.html', 'lyderiai.html', 'apie.html', 'konsultacijos.html', 'partnerystes.html', '/reiskiniai/temos/t1-aibes/teorija.html', '/reiskiniai/testai/teoriniai/testas-1.html', '/reiskiniai/testai/praktiniai/testas-1.html', '/reiskiniai/egzaminai/variantas-1.html', '/reiskiniai/egzaminai/egzaminas-1.html', '/vbe-egzaminai/vbe-egzaminas-1.html'];
+  var free = ['index.html', 'prisijungimas.html', 'legal.html', 'atsiliepimai.html', 'lyderiai.html', 'apie.html', 'konsultacijos.html', 'partnerystes.html', '/reiskiniai/temos/t1-aibes/teorija.html', '/reiskiniai/testai/teoriniai/testas-1.html', '/reiskiniai/testai/praktiniai/testas-1.html', '/reiskiniai/egzaminai/variantas-1.html', '/reiskiniai/egzaminai/egzaminas-1.html', '/vbe-egzaminai/vbe-egzaminas-1.html', '/reiskiniai/skyriaus-testai/index.html', '/reiskiniai/egzaminai/index.html', '/vbe-egzaminai/index.html'];
   var isFree = free.some(function(p) { return path.endsWith(p) || path.endsWith('/'); });
   if (isFree) return;
   if (!Auth.isLoggedIn()) {
